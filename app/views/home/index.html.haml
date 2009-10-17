@@ -11,4 +11,6 @@
         %br
         =link_to "Читать полностью", post
         %br
+        комментариев:
+        =post.comments_count
         =post.created_at.strftime("%d-%B-%Y")

@@ -7,7 +7,7 @@
 #   Major.create(:name => 'Daley', :city => cities.first)
 Post.find(:all).each { |e| e.destroy  }
 Comment.find(:all).each { |e| e.destroy  }
-
+User.find(:all).each { |e| e.destroy  }
 
 first_post = Post.new do |p|
     p.title = "Welcome!"
@@ -43,3 +43,20 @@ third_comment = Comment.new do |c|
     c.body = "First comment"
 end
 third_comment.save
+
+second_post = Post.new do |p|
+    p.title = "Second post!"
+    p.permalink = "second_post"
+    p.announcement = "Announcement of post."
+    p.body = "Second post. It is it's body."
+    p.status = "published"
+end
+second_post.save
+
+admin_user = User.new do |user|
+  user.login = "admin"
+  user.password = "admin"
+  user.password_confirmation = "admin"
+end
+
+admin_user.save
