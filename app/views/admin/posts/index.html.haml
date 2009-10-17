@@ -1,0 +1,15 @@
+=link_to "Добавить новый пост", new_admin_post_path
+%table
+  %tbody
+    -for post in @posts
+      %tr
+        %td
+          =post.created_at
+        %td
+          =link_to post.title, admin_post_path(post)
+        %td
+          =post.announcement
+        %td
+          =post.body
+        %td
+          =post.status

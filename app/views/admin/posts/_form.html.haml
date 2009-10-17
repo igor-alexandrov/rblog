@@ -1,0 +1,30 @@
+.form_item
+  =form.label :title, "Заголовок"
+  %br
+  =form.text_field :title
+
+.form_item
+  =form.label :permalink, "Пермалинк"
+  %br
+  =form.text_field :permalink
+
+.form_item
+  =form.label :announcement, "Краткое введение"
+  %br
+  =form.text_area :announcement
+
+.form_item
+  =form.label :body, "Краткое введение"
+  %br
+  =form.text_area :body
+
+.form_item
+  =form.label :status, "Статут"
+  %br
+  =form.text_field :status
+
+%button{:type => "submit"}
+  -if form.object.new_record?
+    Создать
+  -else
+    Обновить

@@ -46,6 +46,7 @@ ActionController::Routing::Routes.draw do |map|
     admin.logout 'logout', :controller => 'user_sessions', :action => 'destroy'
     admin.resources :users
 
+    admin.resources :posts
 
 
     #admin.register 'admin/register', :controller => 'users', :action => 'create'
