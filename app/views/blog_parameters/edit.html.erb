@@ -1,0 +1,20 @@
+<h1>Editing blog_parameter</h1>
+
+<% form_for(@blog_parameter) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :key %><br />
+    <%= f.text_field :key %>
+  </p>
+  <p>
+    <%= f.label :value %><br />
+    <%= f.text_field :value %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @blog_parameter %> |
+<%= link_to 'Back', blog_parameters_path %>

@@ -1,0 +1,13 @@
+<p>
+  <b>Key:</b>
+  <%=h @blog_parameter.key %>
+</p>
+
+<p>
+  <b>Value:</b>
+  <%=h @blog_parameter.value %>
+</p>
+
+
+<%= link_to 'Edit', edit_blog_parameter_path(@blog_parameter) %> |
+<%= link_to 'Back', blog_parameters_path %>

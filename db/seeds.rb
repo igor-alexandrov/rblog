@@ -5,3 +5,41 @@
 #   
 #   cities = City.create([{ :name => 'Chicago' }, { :name => 'Copenhagen' }])
 #   Major.create(:name => 'Daley', :city => cities.first)
+Post.find(:all).each { |e| e.destroy  }
+Comment.find(:all).each { |e| e.destroy  }
+
+
+first_post = Post.new do |p|
+    p.title = "Welcome!"
+    p.permalink = "welcome"
+    p.body = "It is your first post in RBlog it, doesn't have an announcement, so you can see it all."
+    p.status = "published"
+end
+first_post.save
+
+first_comment = Comment.new do |c|
+    c.post = first_post
+    c.parent_comment = nil
+    c.commenter_name = "Igor Alexandrov"
+    c.commenter_email = "igor.alexandrov@gmail.com"
+    c.body = "First comment"
+end
+first_comment.save
+
+second_comment = Comment.new do |c|
+    c.post = first_post
+    c.parent_comment = first_comment
+    c.commenter_name = "Igor Alexandrov"
+    c.commenter_email = "igor.alexandrov@gmail.com"
+    c.body = "First comment"
+end
+second_comment.save
+
+third_comment = Comment.new do |c|
+    c.post = first_post
+    c.parent_comment = nil
+    c.commenter_name = "Igor Alexandrov"
+    c.commenter_email = "igor.alexandrov@gmail.com"
+    c.body = "First comment"
+end
+third_comment.save

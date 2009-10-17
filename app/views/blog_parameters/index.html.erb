@@ -1,0 +1,22 @@
+<h1>Listing blog_parameters</h1>
+
+<table>
+  <tr>
+    <th>Key</th>
+    <th>Value</th>
+  </tr>
+
+<% @blog_parameters.each do |blog_parameter| %>
+  <tr>
+    <td><%=h blog_parameter.key %></td>
+    <td><%=h blog_parameter.value %></td>
+    <td><%= link_to 'Show', blog_parameter %></td>
+    <td><%= link_to 'Edit', edit_blog_parameter_path(blog_parameter) %></td>
+    <td><%= link_to 'Destroy', blog_parameter, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New blog_parameter', new_blog_parameter_path %>

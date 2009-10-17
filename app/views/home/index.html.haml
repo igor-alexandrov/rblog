@@ -1,0 +1,14 @@
+%posts
+  %ul
+    -for post in @posts
+      %li
+        %h2
+          =post.title
+        -unless post.announcement == nil
+          =post.announcement
+        -else
+          =post.body
+        %br
+        =link_to "Читать полностью", post
+        %br
+        =post.created_at.strftime("%d-%B-%Y")

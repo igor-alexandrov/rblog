@@ -1,0 +1,11 @@
+%h1 
+  =@post.title
+%p
+  =@post.announcement
+%p
+  =@post.body
+
+%p
+  %h2
+    Комментарии
+  =display_tree_recursive(@post.comments) {|node| node.body}
