@@ -6,6 +6,30 @@
 All is easy. After my personal blog www.aleksandrov.me (it was running WordPress) was hacked I understood that I had to run it on Rails.
 I searched a lot for good Rails blog engine, then i decided to write my own. That's all.
 
+===How to install RBlog?
+First you need server with Rails-2.3.4 or later.
+Clone RBlog from GitHub
+
+    git clone git://github.com/igor-alexandrov/rblog.git
+
+It will make a directory called "rblog" on your hard disk. Got into it. Now you should prepare your database. Just copy /config/database_sample.yml as database.yml
+and edit it in your favorite editor. By the way wp_db in database.yml is a configuration for database with WordPress (this is if you are migrating from wordpress).
+So, your database.yml is ready. Now you should create tables in your database.
+
+    rake db:migrate
+
+Tables are ready, just put some initial values in them.
+
+    rake db:seed
+
+Run
+    ./script/server
+
+That is all, you can see your blog at localhost:3000. Admin section is located at /admin, default user is "admin" and password is "admin" too.
+Enjoy!
+
+
+
 ==По-русски
 
 ==Как всё начиналось?
