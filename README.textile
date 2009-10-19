@@ -8,6 +8,7 @@ All is easy. After my personal blog www.aleksandrov.me (it was running WordPress
 I searched a lot for good Rails blog engine, then i decided to write my own. That's all.
 
 h3. How to install RBlog?
+
 First you need server with Rails-2.3.4 or later.
 Clone RBlog from GitHub
 
