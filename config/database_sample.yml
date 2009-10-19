@@ -28,4 +28,5 @@ wp_db:
   username: root
   password:
   host: localhost
+  encoding: utf8
 
