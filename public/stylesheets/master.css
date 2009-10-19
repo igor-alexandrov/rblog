@@ -50,3 +50,12 @@ a {
   #errorExplanation ul li {
     font-size: 12px;
     list-style: square; }
+
+#content h1 {
+  font-size: 180%;
+  font-color: #555753;
+  border-bottom: 1px dotted #555753;
+  padding-bottom: 6px; }
+#content .post_announcement_link {
+  font-style: italic;
+  font-weight: bold; }

@@ -33,9 +33,6 @@ namespace :migrate do
             rblog_comment.save
           end
         end
-#        for user in User.members_soon_to_expire
-#                puts "Emailing #{user.name}"
-#                UserNotifier.deliver_expire_soon_notification(user)
-#        end
+
   end
 end

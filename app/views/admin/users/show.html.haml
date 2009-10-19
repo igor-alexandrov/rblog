@@ -1,0 +1,7 @@
+=link_to "Редактировать пользователя", edit_admin_user_path(@user)
+%h1
+  =@user.login
+
+%p
+  Всего заходил в интерфейс: 
+  =@user.login_count

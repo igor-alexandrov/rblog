@@ -1,0 +1,21 @@
+.form_item
+  =form.label :login, "Логин"
+  %br
+  =form.text_field :login
+
+.form_item
+  =form.label :password, "Пароль"
+  %br
+  =form.password_field :password
+
+.form_item
+  =form.label :password_confirmation, "Подтверждение пароля"
+  %br
+  =form.password_field :password_confirmation
+
+
+%button{:type => "submit"}
+  -if form.object.new_record?
+    Создать
+  -else
+    Обновить

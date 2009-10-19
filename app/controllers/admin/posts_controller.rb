@@ -1,8 +1,9 @@
 class Admin::PostsController < Admin::AdminController
   before_filter :require_user
-  
+  layout "admin/application"
+
   def index
-    @posts = Post.find(:all)
+    @posts = Post.find(:all, :order => 'created_at DESC')
   end
 
   def new
@@ -44,4 +45,15 @@ class Admin::PostsController < Admin::AdminController
       format.xml  { render :xml => @post }
     end
   end
+
+  def destroy
+    @post = Post.find(params[:id])
+    @post.destroy
+        respond_to do |format|
+            format.html { redirect_to(admin_posts_url) }
+            
+        end
+    end
 end
+
+

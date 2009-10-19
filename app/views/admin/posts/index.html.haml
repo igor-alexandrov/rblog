@@ -10,6 +10,9 @@
         %td
           =post.announcement
         %td
-          =post.body
+          =truncate(post.body, :length =>100)
         %td
           =post.status
+        %td
+          = link_to 'Edit', edit_admin_post_path(post)
+          = link_to 'Destroy', admin_post_path(post), :confirm => 'Are you sure?', :method => :delete

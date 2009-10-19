@@ -2,14 +2,15 @@
   %ul
     -for post in @posts
       %li
-        %h2
+        %h1
           =post.title
         -unless post.announcement.empty?
           =post.announcement
         -else
           =post.body
         %br
-        =link_to "Читать полностью", post
+        %span.post_announcement_link
+          =link_to "Читать полностью", post
         %br
         комментариев:
         =post.comments_count
