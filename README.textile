@@ -1,37 +1,45 @@
-=RBlog. Yet another Ruby on Rails blog engine
+h1. RBlog. Yet another Ruby on Rails blog engine
 
-==In English
+h2. In English
 
-===How it all began?
+h3. How it all began?
+
 All is easy. After my personal blog www.aleksandrov.me (it was running WordPress) was hacked I understood that I had to run it on Rails.
 I searched a lot for good Rails blog engine, then i decided to write my own. That's all.
 
-===How to install RBlog?
+h3. How to install RBlog?
 First you need server with Rails-2.3.4 or later.
 Clone RBlog from GitHub
 
-    git clone git://github.com/igor-alexandrov/rblog.git
+bc .git clone git://github.com/igor-alexandrov/rblog.git
 
-It will make a directory called `rblog` on your hard disk. Got into it. Now you should prepare your database. Just copy `config/database_sample.yml` as `config/database.yml`
-and edit it in your favorite editor. By the way `wp_db` in `database.yml` is a configuration for database with WordPress (this is if you are migrating from wordpress).
-So, your database.yml is ready. Now you should create tables in your database.
+It will make a directory called @rblog@ on your hard disk. Got into it. Now you should prepare your database. Just copy @config/database_sample.yml@ as @config/database.yml@
+and edit it in your favorite editor. By the way @wp_db@ in @database.yml@ is a configuration for database with WordPress (this is if you are migrating from wordpress).
+So, your @database.yml@ is ready. Now you should create tables in your database.
 
-    rake db:migrate
+bc. rake db:migrate
 
-Tables are ready, just put some initial values in them.
+Tables are ready, lets just load some initial data into them.
 
-    rake db:seed
+bc. rake db:seed
 
 Run
-    ./script/server
 
-That is all, you can see your blog at `localhost:3000`. Admin section is located at `localhost:3000/admin`, default user is "__admin__" and password is "__admin__" too.
+bc. ./script/server
+
+That is all, you can see your blog at @localhost:3000@. Admin section is located at @localhost:3000/admin@, default user is "*admin*" and password is "*admin*" too.
 Enjoy!
 
+h3. How to migrate from WordPress?
 
+It is easy. RBlog can copy your posts and comments now. For this install RBlog, write appropriate parameters for @wp_db@ in @database.yml@ and then type
 
-==По-русски
+bc. rake migrate:from_wordpress
 
-==Как всё начиналось?
+That is all!
+
+h2. По-русски
+
+h3. Как всё начиналось?
 После того как мой персональный блог www.aleksandrov.me (он был на WordPress) взломали какие-то нехорошие люди, я решил перевести его на Rails.
 Поискал движок для блога на Rails и решил написать свой. Вот так.
