@@ -12,8 +12,8 @@ Clone RBlog from GitHub
 
     git clone git://github.com/igor-alexandrov/rblog.git
 
-It will make a directory called "rblog" on your hard disk. Got into it. Now you should prepare your database. Just copy /config/database_sample.yml as database.yml
-and edit it in your favorite editor. By the way wp_db in database.yml is a configuration for database with WordPress (this is if you are migrating from wordpress).
+It will make a directory called `rblog` on your hard disk. Got into it. Now you should prepare your database. Just copy `config/database_sample.yml` as `config/database.yml`
+and edit it in your favorite editor. By the way `wp_db` in `database.yml` is a configuration for database with WordPress (this is if you are migrating from wordpress).
 So, your database.yml is ready. Now you should create tables in your database.
 
     rake db:migrate
@@ -25,7 +25,7 @@ Tables are ready, just put some initial values in them.
 Run
     ./script/server
 
-That is all, you can see your blog at localhost:3000. Admin section is located at /admin, default user is "admin" and password is "admin" too.
+That is all, you can see your blog at `localhost:3000`. Admin section is located at `localhost:3000/admin`, default user is "__admin__" and password is "__admin__" too.
 Enjoy!
 
 
