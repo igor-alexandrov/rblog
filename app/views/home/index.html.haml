@@ -4,7 +4,7 @@
       %li
         %h2
           =post.title
-        -unless post.announcement == nil
+        -unless post.announcement.empty?
           =post.announcement
         -else
           =post.body

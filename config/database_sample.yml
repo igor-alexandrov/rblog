@@ -20,3 +20,12 @@ production:
   database: db/production.sqlite3
   pool: 5
   timeout: 5000
+
+#DB for Wordpress migration
+wp_db:
+  adapter: mysql
+  database: wordpress
+  username: root
+  password:
+  host: localhost
+

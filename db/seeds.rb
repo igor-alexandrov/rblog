@@ -12,6 +12,7 @@ User.find(:all).each { |e| e.destroy  }
 first_post = Post.new do |p|
     p.title = "Welcome!"
     p.permalink = "welcome"
+    p.announcement = ""
     p.body = "It is your first post in RBlog it, doesn't have an announcement, so you can see it all."
     p.status = "published"
 end
