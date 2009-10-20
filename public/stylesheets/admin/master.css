@@ -1,0 +1,113 @@
+body {
+  background-color: #fff;
+  color: #333;
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 12px;
+  line-height: 1.25em;
+  margin: 0;
+  padding: 0; }
+
+p, ol, ul, td {
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 12px;
+  line-height: 1.25em; }
+
+pre {
+  background-color: #eee;
+  padding: 10px;
+  font-size: 11px; }
+
+.fieldWithErrors {
+  padding: 2px;
+  background-color: red;
+  display: table; }
+
+#errorExplanation {
+  width: 400px;
+  border: 2px solid red;
+  padding: 7px;
+  padding-bottom: 12px;
+  margin-bottom: 20px;
+  background-color: #f0f0f0; }
+  #errorExplanation h2 {
+    text-align: left;
+    font-weight: bold;
+    padding: 5px 5px 5px 15px;
+    font-size: 12px;
+    margin: -7px;
+    background-color: #c00;
+    color: #fff; }
+  #errorExplanation p {
+    color: #333;
+    margin-bottom: 0;
+    padding: 5px; }
+  #errorExplanation ul li {
+    font-size: 12px;
+    list-style: square; }
+
+#header {
+  height: 50px;
+  background-image: url("/images/admin/header_bg.png");
+  color: #EEEEEE; }
+  #header ul.header_menu {
+    margin: 0;
+    padding-top: 17px;
+    padding-left: 0;
+    list-style-type: none; }
+    #header ul.header_menu#header_menu_left {
+      float: left; }
+    #header ul.header_menu#header_menu_right {
+      float: right; }
+    #header ul.header_menu li.menu_item {
+      float: left;
+      margin: 0;
+      padding: 0;
+      font-size: 120%; }
+      #header ul.header_menu li.menu_item a {
+        padding-top: 10px;
+        padding-bottom: 10px;
+        padding-left: 20px;
+        padding-right: 20px;
+        border-right-color: black;
+        border-right-width: 2px;
+        border-right-style: solid;
+        color: #DDDDDD;
+        text-decoration: none;
+        font-weight: bold; }
+        #header ul.header_menu li.menu_item a:hover {
+          color: #FFFFFF;
+          text-decoration: underline; }
+        #header ul.header_menu li.menu_item a.current {
+          color: #FFFFFF;
+          text-decoration: underline;
+          cursor: default; }
+    #header ul.header_menu li.left_menu_item:last-child a {
+      border-right-width: 0; }
+
+#content {
+  margin-left: 10px;
+  margin-right: 10px; }
+  #content table {
+    line-height: 17px;
+    width: 100%;
+    text-align: left;
+    border-collapse: collapse; }
+    #content table thead tr th, #content table tfoot tr th {
+      padding: 2px 0.5em 3px 0.5em;
+      white-space: nowrap;
+      border-width: 1px;
+      border-style: solid;
+      border-color: #bbbbbb;
+      background-image: url("/images/admin/silver_bg.png"); }
+    #content table tbody td {
+      color: #3D3D3D;
+      padding: 4px;
+      background-color: #FFF;
+      vertical-align: top;
+      border-width: 1px;
+      border-style: solid;
+      border-color: #bbbbbb; }
+      #content table tbody td:first-child {
+        border-left: 0; }
+      #content table tbody td:last-child {
+        border-right: 0; }

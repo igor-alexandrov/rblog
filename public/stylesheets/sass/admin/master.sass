@@ -55,7 +55,7 @@ pre
 #header
   :height 50px
   :background
-    :image url("/images/header_bg.png")
+    :image url("/images/admin/header_bg.png")
   :color #EEEEEE
 
   
@@ -108,4 +108,44 @@ pre
           :border
             :right 
               :width 0
-              
+
+
+#content
+  :margin
+    :left 10px
+    :right 10px
+  table
+    :line-height 17px
+    :width 100%
+    :text-align left
+
+    :border-collapse collapse
+    thead, tfoot
+      tr
+        th
+          :padding 2px 0.5em 3px 0.5em
+          :white-space nowrap
+          :border
+            :width 1px
+            :style solid
+            :color = #BBBBBB
+          :background
+            :image url("/images/admin/silver_bg.png")
+
+    tbody
+      td
+        :color #3D3D3D
+        :padding 4px
+        :background-color #FFF
+        :vertical-align top
+        :border
+          :width 1px
+          :style solid
+          :color = #BBBBBB
+
+        &:first-child
+          :border
+            :left 0
+        &:last-child
+          :border
+            :right 0

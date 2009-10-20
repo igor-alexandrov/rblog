@@ -1,18 +1,41 @@
 =link_to "Добавить новый пост", new_admin_post_path
 %table
+  %thead
+    %tr
+      %th
+        Created
+      %th
+        Title
+      %th
+        Excerpt (announcement and body)
+      %th
+        Status
+      %th
+        X
   %tbody
     -for post in @posts
       %tr
         %td
-          =post.created_at
+          =post.created_at.strftime("%d %b, %Y")
         %td
           =link_to post.title, admin_post_path(post)
         %td
-          =post.announcement
-        %td
+          =truncate(post.announcement, :length =>100)
           =truncate(post.body, :length =>100)
         %td
           =post.status
         %td
           = link_to 'Edit', edit_admin_post_path(post)
           = link_to 'Destroy', admin_post_path(post), :confirm => 'Are you sure?', :method => :delete
+  %tfoot
+    %tr
+      %th
+        Created
+      %th
+        Title
+      %th
+        Excerpt (announcement and body)
+      %th
+        Status
+      %th
+        X

@@ -8,12 +8,14 @@
   <%= stylesheet_link_tag 'admin/master' %>
 </head>
 <body>
-<div id="content">
+<div id="layout">
    <div id="header">
       <%= render :partial => "admin/shared/header"%>
    </div>
    <p style="color: green"><%= flash[:notice] %></p>
+   <div id="content">
    <%= yield :content or yield %>
+   </div>
    <div id="footer">
       <%= render :partial => "shared/footer"%>
    </div>
