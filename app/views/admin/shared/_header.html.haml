@@ -1,0 +1,18 @@
+%ul#header_menu_left.header_menu
+  %li.menu_item.left_menu_item
+    =link_to "Posts", admin_posts_path, :class => "#{"current" if params[:controller][6..10] == 'posts'}"
+  %li.menu_item.left_menu_item
+    %a(href="#")
+      Comments
+  %li.menu_item.left_menu_item
+    =link_to "Users", admin_users_path, :class => "#{"current" if params[:controller][6..10] == 'users'}"
+  
+
+%ul#header_menu_right.header_menu
+  %li.menu_item.left_menu_item
+    %a(href="#")
+      Preferences
+  %li.menu_item.left_menu_item
+    =link_to "Go to site", root_path
+  %li.menu_item.left_menu_item
+    =link_to "Logout", admin_logout_path

@@ -1,0 +1,111 @@
+body
+  :background-color #fff
+  :color #333
+  :font-family verdana, arial, helvetica, sans-serif
+  :font-size 12px
+  :line-height 1.25em
+  :margin 0
+  :padding 0
+
+
+p, ol, ul, td
+  :font-family verdana, arial, helvetica, sans-serif
+  :font-size 12px
+  :line-height 1.25em
+
+
+pre
+  background-color: #eee
+  padding: 10px
+  font-size: 11px
+
+
+.fieldWithErrors
+  padding: 2px
+  background-color: red
+  display: table
+
+
+#errorExplanation
+  width: 400px
+  border: 2px solid red
+  padding: 7px
+  padding-bottom: 12px
+  margin-bottom: 20px
+  background-color: #f0f0f0
+
+  h2
+    text-align: left
+    font-weight: bold
+    padding: 5px 5px 5px 15px
+    font-size: 12px
+    margin: -7px
+    background-color: #c00
+    color: #fff
+
+  p
+    color: #333
+    margin-bottom: 0
+    padding: 5px
+
+  ul li
+    font-size: 12px
+    list-style: square
+
+#header
+  :height 50px
+  :background
+    :image url("/images/header_bg.png")
+  :color #EEEEEE
+
+  
+  ul.header_menu
+
+    &#header_menu_left
+      :float left
+    &#header_menu_right
+      :float right
+    :margin 0
+    :padding
+      :top 17px
+      :left 0
+    :list-style-type none
+
+    li.menu_item
+      
+      :float left
+      :margin 0
+      :padding 0
+      :font-size 120%
+      
+      a
+        :padding
+          :top 10px
+          :bottom 10px
+          :left 20px
+          :right 20px
+        :border
+          :right
+            :color black
+            :width 2px
+            :style solid
+        :color #DDDDDD
+        :text-decoration none
+        :font-weight bold
+
+        &:hover
+          :color #FFFFFF
+          :text-decoration underline
+
+        &.current
+          :color #FFFFFF
+          :text-decoration underline
+          :cursor default
+
+    li.left_menu_item
+      &:last-child
+        a
+          :border
+            :right 
+              :width 0
+              

@@ -5,12 +5,12 @@
 <head>
   <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
   <title>Comments: <%= controller.action_name %></title>
-  <%= stylesheet_link_tag 'master' %>
+  <%= stylesheet_link_tag 'admin/master' %>
 </head>
 <body>
 <div id="content">
    <div id="header">
-      <%= render :partial => "shared/header"%>
+      <%= render :partial => "admin/shared/header"%>
    </div>
    <p style="color: green"><%= flash[:notice] %></p>
    <%= yield :content or yield %>
