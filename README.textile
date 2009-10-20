@@ -7,6 +7,8 @@ h3. How it all began?
 All is easy. After my personal blog "www.aleksandrov.me":www.aleksandrov.me (it was running WordPress) was hacked I understood that I had to run it on Rails.
 I searched a lot for good Rails blog engine, then i decided to write my own. That's all.
 
+I got some ideas from "Simplelog Blog Engine":www.simplelog.net, unfortunately Simplelog is dead now. *RBlog is not a fork of it*.
+
 h3. How to install RBlog?
 
 First you need server with Rails-2.3.4 or later.
@@ -47,3 +49,4 @@ h3. Как всё начиналось?
 Поискал движок для блога на Rails и решил написать свой. Вот так.
 
 [www.aleksandrov.me]http://www.aleksandrov.me
+[www.simplelog.net]http://www.simplelog.net
