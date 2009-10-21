@@ -1,9 +1,12 @@
 %ul#header_menu_left.header_menu
   %li.menu_item.left_menu_item
     =link_to "Posts", admin_posts_path, :class => "#{"current" if params[:controller][6..10] == 'posts'}"
+    =link_to image_tag("/images/admin/add.png", :border=>0), new_admin_post_path
   %li.menu_item.left_menu_item
     %a(href="#")
       Comments
+  %li.menu_item.left_menu_item
+    =link_to "Pages", admin_pages_path, :class => "#{"current" if params[:controller][6..10] == 'users'}"
   %li.menu_item.left_menu_item
     =link_to "Users", admin_users_path, :class => "#{"current" if params[:controller][6..10] == 'users'}"
   

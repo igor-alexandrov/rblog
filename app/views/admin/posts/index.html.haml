@@ -1,4 +1,6 @@
 =link_to "Добавить новый пост", new_admin_post_path
+%h1
+  All posts
 %table
   %thead
     %tr
@@ -25,8 +27,8 @@
         %td
           =post.status
         %td
-          = link_to 'Edit', edit_admin_post_path(post)
-          = link_to 'Destroy', admin_post_path(post), :confirm => 'Are you sure?', :method => :delete
+          
+          = link_to 'X', admin_post_path(post), :confirm => 'Are you sure?', :method => :delete
   %tfoot
     %tr
       %th

@@ -33,6 +33,10 @@ bc. ./script/server
 That is all, you can see your blog at @localhost:3000@. Admin section is located at @localhost:3000/admin@, default user is "*admin*" and password is "*admin*" too.
 Enjoy!
 
+h3. Screenshots
+
+You can always find latest screenshots on Flickr. "Go to RBlog Flickr set":flickr_rblog
+
 h3. How to migrate from WordPress?
 
 It is easy. RBlog can copy your posts and comments now. For this install RBlog, write appropriate parameters for @wp_db@ in @database.yml@ and then type
@@ -50,3 +54,4 @@ h3. Как всё начиналось?
 
 [www.aleksandrov.me]http://www.aleksandrov.me
 [www.simplelog.net]http://www.simplelog.net
+[flickr_rblog]http://www.flickr.com/photos/igor_alexandrov/sets/72157622630772502/

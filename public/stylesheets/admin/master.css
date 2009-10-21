@@ -51,7 +51,7 @@ pre {
   color: #EEEEEE; }
   #header ul.header_menu {
     margin: 0;
-    padding-top: 17px;
+    padding-top: 8px;
     padding-left: 0;
     list-style-type: none; }
     #header ul.header_menu#header_menu_left {
@@ -62,18 +62,22 @@ pre {
       float: left;
       margin: 0;
       padding: 0;
-      font-size: 120%; }
+      font-size: 120%;
+      border-right-color: black;
+      border-right-width: 2px;
+      border-right-style: solid;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      padding-left: 20px;
+      padding-right: 20px; }
       #header ul.header_menu li.menu_item a {
-        padding-top: 10px;
-        padding-bottom: 10px;
-        padding-left: 20px;
-        padding-right: 20px;
-        border-right-color: black;
-        border-right-width: 2px;
-        border-right-style: solid;
         color: #DDDDDD;
         text-decoration: none;
-        font-weight: bold; }
+        font-weight: bold;
+        padding-left: 4px;
+        padding-right: 4px;
+        display: inline;
+        float: left; }
         #header ul.header_menu li.menu_item a:hover {
           color: #FFFFFF;
           text-decoration: underline; }
@@ -92,6 +96,8 @@ pre {
     width: 100%;
     text-align: left;
     border-collapse: collapse; }
+    #content table a {
+      color: black; }
     #content table thead tr th, #content table tfoot tr th {
       padding: 2px 0.5em 3px 0.5em;
       white-space: nowrap;

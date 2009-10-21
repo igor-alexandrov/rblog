@@ -4,6 +4,7 @@ class Admin::UserSessionsController < Admin::AdminController
 
   def new
     @user_session = UserSession.new
+    
   end
 
   def create

@@ -47,7 +47,7 @@ ActionController::Routing::Routes.draw do |map|
     admin.resources :users
 
     admin.resources :posts
-
+    admin.resources :pages
 
     #admin.register 'admin/register', :controller => 'users', :action => 'create'
     #admin.signup 'admin/signup', :controller => 'users', :action => 'new'
