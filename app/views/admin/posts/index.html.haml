@@ -12,7 +12,7 @@
         Excerpt (announcement and body)
       %th
         Status
-      %th
+      %th.center_aligned
         X
   %tbody
     -for post in @posts
@@ -25,9 +25,13 @@
           =truncate(post.announcement, :length =>100)
           =truncate(post.body, :length =>100)
         %td
-          =post.status
-        %td
+          -form_for post, :method => "change_status" do |form|
+            =form.select "status", options_for_select([['Published', 'published'],['Draft', 'draft']])
+
+          =observe_field :status, :url => { :action => :change_status }, :frequency => 0.25
           
+
+        %td.center_aligned
           = link_to 'X', admin_post_path(post), :confirm => 'Are you sure?', :method => :delete
   %tfoot
     %tr
@@ -39,5 +43,5 @@
         Excerpt (announcement and body)
       %th
         Status
-      %th
+      %th.center_aligned
         X

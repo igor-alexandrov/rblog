@@ -105,6 +105,8 @@ pre {
       border-style: solid;
       border-color: #bbbbbb;
       background-image: url("/images/admin/silver_bg.png"); }
+      #content table thead tr th.center_aligned, #content table tfoot tr th.center_aligned {
+        text-align: center; }
     #content table tbody td {
       color: #3D3D3D;
       padding: 4px;
@@ -117,3 +119,5 @@ pre {
         border-left: 0; }
       #content table tbody td:last-child {
         border-right: 0; }
+      #content table tbody td.center_aligned {
+        text-align: center; }

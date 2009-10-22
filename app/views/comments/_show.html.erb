@@ -1,0 +1,12 @@
+<% div_for(comment) do%>
+   <%= comment.body %>
+   <br>
+   <%= comment.commenter_name%>
+   
+   <%= link_to_remote 'Reply', {:url => { :controller => "comments", :action => "new", :comment => {:post_id => comment.post_id, :parent_comment_id =>comment.id}},
+                                 :method => "get"} %>
+   
+
+<% end %>
+
+

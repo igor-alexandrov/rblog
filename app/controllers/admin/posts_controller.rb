@@ -49,11 +49,16 @@ class Admin::PostsController < Admin::AdminController
   def destroy
     @post = Post.find(params[:id])
     @post.destroy
-        respond_to do |format|
-            format.html { redirect_to(admin_posts_url) }
+    respond_to do |format|
+      format.html { redirect_to(admin_posts_url) }
             
-        end
     end
+  end
+
+  def change_status
+    puts params[:status]
+  end
+  
 end
 
 

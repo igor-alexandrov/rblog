@@ -1,9 +1,10 @@
 ActionController::Routing::Routes.draw do |map|
-  map.resources :comments
+
+  map.resources :posts, :has_many => :comments
 
   map.resources :blog_parameters
 
-  map.resources :posts
+
 
   # The priority is based upon order of creation: first created -> highest priority.
 
@@ -47,6 +48,7 @@ ActionController::Routing::Routes.draw do |map|
     admin.resources :users
 
     admin.resources :posts
+    admin.change_status 'posts/change_status', :controller => "posts", :action => "change_status"
     admin.resources :pages
 
     #admin.register 'admin/register', :controller => 'users', :action => 'create'

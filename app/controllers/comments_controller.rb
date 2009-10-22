@@ -1,6 +1,5 @@
 class CommentsController < ApplicationController
-  # GET /comments
-  # GET /comments.xml
+
   def index
     @comments = Comment.all
 
@@ -10,8 +9,6 @@ class CommentsController < ApplicationController
     end
   end
 
-  # GET /comments/1
-  # GET /comments/1.xml
   def show
     @comment = Comment.find(params[:id])
 
@@ -21,15 +18,23 @@ class CommentsController < ApplicationController
     end
   end
 
-  # GET /comments/new
-  # GET /comments/new.xml
   def new
-    @comment = Comment.new
-
+    @comment = Comment.new(params[:comment])
+    @post = @comment.post
+    
+    puts @comment.post
     respond_to do |format|
-      format.html # new.html.erb
-      format.xml  { render :xml => @comment }
+        format.js
     end
+
+    #render :partial => "comments/new"
+#    respond_to do |format|
+#      format.html # new.html.erb
+#      format.xml  { render :xml => @comment }
+#      format.js { render :update do |page|
+##         # update the content dynamically
+#       end }
+#    end
   end
 
   # GET /comments/1/edit
@@ -45,11 +50,9 @@ class CommentsController < ApplicationController
     respond_to do |format|
       if @comment.save
         flash[:notice] = 'Comment was successfully created.'
-        format.html { redirect_to(@comment) }
-        format.xml  { render :xml => @comment, :status => :created, :location => @comment }
+        format.js
       else
         format.html { render :action => "new" }
-        format.xml  { render :xml => @comment.errors, :status => :unprocessable_entity }
       end
     end
   end

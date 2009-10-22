@@ -1,0 +1,2 @@
+#page.replace_html "comment_"+@comment.parent_comment.id.to_s+"_reply_area", :partial => 'show', :locals => {:comment => @comment}
+page.replace "new_comment", (render :partial => 'show', :locals => {:comment => @comment}) + "<ul id=\"comment_#{@comment.id}_children\"></ul>"

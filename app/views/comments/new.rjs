@@ -1,0 +1,5 @@
+
+page.insert_html :bottom, "comment_#{@comment.parent_comment.id}_children",
+                  
+                 '<li id="new_comment">' + (render :partial => "comments/new" ) + '</li>'
+                 
