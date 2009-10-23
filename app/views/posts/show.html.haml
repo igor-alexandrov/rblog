@@ -8,4 +8,7 @@
 %p
   %h2
     Комментарии
-  =display_tree_recursive(@post.comments) {|node| node.body}
+  %ul{:id => "comment_0_children"}
+
+    =render :partial => "comments/show", :collection => @post.comments.select { |comment| comment.parent_comment_id == 0 }, :as => :comment
+    =render :partial => "comments/new"

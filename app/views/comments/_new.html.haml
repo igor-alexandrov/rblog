@@ -1,4 +1,4 @@
--remote_form_for @comment, :url => { :controller => "comments", :action => "create"}, :method => "put" do |form|
+-remote_form_for @comment, {:url => post_comments_path(@post), :method => "post"} do |form|
   =form.hidden_field :post_id
   =form.hidden_field :parent_comment_id
   =form.label :commenter_name, "Name"

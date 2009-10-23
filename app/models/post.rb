@@ -13,4 +13,16 @@ class Post < ActiveRecord::Base
     write_attribute :permalink, (value.transliterate_as_link)
     write_attribute :title, (value)
   end
+
+  def add_comment(comment, parent_comment_id = nil)
+    comment = self.comments.build(comment)
+    parent = Comment.find_by_id(parent_comment_id) unless parent_comment_id.blank?
+    if parent
+      comment.parent_comment = parent
+    else
+      comment.parent_comment_id = 0
+    end
+    comment
+  end
+
 end

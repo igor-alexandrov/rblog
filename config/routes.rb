@@ -1,10 +1,13 @@
 ActionController::Routing::Routes.draw do |map|
 
+  #map.resources :posts do |post|
+  #  post.resources :comments, :member => {:comment => :get, :post => :post}
+  #  post.new_comment '/comments/new/:comment_id', :controller => 'comments', :action => 'new'
+  #end
+
   map.resources :posts, :has_many => :comments
 
   map.resources :blog_parameters
-
-
 
   # The priority is based upon order of creation: first created -> highest priority.
 

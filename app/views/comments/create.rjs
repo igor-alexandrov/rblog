@@ -1,2 +1,7 @@
-#page.replace_html "comment_"+@comment.parent_comment.id.to_s+"_reply_area", :partial => 'show', :locals => {:comment => @comment}
-page.replace "new_comment", (render :partial => 'show', :locals => {:comment => @comment}) + "<ul id=\"comment_#{@comment.id}_children\"></ul>"
+#show created Comment
+page.visual_effect :slide_up, "new_comment_li", :duration => 2
+page.delay(2) do
+  page.replace "new_comment_li", :partial => 'show', :locals => {:comment => @comment}
+  page.visual_effect :slide_down, "comment_#{@comment.id}", :duration => 2
+  page.visual_effect :highlight, "comment_#{@comment.id}", :duration => 5
+end

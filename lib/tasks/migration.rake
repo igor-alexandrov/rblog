@@ -22,7 +22,11 @@ namespace :migrate do
           for wp_comment in wp_post.comments
             rblog_comment = Comment.new
             rblog_comment.post_id = wp_comment.comment_post_ID
-            rblog_comment.parent_comment_id = wp_comment.comment_parent
+            unless wp_comment.comment_parent.nil?
+              rblog_comment.parent_comment_id = wp_comment.comment_parent
+            else
+              rblog_comment.parent_comment_id = 0
+            end
             rblog_comment.commenter_name = wp_comment.comment_author
             rblog_comment.commenter_email = wp_comment.comment_author_email
             rblog_comment.body = wp_comment.comment_content

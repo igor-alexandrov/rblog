@@ -1,5 +1,9 @@
-
-page.insert_html :bottom, "comment_#{@comment.parent_comment.id}_children",
-                  
-                 '<li id="new_comment">' + (render :partial => "comments/new" ) + '</li>'
-                 
+#remove all Comment forms if they exist
+page.select("#new_comment_li").each do |element|
+    page.remove element
+end
+#insert new Comment form
+page.insert_html :bottom, "comment_#{@comment.parent_comment_id}_children", content_tag(:li, "",:id => "new_comment_li")
+page.insert_html :bottom, "new_comment_li", :partial => "comments/new"
+page.visual_effect :slide_down, "new_comment_li", :duration => 2
+page.visual_effect :highlight, "new_comment_li", :duration => 5

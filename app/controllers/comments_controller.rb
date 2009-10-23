@@ -19,22 +19,19 @@ class CommentsController < ApplicationController
   end
 
   def new
-    @comment = Comment.new(params[:comment])
-    @post = @comment.post
-    
-    puts @comment.post
-    respond_to do |format|
-        format.js
-    end
-
-    #render :partial => "comments/new"
-#    respond_to do |format|
-#      format.html # new.html.erb
-#      format.xml  { render :xml => @comment }
-#      format.js { render :update do |page|
-##         # update the content dynamically
-#       end }
+    @post = Post.find(params[:post_id])
+    #@parent_comment = Comment.find(params[:parent_comment_id])
+    @comment = Comment.new(params[:comment_id])
+    @comment.parent_comment_id = params[:parent_comment_id]
+#    if @comment.parent_comment_id.nil?
+#      @comment.parent_comment_id = 0
 #    end
+    respond_to do |format|
+      format.js{  }
+      format.html
+      
+    end
+    
   end
 
   # GET /comments/1/edit
@@ -45,11 +42,13 @@ class CommentsController < ApplicationController
   # POST /comments
   # POST /comments.xml
   def create
-    @comment = Comment.new(params[:comment])
+    @post = Post.find(params[:post_id])
+    @comment = @post.add_comment(params[:comment], params[:parent_comment_id])
 
     respond_to do |format|
       if @comment.save
         flash[:notice] = 'Comment was successfully created.'
+        format.html {redirect_to post_path(@comment.post)}
         format.js
       else
         format.html { render :action => "new" }
