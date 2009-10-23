@@ -5,9 +5,9 @@ h2. In English
 h3. Features
 
 Every day new features appear in RBlog.  Now the main of them are:
-*nested comments in posts (they work with or without javascript);
-*user friendly admin side;
-*easy migration from Wordpress.
+* nested comments in posts (they work with or without javascript);
+* user friendly admin side;
+* easy migration from Wordpress.
 
 h3. Screenshots
 
