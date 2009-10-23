@@ -2,6 +2,17 @@ h1. RBlog. Yet another Ruby on Rails blog engine
 
 h2. In English
 
+h3. Features
+
+Every day new features appear in RBlog.  Now the main of them are:
+*nested comments in posts (they work with or without javascript);
+*user friendly admin side;
+*easy migration from Wordpress.
+
+h3. Screenshots
+
+You can always find latest screenshots on Flickr. "Go to RBlog Flickr set":flickr_rblog
+
 h3. How it all began?
 
 All is easy. After my personal blog "www.aleksandrov.me":www.aleksandrov.me (it was running WordPress) was hacked I understood that I had to run it on Rails.
@@ -32,10 +43,6 @@ bc. ./script/server
 
 That is all, you can see your blog at @localhost:3000@. Admin section is located at @localhost:3000/admin@, default user is "*admin*" and password is "*admin*" too.
 Enjoy!
-
-h3. Screenshots
-
-You can always find latest screenshots on Flickr. "Go to RBlog Flickr set":flickr_rblog
 
 h3. How to migrate from WordPress?
 
