@@ -22,13 +22,15 @@
         %td
           =link_to post.title, admin_post_path(post)
         %td
-          =truncate(post.announcement, :length =>100)
-          =truncate(post.body, :length =>100)
+          =truncate(post.announcement.gsub(/<\/?[^>]*>/,""), 100)
+          =truncate(post.body.gsub(/<\/?[^>]*>/,""), 100)
         %td
-          -form_for post, :method => "change_status" do |form|
-            =form.select "status", options_for_select([['Published', 'published'],['Draft', 'draft']])
+          =treat_boolean_as_image(true,"/images/admin/green_check.png","")
+          =post.status
+          //-form_for post, :method => "change_status" do |form|
+          //  =form.select "status", options_for_select([['Published', 'published'],['Draft', 'draft']])
 
-          =observe_field :status, :url => { :action => :change_status }, :frequency => 0.25
+          //=observe_field :status, :url => { :action => :change_status }, :frequency => 0.25
           
 
         %td.center_aligned

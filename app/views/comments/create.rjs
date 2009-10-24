@@ -1,7 +1,9 @@
-#show created Comment
-page.visual_effect :slide_up, "new_comment_li", :duration => 2
-page.delay(2) do
-  page.replace "new_comment_li", :partial => 'show', :locals => {:comment => @comment}
-  page.visual_effect :slide_down, "comment_#{@comment.id}", :duration => 2
-  page.visual_effect :highlight, "comment_#{@comment.id}", :duration => 5
+#remove form
+page.select("#new_comment").each do |element|
+  element.reset
+  page.remove element
 end
+#show created Comment
+page.insert_html :bottom, "comment_#{@comment.parent_comment_id}_children", :partial => 'show', :locals => {:comment => @comment}
+page.visual_effect :highlight, "comment_#{@comment.id}", :duration => 5
+

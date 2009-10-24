@@ -1,18 +1,22 @@
-<% content_tag(:li, :id => "comment_#{comment.id}") do %>
+<%= content_tag(:a ,"",:name => dom_id(comment)) %>
+<% content_tag(:li, :id => dom_id(comment)) do %>
    <% div_for(comment) do%>
-      <%= comment.body %>
-      <br>
-      <%= comment.commenter_name%>
+      <span class="author"><%= comment.commenter_name%></span>
+      <span class="date"><%= comment.created_at %></span>
+      <span class="permalink"><%= link_to '#', "##{dom_id(comment)}" %></span>
+
+      <div class="content">
+         <%= comment.body %>
+      </div>
 
       <%= link_to_remote 'Reply', {:url => { :controller => "comments", :action => "new", :post_id => comment.post_id, :parent_comment_id =>comment.id}, :method => "get",},
-         :href => new_post_comment_url(@post, :parent_comment_id => comment.id)%>
-      
+        :href => new_post_comment_url(@post, :parent_comment_id => comment.id, :anchor => dom_id(comment))%>
 
    <% end %>
-   <% content_tag(:ul, :id => "comment_#{comment.id}_children") do %>
+   <% content_tag(:ul, :id => "#{dom_id(comment)}_children") do %>
       <%= render :partial => "comments/show" , :collection => comment.comments, :as => :comment %>
       <% if @comment.parent_comment_id == comment.id %>
-        <%= render :partial => "comments/new" %>
+         <%= render :partial => "comments/form" %>
       <% end %>
    <% end %>
 <% end %>
