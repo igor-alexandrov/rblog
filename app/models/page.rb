@@ -1,4 +1,3 @@
-# To change this template, choose Tools | Templates
-# and open the template in the editor.
-
-puts "Hello World"
+class Page < ActiveRecord::Base
+  acts_as_tree
+end

@@ -6,6 +6,7 @@ h3. Features
 
 Every day new features appear in RBlog.  Now the main of them are:
 * nested comments in posts (they work with or without javascript);
+* nested pages with human readable permalinks (@[your_domain]/about@ will refer to about page, @[your_domain]/about/clients@ will refer to your clients page and etc.). Create as many pages, as you want! Thanks to Alexander Borisov;
 * user friendly admin side;
 * easy migration from Wordpress.
 

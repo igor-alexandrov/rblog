@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
   <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
-  <title>Comments: <%= controller.action_name %></title>
+  <title><%= h(yield(:title) || "Untitled") %></title>
   <%= javascript_include_tag :all %>
   <%= stylesheet_link_tag 'master' %>
 </head>
@@ -12,6 +12,11 @@
 <div id="content">
    <div id="header">
       <%= render :partial => "shared/header"%>
+      <ul id="menu">
+        <% for page in Page.roots %>
+          <li><%= link_to h(page.title), page %></li>
+        <% end %>
+      </ul>
    </div>
    <p style="color: green"><%= flash[:notice] %></p>
    <%= yield :content or yield %>

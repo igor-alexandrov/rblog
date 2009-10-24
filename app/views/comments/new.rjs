@@ -9,4 +9,4 @@ else
   page.insert_html :bottom, "comment_#{@comment.parent_comment_id}_children", :partial => "comments/form"
 end
 
-page.visual_effect :highlight, "new_comment", :duration => 5
+page.visual_effect :highlight, "new_comment", :duration => 3

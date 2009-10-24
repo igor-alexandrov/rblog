@@ -5,5 +5,5 @@ page.select("#new_comment").each do |element|
 end
 #show created Comment
 page.insert_html :bottom, "comment_#{@comment.parent_comment_id}_children", :partial => 'show', :locals => {:comment => @comment}
-page.visual_effect :highlight, "comment_#{@comment.id}", :duration => 5
+page.visual_effect :highlight, "comment_#{@comment.id}", :duration => 3
 

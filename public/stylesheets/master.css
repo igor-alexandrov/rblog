@@ -59,3 +59,10 @@ a {
 #content .post_announcement_link {
   font-style: italic;
   font-weight: bold; }
+#content #comments ul {
+  list-style-type: none; }
+#content #comments #new_comment {
+  background-color: #DDDDDD; }
+  #content #comments #new_comment textarea {
+    width: 500px;
+    height: 50px; }
