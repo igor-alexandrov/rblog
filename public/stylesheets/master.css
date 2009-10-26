@@ -3,7 +3,9 @@ body {
   color: #333;
   font-family: verdana, arial, helvetica, sans-serif;
   font-size: 13px;
-  line-height: 18px; }
+  line-height: 18px;
+  margin: 0;
+  padding: 0; }
 
 p, ol, ul, td {
   font-family: verdana, arial, helvetica, sans-serif;
@@ -51,59 +53,85 @@ a {
     font-size: 12px;
     list-style: square; }
 
-#menu {
-  float: left; }
-  #menu ul {
-    margin: 7px;
-    list-style-type: none; }
-    #menu ul li {
-      float: left;
-      padding-right: 20px; }
+#header {
+  background-color: #981922;
+  color: #FFFFFF;
+  padding: 3.5em 1em 0 4em; }
+  #header #header_content {
+    width: 1100px;
+    margin: 0 auto;
+    padding-bottom: 1.4em; }
+  #header #nav {
+    margin: 0;
+    padding: 0; }
+    #header #nav ul {
+      float: right;
+      line-height: 2;
+      list-style-type: none;
+      margin: -1.90em 0 0 0;
+      padding: 0;
+      background-color: #DCDCDC; }
+      #header #nav ul li {
+        float: left;
+        padding: 0;
+        margin: 0; }
+        #header #nav ul li a {
+          padding: 0.5em 1em;
+          display: block;
+          float: left;
+          color: black;
+          font-weight: bold;
+          font-size: 110%; }
+          #header #nav ul li a:hover {
+            background-color: white; }
+          #header #nav ul li a.current {
+            background-color: white; }
 
-.entry {
-  float: left;
-  width: 100%; }
-
-.post_parameters {
-  clear: both;
-  float: left;
-  position: relative; }
-  .post_parameters .tags {
-    background-image: url("/images/tags.png");
-    background-repeat: no-repeat;
-    background-position: left center;
-    padding-left: 16px; }
-    .post_parameters .tags a {
-      padding-left: 4px;
-      font-size: 80%; }
-  .post_parameters .general_parameters {
-    margin-top: 10px;
-    border: 1px solid #DDDDDD;
-    padding: 4px;
+#main {
+  padding-left: 20px;
+  padding-right: 20px; }
+  #main .entry {
+    float: left;
+    width: 100%; }
+  #main .post_parameters {
     clear: both;
-    float: left; }
-    .post_parameters .general_parameters .published {
-      float: left; }
-    .post_parameters .general_parameters .comments {
-      float: left;
-      background-image: url("/images/comments.png");
+    float: left;
+    position: relative; }
+    #main .post_parameters .tags {
+      background-image: url("/images/tags.png");
       background-repeat: no-repeat;
       background-position: left center;
-      padding-left: 16px;
-      margin-left: 5px; }
-
-#content h1 {
-  font-size: 180%;
-  font-color: #555753;
-  border-bottom: 1px dotted #555753;
-  padding-bottom: 6px; }
-#content .post_announcement_link {
-  font-style: italic;
-  font-weight: bold; }
-#content #comments ul {
-  list-style-type: none; }
-#content #comments #new_comment {
-  background-color: #DDDDDD; }
-  #content #comments #new_comment textarea {
-    width: 500px;
-    height: 50px; }
+      padding-left: 16px; }
+      #main .post_parameters .tags a {
+        padding-left: 4px;
+        font-size: 80%; }
+    #main .post_parameters .general_parameters {
+      margin-top: 10px;
+      border: 1px solid #DDDDDD;
+      padding: 4px;
+      clear: both;
+      float: left; }
+      #main .post_parameters .general_parameters .published {
+        float: left; }
+      #main .post_parameters .general_parameters .comments {
+        float: left;
+        background-image: url("/images/comments.png");
+        background-repeat: no-repeat;
+        background-position: left center;
+        padding-left: 16px;
+        margin-left: 5px; }
+  #main #content h1 {
+    font-size: 180%;
+    font-color: #555753;
+    border-bottom: 1px dotted #555753;
+    padding-bottom: 6px; }
+  #main #content .post_announcement_link {
+    font-style: italic;
+    font-weight: bold; }
+  #main #content #comments ul {
+    list-style-type: none; }
+  #main #content #comments #new_comment {
+    background-color: #DDDDDD; }
+    #main #content #comments #new_comment textarea {
+      width: 500px;
+      height: 50px; }

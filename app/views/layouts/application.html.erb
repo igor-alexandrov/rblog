@@ -13,8 +13,10 @@
    <div id="header">
       <%= render :partial => "shared/header"%>
    </div>
+   <div id="main">
    <p style="color: green"><%= flash[:notice] %></p>
    <%= yield :content or yield %>
+   </div>
    <div id="footer">
       <%= render :partial => "shared/footer"%>
    </div>

@@ -1,12 +1,12 @@
-#menu
-  %ul
-    -for page in Page.roots
-      %li
-        = link_to h(page.title), page
+#header_content
+  %h1
+    //=link_to "Блог твеского программиста", root_path
+    Блог тверского программиста
+  #nav
+    %ul
+      -for page in Page.roots
+        %li
+          = link_to h(page.title), page
+          
+          
 
-.blog_name
-  =link_to "Блог", root_path
-Работает на
-%a(href="http://github.com/igor-alexandrov/rblog")
-  RBlog
-%hr

@@ -4,6 +4,8 @@ body
   font-family: verdana, arial, helvetica, sans-serif
   font-size: 13px
   line-height: 18px
+  margin: 0
+  padding: 0
 
 
 p, ol, ul, td
@@ -61,73 +63,109 @@ a
     font-size: 12px
     list-style: square
 
+#header
+  :background
+    :color #981922
+  :color #FFFFFF
+  :padding 3.5em 1em 0 4em
+  #header_content
+    :width 1100px
+    :margin 0 auto
+    :padding-bottom 1.4em
+  #nav
+    :margin 0
+    :padding 0
+    ul
+      :float right
+      :line-height 2
+      :list-style-type none
+      :margin -1.90em 0 0 0
+      :padding 0
+      :background
+        :color #DCDCDC
+          
+      li
+        :float left
+        :padding 0
+        :margin 0
+        
 
-#menu
+        a
+          :padding 0.5em 1em
+          :display block
+          :float left
+          :color black
+          :font-weight bold
+          :font-size 110%
+          &:hover
+            :background
+              :color white
+          &.current
+            :background
+              :color white
 
-  :float left
-  ul
-    :margin 7px
-    :list-style-type none
-    li
-      :float left
-      :padding-right 20px
+#main
+  :padding
+    :left 20px
+    :right 20px
 
-.entry
-  :float left
-  :width 100%
+  .entry
+    :float left
+    :width 100%
 
-.post_parameters
-  :clear both
-  :float left
-  :position relative
-  .tags
-    :background
-      :image url("/images/tags.png")
-      :repeat no-repeat
-      :position left center
-    :padding
-      :left 16px
-    a
-      :padding
-        :left 4px
-      :font-size 80%
-  .general_parameters
-    :margin
-      :top 10px
-    :border 1px solid #DDDDDD
-    :padding 4px
+  .post_parameters
     :clear both
     :float left
-    .published
-      :float left
-    .comments
-      :float left
+    :position relative
+    .tags
       :background
-        :image url("/images/comments.png")
+        :image url("/images/tags.png")
         :repeat no-repeat
         :position left center
       :padding
         :left 16px
+      a
+        :padding
+          :left 4px
+        :font-size 80%
+    .general_parameters
       :margin
-        :left 5px
+        :top 10px
+      :border 1px solid #DDDDDD
+      :padding 4px
+      :clear both
+      :float left
+      .published
+        :float left
+      .comments
+        :float left
+        :background
+          :image url("/images/comments.png")
+          :repeat no-repeat
+          :position left center
+        :padding
+          :left 16px
+        :margin
+          :left 5px
 
-#content
-  h1
-    :font-size 180%
-    :font-color #555753
-    :border-bottom 1px dotted #555753
-    :padding-bottom 6px
-  .post_announcement_link
-    :font-style italic
-    :font-weight bold
+  #content
 
-  
+    h1
+      :font-size 180%
+      :font-color #555753
+      :border-bottom 1px dotted #555753
+      :padding-bottom 6px
+    .post_announcement_link
+      :font-style italic
+      :font-weight bold
 
-  #comments
-    ul
-      :list-style-type none
-    #new_comment
-      :background-color #DDDDDD
-      textarea
-        :width 500px
-        :height 50px
+
+
+    #comments
+      ul
+        :list-style-type none
+      #new_comment
+        :background-color #DDDDDD
+        textarea
+          :width 500px
+          :height 50px
