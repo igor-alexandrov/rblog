@@ -13,8 +13,7 @@
 
 %ul#header_menu_right.header_menu
   %li.menu_item.left_menu_item
-    %a(href="#")
-      Preferences
+    =link_to "Preferences", admin_preferences_path, :class => "#{"current" if params[:controller][6..20] == 'blog_parameters'}"
   %li.menu_item.left_menu_item
     =link_to "Go to site", root_path
   %li.menu_item.left_menu_item

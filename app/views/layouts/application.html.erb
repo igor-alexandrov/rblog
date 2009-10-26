@@ -12,11 +12,6 @@
 <div id="content">
    <div id="header">
       <%= render :partial => "shared/header"%>
-      <ul id="menu">
-        <% for page in Page.roots %>
-          <li><%= link_to h(page.title), page %></li>
-        <% end %>
-      </ul>
    </div>
    <p style="color: green"><%= flash[:notice] %></p>
    <%= yield :content or yield %>

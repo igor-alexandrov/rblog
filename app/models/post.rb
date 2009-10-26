@@ -1,6 +1,8 @@
 class Post < ActiveRecord::Base
   has_many :comments
 
+  acts_as_taggable_on :tags
+
   def first_level_comments
     Comment.find(:all, :conditions => {:post_id => self.id, :parent_comment_id => nil})
   end

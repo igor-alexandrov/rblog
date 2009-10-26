@@ -6,8 +6,11 @@ ActionController::Routing::Routes.draw do |map|
   #end
 
   map.resources :posts, :has_many => :comments
+  map.posts_tag "/posts/tag/:name", :controller => "tags", :action => "show"
+
 
   map.resources :blog_parameters
+
 
   # The priority is based upon order of creation: first created -> highest priority.
 
@@ -53,6 +56,7 @@ ActionController::Routing::Routes.draw do |map|
     admin.resources :posts
     admin.change_status 'posts/change_status', :controller => "posts", :action => "change_status"
     admin.resources :pages
+    admin.preferences 'preferences', :controller => "blog_parameters", :action => "index"
 
     #admin.register 'admin/register', :controller => 'users', :action => 'create'
     #admin.signup 'admin/signup', :controller => 'users', :action => 'new'

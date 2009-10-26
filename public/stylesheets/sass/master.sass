@@ -62,6 +62,55 @@ a
     list-style: square
 
 
+#menu
+
+  :float left
+  ul
+    :margin 7px
+    :list-style-type none
+    li
+      :float left
+      :padding-right 20px
+
+.entry
+  :float left
+  :width 100%
+
+.post_parameters
+  :clear both
+  :float left
+  :position relative
+  .tags
+    :background
+      :image url("/images/tags.png")
+      :repeat no-repeat
+      :position left center
+    :padding
+      :left 16px
+    a
+      :padding
+        :left 4px
+      :font-size 80%
+  .general_parameters
+    :margin
+      :top 10px
+    :border 1px solid #DDDDDD
+    :padding 4px
+    :clear both
+    :float left
+    .published
+      :float left
+    .comments
+      :float left
+      :background
+        :image url("/images/comments.png")
+        :repeat no-repeat
+        :position left center
+      :padding
+        :left 16px
+      :margin
+        :left 5px
+
 #content
   h1
     :font-size 180%
@@ -71,6 +120,8 @@ a
   .post_announcement_link
     :font-style italic
     :font-weight bold
+
+  
 
   #comments
     ul

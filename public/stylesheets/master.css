@@ -51,6 +51,47 @@ a {
     font-size: 12px;
     list-style: square; }
 
+#menu {
+  float: left; }
+  #menu ul {
+    margin: 7px;
+    list-style-type: none; }
+    #menu ul li {
+      float: left;
+      padding-right: 20px; }
+
+.entry {
+  float: left;
+  width: 100%; }
+
+.post_parameters {
+  clear: both;
+  float: left;
+  position: relative; }
+  .post_parameters .tags {
+    background-image: url("/images/tags.png");
+    background-repeat: no-repeat;
+    background-position: left center;
+    padding-left: 16px; }
+    .post_parameters .tags a {
+      padding-left: 4px;
+      font-size: 80%; }
+  .post_parameters .general_parameters {
+    margin-top: 10px;
+    border: 1px solid #DDDDDD;
+    padding: 4px;
+    clear: both;
+    float: left; }
+    .post_parameters .general_parameters .published {
+      float: left; }
+    .post_parameters .general_parameters .comments {
+      float: left;
+      background-image: url("/images/comments.png");
+      background-repeat: no-repeat;
+      background-position: left center;
+      padding-left: 16px;
+      margin-left: 5px; }
+
 #content h1 {
   font-size: 180%;
   font-color: #555753;

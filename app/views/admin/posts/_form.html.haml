@@ -23,6 +23,11 @@
   %br
   =form.text_field :status
 
+.form_item
+  =form.label :tag_list, "Tag List"
+  %br
+  =form.text_field :tag_list
+
 %button{:type => "submit"}
   -if form.object.new_record?
     Создать

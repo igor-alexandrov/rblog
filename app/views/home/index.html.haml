@@ -1,7 +1,7 @@
 %posts
-  %ul
-    -for post in @posts
-      %li
+  -for post in @posts
+    .entry
+      .entry_content
         %h1
           =post.title
         -unless post.announcement.empty?
@@ -11,7 +11,13 @@
         %br
         %span.post_announcement_link
           =link_to "Читать полностью", post
-        %br
-        комментариев:
-        =post.comments_count
-        =post.created_at.strftime("%d-%B-%Y")
+      .post_parameters
+        .tags
+          -for tag in post.tag_list
+            =link_to tag, posts_tag_path(tag)
+        .general_parameters
+          .published
+            =post.created_at.strftime("%d %B %Y")
+          .comments
+            =post.comments_count
+        

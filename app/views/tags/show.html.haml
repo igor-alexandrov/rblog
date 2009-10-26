@@ -1,0 +1,19 @@
+%posts
+  %ul
+    -for post in @posts
+      %li
+        %h1
+          =post.title
+        -unless post.announcement.empty?
+          =post.announcement
+        -else
+          =post.body
+        %br
+        %span.post_announcement_link
+          =link_to "Читать полностью", post
+        %br
+        
+        
+        комментариев:
+        =post.comments_count
+        =post.created_at.strftime("%d-%B-%Y")

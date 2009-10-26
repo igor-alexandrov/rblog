@@ -1,3 +1,9 @@
+#menu
+  %ul
+    -for page in Page.roots
+      %li
+        = link_to h(page.title), page
+
 .blog_name
   =link_to "Блог", root_path
 Работает на
