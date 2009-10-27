@@ -6,7 +6,7 @@
     %a(href="#")
       Comments
   %li.menu_item.left_menu_item
-    =link_to "Pages", admin_pages_path, :class => "#{"current" if params[:controller][6..10] == 'users'}"
+    =link_to "Pages", admin_pages_path, :class => "#{"current" if params[:controller][6..10] == 'pages'}"
   %li.menu_item.left_menu_item
     =link_to "Users", admin_users_path, :class => "#{"current" if params[:controller][6..10] == 'users'}"
   

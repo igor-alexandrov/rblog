@@ -1,0 +1,7 @@
+%h1
+  All pages
+
+=link_to "Add page", new_admin_page_path
+
+%ul
+  =render :partial => "show", :collection => @pages, :as => :page

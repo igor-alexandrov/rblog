@@ -1,12 +1,16 @@
 #remove all Comment forms if they exist
-page.select("#new_comment").each do |element|
-    page.remove element
-end
+#page.alert("Hello")
+
+page.remove("#new_comment")
+#page.select("#new_comment").each do |element|
+#    page.remove element
+#end
+
 #insert new Comment form
 if @comment.parent_comment_id == 0
   page.insert_html :bottom, "add_comment", :partial => "comments/form"
 else
   page.insert_html :bottom, "comment_#{@comment.parent_comment_id}_children", :partial => "comments/form"
 end
-
+#
 page.visual_effect :highlight, "new_comment", :duration => 3

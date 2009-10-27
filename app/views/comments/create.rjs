@@ -1,8 +1,11 @@
 #remove form
-page.select("#new_comment").each do |element|
-  element.reset
-  page.remove element
-end
+#page.select("#new_comment").each do |element|
+#  element.reset
+#  page.remove element
+#end
+page.remove("#new_comment")
+
+
 #show created Comment
 page.insert_html :bottom, "comment_#{@comment.parent_comment_id}_children", :partial => 'show', :locals => {:comment => @comment}
 page.visual_effect :highlight, "comment_#{@comment.id}", :duration => 3

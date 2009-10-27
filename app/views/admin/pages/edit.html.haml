@@ -1,0 +1,3 @@
+-form_for @page, :url => admin_page_path do |form|
+  =form.error_messages
+  =render :partial => 'form', :locals => {:form => form}

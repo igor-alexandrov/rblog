@@ -1,0 +1,20 @@
+.form_item
+  =form.label :title, "Title"
+  %br
+  =form.text_field :title
+
+.form_item
+  =form.label :permalink, "Permalink"
+  %br
+  =form.text_field :permalink
+
+.form_item
+  =form.label :content, "Content"
+  %br
+  =form.text_area :content, :class=>"markitup"
+
+%button{:type => "submit"}
+  -if form.object.new_record?
+    Создать
+  -else
+    Обновить

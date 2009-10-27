@@ -15,7 +15,7 @@ class CommentsController < ApplicationController
     @comment.parent_comment_id = params[:parent_comment_id]
 
     respond_to do |format|
-      format.js{  }
+      format.js{}
       format.html      
     end   
   end
