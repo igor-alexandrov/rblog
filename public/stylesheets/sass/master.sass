@@ -27,14 +27,28 @@ a
     color: #666
 
   &:hover
-    color: #fff
-    background-color: #000
+    color: black
+    
+
+
+h1, h2, h3, h4, h5, h6
+  -x-system-font: none
+  color: #333333
+  font-family: Verdana
+  
+  font-size-adjust: none
+  font-stretch: normal
+  font-style: normal
+  font-variant: normal
+  font-weight: normal
+  line-height: normal
 
 
 .fieldWithErrors
   padding: 2px
   background-color: red
   display: table
+
 
 
 #errorExplanation
@@ -65,44 +79,66 @@ a
 
 #header
   :background
-    :color #981922
-  :color #FFFFFF
-  :padding 3.5em 1em 0 4em
-  #header_content
-    :width 1100px
-    :margin 0 auto
-    :padding-bottom 1.4em
-  #nav
+    :image url("/images/header_black.png")
+    :repeat repeat-x
+    :position left center
+  :height 100px
+  :width 100%
+  a
+    :float left
+    :color #DDDDDD
+    :font-weight bold
+    :font-size 110%
+    :padding
+      :left 20px
+    &:hover
+      :color white
+    &.current
+      :background
+        :color white
+  #logo
+    :min-width 200px
+    :float left
+    :margin 0
+    :height 100px
+    :margin
+      :left 10px
+    :background
+      :image url("/images/logo.png")
+      :repeat no-repeat
+      :position left center
+    h1
+      :padding
+        :top 45px
+      :color #DDDDDD
+  #menu
     :margin 0
     :padding 0
+    :float left
+    :height 100px
     ul
-      :float right
       :line-height 2
       :list-style-type none
-      :margin -1.90em 0 0 0
-      :padding 0
-      :background
-        :color #DCDCDC
-          
+      :padding
+        :left 20px
+        :top 20px
+        :bottom 20px
       li
         :float left
         :padding 0
         :margin 0
-        
+  #login
+    :color #DDDDDD
+    :float right
+    :padding
+      :left 20px
+      :right 20px
+    :padding
+      :top 40px
+      :bottom 20px  
+      
 
-        a
-          :padding 0.5em 1em
-          :display block
-          :float left
-          :color black
-          :font-weight bold
-          :font-size 110%
-          &:hover
-            :background
-              :color white
-          &.current
-            :background
-              :color white
+
 
 #main
   :padding

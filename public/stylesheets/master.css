@@ -22,8 +22,18 @@ a {
   a:visited {
     color: #666; }
   a:hover {
-    color: #fff;
-    background-color: #000; }
+    color: black; }
+
+h1, h2, h3, h4, h5, h6 {
+  -x-system-font: none;
+  color: #333333;
+  font-family: Verdana;
+  font-size-adjust: none;
+  font-stretch: normal;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  line-height: normal; }
 
 .fieldWithErrors {
   padding: 2px;
@@ -54,38 +64,55 @@ a {
     list-style: square; }
 
 #header {
-  background-color: #981922;
-  color: #FFFFFF;
-  padding: 3.5em 1em 0 4em; }
-  #header #header_content {
-    width: 1100px;
-    margin: 0 auto;
-    padding-bottom: 1.4em; }
-  #header #nav {
+  background-image: url("/images/header_black.png");
+  background-repeat: repeat-x;
+  background-position: left center;
+  height: 100px;
+  width: 100%; }
+  #header a {
+    float: left;
+    color: #DDDDDD;
+    font-weight: bold;
+    font-size: 110%;
+    padding-left: 20px; }
+    #header a:hover {
+      color: white; }
+    #header a.current {
+      background-color: white; }
+  #header #logo {
+    min-width: 200px;
+    float: left;
     margin: 0;
-    padding: 0; }
-    #header #nav ul {
-      float: right;
+    height: 100px;
+    margin-left: 10px;
+    background-image: url("/images/logo.png");
+    background-repeat: no-repeat;
+    background-position: left center; }
+    #header #logo h1 {
+      padding-top: 45px;
+      color: #DDDDDD; }
+  #header #menu {
+    margin: 0;
+    padding: 0;
+    float: left;
+    height: 100px; }
+    #header #menu ul {
       line-height: 2;
       list-style-type: none;
-      margin: -1.90em 0 0 0;
-      padding: 0;
-      background-color: #DCDCDC; }
-      #header #nav ul li {
+      padding-left: 20px;
+      padding-top: 20px;
+      padding-bottom: 20px; }
+      #header #menu ul li {
         float: left;
         padding: 0;
         margin: 0; }
-        #header #nav ul li a {
-          padding: 0.5em 1em;
-          display: block;
-          float: left;
-          color: black;
-          font-weight: bold;
-          font-size: 110%; }
-          #header #nav ul li a:hover {
-            background-color: white; }
-          #header #nav ul li a.current {
-            background-color: white; }
+  #header #login {
+    color: #DDDDDD;
+    float: right;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 40px;
+    padding-bottom: 20px; }
 
 #main {
   padding-left: 20px;
