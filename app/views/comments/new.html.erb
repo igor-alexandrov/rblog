@@ -3,6 +3,7 @@
 <p><%= @post.announcement %></p>
 <p><%= @post.body %></p>
 <p>
+<div id="comments">
 <h2>Комментарии</h2>
   <ul id="#{comment_0_children}">
     <% for comment in @post.comments.select { |comment| comment.parent_comment_id == 0 } %>
@@ -10,4 +11,5 @@
     <% end %>
   </ul>
 </p>
+</div>
    

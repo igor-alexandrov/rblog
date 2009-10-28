@@ -8,8 +8,9 @@
 %div#comments
   %h2
     Комментарии
-  %ul{:id => "comment_0_children"}
-    =render :partial => "comments/show", :collection => @post.comments.select { |comment| comment.parent_comment_id == 0 }, :as => :comment
+  -cache (:controller => "posts", :action => "show", :id => @post.id) do
+    %ul{:id => "comment_0_children"}
+      =render :partial => "comments/show", :collection => @post.comments.select { |comment| comment.parent_comment_id == 0 }, :as => :comment
   %div#add_comment
     %h3
       = link_to_remote 'Add comment', {:url => { :controller => "comments", :action => "new", :post_id => @post.id, :parent_comment_id => 0}, :method => "get",}, :href => new_post_comment_url(@post, :anchor => "new_comment")

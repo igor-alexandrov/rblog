@@ -25,13 +25,18 @@ class CommentsController < ApplicationController
     @comment = @post.add_comment(params[:comment])
 
     respond_to do |format|
-      if @comment.save
-        expire_action :controller => :posts, :action => :show, :id => @post.id
+      if Digest::SHA1.hexdigest(params[:captcha].upcase.chomp)[0..5] == params[:captcha_guide] and @comment.save
+        expire_fragment :controller => :posts, :action => :show, :id => @post.id
         flash[:notice] = 'Comment was successfully created.'
-        format.html {redirect_to post_path(@comment.post)}
+        format.html {redirect_to post_url(@post, :anchor => dom_id(@comment))}
         format.js
       else
+        @comment.errors.add("Word")
         format.html { render :action => "new" }
+        format.js { render :action => "new" }
+        
+        
+        
       end
     end
   end
