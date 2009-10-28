@@ -158,19 +158,43 @@ h1, h2, h3, h4, h5, h6 {
   #main #comments ul {
     list-style-type: none; }
   #main #comments #new_comment {
-    background-color: #DDDDDD; }
+    background-color: #DDDDDD;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+    padding-right: 20px; }
+    #main #comments #new_comment label {
+      line-height: 1.5em;
+      font-weight: bold; }
+    #main #comments #new_comment input {
+      border-color: #B7B7B7 #DADADA #DADADA;
+      border-style: solid;
+      border-width: 1px;
+      padding: 3px 4px;
+      width: 250px; }
     #main #comments #new_comment textarea {
       width: 500px;
-      height: 50px; }
-  #main #captcha_display {
-    background-color: #c00;
-    color: #fff;
-    font-size: 24px;
-    padding: 12px;
-    width: 280px;
-    height: 24px;
-    border: 1px solid #000;
-    text-align: center;
-    letter-spacing: 5px; }
-    #main #captcha_display sup {
-      display: none; }
+      height: 50px;
+      border-color: #B7B7B7 #DADADA #DADADA;
+      border-style: solid;
+      border-width: 1px;
+      padding: 3px 4px; }
+    #main #comments #new_comment button {
+      margin-top: 10px;
+      font-size: 140%; }
+    #main #comments #new_comment #captcha_display {
+      background-color: #c00;
+      color: #fff;
+      font-size: 24px;
+      padding: 12px;
+      width: 280px;
+      height: 24px;
+      border: 1px dotted #000;
+      text-align: center;
+      letter-spacing: 5px; }
+      #main #comments #new_comment #captcha_display sup {
+        display: none; }
+    #main #comments #new_comment #captcha {
+      border-width: 1px;
+      border-style: dotted;
+      border-color: black; }
