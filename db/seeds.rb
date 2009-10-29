@@ -23,12 +23,24 @@ if fake_comment.nil?
     fake_comment.save
 end
 
+Category.find(:all).each { |e| e.destroy  }
+category = Category.new do |c|
+  c.permalink = "general"
+  c.title = "General"
+  c.decription = "Default RBlog category"
+  c.enabled = true
+  c.posts_count = 0
+end
+
+category.save
+
 first_post = Post.new do |p|
     p.title = "Welcome!"
     p.permalink = "welcome"
     p.announcement = ""
     p.body = "It is your first post in RBlog it, doesn't have an announcement, so you can see it all."
     p.status = "published"
+    p.category = category
 end
 first_post.save
 
@@ -65,6 +77,7 @@ second_post = Post.new do |p|
     p.announcement = "Announcement of post."
     p.body = "Second post. It is it's body."
     p.status = "published"
+    p.category = category
 end
 second_post.save
 

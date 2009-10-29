@@ -120,33 +120,35 @@ h1, h2, h3, h4, h5, h6 {
   #main .entry {
     float: left;
     width: 100%; }
-  #main .post_parameters {
-    clear: both;
-    float: left;
-    position: relative; }
-    #main .post_parameters .tags {
-      background-image: url("/images/tags.png");
-      background-repeat: no-repeat;
-      background-position: left center;
-      padding-left: 16px; }
-      #main .post_parameters .tags a {
-        padding-left: 4px;
-        font-size: 80%; }
-    #main .post_parameters .general_parameters {
-      margin-top: 10px;
-      border: 1px solid #DDDDDD;
-      padding: 4px;
+    #main .entry a h1 {
+      text-decoration: underline; }
+    #main .entry .post_parameters {
       clear: both;
-      float: left; }
-      #main .post_parameters .general_parameters .published {
-        float: left; }
-      #main .post_parameters .general_parameters .comments {
-        float: left;
-        background-image: url("/images/comments.png");
+      float: left;
+      position: relative; }
+      #main .entry .post_parameters .tags {
+        background-image: url("/images/tags.png");
         background-repeat: no-repeat;
         background-position: left center;
-        padding-left: 16px;
-        margin-left: 5px; }
+        padding-left: 16px; }
+        #main .entry .post_parameters .tags a {
+          padding-left: 4px;
+          font-size: 80%; }
+      #main .entry .post_parameters .general_parameters {
+        margin-top: 10px;
+        border: 1px solid #DDDDDD;
+        padding: 4px;
+        clear: both;
+        float: left; }
+        #main .entry .post_parameters .general_parameters .published {
+          float: left; }
+        #main .entry .post_parameters .general_parameters .comments {
+          float: left;
+          background-image: url("/images/comments.png");
+          background-repeat: no-repeat;
+          background-position: left center;
+          padding-left: 20px;
+          margin-left: 5px; }
   #main #content h1 {
     font-size: 180%;
     font-color: #555753;

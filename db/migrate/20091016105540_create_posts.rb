@@ -6,7 +6,7 @@ class CreatePosts < ActiveRecord::Migration
             t.text :body
             t.string :status
             t.text :announcement
-
+            t.references :category
             t.timestamps
         end
     end

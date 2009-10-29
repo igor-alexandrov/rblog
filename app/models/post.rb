@@ -1,6 +1,8 @@
 class Post < ActiveRecord::Base
   has_many :comments
 
+  belongs_to :category, :counter_cache => true
+  
   acts_as_taggable_on :tags
 
   validates_presence_of :title

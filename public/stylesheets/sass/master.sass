@@ -144,45 +144,47 @@ h1, h2, h3, h4, h5, h6
   :padding
     :left 20px
     :right 20px
-
   .entry
     :float left
     :width 100%
 
-  .post_parameters
-    :clear both
-    :float left
-    :position relative
-    .tags
-      :background
-        :image url("/images/tags.png")
-        :repeat no-repeat
-        :position left center
-      :padding
-        :left 16px
-      a
-        :padding
-          :left 4px
-        :font-size 80%
-    .general_parameters
-      :margin
-        :top 10px
-      :border 1px solid #DDDDDD
-      :padding 4px
+    a
+      h1
+        :text-decoration underline
+    .post_parameters
       :clear both
       :float left
-      .published
-        :float left
-      .comments
-        :float left
+      :position relative
+      .tags
         :background
-          :image url("/images/comments.png")
+          :image url("/images/tags.png")
           :repeat no-repeat
           :position left center
         :padding
           :left 16px
+        a
+          :padding
+            :left 4px
+          :font-size 80%
+      .general_parameters
         :margin
-          :left 5px
+          :top 10px
+        :border 1px solid #DDDDDD
+        :padding 4px
+        :clear both
+        :float left
+        .published
+          :float left
+        .comments
+          :float left
+          :background
+            :image url("/images/comments.png")
+            :repeat no-repeat
+            :position left center
+          :padding
+            :left 20px
+          :margin
+            :left 5px
 
   #content
 

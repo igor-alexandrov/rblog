@@ -5,6 +5,7 @@ ActionController::Routing::Routes.draw do |map|
   #  post.new_comment '/comments/new/:comment_id', :controller => 'comments', :action => 'new'
   #end
 
+  map.resources :categories, :has_many => :posts
   map.resources :posts, :has_many => :comments
   map.posts_tag "/posts/tag/:name", :controller => "tags", :action => "show"
 
