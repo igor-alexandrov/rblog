@@ -29,6 +29,7 @@ class Admin::PostsController < Admin::AdminController
   def update
     @post = Post.find(params[:id])
     if @post.update_attributes(params[:post])
+      expire_fragment post_url(@post, :action_suffix => "tags")
       flash[:notice] = 'Post was successfully updated.'
       redirect_to admin_posts_path
     else

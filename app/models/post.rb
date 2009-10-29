@@ -3,6 +3,12 @@ class Post < ActiveRecord::Base
 
   acts_as_taggable_on :tags
 
+  validates_presence_of :title
+  validates_length_of   :title, :minimum => 2
+
+  validates_presence_of :body
+
+
   def first_level_comments
     Comment.find(:all, :conditions => {:post_id => self.id, :parent_comment_id => nil})
   end

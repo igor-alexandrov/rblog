@@ -1,3 +1,4 @@
+-title "RBlog"
 %posts
   -for post in @posts
     .entry
@@ -13,8 +14,9 @@
           =link_to "Читать полностью", post
       .post_parameters
         .tags
-          -for tag in post.tag_list
-            =link_to tag, posts_tag_path(tag)
+          -cache post_url(post, :action_suffix => "tags") do
+            -for tag in post.tag_list
+              =link_to tag, posts_tag_path(tag)
         .general_parameters
           .published
             =post.created_at.strftime("%d %B %Y")
