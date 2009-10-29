@@ -1,8 +1,8 @@
 <%= content_tag(:a ,"",:name => dom_id(comment)) %>
-<% content_tag(:li, :id => dom_id(comment)) do %>
+<% content_tag(:li, :id => dom_id(comment), :class => "#{dom_id(comment.parent_comment)}_child" ) do %>
    <% div_for(comment) do%>
       <span class="author"><%= comment.commenter_name%></span>
-      <span class="date"><%= comment.created_at %></span>
+      <span class="date"><%= comment.created_at.strftime("%d %B %Y, %H:%M") %></span>
       <span class="permalink"><%= link_to '#', "##{dom_id(comment)}" %></span>
 
       <div class="content">

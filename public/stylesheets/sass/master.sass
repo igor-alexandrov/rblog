@@ -198,8 +198,34 @@ h1, h2, h3, h4, h5, h6
 
 
   #comments
+    
+      
+    h2
+      :padding
+        :left 20px
+      :background
+        :image url("/images/comments.png")
+        :repeat no-repeat
+        :position left center
     ul
       :list-style-type none
+      :list-style-image none
+      li.comment_0_child
+        :list-style-image url("/images/marker_top.png")
+    
+    .author
+      :padding
+        :left 20px
+        :top 4px
+        :bottom 4px
+      :background
+        :image url("/images/user.png")
+        :repeat no-repeat
+        :position left center
+      :font-weight bold
+      :font-size 80%
+    .date
+      :font-size 80%
     #new_comment
       :background-color #DDDDDD
       :padding
@@ -226,7 +252,7 @@ h1, h2, h3, h4, h5, h6
       button
         :margin-top 10px
         :font-size 140%
-        
+
       #captcha_display
         :background-color #c00
         :color #fff

@@ -155,8 +155,27 @@ h1, h2, h3, h4, h5, h6 {
   #main #content .post_announcement_link {
     font-style: italic;
     font-weight: bold; }
+  #main #comments h2 {
+    padding-left: 20px;
+    background-image: url("/images/comments.png");
+    background-repeat: no-repeat;
+    background-position: left center; }
   #main #comments ul {
-    list-style-type: none; }
+    list-style-type: none;
+    list-style-image: none; }
+    #main #comments ul li.comment_0_child {
+      list-style-image: url("/images/marker_top.png"); }
+  #main #comments .author {
+    padding-left: 20px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    background-image: url("/images/user.png");
+    background-repeat: no-repeat;
+    background-position: left center;
+    font-weight: bold;
+    font-size: 80%; }
+  #main #comments .date {
+    font-size: 80%; }
   #main #comments #new_comment {
     background-color: #DDDDDD;
     padding-top: 10px;

@@ -6,7 +6,7 @@ h3. Features
 
 Every day new features appear in RBlog.  Now the main of them are:
 * fast and powerfull;
-* nested comments in posts (they work with or without javascript);
+* nested comments in posts (they work with or without javascript). First level comments are highlighted with special mark, so they are easy to find;
 * CCS-based capcha for unregistered users in comments (simple and easy to read)
 * nested pages with human readable permalinks (@[your_domain]/about@ will refer to about page, @[your_domain]/about/clients@ will refer to your clients page and etc.). Create as many pages, as you want! Thanks to Alexander Borisov;
 * post are taggable;
