@@ -9,7 +9,7 @@
 
 %div#comments
   %h2
-    Комментарии
+    Comments
   -cache (:controller => "posts", :action => "show", :id => @post.id) do
     %ul{:id => "comment_0_children"}
       =render :partial => "comments/show", :collection => @post.comments.select { |comment| comment.parent_comment_id == 0 }, :as => :comment
