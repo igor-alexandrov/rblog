@@ -4,7 +4,9 @@
       <span class="author"><%= comment.commenter_name%></span>
       <span class="date"><%= comment.created_at.strftime("%d %B %Y, %H:%M") %></span>
       <span class="permalink"><%= link_to '#', "##{dom_id(comment)}" %></span>
-
+      <% unless comment.parent_comment_id == 0 %>
+         <span class="permalink"><%= link_to '⇧', "##{dom_id(comment.parent_comment)}" %></span>
+      <% end %>
       <div class="content">
          <%= comment.body %>
       </div>
