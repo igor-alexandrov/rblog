@@ -10,6 +10,18 @@ Comment.find(:all, :conditions => "id != 0").each { |e| e.destroy  }
 User.find(:all).each { |e| e.destroy  }
 
 fake_comment = Comment.find( :first, :conditions => "id=0" )
+if fake_comment.nil?
+  fake_comment = Comment.new do |c|
+      c.id = 0
+      c.post_id = nil
+      c.parent_comment_id = nil
+      c.commenter_name = 'rblog developer'
+      c.commenter_email = 'igor.alexandrov@gmail.com'
+      c.body = 'This comment is here to provide tree comment model. All other top level comments will have parent_comment_id = 0'
+    end
+
+    fake_comment.save
+end
 
 first_post = Post.new do |p|
     p.title = "Welcome!"
