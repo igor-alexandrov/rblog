@@ -1,0 +1,4 @@
+<div class="b-content">
+  <h1 class="g-light_gray">Posts tagged with ‹‹<%= params[:name] %>››</h1>
+  <%= render :partial => "posts/index" , :locals => {:posts => @posts, :options => {:no_tags => true}} %>
+</div>

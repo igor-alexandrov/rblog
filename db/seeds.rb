@@ -9,6 +9,14 @@ Post.find(:all).each { |e| e.destroy  }
 Comment.find(:all, :conditions => "id != 0").each { |e| e.destroy  }
 User.find(:all).each { |e| e.destroy  }
 
+admin_user = User.new do |user|
+  user.login = "admin"
+  user.password = "admin"
+  user.password_confirmation = "admin"
+end
+
+admin_user.save
+
 fake_comment = Comment.find( :first, :conditions => "id=0" )
 if fake_comment.nil?
   fake_comment = Comment.new do |c|
@@ -41,6 +49,8 @@ first_post = Post.new do |p|
     p.body = "It is your first post in RBlog it, doesn't have an announcement, so you can see it all."
     p.status = "published"
     p.category = category
+    p.author = admin_user
+    p.tag_list = "a, test, post"
 end
 first_post.save
 
@@ -78,13 +88,7 @@ second_post = Post.new do |p|
     p.body = "Second post. It is it's body."
     p.status = "published"
     p.category = category
+    p.author = admin_user
 end
 second_post.save
 
-admin_user = User.new do |user|
-  user.login = "admin"
-  user.password = "admin"
-  user.password_confirmation = "admin"
-end
-
-admin_user.save

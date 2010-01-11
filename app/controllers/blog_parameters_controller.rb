@@ -5,7 +5,7 @@ class BlogParametersController < ApplicationController
     @blog_parameters = BlogParameter.all
 
     respond_to do |format|
-      format.html # index.html.erb
+      format.html # _index.html.erb
       format.xml  { render :xml => @blog_parameters }
     end
   end

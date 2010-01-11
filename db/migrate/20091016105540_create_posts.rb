@@ -7,6 +7,9 @@ class CreatePosts < ActiveRecord::Migration
             t.string :status
             t.text :announcement
             t.references :category
+            t.references :author
+            t.integer :comments_count, :default => 0
+            t.integer :rating, :default => 0
             t.timestamps
         end
     end

@@ -11,6 +11,8 @@ Rails::Initializer.run do |config|
 
   config.gem "haml"
   config.gem "authlogic"
+  config.gem "cancan"
+  config.gem "searchlogic"
   config.gem "configatron"
 
   # Settings in config/environments/* take precedence over those specified here.

@@ -19,7 +19,7 @@ module ApplicationHelper
   end
 
   def page_path(page)
-    path = "/" + page.permalink;
+    path = "/pages/" + page.permalink;
     for current_page in page.ancestors
       path = "/" + current_page.permalink + path
     end

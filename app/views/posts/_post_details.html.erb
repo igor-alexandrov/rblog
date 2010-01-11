@@ -1,0 +1,34 @@
+<% options ||= {} %>
+<% unless options[:no_tags] %>
+    <div class="b-post__tags">
+      <%# cache post_url(post, :action_suffix => "tags") do %>
+      <% for tag in post.tag_list %>
+          <%= link_to tag, posts_tag_path(tag), :title => "see all posts tagged with ‹‹#{tag}››", :class => "b-post__tags__item" %>
+      <% end %>
+      <%# end %>
+    </div>
+<% end %>
+<div class="b-post__parameters">
+  <div class="b-post__paramameters__item b-post__rating g-light_gray">
+    rating:
+    <%= link_to_remote content_tag(:span, "good", :class => "g-javascript_link__value"), :url => increase_post_rating_url(post.id), :method => "post", :html => {:title => "you like this post", :class => "b-post__rating__increase g-javascript_link"} %>
+    <span id="<%= dom_id(post) %>__rating__value" class="b-post__rating__value">
+        <%= post.rating %>
+    </span>
+    <%= link_to_remote content_tag(:span, "bad", :class => "g-javascript_link__value"), :url => decrease_post_rating_url(post.id), :method => "post", :html => {:title => "you don't like this post", :class => "b-post__rating__decrease g-javascript_link"} %>
+  </div>
+  <div class="b-post__paramameters__item b-post__author_login g-light_gray ">
+    author:
+    <% link_to post_path(post, :anchor => :comments), :title => "go to author's profile",  :class => "b-post__author_login__link" do %>
+        <%= post.author.login %>
+    <% end %>
+  </div>
+  <% unless options[:no_comments_count] %>
+      <div class="b-post__paramameters__item b-post__comments_count g-light_gray">
+        comments:
+        <%= link_to post.comments_count, post_path(post, :anchor => :comments), :title => "go to post's comments", :class => "b-post__comments_count__link" %>
+      </div>
+  <% end %>
+</div>
+
+        

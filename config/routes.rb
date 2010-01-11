@@ -5,9 +5,13 @@ ActionController::Routing::Routes.draw do |map|
   #  post.new_comment '/comments/new/:comment_id', :controller => 'comments', :action => 'new'
   #end
 
-  map.resources :categories, :has_many => :posts
-  map.resources :posts, :has_many => :comments
-  map.posts_tag "/posts/tag/:name", :controller => "tags", :action => "show"
+  map.resources :categories, :as => "c"
+  map.resources :posts, :as => "p", :has_many => :comments
+
+  map.increase_post_rating "/p/:id/rating/increase", :controller => "posts", :action => "increase_rating", :method => "POST"
+  map.decrease_post_rating "/p/:id/rating/decrease", :controller => "posts", :action => "decrease_rating", :method => "POST"
+
+  map.posts_tag "/t/:name", :controller => "tags", :action => "show"
 
 
   map.resources :blog_parameters
@@ -31,7 +35,7 @@ ActionController::Routing::Routes.draw do |map|
 
   # Sample resource route with sub-resources:
   #   map.resources :products, :has_many => [ :comments, :sales ], :has_one => :seller
-  
+
   # Sample resource route with more complex sub-resources
   #   map.resources :products do |products|
   #     products.resources :comments
@@ -48,7 +52,7 @@ ActionController::Routing::Routes.draw do |map|
   map.root :controller => "home"
 
   map.namespace :admin do |admin|
-    admin.root      :controller => 'home', :action => 'index'
+    admin.root :controller => 'home', :action => 'index'
     admin.resource :user_session
     admin.login 'login', :controller => 'user_sessions', :action => 'new'
     admin.logout 'logout', :controller => 'user_sessions', :action => 'destroy'
@@ -69,7 +73,9 @@ ActionController::Routing::Routes.draw do |map|
   # Note: These default routes make all actions in every controller accessible via GET requests. You should
   # consider removing or commenting them out if you're using named routes and resources.
 
-  map.connect '*href', :controller => "pages", :action => "show"
+
+  map.page 'pages/*href', :controller => "pages", :action => "show"
+
 
   map.connect ':controller/:action/:id'
   map.connect ':controller/:action/:id.:format'
