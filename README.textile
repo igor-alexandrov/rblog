@@ -2,6 +2,9 @@ h1. RBlog. Yet another Ruby on Rails blog engine
 
 h2. In English
 
+h3. News
+* 11.01.2010 working hardly on 0.3 release. It will have a lot of new tasty features.
+
 h3. Features
 
 Every day new features appear in RBlog.  Now the main of them are:
