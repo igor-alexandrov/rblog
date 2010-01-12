@@ -13,7 +13,10 @@
   <div class="l-layout">
     <div class="h-padding">
       <%= render :partial => "shared/header" %>
-      <%= yield :content or yield %>
+      <div class="b-content">
+        <%= yield :content_menu %>
+        <%= yield :content or yield %>
+      </div>
       <%= render :partial => "shared/footer" %>
     </div>
   </div>

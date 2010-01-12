@@ -1,27 +1,27 @@
 <% options ||= {} %>
 <ul class="b-content-posts">
-    <% for post in posts do %>
-        <li id="<%= dom_id(post) %>" class="b-content-posts__item">
-          <h2>
-            <%= link_to post.category.title, category_path(post.category) %>
-            ⇨
-            <%= link_to post.title, post_path( post) %>
-            <%= link_to image_tag("/images/edit.png"), edit_admin_post_path( post), :class => "edit_post" %>
-          </h2>
+  <% for post in posts do %>
+      <li id="<%= dom_id(post) %>" class="b-content-posts__item">
+        <h2>
+          <%= link_to post.category.title, category_path(post.category), :class => "g-link-no-visited" %>
+          ⇨
+          <%= link_to post.title, post_path( post) %>
+          <%= link_to image_tag("/images/edit.png"), edit_admin_post_path( post), :class => "edit_post" %>
+        </h2>
 
-          <div class="b-post__publish_date g-light_gray">
-            <%= post.created_at.strftime("%d, %B %Y, %H:%M") %>
-          </div>
-          <p class="b-post__content_preview g-indent">
-            <% unless post.announcement.empty? %>
-                <%= post.announcement %>
-                <span class="b-post__read_all_link"> <%= link_to "Read all", post %> </span>
-            <% else %>
-                <%= post.body %>
-            <% end %>
-          </p>
+        <div class="b-post__publish_date g-light_gray">
+          <%= post.created_at.strftime("%d, %B %Y, %H:%M") %>
+        </div>
+        <p class="b-post__content_preview g-indent">
+          <% unless post.announcement.empty? %>
+              <%= post.announcement %>
+              <span class="b-post__read_all_link"> <%= link_to "Read all", post %> </span>
+          <% else %>
+              <%= post.body %>
+          <% end %>
+        </p>
 
-          <%= render :partial => "posts/post_details", :locals => { :post => post, :options => options } %>
-        </li>
-    <% end %>
-  </ul>
+        <%= render :partial => "posts/post_details", :locals => { :post => post, :options => options } %>
+      </li>
+  <% end %>
+</ul>

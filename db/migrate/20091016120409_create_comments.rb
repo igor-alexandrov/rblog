@@ -6,7 +6,8 @@ class CreateComments < ActiveRecord::Migration
       t.string :commenter_name, :null => false
       t.string :commenter_email, :null => false
       t.text :body, :null => false
-
+      t.references :author
+      
       t.timestamps
 
     end

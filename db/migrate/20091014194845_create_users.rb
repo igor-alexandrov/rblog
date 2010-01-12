@@ -13,7 +13,8 @@ class CreateUsers < ActiveRecord::Migration
       t.string :last_login_ip
       t.string :current_login_ip
 
-      t.integer :posts_count
+      t.integer :posts_count, :default => 0
+      t.integer :comments_count, :default => 0
     end
 
     add_index :users, :login

@@ -1,8 +1,5 @@
 <% title "RBlog" %>
-<div class="b-content">
-  <div class="b-content-menu">
-    
-  </div>
-  <%= render :partial => "posts/index", :locals => {:posts => @posts} %>
-</div>
+<% content_menu %>
+<%= render :partial => "posts/index", :locals => {:posts => @posts} %>
+
         

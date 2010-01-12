@@ -60,6 +60,7 @@ first_comment = Comment.new do |c|
     c.parent_comment = fake_comment
     c.commenter_name = "Igor Alexandrov"
     c.commenter_email = "igor.alexandrov@gmail.com"
+    c.author = admin_user
     c.body = "First comment"
 end
 first_comment.save
@@ -69,6 +70,7 @@ second_comment = Comment.new do |c|
     c.parent_comment = first_comment
     c.commenter_name = "Igor Alexandrov"
     c.commenter_email = "igor.alexandrov@gmail.com"
+    c.author = admin_user
     c.body = "First comment"
 end
 second_comment.save
@@ -78,6 +80,7 @@ third_comment = Comment.new do |c|
     c.parent_comment = fake_comment
     c.commenter_name = "Igor Alexandrov"
     c.commenter_email = "igor.alexandrov@gmail.com"
+    c.author = admin_user
     c.body = "First comment"
 end
 third_comment.save

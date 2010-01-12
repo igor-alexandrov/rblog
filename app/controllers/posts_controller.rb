@@ -7,6 +7,10 @@ class PostsController < ApplicationController
     @comment.post = @post
   end
 
+  def new
+    @post = Post.new
+  end
+
   def increase_rating
     Post.increment_counter(:rating, params[:id] )
     @post = Post.find(params[:id])

@@ -31,4 +31,9 @@ module ApplicationHelper
     @show_title = show_title
   end
 
+
+  def content_menu
+    content_for(:content_menu, render(:partial => "shared/content_menu"))
+  end
+
 end
