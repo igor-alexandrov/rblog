@@ -1,0 +1,22 @@
+<% remote_form_for @comment, {:url => post_comments_path(@post), :method => "post"} do |form| %>
+  <%= form.error_messages %>
+  <%= form.hidden_field :post_id %>
+  <%= form.hidden_field :parent_comment_id %>
+  <%= form.label :commenter_name, "Name" %>
+  <br>
+  <%= form.text_field :commenter_name %>
+  <br>
+  <%= form.label :commenter_email, "Email" %>
+  <br>
+  <%= form.text_field :commenter_email %>
+  <br>
+  <%= form.label :body, "Text" %>
+  <br>
+  <%= form.text_area :body %>
+  <br>
+
+  <%= render :partial => "shared/captcha" %>
+  <br>
+  <%= form.submit "Post" %>
+
+<% end %>

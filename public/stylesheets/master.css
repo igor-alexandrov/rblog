@@ -196,9 +196,30 @@ h2 {
 }
 
 .b-post__announcement {
-    padding-bottom: 15px;
+    padding-bottom: 10px;
     border-bottom: 1px dashed #555555;
-    margin-bottom: 15px;
+    margin: 10px 0 10px 0
+}
+
+.b-post__body {
+    margin: 10px 0 10px 0
+}
+
+.b-post__comments_list {
+    margin: 10px 0;
+    list-style-type: none;
+}
+
+.b-post__comments_list__nested {
+    margin-left: 25px;
+}
+
+.b-captcha_display {
+    background-color: #c00;
+    color: #fff;
+    width: 200px;
+    text-align: center;
+    padding: 5px 0;
 }
 
 .g-align__right {
@@ -226,14 +247,18 @@ h2 {
     text-indent: 1em;
 }
 
+.g-hidden {
+    display: none;
+}
+
 .g-javascript_link{
     text-decoration: none;
 }
 
 .g-javascript_link__value {
     font-weight: normal;
-    color: #555555;
-    border-bottom: 1px dotted #555555; 
+    color: #0095d3;
+    border-bottom: 1px dotted #0095d3; 
 }
 
 .b-copyright {

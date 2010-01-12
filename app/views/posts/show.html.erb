@@ -1,7 +1,9 @@
 <% title "RBlog ‒ " + @post.title %>
 <div class="b-content">
   <h1 class="g-light_gray"><%= @post.title %></h1>
-
+  <div class="b-post__publish_date g-light_gray">
+    <%= @post.created_at.strftime("%d, %B %Y, %H:%M") %>
+  </div>
   <p class="b-post__announcement g-indent">
     <%= @post.announcement %>
   </p>
@@ -12,13 +14,14 @@
 
   <%= render :partial => "posts/post_details", :locals => { :post => @post, :options => {:no_comments_count => true}} %>
 
-  <div class="comments">
+  <div class="b-post__comments">
     <h2>Comments</h2>
-    <% cache (:controller => "posts", :action => "show", :id => @post.id) do %>
-        %ul{:id => "comment_0_children"}
-        <%= render :partial => "comments/show", :collection => @post.comments.select { |comment| comment.parent_comment_id == 0
-        }, :as => :comment %>
-    <% end %>
+    <%# cache (:controller => "posts", :action => "show", :id => @post.id) do %>
+    <ul id="comment_0_children" class="b-post__comments_list">
+      <%= render :partial => "comments/show", :collection => @post.comments.select { |comment| comment.parent_comment_id == 0
+      }, :as => :comment %>
+    </ul>
+    <%# end %>
     <div id="add_comment">
       <h3>
         <%= link_to_remote 'Add comment', {:url => { :controller => "comments", :action => "new", :post_id => @post.id,
