@@ -8,11 +8,14 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :categories, :as => "c"
   map.resources :posts, :as => "p", :has_many => :comments
 
+
+
   map.increase_post_rating "/p/:id/rating/increase", :controller => "posts", :action => "increase_rating", :method => "POST"
   map.decrease_post_rating "/p/:id/rating/decrease", :controller => "posts", :action => "decrease_rating", :method => "POST"
 
   map.posts_tag "/t/:name", :controller => "tags", :action => "show"
 
+  map.resources :users, :as => "u"
 
   map.resources :blog_parameters
 

@@ -1,0 +1,19 @@
+<% form_for @post, :html => {:class => "b-form"} do |form| %>
+    <div class="b-form__item">
+      <%= form.label :category_id, "Choose category in which you want to write:", :class => "b-form__label g-inline" %>
+      <%= select_tag :category_id, options_for_select(@selectable_categories) %>
+    </div>
+    <div class="b-form__item">
+      <%= form.label :title, "Title:" , :class => "b-form__label" %>
+      <%= form.text_field :title, :class => "b-form__input-text" %>
+    </div>
+    <div class="b-form__item">
+      <%= form.label :announcement, "Announcement", :class => "b-form__label" %>
+      <%= form.text_area :announcement, :class => "b-form__input-text" %>
+    </div>
+    <div class="b-form__item">
+      <%= form.label :body, "Body", :class => "b-form__label" %>
+      <%= form.text_area :body, :class => "b-form__input-text" %>
+    </div>
+    <%= form.submit "Add", :class => "b-form__input-submit" %>
+<% end %>

@@ -32,8 +32,8 @@ module ApplicationHelper
   end
 
 
-  def content_menu
-    content_for(:content_menu, render(:partial => "shared/content_menu"))
+  def content_menu( options = {} )
+    content_for(:content_menu, render( :partial => "shared/content_menu", :locals => {:options => options} ))
   end
 
 end

@@ -111,8 +111,20 @@ h2 {
 .b-content-menu__item {
     list-style-type: none;
     display: inline;
-    font-size: 180%;
-    margin-right: 20px;
+    font-size: 200%;
+    padding: 7px 10px 7px 14px;
+    /*border-bottom: 2px solid #fd8a51;*/
+    border-bottom: 2px solid #0F8925;
+
+
+}
+
+.b-content-menu__item__current {
+    border: 2px solid #0F8925;
+    border-bottom: 0;
+    padding-bottom: 9px;
+    
+    
 }
 
 .b-content-menu__post_add__link{
@@ -240,6 +252,28 @@ h2 {
     padding: 5px 0;
 }
 
+.b-form {
+
+}
+
+.b-form__item {
+    margin-bottom: 15px;
+}
+.b-form__label {
+    font-weight: bold;
+    display: block;
+}
+
+.b-form__input-text {
+    width: 100%;
+}
+
+.b-form__input-submit {
+    font-size: 140%;
+    padding: 5px 20px;
+}
+
+
 .g-align__right {
     float: right;
 }
@@ -281,6 +315,10 @@ h2 {
     font-weight: normal;
     color: #0095d3;
     border-bottom: 1px dotted #0095d3;
+}
+
+.g-inline {
+    display: inline;
 }
 
 .b-copyright {

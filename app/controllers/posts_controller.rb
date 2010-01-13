@@ -9,6 +9,7 @@ class PostsController < ApplicationController
 
   def new
     @post = Post.new
+    @selectable_categories = Category.all.collect{ |c| [c.title, c.id] }
   end
 
   def increase_rating

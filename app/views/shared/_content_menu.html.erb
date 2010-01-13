@@ -1,0 +1,15 @@
+<%# options ||= {} %>
+<ul class="b-content-menu">
+  <li class="b-content-menu__item b-content-menu__post_add <%= 'b-content-menu__item__current"' if options[:current_selected] == 'add_post' %>">
+    <%= link_to "Add post", new_post_path, :class => "b-content-menu__post_add__link g-link-no-visited" %>
+  </li>
+  <li class="b-content-menu__item b-content-menu__posts <%= 'b-content-menu__item__current"' if options[:current_selected] == 'posts' %>">
+    <%= link_to "Posts", root_path, :class => "b-content-menu__posts__link  g-link-no-visited" %>
+  </li>
+  <li class="b-content-menu__item b-content-menu__comments">
+    <%= link_to "Comments", root_path, :class => "b-content-menu__comments__link  g-link-no-visited" %>
+  </li>
+  <li class="b-content-menu__item b-content-menu__users <%= 'b-content-menu__item__current"' if options[:current_selected] == 'users' %>">
+    <%= link_to "Users", users_path, :class => "b-content-menu__users__link  g-link-no-visited" %>
+  </li>
+</ul>

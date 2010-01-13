@@ -1,5 +1,5 @@
 <% title "RBlog" %>
-<% content_menu %>
+<% content_menu(:current_selected => "posts") %>
 <%= render :partial => "posts/index", :locals => {:posts => @posts} %>
 
         
