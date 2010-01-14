@@ -18,6 +18,7 @@ class CreateCategories < ActiveRecord::Migration
   def self.down
     remove_index :categories, :permalink
     remove_index :categories, :enabled
+    
     drop_table :categories
   end
 end

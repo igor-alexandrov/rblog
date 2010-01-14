@@ -15,14 +15,22 @@ class CreateUsers < ActiveRecord::Migration
 
       t.integer :posts_count, :default => 0
       t.integer :comments_count, :default => 0
+
+      t.integer :reputation, :default => 0
     end
 
     add_index :users, :login
     add_index :users, :persistence_token
     add_index :users, :last_request_at
+    add_index :users, :reputation
   end
 
   def self.down
+    remove_index :users, :login
+    remove_index :users, :persistence_token
+    remove_index :users, :last_request_at
+    remove_index :users, :reputation
+
     drop_table :users
   end
 end

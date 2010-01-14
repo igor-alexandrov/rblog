@@ -2,8 +2,8 @@
 <% unless options[:no_tags] %>
     <div class="b-post__tags">
       <%# cache post_url(post, :action_suffix => "tags") do %>
-      <% for tag in post.tag_list %>
-          <%= link_to tag, posts_tag_path(tag), :title => "see all posts tagged with ‹‹#{tag}››", :class => "b-post__tags__item" %>
+      <% for tag in post.tags %>
+          <%= link_to tag, posts_tag_path(tag.name), :title => "see all posts tagged with ‹‹#{tag}››", :class => "b-post__tags__item" %>
       <% end %>
       <%# end %>
     </div>

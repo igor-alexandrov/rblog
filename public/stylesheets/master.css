@@ -253,11 +253,13 @@ h2 {
 }
 
 .b-form {
-
+    background-color: #EEEEEE;
+    -moz-border-radius: 5px;
+    border-radius: 5px;    
 }
 
 .b-form__item {
-    margin-bottom: 15px;
+    padding: 5px 10px;
 }
 .b-form__label {
     font-weight: bold;
@@ -265,7 +267,11 @@ h2 {
 }
 
 .b-form__input-text {
-    width: 100%;
+    width: 99%;
+}
+
+.b-form__input-text_bigger {
+    font-size: 160%;
 }
 
 .b-form__input-submit {

@@ -13,11 +13,11 @@
           <%= post.created_at.strftime("%d, %B %Y, %H:%M") %>
         </div>
         <p class="b-post__content_preview g-indent">
-          <% unless post.announcement.empty? %>
-              <%= post.announcement %>
+          <% unless post.content.announcement.nil? %>
+              <%= post.content.announcement %>
               <span class="b-post__read_all_link"> <%= link_to "Read all", post %> </span>
           <% else %>
-              <%= post.body %>
+              <%= post.content.body %>
           <% end %>
         </p>
 

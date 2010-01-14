@@ -6,11 +6,11 @@
   <%= @post.created_at.strftime("%d, %B %Y, %H:%M") %>
 </div>
 <p class="b-post__announcement g-indent">
-  <%= @post.announcement %>
+  <%= @post.content.announcement %>
 </p>
 
 <p class="b-post__body g-indent">
-  <%= @post.body %>
+  <%= @post.content.body %>
 </p>
 
 <%= render :partial => "posts/post_details", :locals => { :post => @post, :options => {:no_comments_count => true}} %>

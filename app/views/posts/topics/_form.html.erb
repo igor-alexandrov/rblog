@@ -1,0 +1,15 @@
+<% form_for [:posts, @topic], :html => {:class => "b-form"} do |form| %>
+    <%= render :partial => 'posts/form', :locals => {:form => form, :post => @post} %>
+    
+    <!--<div class="b-form__item">-->
+      <!--<%= form.label :announcement, "Announcement", :class => "b-form__label" %>-->
+      <!--<%= form.text_area :announcement, :class => "b-form__input-text" %>-->
+    <!--</div>-->
+    <div class="b-form__item">
+      <%= form.label :text, "Text", :class => "b-form__label" %>
+      <%= form.text_area :text, :class => "b-form__input-text" %>
+    </div>
+    <div class="b-form__item">
+      <%= form.submit "Add", :class => "b-form__input-submit" %>
+    </div>
+<% end %>

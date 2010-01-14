@@ -2,6 +2,9 @@
 // This file is automatically included by javascript_include_tag :defaults
 
 $(document).ready(function() {
-  $(".markitup").markItUp(mySettings);
+    $('input').eq(1).focus();
+//    $(".markitup").markItUp(mySettings);
 });
+
+
 

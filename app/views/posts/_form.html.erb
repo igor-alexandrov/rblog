@@ -1,19 +1,14 @@
-<% form_for @post, :html => {:class => "b-form"} do |form| %>
+<% form.fields_for post do |p| %>
     <div class="b-form__item">
-      <%= form.label :category_id, "Choose category in which you want to write:", :class => "b-form__label g-inline" %>
-      <%= select_tag :category_id, options_for_select(@selectable_categories) %>
+      <%= p.label :category_id, "Choose category in which you want to write:", :class => "b-form__label g-inline" %>
+      <%= p.select :category_id, options_for_select(@selectable_categories) %>
     </div>
     <div class="b-form__item">
-      <%= form.label :title, "Title:" , :class => "b-form__label" %>
-      <%= form.text_field :title, :class => "b-form__input-text" %>
+      <%= p.label :title, "Title:", :class => "b-form__label" %>
+      <%= p.text_field :title, :class => "b-form__input-text b-form__input-text_bigger" %>
     </div>
     <div class="b-form__item">
-      <%= form.label :announcement, "Announcement", :class => "b-form__label" %>
-      <%= form.text_area :announcement, :class => "b-form__input-text" %>
+      <%= p.label :tag_list, "Tag list:", :class => "b-form__label" %>
+      <%= p.text_field :tag_list, :class => "b-form__input-text b-form__input-text_bigger" %>
     </div>
-    <div class="b-form__item">
-      <%= form.label :body, "Body", :class => "b-form__label" %>
-      <%= form.text_area :body, :class => "b-form__input-text" %>
-    </div>
-    <%= form.submit "Add", :class => "b-form__input-submit" %>
 <% end %>

@@ -1,0 +1,10 @@
+<% content_menu(:current_selected => "add_post") %>
+<div class="b-post-add_type">
+  Type of your new post: 
+  <%= link_to "topic", new_posts_topic_path, :class => "g-link-no-visited" %>
+  <a href="#">link</a>
+</div>
+<h1 class="g-light_gray">You are creating a new topic</h1>
+
+<%= render :partial => "form" %>
+
