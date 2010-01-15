@@ -1,14 +1,26 @@
-<% form.fields_for post do |p| %>
+<h1 class="g-light_gray">You are creating a new <%= content.class.to_s.downcase %></h1>
+
+<% form_for [:posts, content], :html => {:class => "b-form"} do |form| %>
+    <% form.fields_for post do |p| %>
+        <div class="b-form__item">
+          <%= p.label :category_id, "Choose category in which you want to write:", :class => "b-form__label g-inline" %>
+          <%= p.select :category_id, options_for_select(@selectable_categories) %>
+        </div>
+        <div class="b-form__item">
+          <%= p.label :title, "Title:", :class => "b-form__label" %>
+          <%= p.text_field :title, :class => "b-form__input-text b-form__input-text_bigger" %>
+        </div>
+        <div class="b-form__item">
+          <%= p.label :tag_list, "Tag list:", :class => "b-form__label" %>
+          <%= p.text_field :tag_list, :class => "b-form__input-text b-form__input-text_bigger" %>
+        </div>
+    <% end %>
+
+    <%= render :partial => "posts/#{content.class.to_s.downcase.pluralize}/form", :locals => {:form => form, :content => content} %>
+
     <div class="b-form__item">
-      <%= p.label :category_id, "Choose category in which you want to write:", :class => "b-form__label g-inline" %>
-      <%= p.select :category_id, options_for_select(@selectable_categories) %>
-    </div>
-    <div class="b-form__item">
-      <%= p.label :title, "Title:", :class => "b-form__label" %>
-      <%= p.text_field :title, :class => "b-form__input-text b-form__input-text_bigger" %>
-    </div>
-    <div class="b-form__item">
-      <%= p.label :tag_list, "Tag list:", :class => "b-form__label" %>
-      <%= p.text_field :tag_list, :class => "b-form__input-text b-form__input-text_bigger" %>
+      <%= form.submit "Add", :class => "b-form__input-submit" %>
     </div>
 <% end %>
+
+

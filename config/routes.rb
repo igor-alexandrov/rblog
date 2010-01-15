@@ -7,6 +7,7 @@ ActionController::Routing::Routes.draw do |map|
 
   map.namespace:posts, :path_prefix => "p" do |post|
     post.resources :topics
+    post.resources :links
   end
 
   map.resources :categories, :as => "c"
