@@ -2,3 +2,6 @@ development:
   general:
     blog_name: RBlog Sample. Keep it simple!
     blog_email: igor.alexandrov@gmail.com
+  content_menu:
+    show: true
+    elements: [:add_post, :posts, :comments, :users]

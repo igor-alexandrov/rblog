@@ -1,7 +1,3 @@
 <% content_menu(:current_selected => "add_post") %>
-<div class="b-post-add_type">
-  Type of your new post:
-  <%= link_to "topic", new_posts_topic_path, :class => "g-link-no-visited" %>
-  <%= link_to "link", new_posts_link_path, :class => "g-link-no-visited" %>
-</div>
+<% post_type_menu(:current_selected => "link") %>
 <%= render :partial => "posts/form", :locals => {:post => @post, :content => @link } %>

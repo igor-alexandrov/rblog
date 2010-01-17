@@ -13,9 +13,29 @@ admin_user = User.new do |user|
   user.login = "admin"
   user.password = "admin"
   user.password_confirmation = "admin"
+  user.email = "admin@example.com"
+  user.first_name = "Admin"
+  user.last_name = "Admin"
+  user.date_of_birth = Date.today
+  user.role = "ADMIN"
+  
 end
 
 admin_user.save
+
+igor_user = User.new do |user|
+  user.login = "igor"
+  user.password = "igor"
+  user.password_confirmation = "igor"
+  user.email = "alexandrov@connectify.ru"
+  user.first_name = "Igor"
+  user.last_name = "Alexandrov"
+  user.date_of_birth = Date.today
+  user.role = "GENERAL"
+end
+
+igor_user.save
+
 
 fake_comment = Comment.find( :first, :conditions => "id=0" )
 if fake_comment.nil?

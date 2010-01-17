@@ -1,1 +1,29 @@
 <% content_menu(:current_selected => "users" ) %>
+<div class="b-user-table-wrapper">
+  <table class="b-user-table">
+    <thead>
+    <tr>
+      
+      <th></th>
+      <th class="g-light_gray">Reputation</th>
+      <th class="g-light_gray">Power</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% for user in @users %>
+        <tr>
+
+          <td>
+            <dl>
+              <dt><%= link_to user.login, user_path(user.login), :class => "g-link-no-visited"%></dt>
+              <dd><%= user.short_name %></dd>
+              <dd>Registered: <%= user.created_at.strftime("%d, %B %Y, %H:%M") %></dd>
+            </dl>
+          </td>
+          <td class="b-reputation-value"><%= user.reputation %></td>
+          <td class="b-power-value"><%= user.power %></td>
+        </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>

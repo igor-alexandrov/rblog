@@ -1,0 +1,9 @@
+<ul class="b-post-type-menu">
+  <span class="g-font-bigger">Type of your new post:</span>
+  <li class="b-post-type-menu__item <%= 'b-post-type-menu__item__current"' if options[:current_selected] == 'topic' %>">
+    <%= link_to "topic", new_posts_topic_path, :class => "g-link-no-visited g-font-bigger" %>
+  </li>
+  <li class="b-post-type-menu__item <%= 'b-post-type-menu__item__current"' if options[:current_selected] == 'link' %>">
+    <%= link_to "link", new_posts_link_path, :class => "g-link-no-visited g-font-bigger" %>
+  </li>
+</ul>

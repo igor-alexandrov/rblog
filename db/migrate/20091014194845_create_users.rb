@@ -13,10 +13,24 @@ class CreateUsers < ActiveRecord::Migration
       t.string :last_login_ip
       t.string :current_login_ip
 
+      t.string :last_name, :null => false
+      t.string :first_name, :null => false
+      t.string :middle_name
+
+      t.string :role
+
+      t.string :email
+
+      t.date :date_of_birth
+
+      t.string :gender
+
       t.integer :posts_count, :default => 0
       t.integer :comments_count, :default => 0
 
-      t.integer :reputation, :default => 0
+      t.integer :reputation, :default => 1
+      t.integer :power, :default => 1
+
     end
 
     add_index :users, :login

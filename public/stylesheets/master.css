@@ -1,12 +1,12 @@
 html,
-body, img, ul, li, a, p, span, h1, h2, h3, h4 {
+body, img, ul, li, a, p, span, dl, dt, dd, h1, h2, h3, h4 {
     margin: 0;
     padding: 0;
     border: 0;
 }
 
 body {
-    font-size: 80%;
+    font-size: 13px;
     line-height: 1.25em;
     font-family: Arial, Verdana, sans-serif;
 
@@ -29,7 +29,7 @@ a:hover {
 
 h1 {
     font-size: 240%;
-    margin: 20px 0;
+    margin: 10px 0;
     line-height: 30px;
 }
 
@@ -112,10 +112,8 @@ h2 {
     list-style-type: none;
     display: inline;
     font-size: 200%;
-    padding: 7px 10px 7px 14px;
-    /*border-bottom: 2px solid #fd8a51;*/
+    padding: 7px 10px 7px 14px; /*border-bottom: 2px solid #fd8a51;*/
     border-bottom: 2px solid #0F8925;
-
 
 }
 
@@ -123,15 +121,28 @@ h2 {
     border: 2px solid #0F8925;
     border-bottom: 0;
     padding-bottom: 9px;
-    
-    
+
 }
 
-.b-content-menu__post_add__link{
+.b-content-menu__post_add__link {
     background: url("/images/add_post_32.png") no-repeat left center;
     padding: 20px 0 20px 40px;
     font-weight: bold;
 
+}
+
+.b-post-type-menu {
+
+}
+
+.b-post-type-menu__item {
+    padding: 0 5px;
+    display: inline;
+    list-style-type: none;
+}
+
+.b-post-type-menu__item__current {
+    font-weight: bold;
 }
 
 .b-content-posts__item {
@@ -236,12 +247,20 @@ h2 {
 }
 
 .b-post__comments_list {
+    padding-left: 15px;
     margin: 10px 0;
-    list-style-type: none;
+    list-style-type: circle;
 }
 
 .b-post__comments_list__nested {
+    padding-left: 0;
     margin-left: 25px;
+    list-style-type: none;
+}
+
+.b-comment__creation_date {
+    font-weight: bold;
+    font-size: 90%;
 }
 
 .b-captcha_display {
@@ -255,12 +274,23 @@ h2 {
 .b-form {
     background-color: #EEEEEE;
     -moz-border-radius: 5px;
-    border-radius: 5px;    
+    border-radius: 5px;
+    padding: 7px 0;
 }
 
 .b-form__item {
-    padding: 5px 10px;
+    padding: 3px 10px;
 }
+
+.b-form__item_legend {
+    font-style: italic;
+    font-size: 90%;
+}
+
+.b-form__item_legend__example {
+    font-weight: bold;
+}
+
 .b-form__label {
     font-weight: bold;
     display: block;
@@ -279,6 +309,43 @@ h2 {
     padding: 5px 20px;
 }
 
+.b-user-table-wrapper {
+
+}
+
+.b-user-table {
+    width: 100%;
+}
+
+.b-user-table th {
+    font-size: 120%;
+}
+
+.b-user-table th, td {
+    text-align: left;
+}
+
+.b-user-table td {
+    padding: 0 0 25px 0;
+}
+
+.b-user-table dt {
+    font-weight: bold;
+    font-size: 120%;
+    padding: 0 0 6px 0
+}
+
+.b-user-table .b-reputation-value {
+    font-size: 120%;
+    font-weight: bold;
+    color: #0F8925;
+}
+
+.b-user-table .b-power-value {
+    font-size: 120%;
+    font-weight: bold;
+    color: #0F8925;
+}
 
 .g-align__right {
     float: right;
@@ -325,6 +392,10 @@ h2 {
 
 .g-inline {
     display: inline;
+}
+
+.g-font-bigger {
+    font-size: 120%;
 }
 
 .b-copyright {

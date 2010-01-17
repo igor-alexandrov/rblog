@@ -25,11 +25,17 @@
     }, :as => :comment %>
   </ul>
   <%# end %>
+
   <div id="add_comment">
-    <h3>
-      <%= link_to_remote 'Add comment', {:url => { :controller => "comments", :action => "new", :post_id => @post.id,
-                                                   :parent_comment_id => 0}, :method => "get", }, :href => new_post_comment_url(@post, :anchor => "new_comment") %>
-    </h3>
-    <%= render :partial => "comments/form" %>
+    <% if can? :create, Comment %>
+        <h3>
+          <%= link_to_remote 'Add comment', {:url => { :controller => "comments", :action => "new", :post_id => @post.id,
+                                                       :parent_comment_id => 0}, :method => "get", }, :href => new_post_comment_url(@post, :anchor => "new_comment") %>
+        </h3>
+        <%= render :partial => "comments/form" %>
+    <% else %>
+        You cannot create comments right now, try to login first.
+    <% end %>
   </div>
+
 </div>

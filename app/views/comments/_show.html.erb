@@ -1,26 +1,27 @@
-<%= content_tag(:a ,"",:name => dom_id(comment)) %>
+<%= content_tag(:a, "", :name => dom_id(comment)) %>
 <% content_tag(:li, :id => dom_id(comment), :class => "#{dom_id(comment.parent_comment)}_child" ) do %>
-   <% div_for(comment) do%>
-      <span class="author"><%= comment.commenter_name%></span>
-      <span class="date"><%= comment.created_at.strftime("%d %B %Y, %H:%M") %></span>
-      <span class="permalink"><%= link_to '#', "##{dom_id(comment)}", :title => "direct link to this comment" %></span>
-      <% unless comment.parent_comment_id == 0 %>
-         <span class="permalink"><%= link_to '⇧', "##{dom_id(comment.parent_comment)}", :title => "direct link to parent comment" %></span>
-      <% end %>
-      <div class="content">
-         <%= comment.body %>
-      </div>
+    <% div_for(comment) do %>
+        <span class="author"><%= link_to comment.commenter_name, user_path(comment.author.login) %></span>
+        <span class="b-comment__creation_date g-light_gray"><%= comment.created_at.strftime("%d %B %Y, %H:%M") %></span>
+        <span class="permalink"><%= link_to '#', "##{dom_id(comment)}", :title => "direct link to this comment" %></span>
+        <% unless comment.parent_comment_id == 0 %>
+            <span class="permalink"><%= link_to '⇧', "##{dom_id(comment.parent_comment)}", :title => "direct link to parent comment" %></span>
+        <% end %>
+        <div class="content">
+          <%= comment.body %>
+        </div>
 
-      <%= link_to_remote content_tag(:span, "reply", :class => "g-javascript_link__value"),
-                         {:url =>
-                                 { :controller => "comments", :action => "new", :post_id => comment.post_id, :parent_comment_id =>comment.id}, :method => "get", },
-                            {:href => new_post_comment_url(@post, :parent_comment_id => comment.id, :anchor => dom_id(comment)), :class => "g-javascript_link", :title => "reply to this comment" }%>
-
-   <% end %>
-   <% content_tag(:ul, :id => "#{dom_id(comment)}_children", :class => "b-post__comments_list b-post__comments_list__nested" ) do %>
-      <%= render :partial => "comments/show" , :collection => comment.comments, :as => :comment %>
-      <% if @comment.parent_comment_id == comment.id %>
-         <%= render :partial => "comments/form" %>
-      <% end %>
-   <% end %>
+        <% if can? :create, Comment %>
+            <%= link_to_remote content_tag(:span, "reply", :class => "g-javascript_link__value"),
+                               {:url =>
+                                       { :controller => "comments", :action => "new", :post_id => comment.post_id, :parent_comment_id =>comment.id}, :method => "get", },
+                               {:href => new_post_comment_url(@post, :parent_comment_id => comment.id, :anchor => dom_id(comment)), :class => "g-javascript_link", :title => "reply to this comment" } %>
+        <% end %>
+    <% end %>
+    <% content_tag(:ul, :id => "#{dom_id(comment)}_children", :class => "b-post__comments_list b-post__comments_list__nested" ) do %>
+        <%= render :partial => "comments/show", :collection => comment.comments, :as => :comment %>
+        <% if @comment.parent_comment_id == comment.id %>
+            <%= render :partial => "comments/form" %>
+        <% end %>
+    <% end %>
 <% end %>

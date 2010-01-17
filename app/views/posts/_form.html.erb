@@ -1,4 +1,4 @@
-<h1 class="g-light_gray">You are creating a new <%= content.class.to_s.downcase %></h1>
+<h1 class="g-light_gray">You are creating a new ‹‹<%= content.class.to_s.downcase %>››</h1>
 
 <% form_for [:posts, content], :html => {:class => "b-form"} do |form| %>
     <% form.fields_for post do |p| %>
@@ -10,13 +10,19 @@
           <%= p.label :title, "Title:", :class => "b-form__label" %>
           <%= p.text_field :title, :class => "b-form__input-text b-form__input-text_bigger" %>
         </div>
-        <div class="b-form__item">
-          <%= p.label :tag_list, "Tag list:", :class => "b-form__label" %>
-          <%= p.text_field :tag_list, :class => "b-form__input-text b-form__input-text_bigger" %>
-        </div>
     <% end %>
 
     <%= render :partial => "posts/#{content.class.to_s.downcase.pluralize}/form", :locals => {:form => form, :content => content} %>
+
+    <% form.fields_for post do |p| %>
+        <div class="b-form__item">
+          <%= p.label :tag_list, "Tag list:", :class => "b-form__label" %>
+          <%= p.text_field :tag_list, :class => "b-form__input-text b-form__input-text_bigger" %>
+          <small class="b-form__item_legend">You should divide tags with comma. For example
+            <span class="b-form__item_legend__example">"ruby on rails, programming, russia"</span>.
+          </small>
+        </div>
+    <% end %>
 
     <div class="b-form__item">
       <%= form.submit "Add", :class => "b-form__input-submit" %>

@@ -36,4 +36,8 @@ module ApplicationHelper
     content_for(:content_menu, render( :partial => "shared/content_menu", :locals => {:options => options} ))
   end
 
+  def post_type_menu( options = {} )
+    content_for(:post_type_menu, render( :partial => "shared/post_type_menu", :locals => {:options => options} ))
+  end
+
 end

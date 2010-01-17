@@ -1,4 +1,6 @@
 class CommentsController < ApplicationController
+  before_filter :check_for_abilities_to_create, :only => [:new, :create]
+
   def index
     
   end
@@ -43,5 +45,10 @@ class CommentsController < ApplicationController
         
       end
     end
+  end
+
+  private
+  def check_for_abilities_to_create
+    unauthorized! if cannot? :create, Comment
   end
 end

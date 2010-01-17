@@ -1,4 +1,4 @@
-class Posts::TopicsController < ApplicationController
+class Posts::TopicsController < PostsController
   def index
     @posts = Post.topics.find(:all)
   end
@@ -16,14 +16,12 @@ class Posts::TopicsController < ApplicationController
 
     @topic = Topic.new(params[:topic])
     if @topic.save
-      puts "!!!!!!!"
-      puts @topic
-
       @post.content = @topic
       if @post.save
         @post.publish!
         redirect_to root_url
       else
+        @topic.delete
         @selectable_categories = Category.all.collect{ |c| [c.title, c.id] }
         render :action => :new
       end

@@ -18,7 +18,9 @@ ActionController::Routing::Routes.draw do |map|
 
   map.posts_tag "/t/:name", :controller => "tags", :action => "show"
 
+
   map.resources :users, :as => "u"
+
   map.profile "/profile", :controller => "users", :action => "profile"
 
   map.root :controller => "home"
