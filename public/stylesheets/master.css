@@ -158,6 +158,9 @@ h2 {
 .b-post__content_preview {
     margin: 10px 0 10px 10px
 }
+.b-bost__content_type_image {
+    vertical-align: middle;    
+}
 
 .b-post__read_all_link {
     margin-top: 10px;
@@ -303,6 +306,11 @@ h2 {
     font-weight: bold;
 }
 
+.b-form__item_legend__warning {
+    color: #fd8a51;
+    font-weight: bold;
+}
+
 .b-form__label {
     font-weight: bold;
     display: block;
@@ -314,6 +322,10 @@ h2 {
 
 .b-form__input-text_bigger {
     font-size: 160%;
+}
+
+.b-form__input-text_short {
+    height: 100px;
 }
 
 .b-form__input-submit {

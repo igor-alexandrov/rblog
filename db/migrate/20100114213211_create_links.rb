@@ -3,6 +3,7 @@ class CreateLinks < ActiveRecord::Migration
     create_table :links do |t|
       t.text :description, :null => false
       t.string :url, :null => false
+      t.string :text, :null => false
     end
   end
 

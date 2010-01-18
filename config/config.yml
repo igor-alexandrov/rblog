@@ -5,3 +5,7 @@ development:
   content_menu:
     show: true
     elements: [:add_post, :posts, :comments, :users]
+  posts:
+    topic:
+      description:
+        maximum_length: 500

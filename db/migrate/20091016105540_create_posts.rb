@@ -15,7 +15,7 @@ class CreatePosts < ActiveRecord::Migration
             t.timestamps
         end
 
-        add_index :posts, :permalink
+        add_index :posts, :permalink, :unique => true
         add_index :posts, :category_id
         add_index :posts, :author_id
         add_index :posts, :rating

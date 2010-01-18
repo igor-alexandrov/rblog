@@ -125,3 +125,19 @@ second_post = Post.new do |p|
 end
 second_post.save
 second_post.publish!
+
+first_link = Link.new do |l|
+  l.url = "http://www.connectify.ru"
+  l.text = "www.connectify.ru"
+  l.description = "Клёвые ребята! Делают отличные вещи на Рельсе."
+end
+
+third_post = Post.new do |p|
+    p.title = "www.connectify.ru"
+    p.content = first_link
+    p.category = category
+    p.author = admin_user
+  p.tag_list = "программирование"
+end
+third_post.save
+third_post.publish!

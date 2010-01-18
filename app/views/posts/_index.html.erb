@@ -5,6 +5,9 @@
         <h2>
           <%= link_to post.category.title, category_path(post.category), :class => "g-link-no-visited" %>
           ⇨
+          <% if File.exist?(RAILS_ROOT + "/public/images/posts/#{post.content.class.to_s.downcase}.png") %>
+              <%= image_tag "posts/#{post.content.class.to_s.downcase}.png", :class => "b-bost__content_type_image" %>
+          <% end %>
           <%= link_to post.title, post_path( post) %>
         </h2>
 
