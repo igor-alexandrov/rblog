@@ -11,11 +11,15 @@
 <div class="b-post__parameters">
   <div class="b-post__paramameters__item b-post__rating g-light_gray">
     rating:
-    <%= link_to_remote content_tag(:span, "good", :class => "g-javascript_link__value"), :url => increase_post_rating_url(post.id), :method => "post", :html => {:title => "you like this post", :class => "b-post__rating__increase g-javascript_link"} %>
+    <% if can? :change_rating_for, post %>
+        <%= link_to_remote content_tag(:span, "good", :class => "g-javascript_link__value"), :url => increase_post_rating_url(post.id), :method => "post", :html => {:title => "you like this post", :class => "b-post__rating__increase g-javascript_link"} %>
+    <% end %>
     <span id="<%= dom_id(post) %>__rating__value" class="b-post__rating__value">
         <%= post.rating %>
     </span>
-    <%= link_to_remote content_tag(:span, "bad", :class => "g-javascript_link__value"), :url => decrease_post_rating_url(post.id), :method => "post", :html => {:title => "you don't like this post", :class => "b-post__rating__decrease g-javascript_link"} %>
+    <% if can? :change_rating_for, post %>
+        <%= link_to_remote content_tag(:span, "bad", :class => "g-javascript_link__value"), :url => decrease_post_rating_url(post.id), :method => "post", :html => {:title => "you don't like this post", :class => "b-post__rating__decrease g-javascript_link"} %>
+    <% end %>
   </div>
   <div class="b-post__paramameters__item b-post__author_login g-light_gray ">
     author:

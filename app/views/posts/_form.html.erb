@@ -1,4 +1,8 @@
-<h1 class="g-light_gray">You are creating a new ‹‹<%= content.class.to_s.downcase %>››</h1>
+<% if post.new_record? %>
+    <h1 class="g-light_gray">You are creating a new ‹‹<%= content.class.to_s.downcase %>››</h1>
+<% else %>
+    <h1 class="g-light_gray">You are editing a ‹‹<%= content.class.to_s.downcase %>›› #<%= post.id %></h1>
+<% end %>
 
 <% form_for [:posts, content], :html => {:class => "b-form"} do |form| %>
     <% form.fields_for post do |p| %>

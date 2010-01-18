@@ -6,7 +6,10 @@
 </div>
 <h2 class="g-light_gray"><%= @post.title %></h2>
 
-<%= link_to "Edit this #{@post.content.class.to_s.downcase}", edit_post_path(@post.id), :class => "b-post-edit_link" %>
+<%# Editing of post only allowed to registered users and only if current_user == @post.author %>
+<% if can? :edit, @post %>
+    <%= link_to "Edit this #{@post.content.class.to_s.downcase}", edit_post_path(@post.id), :class => "b-post-edit_link g-link-no-visited" %>
+<% end %>
 <p class="b-post__announcement g-indent">
   <%= @post.content.announcement %>
 </p>

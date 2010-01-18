@@ -1,9 +1,8 @@
 ActionController::Routing::Routes.draw do |map|
 
-  #map.resources :posts do |post|
-  #  post.resources :comments, :member => {:comment => :get, :post => :post}
-  #  post.new_comment '/comments/new/:comment_id', :controller => 'comments', :action => 'new'
-  #end
+  map.login 'login', :controller => 'user_sessions', :action => 'new', :conditions => { :method => :get }
+  map.user_session "login", :controller => "user_sessions", :action => "create", :conditions => { :method => :post }
+  map.logout 'logout', :controller => 'user_sessions', :action => 'destroy'
 
   map.namespace:posts, :path_prefix => "p" do |post|
     post.resources :topics
@@ -27,9 +26,8 @@ ActionController::Routing::Routes.draw do |map|
 
   map.namespace :admin do |admin|
     admin.root :controller => 'home', :action => 'index'
-    admin.resource :user_session
-    admin.login 'login', :controller => 'user_sessions', :action => 'new'
-    admin.logout 'logout', :controller => 'user_sessions', :action => 'destroy'
+#    admin.resource :user_session
+
     admin.resources :users
 
     admin.resources :posts

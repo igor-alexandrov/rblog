@@ -14,10 +14,13 @@ class PostsController < ApplicationController
 
   def edit
     @post = Post.find(params[:id])
+    unauthorized! if cannot? :edit, @post
+
     @selectable_categories = Category.all.collect{ |c| [c.title, c.id] }
   end
 
   def increase_rating
+    unauthorized! if cannot? :change_rating_for, Post
     Post.increment_counter(:rating, params[:id] )
     @post = Post.find(params[:id])
     respond_to do |format|
@@ -26,8 +29,9 @@ class PostsController < ApplicationController
   end
 
   def decrease_rating
+    unauthorized! if cannot? :change_rating_for, Post
     Post.decrement_counter(:rating, params[:id] )
-    @post = Post.find(params[:id])    
+    @post = Post.find(params[:id])
     respond_to do |format|
       format.js
     end

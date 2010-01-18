@@ -1,0 +1,26 @@
+<% form_for @user_session, :url => user_session_path do |f| %>
+    <div class="b-form__item">
+     <%= error_messages_for(   :user_session,
+                            :id => "error_explanation",
+                            :class => "b-form_errors g-light_gray",
+                            :header_message => "Oupss...",
+                            :message => ""
+  ) %>
+    </div>
+    <div class="b-form__item">
+      <%= f.label :login, "Login", :class => "b-form__label g-light_gray" %>
+      <%= f.text_field :login, :class => "b-form__input-text_bigger"%>
+    </div>
+
+    <div class="b-form__item">
+      <%= f.label :password, "Password", :class => "b-form__label g-light_gray" %>
+      <%= f.password_field :password, :class => "b-form__input-text_bigger" %>
+    </div>
+    <div class="b-form__item">
+      <%= f.check_box :remember_me %>
+      <%= f.label :remember_me, "Remember me", :class => "b-form__label g-inline g-light_gray"%>
+    </div>
+    <div class="b-form__item">
+      <%= f.submit "Let me enter!", :class => "b-form__input-submit" %>
+    </div>
+<% end %>

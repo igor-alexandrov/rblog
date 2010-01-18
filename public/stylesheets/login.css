@@ -1,0 +1,118 @@
+html,
+body, img, ul, li, a, p, span, dl, dt, dd, h1, h2, h3, h4 {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+body {
+    font-size: 13px;
+    line-height: 1.25em;
+    font-family: Arial, Verdana, sans-serif;
+
+    color: #121212;
+    background: #fff;
+}
+
+a {
+    color: #0095d3;
+    text-decoration: underline;
+}
+
+a:visited {
+    color: #8cc2d8;
+}
+
+a:hover {
+    color: #fd8a51 ! important;
+}
+
+h1 {
+    padding: 15px 0;
+    line-height: 30px;
+}
+
+h2 {
+    padding: 10px 0;
+}
+
+.h-padding {
+    padding: 20px 40px;
+}
+
+.b-content {
+    height: 100%;
+    width: 100%;
+    padding: 100px 0;
+}
+
+.b-content__left {
+    float: left;
+    width: 33%;
+    text-align: right;
+    padding-right: 40px;
+
+}
+
+.b-content__right {
+    float: left;
+    border-left: 1px dashed #555555;
+    padding-left: 40px;
+}
+
+.b-footer {
+    border-top: 2px solid #555555;
+    padding-top: 20px;
+    margin-top: 10px;
+    float: left;
+    width: 100%;
+}
+
+.b-form__item {
+    padding: 7px 10px;
+}
+
+.b-form_errors {
+
+}
+
+.b-form_errors ul {
+    list-style-type: none;
+}
+
+.b-form_errors li {
+    font-size: 120%;
+    color: #fd8a51;
+}
+
+.b-form__label {
+/*font-weight: bold;*/
+    display: block;
+    font-size: 140%;
+    padding: 0 0 2px 0
+}
+
+.b-form__input-text_bigger {
+    font-size: 200%;
+}
+
+.b-form__input-submit {
+    font-size: 160%;
+    padding: 5px 20px;
+}
+
+.g-align__right {
+    float: right;
+}
+
+.g-align__left {
+    float: left;
+}
+
+.g-light_gray {
+    color: #555555;
+}
+
+.g-inline {
+    display: inline;
+}

@@ -11,13 +11,13 @@
         <span class="b-user_name">
             <%= current_user.login %>
         </span>
-        (<%= link_to "logout", admin_logout_path %>)
+        (<%= link_to "logout", logout_path %>)
         <br>
         <span class="g-light_gray"> settings: </span> <a href="#">profile</a>
       </div>
   <% else %>
       <div class="b-account_information g-align__right g-one_line">
-      <%= link_to "login", admin_login_path %>
+      <%= link_to "login", login_path %>
       or
       </div>
   <% end %>
