@@ -25,7 +25,8 @@
     <% end %>
 
     <div class="b-form__item">
-      <%= form.submit "Add", :class => "b-form__input-submit" %>
+      <%= form.submit "#{form.object.new_record? ? 'Add' : 'Update'}", :class => "b-form__input-submit" %>
+      or <%= link_to "cancel", root_path %>
     </div>
 <% end %>
 

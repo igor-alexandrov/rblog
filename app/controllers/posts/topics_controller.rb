@@ -29,7 +29,9 @@ class Posts::TopicsController < PostsController
       @selectable_categories = Category.all.collect{ |c| [c.title, c.id] }
       render :action => :new
     end
+  end
 
+  def update
 
   end
 end

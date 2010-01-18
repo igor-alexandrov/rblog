@@ -4,7 +4,7 @@ class Topic < ActiveRecord::Base
   has_one :post, :as => :content, :dependent => :destroy
 
   def text
-    "" ||+ self.announcement + self.body
+    self.announcement.to_s + "\n\n<cut>Read all</cut>\n\n" + self.body.to_s
   end
 
   def text=(value)

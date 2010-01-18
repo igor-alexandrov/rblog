@@ -1,10 +1,12 @@
 <% title "RBlog ‒ " + @post.title %>
-<% content_menu %>
-
-<h1 class="g-light_gray"><%= @post.title %></h1>
+<% content_menu(:current_selected => "posts") %>
+<div class="b-post__category g-light_gray"><%= @post.category.title %></div>
 <div class="b-post__publish_date g-light_gray">
   <%= @post.created_at.strftime("%d, %B %Y, %H:%M") %>
 </div>
+<h2 class="g-light_gray"><%= @post.title %></h2>
+
+<%= link_to "Edit this #{@post.content.class.to_s.downcase}", edit_post_path(@post.id), :class => "b-post-edit_link" %>
 <p class="b-post__announcement g-indent">
   <%= @post.content.announcement %>
 </p>

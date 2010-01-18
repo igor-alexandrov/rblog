@@ -233,7 +233,19 @@ h2 {
     padding-left: 20px;
     padding-top: 2px;
     padding-bottom: 2px;
-    background: url("/images/comments.png") no-repeat left center
+    background: url("/images/comments.png") no-repeat left center;
+}
+
+.b-post-edit_link {
+    background: url("/images/edit_post_16.png") no-repeat left center;
+    padding: 5px 0 5px 20px;
+    font-size: 110%;
+}
+
+.b-post__category {
+    font-size: 200%;
+    font-weight: bold;
+    margin-bottom: 5px;
 }
 
 .b-post__announcement {
@@ -249,7 +261,7 @@ h2 {
 .b-post__comments_list {
     padding-left: 15px;
     margin: 10px 0;
-    list-style-type: circle;
+    list-style-type: square;
 }
 
 .b-post__comments_list__nested {

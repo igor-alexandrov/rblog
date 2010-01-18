@@ -9,6 +9,12 @@ class PostsController < ApplicationController
     @post = Post.find_by_permalink(params[:id], :include => :comments)
     @comment = Comment.new
     @comment.post = @post
+
+  end
+
+  def edit
+    @post = Post.find(params[:id])
+    @selectable_categories = Category.all.collect{ |c| [c.title, c.id] }
   end
 
   def increase_rating
