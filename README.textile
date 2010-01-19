@@ -5,16 +5,34 @@ h2. In English
 h3. News
 * 11.01.2010 working hardly on 0.3 release. It will have a lot of new tasty features.
 
-h3. Features
+h3. Whan can you do with RBlog.
 
-Every day new features appear in RBlog.  Now the main of them are:
-* fast and powerfull;
+Every day new features appear in RBlog. We are working hardly to give you the most powerful and advanced RoR blog engine.
+h4. Manage your content easy!
+
+You don't need to enter admin side to create new post. Do it from index page easy and fast!
+
+All content in RBlog is divided into different types. Each type has it's own great features.
+
+Now RBlog supports two types of content:
+* Topic; topic is the most common type of your post. You can write in it everything you want. 
+* Link; link is a small post, that points to some other resource in Internet. Link has a description (length of description can be set in config.yml file) and url.
+It is very useful, when you want to save some interesting material or make a cross-posting.
+
+It is very easy to add new type of content to RBlog. And in some upcoming releases we will add some new types. If you have any offers, contact us please.
+
+h4. RBlog is fast and powerful.
+
+As you know RBlog is written with Ruby on Rails. By using this technology we can add new features very easy.
+RBlog has some great features like:
 * nested comments in posts (they work with or without javascript). First level comments are highlighted with special mark, so they are easy to find;
-* CCS-based capcha for unregistered users in comments (simple and easy to read)
-* nested pages with human readable permalinks (@[your_domain]/about@ will refer to about page, @[your_domain]/about/clients@ will refer to your clients page and etc.). Create as many pages, as you want! Thanks to Alexander Borisov;
-* post are taggable;
-* user friendly admin side;
-* easy migration from Wordpress.
+* nested pages with human readable permalinks (@[your_domain]/about@ will refer to about page, @[your_domain]/about/clients@ will refer to your clients page and etc.). Create as many pages, as you want! Thanks to Alexander Borisov;;
+* post are taggable, so you can organize your information better;
+
+h4. Migrate from WordPress.
+Now WordPress migration is under heavy development.
+
+You want to migrate from other blog engine? Contact us and we will do it for you!
 
 h3. Screenshots
 
