@@ -14,9 +14,9 @@
         <div class="b-post__publish_date g-light_gray">
           <%= post.created_at.strftime("%d, %B %Y, %H:%M") %>
         </div>
-        <p class="b-post__content_preview g-indent">
+        <div class="b-post-content_preview g-indent">
           <%= render :partial => "posts/#{post.content.class.to_s.downcase.pluralize}/content_preview", :locals => {:post => post} %>
-        </p>
+        </div>
 
         <%= render :partial => "posts/post_details", :locals => { :post => post, :options => options } %>
       </li>

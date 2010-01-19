@@ -10,13 +10,9 @@
 <% if can? :edit, @post %>
     <%= link_to "Edit this #{@post.content.class.to_s.downcase}", edit_post_path(@post.id), :class => "b-post-edit_link g-link-no-visited" %>
 <% end %>
-<p class="b-post__announcement g-indent">
-  <%= @post.content.announcement %>
-</p>
-
-<p class="b-post__body g-indent">
-  <%= @post.content.body %>
-</p>
+<div class="b-post-content g-indent">
+  <%= render :partial => "posts/#{@post.content.class.to_s.downcase.pluralize}/show", :locals => {:content => @post.content} %>
+</div>
 
 <%= render :partial => "posts/post_details", :locals => { :post => @post, :options => {:no_comments_count => true}} %>
 

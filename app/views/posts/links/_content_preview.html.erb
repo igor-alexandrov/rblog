@@ -1,2 +1,6 @@
-<%= post.content.description %>
-<%= link_to post.content.text, post.content.url, :target => "_blank" %>
+<div class="b-posts__link__description">
+  <%= post.content.description %>
+</div>
+<br>
+<%= link_to post.content.text, post.content.url, :target => "_blank", :class => "b-posts__link__url" %>
+
