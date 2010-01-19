@@ -8,6 +8,7 @@ h3. News
 h3. Whan can you do with RBlog.
 
 Every day new features appear in RBlog. We are working hardly to give you the most powerful and advanced RoR blog engine.
+
 h4. Manage your content easy!
 
 You don't need to enter admin side to create new post. Do it from index page easy and fast!
@@ -15,13 +16,12 @@ You don't need to enter admin side to create new post. Do it from index page eas
 All content in RBlog is divided into different types. Each type has it's own great features.
 
 Now RBlog supports two types of content:
-* Topic; topic is the most common type of your post. You can write in it everything you want. 
-* Link; link is a small post, that points to some other resource in Internet. Link has a description (length of description can be set in config.yml file) and url.
-It is very useful, when you want to save some interesting material or make a cross-posting.
+* *Topic*. Topic is the most common type of your post. You can write in it everything you want. 
+* *Link*. Link is a small post, that points to some other resource in Internet. Link has a description (length of description can be set in config.yml file) and url. It is very useful, when you want to save some interesting material or make a cross-posting.
 
-It is very easy to add new type of content to RBlog. And in some upcoming releases we will add some new types. If you have any offers, contact us please.
+It is very easy to add new types of content to RBlog. And in some upcoming releases we will add some new types. If you have any offers, contact us please.
 
-h4. RBlog is fast and powerful.
+h4. Bring speed and power to your posts.
 
 As you know RBlog is written with Ruby on Rails. By using this technology we can add new features very easy.
 RBlog has some great features like:
@@ -30,6 +30,7 @@ RBlog has some great features like:
 * post are taggable, so you can organize your information better;
 
 h4. Migrate from WordPress.
+
 Now WordPress migration is under heavy development.
 
 You want to migrate from other blog engine? Contact us and we will do it for you!
