@@ -9,7 +9,13 @@ class PostsController < ApplicationController
     @post = Post.find_by_permalink(params[:id], :include => :comments)
     @comment = Comment.new
     @comment.post = @post
+  end
 
+  def show_by_id
+    @post = Post.find(params[:id])
+    if @post
+      redirect_to post_path(@post.permalink)
+    end
   end
 
   def edit

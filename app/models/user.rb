@@ -3,6 +3,9 @@ class User < ActiveRecord::Base
     c.logged_in_timeout = 30.minutes
   end
 
+# RBlog must be secure! So we allow mass-assignments only for these fields   
+  attr_accessible :login, :email, :password, :password_confirmation
+
   named_scope :by_reputation, :order => "reputation DESC"
 
   def full_name

@@ -1,0 +1,22 @@
+<% form_for @user do |f| %>
+    <%= f.error_messages %>
+    <div class="b-form__item">
+      <%= f.label :login, "Login:", :class => "b-form__label" %>
+      <%= f.text_field :login, :class => "b-form__input-text b-form__input-text_bigger" %>
+    </div>
+    <div class="b-form__item">
+      <%= f.label :email, "Email:", :class => "b-form__label" %>
+      <%= f.text_field :email, :class => "b-form__input-text b-form__input-text_bigger" %>
+    </div>
+    <div class="b-form__item">
+      <%= f.label :password, "Password:", :class => "b-form__label" %>
+      <%= f.text_field :password, :class => "b-form__input-text b-form__input-text_bigger" %>
+    </div>
+    <div class="b-form__item">
+      <%= f.label :password_confirmation, "Password Confirmation:", :class => "b-form__label" %>
+      <%= f.text_field :password_confirmation, :class => "b-form__input-text b-form__input-text_bigger" %>
+    </div>
+    <div class="b-form__item">
+      <%= f.submit "Create", :class => "b-form__input-submit" %>
+    </div>
+<% end %>

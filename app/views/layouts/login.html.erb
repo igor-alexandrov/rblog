@@ -6,7 +6,8 @@
   <meta http-equiv="content-type" content="text/html;charset=UTF-8"/>
   <title><%= h(yield(:title) || "Untitled") %></title>
   <%= stylesheet_link_tag 'login' %>
-  <%= javascript_include_tag :defaults %>
+  <%= javascript_include_tag 'jquery' %>
+  <%= javascript_include_tag 'application' %>
 </head>
 <body>
 <div class="l-container">
@@ -17,12 +18,16 @@
           <div class="b-blog_logo">
             <%= link_to image_tag("logo.png"), root_path %>
           </div>
-          <h1 class="g-light_gray">You are knocking at the door</h1>
-
-          <h1 class="g-light_gray">Type in your login and password</h1>
+          <h1 class="g-light_gray"><%= yield(:heading_h1) %></h1>
         </div>
         <div class="b-content__right">
           <%= yield :content or yield %>
+          <p>
+            <%= link_to "Register now", new_user_path, :class => "b-register_link" %>
+            <span class="b-register_text g-light_gray">, if you still don't have an account.</span>
+            <br>
+            
+          </p>
         </div>
       </div>
       <%= render :partial => "shared/footer" %>

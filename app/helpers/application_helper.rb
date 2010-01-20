@@ -40,4 +40,8 @@ module ApplicationHelper
     content_for(:post_type_menu, render( :partial => "shared/post_type_menu", :locals => {:options => options} ))
   end
 
+  def heading_h1( value )
+    content_for(:heading_h1, value)
+  end
+
 end

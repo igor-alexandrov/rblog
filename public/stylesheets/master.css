@@ -239,6 +239,10 @@ h2 {
     background: url("/images/decrease.png") no-repeat left center
 }
 
+.b-bost__twitter_image {
+    vertical-align: middle;
+}
+
 .b-post__author_login {
     font-weight: bold;
     font-size: 90%;

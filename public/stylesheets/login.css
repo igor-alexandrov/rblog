@@ -29,7 +29,7 @@ a:hover {
 
 h1 {
     padding: 15px 0;
-    line-height: 30px;
+    line-height: 60px;
 }
 
 h2 {
@@ -68,8 +68,12 @@ h2 {
     width: 100%;
 }
 
+.b-form {
+    margin: 0 0 20px 0
+}
+
 .b-form__item {
-    padding: 7px 10px;
+    padding: 7px 0;
 }
 
 .b-form_errors {
@@ -99,6 +103,14 @@ h2 {
 .b-form__input-submit {
     font-size: 160%;
     padding: 5px 20px;
+}
+
+.b-register_link {
+    font-size: 140%;
+}
+
+.b-register_text {
+    font-size: 140%;    
 }
 
 .g-align__right {

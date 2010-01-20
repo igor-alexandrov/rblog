@@ -21,6 +21,9 @@
         <%= link_to_remote content_tag(:span, "bad", :class => "g-javascript_link__value"), :url => decrease_post_rating_url(post.id), :method => "post", :html => {:title => "you don't like this post", :class => "b-post__rating__decrease g-javascript_link"} %>
     <% end %>
   </div>
+  <div class="b-post__paramameters__item b-post__twitter g-light_gray ">
+    <%= link_to image_tag("/images/twitter.png", :title => "post this post to twitter",  :class => "b-bost__twitter_image"), "http://twitter.com/home/?status=#{post_short_url(post.id)} #{post.title}" , :target => "_blank"%>
+  </div>
   <div class="b-post__paramameters__item b-post__author_login g-light_gray ">
     author:
     <% link_to post_path(post, :anchor => :comments), :title => "go to author's profile",  :class => "b-post__author_login__link" do %>

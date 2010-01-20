@@ -1,4 +1,6 @@
-<% form_for @user_session, :url => user_session_path do |f| %>
+<% heading_h1("You are knocking at the door. <br> Type in your login and password.") %>
+
+<% form_for @user_session, :url => user_session_path, :html => {:class => "b-form"} do |f| %>
     <div class="b-form__item">
      <%= error_messages_for(   :user_session,
                             :id => "error_explanation",
