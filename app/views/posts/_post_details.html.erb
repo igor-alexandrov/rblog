@@ -22,7 +22,10 @@
     <% end %>
   </div>
   <div class="b-post__paramameters__item b-post__twitter g-light_gray ">
-    <%= link_to image_tag("/images/twitter.png", :title => "post this post to twitter",  :class => "b-bost__twitter_image"), "http://twitter.com/home/?status=#{post_short_url(post.id)} #{post.title}" , :target => "_blank"%>
+    <%= link_to image_tag("/images/twitter.png", :title => "post this to twitter",  :class => "b-bost__twitter_image"), "http://twitter.com/home/?status=#{post_short_url(post.id)} #{post.title}" , :target => "_blank"%>
+  </div>
+  <div class="b-post__paramameters__item b-post__delicious g-light_gray ">
+    <%= link_to image_tag("/images/delicious.png", :title => "save this on delicious",  :class => "b-bost__delicious_image"), "http://delicious.com/save?&url=#{post_url(post.permalink)}&title=#{post.title}" , :target => "_blank"%>
   </div>
   <div class="b-post__paramameters__item b-post__author_login g-light_gray ">
     author:
