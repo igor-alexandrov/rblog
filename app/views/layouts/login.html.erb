@@ -22,12 +22,6 @@
         </div>
         <div class="b-content__right">
           <%= yield :content or yield %>
-          <p>
-            <%= link_to "Register now", new_user_path, :class => "b-register_link" %>
-            <span class="b-register_text g-light_gray">, if you still don't have an account.</span>
-            <br>
-            
-          </p>
         </div>
       </div>
       <%= render :partial => "shared/footer" %>

@@ -23,6 +23,10 @@ class Post < ActiveRecord::Base
     self.permalink
   end
 
+  def to_twitter_url
+    "http://twitter.com/home/?status=#{post_short_url(self.id)} #{self.title}"
+  end
+
   def first_level_comments
     Comment.find(:all, :conditions => {:post_id => self.id, :parent_comment_id => nil})
   end

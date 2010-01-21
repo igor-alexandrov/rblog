@@ -6,6 +6,13 @@ development:
     show: true
     elements: [:add_post, :posts, :comments, :users]
   posts:
+    external_instruments:
+      twitter:
+        use: true
+      delicious:
+        use: true
+      digg:
+        use: true
     topic:
       description:
         maximum_length: 500

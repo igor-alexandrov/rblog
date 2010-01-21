@@ -21,12 +21,21 @@
         <%= link_to_remote content_tag(:span, "bad", :class => "g-javascript_link__value"), :url => decrease_post_rating_url(post.id), :method => "post", :html => {:title => "you don't like this post", :class => "b-post__rating__decrease g-javascript_link"} %>
     <% end %>
   </div>
-  <div class="b-post__paramameters__item b-post__twitter g-light_gray ">
-    <%= link_to image_tag("/images/twitter.png", :title => "post this to twitter",  :class => "b-bost__twitter_image"), "http://twitter.com/home/?status=#{post_short_url(post.id)} #{post.title}" , :target => "_blank"%>
-  </div>
-  <div class="b-post__paramameters__item b-post__delicious g-light_gray ">
-    <%= link_to image_tag("/images/delicious.png", :title => "save this on delicious",  :class => "b-bost__delicious_image"), "http://delicious.com/save?&url=#{post_url(post.permalink)}&title=#{post.title}" , :target => "_blank"%>
-  </div>
+  <% if configatron.posts.external_instruments.twitter.use %>
+      <div class="b-post__paramameters__item b-post__twitter g-light_gray ">
+        <%= link_to_twitter post, "post this to twitter" %>
+      </div>
+  <% end %>
+  <% if configatron.posts.external_instruments.delicious.use %>
+      <div class="b-post__paramameters__item b-post__delicious g-light_gray ">
+        <%= link_to_delicious post, "save this on delicious" %>
+      </div>
+  <% end %>
+  <% if configatron.posts.external_instruments.digg.use %>
+      <div class="b-post__paramameters__item b-post__digg g-light_gray ">
+        <%= link_to_digg post, "submit this to digg" %>
+      </div>
+  <% end %>
   <div class="b-post__paramameters__item b-post__author_login g-light_gray ">
     author:
     <% link_to post_path(post, :anchor => :comments), :title => "go to author's profile",  :class => "b-post__author_login__link" do %>
