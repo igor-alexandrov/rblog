@@ -143,6 +143,7 @@ h2 {
 
 .b-post-type-menu__item__current {
     font-weight: bold;
+
 }
 
 .b-content-posts__item {
@@ -189,7 +190,13 @@ h2 {
 /* Link */
 .b-posts__link__url {
     font-size: 140%;
-    margin: 10px 10px;
+    margin: 5px 5px;
+    padding: 5px 5px;
+    border: 3px solid #DDDDDD;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+
 }
 
 /**************************************************/
@@ -317,8 +324,25 @@ h2 {
 .b-form {
     background-color: #EEEEEE;
     -moz-border-radius: 5px;
+    -moz-box-shadow: 0 0 8px rgba(0, 0, 0, 0.4);
+    -webkit-border-radius: 5px;
+    -webkit-box-shadow: 0 0 8px rgba(0, 0, 0, 0.4);
     border-radius: 5px;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.4);
     padding: 7px 0;
+}
+.b-form_errors {
+
+}
+
+.b-form_errors ul {
+    list-style-type: square;
+    color: #fd8a51;
+    font-weight: bold;
+    padding-left: 15px;
+}
+.b-form_errors li {
+    padding-top: 4px;
 }
 
 .b-form__item {

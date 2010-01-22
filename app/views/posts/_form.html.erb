@@ -1,11 +1,19 @@
-<% if post.new_record? %>
+<% if content.new_record? %>
     <h1 class="g-light_gray">You are creating a new ‹‹<%= content.class.to_s.downcase %>››</h1>
 <% else %>
-    <h1 class="g-light_gray">You are editing a ‹‹<%= content.class.to_s.downcase %>›› #<%= post.id %></h1>
+    <h1 class="g-light_gray">You are editing a ‹‹<%= content.class.to_s.downcase %>›› #<%= content.id %></h1>
 <% end %>
 
 <% form_for [:posts, content], :html => {:class => "b-form"} do |form| %>
-    <% form.fields_for post do |p| %>
+    <div class="b-form__item">
+      <%= form.error_messages :id => "error_explanation",
+                              :class => "b-form_errors g-light_gray",
+                              :header_message => "Oupss...",
+                              :message => "Your #{content.class.to_s.downcase} cannot be saved"
+      %>
+    </div>
+    <% form.fields_for :post, content.post do |p| %>
+        <%= p.hidden_field :content_type %>
         <div class="b-form__item">
           <%= p.label :category_id, "Choose category in which you want to write:", :class => "b-form__label g-inline" %>
           <%= p.select :category_id, options_for_select(@selectable_categories) %>
@@ -18,7 +26,7 @@
 
     <%= render :partial => "posts/#{content.class.to_s.downcase.pluralize}/form", :locals => {:form => form, :content => content} %>
 
-    <% form.fields_for post do |p| %>
+    <% form.fields_for :post, content.post do |p| %>
         <div class="b-form__item">
           <%= p.label :tag_list, "Tag list:", :class => "b-form__label" %>
           <%= p.text_field :tag_list, :class => "b-form__input-text b-form__input-text_bigger" %>

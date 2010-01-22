@@ -5,33 +5,35 @@ class Posts::TopicsController < PostsController
 
   def new
     @topic = Topic.new
-    @post = Post.topics.new
+    @topic.build_post(:content_type => "Topic")
+    @selectable_categories = Category.all.collect{ |c| [c.title, c.id] }
+  end
+
+  def edit
+    @topic = Topic.find(params[:id])
+    @post = @topic.post
+    unauthorized! if cannot? :edit, @post
     @selectable_categories = Category.all.collect{ |c| [c.title, c.id] }
   end
 
   def create
-    @post = Post.new(params[:topic][:post])
-    @post.author = current_user
-    params[:topic].delete(:post)
-
     @topic = Topic.new(params[:topic])
     if @topic.save
-      @post.content = @topic
-      if @post.save
-        @post.publish!
-        redirect_to root_url
-      else
-        @topic.delete
-        @selectable_categories = Category.all.collect{ |c| [c.title, c.id] }
-        render :action => :new
-      end
+       redirect_to post_path(@topic.post)
     else
       @selectable_categories = Category.all.collect{ |c| [c.title, c.id] }
-      render :action => :new
+      render :action => "new"
     end
   end
 
   def update
+    @topic = Topic.find(params[:id])
+    if @topic.update_attributes(params[:topic])
+      redirect_to post_path(@topic.post)
+    else
+      @selectable_categories = Category.all.collect{ |c| [c.title, c.id] }
+      render :action => "edit"
+    end
 
   end
 end

@@ -5,7 +5,7 @@ class Post < ActiveRecord::Base
 
   belongs_to :category, :counter_cache => true
   belongs_to :author, :class_name => "User", :counter_cache => true
-  
+
   acts_as_taggable_on :tags
 
   validates_presence_of :author
@@ -19,12 +19,35 @@ class Post < ActiveRecord::Base
 
   named_scope :topics, :conditions => { :content_type => "Topic" }
 
-  def to_param
-    self.permalink
+  def attributes=(attributes = {})
+    self.content_type = attributes[:content_type].to_s
+    super
   end
 
-  def to_twitter_url
-    "http://twitter.com/home/?status=#{post_short_url(self.id)} #{self.title}"
+  def build_content(attributes = {})
+    self.content = content_type.classify.constantize.new(attributes)
+  end
+
+#  def self.new_with_content(content_type, params, author)
+#    post = class_eval("self.#{content_type.to_s.downcase.pluralize}.new")
+#    post.update_attributes(params[content_type.to_s.downcase.to_sym][:post])
+#    params[content_type.to_s.downcase.to_sym].delete(:post)
+#
+#    content = eval("#{content_type}.new")
+#
+#    content.update_attributes(params[content_type.to_s.downcase.to_sym])
+#    if content.save
+#      post.update_attributes({:author => author, :content => content})
+#      post
+#    else
+#      post.update_attributes({:author => author})
+#      post.errors.add(content.errors)
+#      post
+#    end
+#  end
+
+  def to_param
+    self.permalink
   end
 
   def first_level_comments

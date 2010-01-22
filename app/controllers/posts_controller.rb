@@ -19,10 +19,7 @@ class PostsController < ApplicationController
   end
 
   def edit
-    @post = Post.find(params[:id])
-    unauthorized! if cannot? :edit, @post
-
-    @selectable_categories = Category.all.collect{ |c| [c.title, c.id] }
+    
   end
 
   def increase_rating
@@ -40,6 +37,17 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     respond_to do |format|
       format.js
+    end
+  end
+
+  def update
+    @post = Post.find(params[:id])
+    if @post.update_attributes(params[:post])
+#      expire_fragment post_url(@post, :action_suffix => "tags")
+      flash[:notice] = 'Post was successfully updated.'
+      redirect_to post_path(@post)
+    else
+      render :action => "edit"
     end
   end
 

@@ -6,6 +6,8 @@
 #   cities = City.create([{ :name => 'Chicago' }, { :name => 'Copenhagen' }])
 #   Major.create(:name => 'Daley', :city => cities.first)
 Post.find(:all).each { |e| e.destroy  }
+Topic.find(:all).each { |e| e.destroy  }
+Link.find(:all).each { |e| e.destroy  }
 Comment.find(:all, :conditions => "id != 0").each { |e| e.destroy  }
 User.find(:all).each { |e| e.destroy  }
 

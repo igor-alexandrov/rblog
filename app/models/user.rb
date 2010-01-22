@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
   acts_as_authentic do |c|
-    c.logged_in_timeout = 30.minutes
+    c.logged_in_timeout = 90.minutes
   end
 
 # RBlog must be secure! So we allow mass-assignments only for these fields   

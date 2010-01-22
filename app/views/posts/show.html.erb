@@ -8,7 +8,8 @@
 
 <%# Editing of post only allowed to registered users and only if current_user == @post.author %>
 <% if can? :edit, @post %>
-    <%= link_to "Edit this #{@post.content.class.to_s.downcase}", edit_post_path(@post.id), :class => "b-post-edit_link g-link-no-visited" %>
+    <%# link_to "Edit this #{@post.content.class.to_s.downcase}", edit_posts_content_path(@post.content), :class => "b-post-edit_link g-link-no-visited" %>
+    <%= link_to "Edit this #{@post.content.class.to_s.downcase}", edit_polymorphic_path([:posts, @post.content]), :class => "b-post-edit_link g-link-no-visited" %>
 <% end %>
 <div class="b-post-content g-indent">
   <%= render :partial => "posts/#{@post.content.class.to_s.downcase.pluralize}/show", :locals => {:content => @post.content} %>

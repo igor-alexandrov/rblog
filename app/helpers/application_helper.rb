@@ -72,4 +72,8 @@ module ApplicationHelper
     content_for(:heading_h1, value)
   end
 
+  def edit_posts_content_path(content)
+    eval("edit_posts_#{content.class.to_s.downcase}_path(content)")
+  end
+
 end
