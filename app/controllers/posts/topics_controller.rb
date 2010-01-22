@@ -18,6 +18,7 @@ class Posts::TopicsController < PostsController
 
   def create
     @topic = Topic.new(params[:topic])
+    @topic.post.author = current_user
     if @topic.save
        redirect_to post_path(@topic.post)
     else

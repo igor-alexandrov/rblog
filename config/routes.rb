@@ -5,8 +5,11 @@ ActionController::Routing::Routes.draw do |map|
   map.logout 'logout', :controller => 'user_sessions', :action => 'destroy'
 
   map.namespace:posts, :path_prefix => "" do |post|
-    post.resources :topics
-    post.resources :links
+    for type in configatron.posts.types.active
+      post.resources type
+    end
+#    post.resources :topics
+#    post.resources :links
   end
 
   map.resources :categories, :as => "c"

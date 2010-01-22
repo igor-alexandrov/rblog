@@ -131,6 +131,10 @@ h2 {
 
 }
 
+.b-content-menu__submenu {
+    display: inline;
+}
+
 .b-post-type-menu {
 
 }

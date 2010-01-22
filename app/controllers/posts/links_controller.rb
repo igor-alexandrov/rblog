@@ -18,6 +18,7 @@ class Posts::LinksController < PostsController
 
   def create
     @link = Link.new(params[:link])
+    @link.post.author = current_user
     if @link.save
        redirect_to post_path(@link.post)
     else
