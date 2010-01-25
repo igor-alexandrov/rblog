@@ -1,0 +1,10 @@
+<div class="b-posts__event__interval">
+  From: <%= content.start_moment.strftime("%d, %B %Y, %H:%M") %>
+  To: <%= content.stop_moment.strftime("%d, %B %Y, %H:%M") %>
+  <%= distance_of_time_in_words_to_now(content.start_moment) %>
+</div>
+<div class="b-posts__event__description">
+  <%= content.description %>
+</div>
+
+

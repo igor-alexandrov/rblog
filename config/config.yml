@@ -8,15 +8,22 @@ development:
     elements: [:add_post, :posts, :comments, :users]
   posts:
     external_instruments:
+#     This option will allow your readers quickly update their status in Twitter.
       twitter:
         use: true
+#     This option will allow your readers quickly bookmark post in Delicious
       delicious:
         use: true
       digg:
         use: true
     types:
-#       Here active types of your content. Your users will be able to create only these types of posts.       
-        active: [:topics, :links]
-    topic:
+#       Here are active types of your content. Your users will be able to create only these types of posts.       
+        active: [:topics, :links, :events]
+    rating:
+      use: true
+    link:
+      description:
+        maximum_length: 500
+    event:
       description:
         maximum_length: 500

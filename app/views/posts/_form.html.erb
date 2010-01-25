@@ -34,6 +34,12 @@
             <span class="b-form__item_legend__example">"ruby on rails, programming, russia"</span>.
           </small>
         </div>
+        <div class="b-form__item">
+          <%= check_box_tag 'mark_as_draft', true %>
+          <%= label_tag 'mark_as_draft', "Mark this ‹‹#{content.class.to_s.downcase}›› as draft", :class => "b-form__label  g-inline" %>
+          <small class="b-form__item_legend">Drafted posts will be seen only by you. You will be able to publish it anytime you want.</small>
+          
+        </div>
     <% end %>
 
     <div class="b-form__item">

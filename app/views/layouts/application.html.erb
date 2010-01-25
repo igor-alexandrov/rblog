@@ -6,11 +6,13 @@
   <meta http-equiv="content-type" content="text/html;charset=UTF-8"/>
   <title><%= h(yield(:title) || "Untitled") %></title>
   <%= stylesheet_link_tag 'master' %>
-  <%= javascript_include_tag :defaults %>  
+  <%= javascript_include_tag :defaults %>
 </head>
 <body>
 <div class="l-container">
   <div class="l-layout">
+    <a href="http://github.com/igor-alexandrov/rblog" target="_blank" title="Show RBlog's page on GitHub"><img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_green_007200.png" alt="Fork me on GitHub" /></a>
+
     <div class="h-padding">
       <%= render :partial => "shared/header" %>
       <div class="b-content">

@@ -67,7 +67,7 @@ h2 {
 }
 
 .b-header .b-account_information {
-    margin: 0 15px 0 0
+    margin: 0 70px 0 0
 }
 
 .b-header .b-account_information .b-user_name {
@@ -356,6 +356,7 @@ h2 {
 .b-form__item_legend {
     font-style: italic;
     font-size: 90%;
+    display: block;
 }
 
 .b-form__item_legend__example {

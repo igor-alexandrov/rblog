@@ -8,7 +8,7 @@
 Post.find(:all).each { |e| e.destroy  }
 Topic.find(:all).each { |e| e.destroy  }
 Link.find(:all).each { |e| e.destroy  }
-Comment.find(:all, :conditions => "id != 0").each { |e| e.destroy  }
+Comment.find(:all).each { |e| e.destroy  }
 User.find(:all).each { |e| e.destroy  }
 
 admin_user = User.new do |user|
@@ -39,19 +39,19 @@ end
 igor_user.save
 
 
-fake_comment = Comment.find( :first, :conditions => "id=0" )
-if fake_comment.nil?
-  fake_comment = Comment.new do |c|
-      c.id = 0
-      c.post_id = nil
-      c.parent_comment_id = nil
-      c.commenter_name = 'rblog developer'
-      c.commenter_email = 'igor.alexandrov@gmail.com'
-      c.body = 'This comment is here to provide tree comment model. All other top level comments will have parent_comment_id = 0'
-    end
-
-    fake_comment.save
-end
+#fake_comment = Comment.find( :first, :conditions => "id=0" )
+#if fake_comment.nil?
+#  fake_comment = Comment.new do |c|
+#      c.id = 0
+#      c.post_id = nil
+#      c.parent_comment_id = nil
+#      c.commenter_name = 'rblog developer'
+#      c.commenter_email = 'igor.alexandrov@gmail.com'
+#      c.body = 'This comment is here to provide tree comment model. All other top level comments will have parent_comment_id = 0'
+#    end
+#
+#    fake_comment.save
+#end
 
 Category.find(:all).each { |e| e.destroy  }
 category = Category.new do |c|
@@ -81,33 +81,33 @@ end
 first_post.save
 first_post.publish!
 
-first_comment = Comment.new do |c|
+first_comment = UserComment.new do |c|
     c.post = first_post
-    c.parent_comment = fake_comment
-    c.commenter_name = "Igor Alexandrov"
-    c.commenter_email = "igor.alexandrov@gmail.com"
-    c.author = admin_user
+#    c.parent_comment = fake_comment
+#    c.commenter_name = "Igor Alexandrov"
+#    c.commenter_email = "igor.alexandrov@gmail.com"
+    c.author = igor_user
     c.body = "First comment"
 end
 first_comment.save
 
-second_comment = Comment.new do |c|
+second_comment = UserComment.new do |c|
     c.post = first_post
     c.parent_comment = first_comment
-    c.commenter_name = "Igor Alexandrov"
-    c.commenter_email = "igor.alexandrov@gmail.com"
+#    c.commenter_name = "Igor Alexandrov"
+#    c.commenter_email = "igor.alexandrov@gmail.com"
     c.author = admin_user
-    c.body = "First comment"
+    c.body = "Second comment"
 end
 second_comment.save
 
-third_comment = Comment.new do |c|
+third_comment = UserComment.new do |c|
     c.post = first_post
-    c.parent_comment = fake_comment
-    c.commenter_name = "Igor Alexandrov"
-    c.commenter_email = "igor.alexandrov@gmail.com"
+#    c.parent_comment = fake_comment
+#    c.commenter_name = "Igor Alexandrov"
+#    c.commenter_email = "igor.alexandrov@gmail.com"
     c.author = admin_user
-    c.body = "First comment"
+    c.body = "Third comment"
 end
 third_comment.save
 

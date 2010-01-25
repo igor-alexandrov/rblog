@@ -7,7 +7,11 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find_by_permalink(params[:id], :include => :comments)
-    @comment = Comment.new
+    if current_user
+      @comment = UserComment.new
+    else
+      @comment = GuestComment.new
+    end
     @comment.post = @post
   end
 
@@ -19,7 +23,7 @@ class PostsController < ApplicationController
   end
 
   def edit
-    
+
   end
 
   def increase_rating

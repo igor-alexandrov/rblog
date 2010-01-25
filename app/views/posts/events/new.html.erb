@@ -1,0 +1,4 @@
+<% content_menu(:current_selected => "add_post") %>
+<% post_type_menu(:current_selected => "event") %>
+<%= render :partial => "posts/form", :locals => {:content => @event } %>
+

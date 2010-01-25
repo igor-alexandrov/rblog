@@ -8,9 +8,9 @@ class Comment < ActiveRecord::Base
 
   validates_presence_of     :body
 
-  validates_presence_of     :commenter_name
+  def safe_parent_comment_id
+    self.parent_comment_id ||= 0
+  end
 
-  validates_presence_of     :commenter_email
-  validates_length_of       :commenter_email,    :within => 6..100
-  validates_format_of       :commenter_email,    :with => /^([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})$/i
+
 end

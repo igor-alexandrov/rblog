@@ -15,11 +15,12 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :categories, :as => "c"
   map.resources :posts, :as => "p", :has_many => :comments
 
-  map.post_short "/:id" , :controller => "posts", :action => "show_by_id", :method => "GET", :requirements => { :id => /[0-9]+/ }
+  map.post_short "/:id", :controller => "posts", :action => "show_by_id", :method => "GET", :requirements => { :id => /[0-9]+/ }
 
-  map.increase_post_rating "/p/:id/rating/increase", :controller => "posts", :action => "increase_rating", :method => "POST"
-  map.decrease_post_rating "/p/:id/rating/decrease", :controller => "posts", :action => "decrease_rating", :method => "POST"
-
+  if configatron.posts.rating.use
+    map.increase_post_rating "/p/:id/rating/increase", :controller => "posts", :action => "increase_rating", :method => "POST"
+    map.decrease_post_rating "/p/:id/rating/decrease", :controller => "posts", :action => "decrease_rating", :method => "POST"
+  end
   map.posts_tag "/t/:name", :controller => "tags", :action => "show"
 
 

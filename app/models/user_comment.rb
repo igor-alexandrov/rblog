@@ -1,0 +1,2 @@
+class UserComment < Comment
+end
