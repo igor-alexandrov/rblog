@@ -34,7 +34,8 @@ h1 {
 }
 
 h2 {
-    margin: 15px 0 5px 0;
+    font-size: 160%;
+    line-height: 1.2em;
 }
 
 h3 {
@@ -45,7 +46,7 @@ h3 {
 
 /** layout **/
 .h-padding {
-    padding: 20px 40px;
+    padding: 20px 30px;
 }
 
 .h-padding-top {
@@ -156,9 +157,31 @@ h3 {
 
 }
 
-.b-content-posts__item {
-    margin-bottom: 30px;
+.b-content-posts__item-wrapper {
     list-style: none;
+    /*padding: 15px 15px;*/
+}
+
+.b-content-posts__item
+{
+    padding: 15px 15px;    
+}
+
+.b-content-posts__item-odd{
+    background-color: #F9F9F9;
+    border: 1px solid #F2F2F5;
+}
+
+.b-content-posts__item-even{
+    border: 1px solid #F9F9F9;
+}
+
+.b-content-posts__item-singular {
+    border: 1px solid #F9F9F9;    
+}
+
+.b-post__title {
+    
 }
 
 .b-post__publish_date {

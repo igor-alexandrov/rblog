@@ -1,48 +1,53 @@
 <% title "RBlog ‒ " + @post.title %>
 <% content_menu(:current_selected => "posts") %>
-<div class="b-post__category g-light_gray"><%= @post.category.title %></div>
-<div class="b-post__publish_date g-light_gray">
-  <%= @post.created_at.strftime("%d, %B %Y, %H:%M") %>
-</div>
-<h2 class="g-light_gray"><%= @post.title %></h2>
+<div class="b-content-posts__item b-content-posts__item-singular">
+  <div class="b-post__category">
+    <%= link_to @post.category.title, category_path(@post.category), :class => "g-link-no-visited" %>
+  </div>
 
+  <h2 class="g-light_gray"><%= @post.title %></h2>
+
+  <div class="b-post__publish_date g-light_gray">
+    <%= @post.created_at.strftime("%d, %B %Y, %H:%M") %>
+  </div>
 <%# Editing of post only allowed to registered users and only if current_user == @post.author %>
-<% if can? :edit, @post %>
-    <%= link_to "Edit this #{@post.content.class.to_s.downcase}", edit_polymorphic_path([:posts, @post.content]), :class => "b-post-edit_link g-link-no-visited" %>
-<% end %>
-<div class="b-post-content g-indent">
-  <%= render :partial => "posts/#{@post.content.class.to_s.downcase.pluralize}/show", :locals => {:content => @post.content} %>
-</div>
-
-<%= render :partial => "posts/post_details", :locals => { :post => @post, :options => {:no_comments_count => true}} %>
-
-<div class="b-post__comments">
-  <a name="comments"></a>
-
-  <h2 class="g-light_gray">Comments (<span id="post_comments_count"><%= @post.comments_count %></span>)</h2>
-  <%# cache (:controller => "posts", :action => "show", :id => @post.id) do %>
-  <ul id="comment_0_children" class="b-post__comments_list">
-    <%= render :partial => "comments/show", :collection => @post.comments.select { |comment| comment.safe_parent_comment_id == 0
-    }, :as => :comment %>
-  </ul>
-  <%# end %>
-</div>
-<div class="b-add_comment">
-  <h3>
-  <%= link_to_remote content_tag(:span, "add comment", :class => "g-javascript_link__value"),
-                     {:url => { :controller => "comments", :action => "new", :post_id => @post.id,
-                                               :parent_comment_id => 0}, :method => "get", }, :href => new_post_comment_url(@post.id, :anchor => "new_comment"),
-                     :class => "g-javascript_link" %>
-  </h3>
-  <% if can? :create, Comment %>
-      <div id="comment_0_form">
-        <% if current_user %>
-            <%= render :partial => "comments/user_comment_form" %>
-        <% else %>
-            <%= render :partial => "comments/guest_comment_form" %>
-        <% end %>
-      </div>
-  <% else %>
-      You cannot create comments right now, try to login first.
+  <% if can? :edit, @post %>
+      <%= link_to "Edit this #{@post.content.class.to_s.downcase}", edit_polymorphic_path([:posts, @post.content]), :class => "b-post-edit_link g-link-no-visited" %>
   <% end %>
+  <div class="b-post-content g-indent">
+    <%= render :partial => "posts/#{@post.content.class.to_s.downcase.pluralize}/show", :locals => {:content => @post.content} %>
+  </div>
+
+  <%= render :partial => "posts/post_details", :locals => { :post => @post, :options => {:no_comments_count => true}} %>
+
+  <div class="b-post__comments">
+    <a name="comments"></a>
+
+    <h2 class="g-light_gray">Comments (<span id="post_comments_count"><%= @post.comments_count %></span>)</h2>
+    <%# cache (:controller => "posts", :action => "show", :id => @post.id) do %>
+    <ul id="comment_0_children" class="b-post__comments_list">
+      <%= render :partial => "comments/show", :collection => @post.comments.select { |comment| comment.safe_parent_comment_id == 0
+      }, :as => :comment %>
+    </ul>
+    <%# end %>
+  </div>
+  <div class="b-add_comment">
+    <h3>
+      <%= link_to_remote content_tag(:span, "add comment", :class => "g-javascript_link__value"),
+                         {:url => { :controller => "comments", :action => "new", :post_id => @post.id,
+                                    :parent_comment_id => 0}, :method => "get", }, :href => new_post_comment_url(@post.id, :anchor => "new_comment"),
+                         :class => "g-javascript_link" %>
+    </h3>
+    <% if can? :create, Comment %>
+        <div id="comment_0_form">
+          <% if current_user %>
+              <%= render :partial => "comments/user_comment_form" %>
+          <% else %>
+              <%= render :partial => "comments/guest_comment_form" %>
+          <% end %>
+        </div>
+    <% else %>
+        You cannot create comments right now, try to login first.
+    <% end %>
+  </div>
 </div>

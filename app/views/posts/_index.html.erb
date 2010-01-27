@@ -1,24 +1,26 @@
 <% options ||= {} %>
 <ul class="b-content-posts">
-  <% for post in posts do %>
-      <li id="<%= dom_id(post) %>" class="b-content-posts__item">
-        <h2>
-          <%= link_to post.category.title, category_path(post.category), :class => "g-link-no-visited" %>
-          ⇨
-          <% if File.exist?(RAILS_ROOT + "/public/images/posts/#{post.content.class.to_s.downcase}.png") %>
-              <%= image_tag "posts/#{post.content.class.to_s.downcase}.png", :class => "b-bost__content_type_image" %>
-          <% end %>
-          <%= link_to post.title, post_path( post) %>
-        </h2>
+  <% posts.each_with_index do |post, index| %>
+      <li id="<%= dom_id(post) %>" class="b-content-posts__item-wrapper">
+        <div class="b-content-posts__item  <%= index.even? ? "b-content-posts__item-even":"b-content-posts__item-odd" %>">
+          <h2 class="b-post__title">
+            <%= link_to post.category.title, category_path(post.category), :class => "g-link-no-visited" %>
+            ⇨
+            <% if File.exist?(RAILS_ROOT + "/public/images/posts/#{post.content.class.to_s.downcase}.png") %>
+                <%= image_tag "posts/#{post.content.class.to_s.downcase}.png", :class => "b-bost__content_type_image" %>
+            <% end %>
+            <%= link_to post.title, post_path( post) %>
+          </h2>
 
-        <div class="b-post__publish_date g-light_gray">
-          <%= post.created_at.strftime("%d, %B %Y, %H:%M") %>
-        </div>
-        <div class="b-post-content_preview g-indent">
-          <%= render :partial => "posts/#{post.content.class.to_s.downcase.pluralize}/content_preview", :locals => {:post => post} %>
-        </div>
+          <div class="b-post__publish_date g-light_gray">
+            <%= post.created_at.strftime("%d, %B %Y, %H:%M") %>
+          </div>
+          <div class="b-post-content_preview g-indent">
+            <%= render :partial => "posts/#{post.content.class.to_s.downcase.pluralize}/content_preview", :locals => {:post => post} %>
+          </div>
 
-        <%= render :partial => "posts/post_details", :locals => { :post => post, :options => options } %>
+          <%= render :partial => "posts/post_details", :locals => { :post => post, :options => options } %>
+        </div>
       </li>
   <% end %>
 </ul>

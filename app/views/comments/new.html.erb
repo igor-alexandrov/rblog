@@ -1,15 +1,2 @@
-<h1><%= @post.title %></h1>
-
-<p><%= @post.announcement %></p>
-<p><%= @post.body %></p>
-
-<div id="comments">
-  <h2>Комментарии</h2>
-  <ul id="#{comment_0_children}">
-    <% for comment in @post.comments.select { |comment| comment.parent_comment_id == 0 } %>
-        <%= render :partial => "comments/show", :locals =>{ :comment => comment } %>
-    <% end %>
-  </ul>
-
-</div>
+<%= render :partial => "comments/show", :collection => @post.comments, :as => :comment %>
    

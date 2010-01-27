@@ -16,7 +16,7 @@
             <%= link_to_remote content_tag(:span, "reply", :class => "g-javascript_link__value"),
                                {:url =>
                                        { :controller => "comments", :action => "new", :post_id => comment.post_id, :parent_comment_id =>comment.id}, :method => "get", },
-                               {:href => new_post_comment_url(@post, :parent_comment_id => comment.id, :anchor => "new_comment"), :class => "g-javascript_link", :title => "reply to this comment" } %>
+                               {:href => new_post_comment_url(@post.id, :parent_comment_id => comment.id, :anchor => "new_comment"), :class => "g-javascript_link", :title => "reply to this comment" } %>
         <% end %>
         <div id="comment_<%= comment.id %>_form" class="b-comment_form">
         </div>
@@ -25,7 +25,11 @@
     <% content_tag(:ul, :id => "comment_#{comment.id}_children", :class => "b-post__comments_list b-post__comments_list__nested" ) do %>
         <%= render :partial => "comments/show", :collection => comment.comments, :as => :comment %>
         <% if @comment.parent_comment_id == comment.id %>
-            <%= render :partial => "comments/user_comment_form" %>
+            <% if current_user %>
+                <%= render :partial => "comments/user_comment_form" %>
+            <% else %>
+                <%= render :partial => "comments/guest_comment_form" %>
+            <% end %>
         <% end %>
     <% end %>
 <% end %>
