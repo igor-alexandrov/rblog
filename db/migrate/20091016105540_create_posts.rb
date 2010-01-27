@@ -11,6 +11,10 @@ class CreatePosts < ActiveRecord::Migration
             t.integer :content_id
             t.string :content_type
 
+            t.boolean :user_commentable, :null => false, :default => true
+            t.boolean :guest_commentable, :null => false, :default => true
+
+            t.boolean :draft, :null => false, :default => false
             t.datetime :published_at
             t.timestamps
         end

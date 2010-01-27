@@ -37,6 +37,12 @@ h2 {
     margin: 15px 0 5px 0;
 }
 
+h3 {
+    font-size: 160%;
+    margin: 15px 0;
+    line-height: 10px;
+}
+
 /** layout **/
 .h-padding {
     padding: 20px 40px;
@@ -67,7 +73,7 @@ h2 {
 }
 
 .b-header .b-account_information {
-    margin: 0 70px 0 0
+    margin: 0 100px 0 0
 }
 
 .b-header .b-account_information .b-user_name {
@@ -315,6 +321,15 @@ h2 {
 .b-comment__creation_date {
     font-weight: bold;
     font-size: 90%;
+}
+
+.b-add_comment__link {
+    font-size: 140%;
+    margin-bottom: 15px;
+}
+
+.b-comment_form {
+    margin: 10px 25px;
 }
 
 .b-captcha_display {

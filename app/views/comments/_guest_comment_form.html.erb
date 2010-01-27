@@ -1,0 +1,35 @@
+<% remote_form_for :comment, :url => post_comments_path(@post.id), :html => {:method => "post", :id => "new_comment", :class => "b-form" } do |form| %>
+    <%= content_tag(:a, "", :name => "new_comment") %>
+    <div class="b-form__item">
+      You are a guest user. Please fill all fields clearly.
+    </div>
+
+    <div class="b-form__item">
+      <%= form.error_messages :id => "error_explanation",
+                              :class => "b-form_errors g-light_gray",
+                              :header_message => "Oupss...",
+                              :message => "Your comment cannot be saved"
+      %>
+    </div>
+    <%= form.hidden_field :post_id %>
+    <%= form.hidden_field :parent_comment_id %>
+    <div class="b-form__item">
+      <%= form.label :guest_commenter_name, "Name", :class => "b-form__label" %>
+      <%= form.text_field :guest_commenter_name, :class => "b-form__input-text" %>
+    </div>
+    <div class="b-form__item">
+      <%= form.label :guest_commenter_email, "Email", :class => "b-form__label" %>
+      <%= form.text_field :guest_commenter_email, :class => "b-form__input-text" %>
+    </div>
+    <div class="b-form__item">
+      <%= form.label :body, "Text", :class => "b-form__label" %>
+      <%= form.text_area :body, :class => "b-form__input-text b-form__input-text_short" %>
+    </div>
+    <div class="b-form__item">
+      <%= render :partial => "shared/captcha" %>
+    </div>
+    <div class="b-form__item">
+      <%= form.submit "Post", :class => "b-form__input-submit" %>
+    </div>
+
+<% end %>

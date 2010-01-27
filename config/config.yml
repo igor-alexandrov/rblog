@@ -16,6 +16,11 @@ development:
         use: true
       digg:
         use: true
+    comments:
+      user:
+        use: true
+      guest:
+        use: true
     types:
 #       Here are active types of your content. Your users will be able to create only these types of posts.       
         active: [:topics, :links, :events]

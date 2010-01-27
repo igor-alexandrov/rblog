@@ -77,11 +77,13 @@ class Post < ActiveRecord::Base
     write_attribute :title, (value)
   end
 
-  def add_comment(comment)
-    comment = self.comments.build(comment)
-    if comment.parent_comment_id.nil?
-      comment.parent_comment_id = 0
+  def add_comment(comment_params, author)
+    if author.nil?
+      comment = GuestComment.new(comment_params)
+    else
+      comment = UserComment.new(comment_params.merge({:author_id => author.id}))
     end
+    comment.post = self
     comment
   end
 

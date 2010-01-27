@@ -8,20 +8,11 @@ class CreateComments < ActiveRecord::Migration
       t.string :guest_commenter_name
       t.string :guest_commenter_email
       t.references :author
+      t.integer :rating, :default => 0
 
       t.timestamps
 
     end
-#    comment = Comment.new do |c|
-#      c.id = 0
-#      c.post_id = nil
-#      c.parent_comment_id = nil
-#      c.commenter_name = 'rblog developer'
-#      c.commenter_email = 'igor.alexandrov@gmail.com'
-#      c.body = 'This comment is here to provide tree comment model. All other top level comments will have parent_comment_id = 0'
-#    end
-
-#    comment.save
 
     add_index :comments, :parent_comment_id
     add_index :comments, :type
