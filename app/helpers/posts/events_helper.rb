@@ -1,2 +1,0 @@
-module Posts::EventsHelper
-end

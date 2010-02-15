@@ -2,9 +2,11 @@
 # Likewise, all the methods added will be available for all controllers.
 
 class ApplicationController < ActionController::Base
+#  layout ActiveIdentity.layout("application")
+
   helper :all # include all helpers, all the time
   protect_from_forgery # See ActionController::RequestForgeryProtection for details
-
+      
   helper_method :current_user_session, :current_user
   filter_parameter_logging :password, :password_confirmation
 
@@ -14,7 +16,11 @@ class ApplicationController < ActionController::Base
 
 #    redirect_to root_path
 #  end
+
   private
+#  
+#  helper_method :current_theme
+
   def require_user
     unless current_user
       store_location
@@ -52,4 +58,5 @@ class ApplicationController < ActionController::Base
     return @current_user if defined?(@current_user)
     @current_user = current_user_session && current_user_session.user
   end
+  
 end

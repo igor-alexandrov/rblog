@@ -1,0 +1,28 @@
+<div class="b-header g-align__left">
+  <div class="b-blog_logo g-align__left">
+    <%= link_to image_tag("logo.png"), root_path %>
+  </div>
+  <div class="b-blog_name g-align__left">
+    <%= configatron.general.blog_name %>
+  </div>
+
+  <% if current_user %>
+      <div class="b-account_information g-align__right g-two_lines">
+        <span class="b-user_name">
+            <%= current_user.login %>
+        </span>
+        (<%= link_to "logout", logout_path %>)
+        <br>
+        <span class="g-light_gray"> settings: </span> <a href="#">profile</a>
+      </div>
+  <% else %>
+      <div class="b-account_information g-align__right g-one_line">
+        <%= link_to "login", login_path %>
+        or
+        <%= link_to "register", new_user_path %>
+      </div>
+  <% end %>  
+</div>
+          
+          
+

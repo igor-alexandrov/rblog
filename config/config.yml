@@ -3,6 +3,7 @@ development:
   general:
     blog_name: RBlog Sample. Keep it simple!
     blog_email: igor.alexandrov@gmail.com
+    identity: test_theme_1
   content_menu:
     show: true
     elements: [:add_post, :posts, :comments, :users]

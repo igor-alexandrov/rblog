@@ -15,12 +15,12 @@ body {
 }
 
 a {
-    color: #0095d3;
+    color: #323232;
     text-decoration: underline;
 }
 
 a:visited {
-    color: #8cc2d8;
+    color: #888888;
 }
 
 a:hover {

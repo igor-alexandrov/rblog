@@ -1,15 +1,22 @@
 ActionController::Routing::Routes.draw do |map|
+#  map.with_options :controller => 'identities', :action => 'show' do |m|
+#    m.connect ':dir/:path.:ext',       :dir => /stylesheets|javascripts|images/
+#    m.css    'stylesheets/:path.:ext', :dir => 'stylesheets'
+#    m.js     'javascripts/:path.:ext', :dir => 'javascripts'
+#    m.images 'images/:path.:ext',      :dir => 'images'
+#  end
 
   map.login 'login', :controller => 'user_sessions', :action => 'new', :conditions => { :method => :get }
   map.user_session "login", :controller => "user_sessions", :action => "create", :conditions => { :method => :post }
   map.logout 'logout', :controller => 'user_sessions', :action => 'destroy'
 
+
   map.namespace:posts, :path_prefix => "" do |post|
     for type in configatron.posts.types.active
       post.resources type
     end
-#    post.resources :topics
-#    post.resources :links
+    #    post.resources :topics
+    #    post.resources :links
   end
 
   map.resources :categories, :as => "c"
@@ -32,7 +39,7 @@ ActionController::Routing::Routes.draw do |map|
 
   map.namespace :admin do |admin|
     admin.root :controller => 'home', :action => 'index'
-#    admin.resource :user_session
+    #    admin.resource :user_session
 
     admin.resources :users
 
