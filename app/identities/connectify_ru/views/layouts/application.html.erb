@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=UTF-8"/>
+  <title><%= h(yield(:title) || "Untitled") %></title>
+  <%= stylesheet_link_tag ActiveIdentity.stylesheet('master') %>
+  <%= javascript_include_tag :defaults %>
+</head>
+<body>
+<div class="l-container">
+  <div class="l-layout">
+    
+      <%= render :partial => "shared/header" %>
+      <div class="b-content">
+        <% if configatron.content_menu.show %>
+            <%= yield :content_menu %>
+        <% end %>
+        <%= yield :post_type_menu %>
+        <%= yield :content or yield %>
+      </div>
+      <%= render :partial => "shared/footer" %>
+    
+  </div>
+</div>
+</body>
+</html>

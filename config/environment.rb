@@ -8,8 +8,7 @@ require File.join(File.dirname(__FILE__), 'boot')
 
 Rails::Initializer.run do |config|
   require 'rubygems'
-
-  config.gem "haml"
+  
   config.gem "authlogic"
   config.gem "cancan"
   config.gem "searchlogic"

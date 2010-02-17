@@ -1,0 +1,242 @@
+ html,
+body, img, ul, li, a, p, span, dl, dt, dd, h1, h2, h3, h4 {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+body {
+    font-size: 13px;
+    line-height: 1.25em;
+    font-family: Arial, Verdana, sans-serif;
+    color: #555555;
+    background: #fff;
+}
+
+a {
+    color: #0095d3;
+    text-decoration: underline;
+}
+
+a:visited {
+    color: #8cc2d8;
+}
+
+a:hover {
+    color: #fd8a51;
+}
+
+h1 {
+    font-size: 240%;
+    margin: 10px 0;
+    line-height: 30px;
+}
+
+h2 {
+    font-size: 160%;
+    line-height: 1.2em;
+}
+
+h3 {
+    font-size: 160%;
+    margin: 15px 0;
+    line-height: 10px;
+}
+
+/** layout **/
+
+.l-layout {
+    width: 960px;
+    margin: 0 auto;
+}
+
+.b-header {
+    padding: 20px 0;
+    height: 85px;
+    /*border-bottom: 2px solid #555555;*/
+}
+
+.b-logo {
+    padding: 15px 140px;
+    background: url("/identities/connectify_ru/images/logo.png") no-repeat left top;  
+    display: inline;
+    float: left;
+    
+}
+
+.b-logo__url {    
+    font-size: 220%;
+}
+
+.b-logo__text {
+  font-size: 200%;
+  font-style: italic;
+  padding-top: 20px;
+}
+
+.b-account_information {
+    font-size: 120%;
+    padding: 15px 0;
+    float: right;
+}
+
+.b-user_name {
+    font-weight: bold;
+}
+
+.b-content {
+    
+}
+
+.b-content-menu {
+    font-size: 120%;
+    font-weight: bold;
+    list-style-type: none;       
+    background-color: #555555;
+    padding: 10px 0;
+}
+
+.b-content-menu__item{
+    display: inline;
+    padding: 10px 30px;
+    
+}
+
+.b-content-menu__item__link {
+    color: white;    
+}
+.b-content-menu__item__link:visited {
+    color: white;
+}
+.b-content-menu__item__link:hover {
+    color: #DDDDDD;
+}
+
+.b-content-posts {
+    list-style-type: none;
+    margin: 20px 0;
+}
+
+.b-content-posts__item-wrapper {
+    padding: 10px 0;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #DDDDDD;
+}
+
+.b-content-posts__item-wrapper:last-child {
+    border-bottom: 0 none;
+}
+.b-post__tags {
+    padding-left: 20px;
+    background: url("/images/tags.png") no-repeat left center;
+    margin-bottom: 4px;
+}
+
+.b-post__tags__item, .b-post__tags__item:visited {
+    color: #555555;
+}
+
+.b-post__parameters {
+    clear: both;
+
+}
+
+.b-post__paramameters__item {
+    display: inline;
+    margin-right: 15px;
+}
+
+.b-post__rating {
+    font-weight: bold;
+    font-size: 90%;
+}
+
+.b-post__rating__value {
+    font-size: 130%;
+    margin: 0 0 0 3px;
+    color: black;
+}
+
+.b-post__rating__increase {
+    padding-left: 16px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    background: url("/images/increase.png") no-repeat left center
+}
+
+.b-post__rating__decrease {
+    padding-left: 16px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    background: url("/images/decrease.png") no-repeat left center
+}
+
+.b-bost__twitter_image {
+    vertical-align: middle;
+}
+
+.b-bost__delicious_image {
+    vertical-align: middle;
+}
+
+.b-bost__digg_image {
+    vertical-align: middle;
+}
+
+.b-post__author_login {
+    font-weight: bold;
+    font-size: 90%;
+}
+
+.b-post__author_login__link {
+    font-weight: normal;
+    padding-left: 20px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    background: url("/images/author.png") no-repeat left center
+}
+
+.b-post__comments_count {
+    font-weight: bold;
+    font-size: 90%;
+}
+
+.b-post__comments_count__link {
+    font-weight: normal;
+    padding-left: 20px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    background: url("/images/comments.png") no-repeat left center;
+}
+
+.b-footer {
+ 
+    padding: 20px 0;
+    height: 55px;
+    border-top: 2px solid #555555;
+
+}
+
+.b-mailto {
+  display: inline;
+  float: left;
+  padding: 7px 55px;
+  font-size: 140%;
+  background: url("/identities/connectify_ru/images/mail.png") no-repeat left center;  
+}
+
+.b-copyright {
+    padding: 7px 0;
+    display: inline;
+    float: right;
+    font-size: 140%;    
+}
+
+.b-r_blog-promo {
+    display: inline;
+    float: right;
+    font-style: italic;
+    padding: 7px 0 7px 30px;
+    font-size: 120%;    
+}
+

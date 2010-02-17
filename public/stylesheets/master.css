@@ -132,7 +132,7 @@ h3 {
 }
 
 .b-content-menu__post_add__link {
-    background: url("/identities/default/images/add_post_32.png") no-repeat left center;
+    background: url("/images/add_post_32.png") no-repeat left center;
     padding: 20px 0 20px 40px;
     font-weight: bold;
 
@@ -236,7 +236,7 @@ h3 {
 
 .b-post__tags {
     padding-left: 20px;
-    background: url("/identities/default/images/tags.png") no-repeat left center;
+    background: url("/images/tags.png") no-repeat left center;
     margin-bottom: 4px;
 }
 
@@ -269,14 +269,14 @@ h3 {
     padding-left: 16px;
     padding-top: 2px;
     padding-bottom: 2px;
-    background: url("/identities/default/images/increase.png") no-repeat left center
+    background: url("/images/increase.png") no-repeat left center
 }
 
 .b-post__rating__decrease {
     padding-left: 16px;
     padding-top: 2px;
     padding-bottom: 2px;
-    background: url("/identities/default/images/decrease.png") no-repeat left center
+    background: url("/images/decrease.png") no-repeat left center
 }
 
 .b-bost__twitter_image {
@@ -301,7 +301,7 @@ h3 {
     padding-left: 20px;
     padding-top: 2px;
     padding-bottom: 2px;
-    background: url("/identities/default/images/author.png") no-repeat left center
+    background: url("/images/author.png") no-repeat left center
 }
 
 .b-post__comments_count {
@@ -314,11 +314,11 @@ h3 {
     padding-left: 20px;
     padding-top: 2px;
     padding-bottom: 2px;
-    background: url("/identities/default/images/comments.png") no-repeat left center;
+    background: url("/images/comments.png") no-repeat left center;
 }
 
 .b-post-edit_link {
-    background: url("/identities/default/images/edit_post_16.png") no-repeat left center;
+    background: url("/images/edit_post_16.png") no-repeat left center;
     padding: 5px 0 5px 20px;
     font-size: 110%;
 }

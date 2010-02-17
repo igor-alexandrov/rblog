@@ -1,0 +1,28 @@
+<div class="b-header">
+  <div class="b-logo">   
+    <div class="b-logo__url">
+      <%= link_to configatron.general.blog_title, root_path %>
+    </div>
+    <div class="b-logo__text">
+      <%= configatron.general.blog_comment %>
+    </div>
+  </div>  
+  <% if current_user %>
+      <div class="b-account_information g-align__right g-two_lines">
+	you are logged in as 
+        <span class="b-user_name">
+            <%= current_user.login %>
+        </span>
+        (<%= link_to "logout", logout_path %>)        
+      </div>
+  <% else %>
+      <div class="b-account_information">
+	please
+        <%= link_to "login", login_path %>,
+	if you have an account
+      </div>
+  <% end %>  
+</div>
+          
+          
+
