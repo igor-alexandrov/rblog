@@ -18,6 +18,9 @@ module RBlog
           self.view_paths.size > 1 ? self.view_paths.delete_at(-1) : true
           #Prepend view paths with path for current Identity
           self.prepend_view_path("#{RAILS_ROOT}/app/identities/#{@@identity_name}/views")
+
+          #Load additional code from current Identity 
+          require "app/identities/#{identity_name}/init"
         end
       end
 

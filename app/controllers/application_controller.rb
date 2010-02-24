@@ -1,41 +1,23 @@
-# Filters added to this controller apply to all controllers in the application.
-# Likewise, all the methods added will be available for all controllers.
-
 class ApplicationController < ActionController::Base
-#  layout ActiveIdentity.layout("application")
-
   helper :all # include all helpers, all the time
   protect_from_forgery # See ActionController::RequestForgeryProtection for details
-      
+
   helper_method :current_user_session, :current_user
   filter_parameter_logging :password, :password_confirmation
 
-#  rescue_from CanCan::AccessDenied do |exception|
-#    flash[:error] = "У вас недостаточно прав для просмотра запрошенной страницы."
-#    redirect_back_or_default root_path_for_user(current_user)
-
-#    redirect_to root_path
-#  end
-
-  private
-#  
-#  helper_method :current_theme
-
-  def require_user
-    unless current_user
-      store_location
-      flash[:notice] = "You must be logged in to access this page"
-      redirect_to login_path
-      return false
+  before_filter do |controller|
+    unless controller.class.to_s == "UserSessionsController"
+      controller.store_location      
     end
   end
 
-  def require_no_user
+  rescue_from CanCan::AccessDenied do |exception|
+    flash[:error] = "You are not authorized to access page, that you requested"
     if current_user
-      store_location
-      flash[:notice] = "You must be logged out to access this page"
+      session[:return_to] = nil      
       redirect_to root_path
-      return false
+    else
+      redirect_to login_path
     end
   end
 
@@ -48,6 +30,22 @@ class ApplicationController < ActionController::Base
     session[:return_to] = nil
   end
 
+  private
+  def require_user
+    unless current_user
+      flash[:notice] = "You must be logged in to access this page"
+      redirect_back_or_default root_path
+      return false
+    end
+  end
+
+  def require_no_user
+    if current_user
+      flash[:notice] = "You must be logged out to access this page"
+      redirect_back_or_default root_path
+      return false
+    end
+  end
 
   def current_user_session
     return @current_user_session if defined?(@current_user_session)
@@ -58,5 +56,5 @@ class ApplicationController < ActionController::Base
     return @current_user if defined?(@current_user)
     @current_user = current_user_session && current_user_session.user
   end
-  
+
 end

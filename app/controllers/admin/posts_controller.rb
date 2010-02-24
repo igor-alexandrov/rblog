@@ -1,7 +1,4 @@
 class Admin::PostsController < Admin::AdminController
-  before_filter :require_user
-  layout "admin/application"
-
   def index
     @posts = Post.find(:all, :order => 'created_at DESC')
   end

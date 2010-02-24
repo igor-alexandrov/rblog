@@ -1,123 +1,238 @@
-body {
-  background-color: #fff;
-  color: #333;
-  font-family: verdana, arial, helvetica, sans-serif;
-  font-size: 12px;
-  line-height: 1.25em;
-  margin: 0;
-  padding: 0; }
+html, body, img, ul, li, a, p, span, dl, dt, dd, h1, h2, h3, h4 {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
 
-p, ol, ul, td {
-  font-family: verdana, arial, helvetica, sans-serif;
-  font-size: 12px;
-  line-height: 1.25em; }
+body {
+    font-size: 13px;
+    line-height: 1.25em;
+    font-family: Arial, Verdana, sans-serif;
+    color: #555555;
+    background: #fff;
+}
+
+a {
+    color: #0095d3;
+    text-decoration: underline;
+}
+
+a:visited {
+    color: #8cc2d8;
+}
+
+a:hover {
+    color: #fd8a51 ! important;
+}
 
 pre {
-  background-color: #eee;
-  padding: 10px;
-  font-size: 11px; }
+    background-color: #eee;
+    padding: 10px;
+    font-size: 11px;
+}
 
 .fieldWithErrors {
-  padding: 2px;
-  background-color: red;
-  display: table; }
+    padding: 2px;
+    background-color: red;
+    display: table;
+}
 
 #errorExplanation {
-  width: 400px;
-  border: 2px solid red;
-  padding: 7px;
-  padding-bottom: 12px;
-  margin-bottom: 20px;
-  background-color: #f0f0f0; }
-  #errorExplanation h2 {
+    width: 400px;
+    border: 2px solid red;
+    padding: 7px;
+    padding-bottom: 12px;
+    margin-bottom: 20px;
+    background-color: #f0f0f0;
+}
+
+#errorExplanation h2 {
     text-align: left;
     font-weight: bold;
     padding: 5px 5px 5px 15px;
     font-size: 12px;
     margin: -7px;
     background-color: #c00;
-    color: #fff; }
-  #errorExplanation p {
+    color: #fff;
+}
+
+#errorExplanation p {
     color: #333;
     margin-bottom: 0;
-    padding: 5px; }
-  #errorExplanation ul li {
+    padding: 5px;
+}
+
+#errorExplanation ul li {
     font-size: 12px;
-    list-style: square; }
+    list-style: square;
+}
 
-#header {
-  height: 50px;
-  background-image: url("/images/admin/header_bg.png");
-  color: #EEEEEE; }
-  #header ul.header_menu {
-    margin: 0;
-    padding-top: 8px;
-    padding-left: 0;
-    list-style-type: none; }
-    #header ul.header_menu#header_menu_left {
-      float: left; }
-    #header ul.header_menu#header_menu_right {
-      float: right; }
-    #header ul.header_menu li.menu_item {
-      float: left;
-      margin: 0;
-      padding: 0;
-      font-size: 120%;
-      border-right-color: black;
-      border-right-width: 2px;
-      border-right-style: solid;
-      padding-top: 10px;
-      padding-bottom: 10px;
-      padding-left: 20px;
-      padding-right: 20px; }
-      #header ul.header_menu li.menu_item a {
-        color: #DDDDDD;
-        text-decoration: none;
-        font-weight: bold;
-        padding-left: 4px;
-        padding-right: 4px;
-        display: inline;
-        float: left; }
-        #header ul.header_menu li.menu_item a:hover {
-          color: #FFFFFF;
-          text-decoration: underline; }
-        #header ul.header_menu li.menu_item a.current {
-          color: #FFFFFF;
-          text-decoration: underline;
-          cursor: default; }
-    #header ul.header_menu li.left_menu_item:last-child a {
-      border-right-width: 0; }
+.h-padding {
+    padding: 0 20px;
+}
 
-#content {
-  margin-left: 10px;
-  margin-right: 10px; }
-  #content table {
-    line-height: 17px;
+.b-header {
+    border-bottom: 1px solid #555555;
+    padding: 10px 0;
+    min-height: 18px;
+    font-size: 100%;
+    font-weight: bold;
+}
+
+.b-header-item-left {
+    float: left;
+    display: inline;
+    margin-right: 30px;
+}
+
+.b-header-item-right {
+    float: right;
+    display: inline;
+    margin-left: 30px;
+}
+
+.b-header__blog_title {
+    font-size: 140%;
+}
+
+.b-header__breadcrumbs {
+}
+
+.b-header__to_site {
+    padding: 0 20px;
+}
+
+.b-header__logout {
+    height: 20px;
+}
+
+.b-header__logout a {
+    background: url("/images/admin/logout.gif") no-repeat scroll left center;
+    padding-left: 25px;
+    background-position: left -19px;
+    padding-bottom: 3px;
+}
+
+.b-users-table-wrapper {
+    padding: 10px 0;
+    width: 60%;
+}
+
+.b-users-search {
+    border-bottom: 1px solid #DDDDDD;
+    padding: 10px 0;
+}
+
+.b-form-title {
+	font-style: italic;
+	font-weight: bold;
+	font-size: 120%;	
+}
+
+.b-form-comment {	
+	color: #008C00;
+}
+
+.b-users-operations {
+    border-bottom: 1px solid #DDDDDD;
+    padding: 10px 0;
+}
+
+/*Forms*/
+
+.b-form {
+	margin: 5px 0;
+}
+
+.b-form-item {
+    padding: 5px 0;
+}
+
+.b-form__label {
+    font-size: 90%;
+    display: block;
+}
+
+.b-form__input-text {
+    width: 99%;
+}
+
+.b-form__input-text_smaller {
+    width: 120px;
+}
+
+.b-form__input-text_smallest {
+    width: 50px;
+}
+
+.b-form__input-submit {
+    padding: 5px 10px;
+}
+
+.b-users__total_count {
+    font-weight: bold;
+}
+
+.b-users-table {
     width: 100%;
+    border: 0 none;
+    border-collapse: collapse;
+    border-top: 1px
+}
+
+.b-users-table th {
     text-align: left;
-    border-collapse: collapse; }
-    #content table a {
-      color: black; }
-    #content table thead tr th, #content table tfoot tr th {
-      padding: 2px 0.5em 3px 0.5em;
-      white-space: nowrap;
-      border-width: 1px;
-      border-style: solid;
-      border-color: #bbbbbb;
-      background-image: url("/images/admin/silver_bg.png"); }
-      #content table thead tr th.center_aligned, #content table tfoot tr th.center_aligned {
-        text-align: center; }
-    #content table tbody td {
-      color: #3D3D3D;
-      padding: 4px;
-      background-color: #FFF;
-      vertical-align: top;
-      border-width: 1px;
-      border-style: solid;
-      border-color: #bbbbbb; }
-      #content table tbody td:first-child {
-        border-left: 0; }
-      #content table tbody td:last-child {
-        border-right: 0; }
-      #content table tbody td.center_aligned {
-        text-align: center; }
+    border-bottom: 1px solid #555555;
+}
+
+.b-users-table th, td {
+    border-collapse: collapse;
+    padding: 10px 10px;
+}
+
+.b-users-table .b-user__name {
+    font-style: italic;
+}
+
+.b-users-table .b-user__status__blocked {
+    padding: 4px;
+    color: black;
+    background-color: #F08682;
+}
+
+.b-footer {
+    border-top: 1px solid #555555;
+    padding: 5px 0;
+}
+
+.b-footer__mailto {
+    padding: 8px 55px;
+    font-size: 140%;
+    background: url("/images/admin/mail.png") no-repeat scroll left center;
+    display: inline;
+    float: left;
+}
+
+.b-footer__connectify_logo {
+    padding: 8px 55px;
+    font-size: 140%;
+    background: url("/images/admin/logo_48.png") no-repeat scroll left center;
+    display: inline;
+    float: right;
+}
+
+.b-footer__copyright {
+    padding: 8px 0;
+    font-size: 140%;
+    display: inline;
+    float: right;
+}
+
+.g-link-no-visited:visited {
+    color: #0095d3;
+}
+
+.g-inline {
+    display: inline;
+}
+

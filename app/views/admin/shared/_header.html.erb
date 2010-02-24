@@ -1,0 +1,16 @@
+<div class="b-header__blog_title b-header-item-left">
+    <%= configatron.general.blog_title %>
+</div>
+<div class="b-header__breadcrumbs b-header-item-left">
+    <% if @breadcrumbs %>
+    <% @breadcrumbs[0..-2].each do |txt, path| %>
+    <%= link_to(h(txt), path) %> &#8594; <% end %>
+    <%= @breadcrumbs.last.first %>
+    <% end %>
+</div>
+<div class="b-header__logout b-header-item-right">
+    <%= link_to "logout", logout_path, :class => "g-link-no-visited" %>
+</div>
+<div class="b-header__to_site b-header-item-right">
+    <%= link_to "return to site", root_path, :class => "g-link-no-visited" %>
+</div>

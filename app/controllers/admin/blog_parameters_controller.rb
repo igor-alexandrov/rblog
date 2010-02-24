@@ -1,10 +1,5 @@
-class Admin::BlogParametersController < Admin::AdminController 
-  before_filter :require_user
-  layout "admin/application"
-  
+class Admin::BlogParametersController < Admin::AdminController   
   def index
     @blog_parameters = BlogParameter.all 
   end
-
-  
 end

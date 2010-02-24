@@ -13,9 +13,9 @@ class CreateUsers < ActiveRecord::Migration
       t.string :last_login_ip
       t.string :current_login_ip
 
-      t.string :last_name, :null => false
-      t.string :first_name, :null => false
-      t.string :middle_name
+      t.string :last_name, :null => true
+      t.string :first_name, :null => true
+      t.string :middle_name, :null => true
 
       t.string :role
 
@@ -24,7 +24,10 @@ class CreateUsers < ActiveRecord::Migration
       t.date :date_of_birth
 
       t.string :gender
-
+      
+      t.datetime :blocked_at, :null => true
+      t.datetime :released_at, :null => true
+      
       t.integer :posts_count, :default => 0
       t.integer :comments_count, :default => 0
 

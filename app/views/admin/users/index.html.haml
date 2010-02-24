@@ -1,8 +1,0 @@
-=link_to "Добавить нового пользователя", new_admin_user_path
-%table
-  %tbody
-    -for user in @users
-      %tr
-        %td
-          =link_to user.login, admin_user_path(user)
-       

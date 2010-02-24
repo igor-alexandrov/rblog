@@ -1,0 +1,7 @@
+<% title "#{configatron.general.blog_title} | administration | users | new user" %>
+<% form_for @user, :url => admin_users_path, :html => {:class => "b-form"} do |form| %>
+<span class="b-form-title">add new user</span>
+<span class="b-form-comment">(choose login and password for new user, then you will be able to edit user's details)</span>
+<%= form.error_messages %>
+<%= render :partial => 'form', :locals => {:form => form} %>
+<% end %>

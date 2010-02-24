@@ -1,36 +1,41 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
-   <head>
-      <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
-      <title>Comments: <%= controller.action_name %></title>
-      <%= javascript_include_tag "jquery" %>
-      <%= stylesheet_link_tag 'admin/master' %>
-      <!-- jQuery -->
-      <script type="text/javascript" src="jquery.pack.js"></script>
-      <!-- markItUp! -->
-      <script type="text/javascript" src="/javascripts/markitup/jquery.markitup.pack.js"></script>
-      <!-- markItUp! toolbar settings -->
-      <script type="text/javascript" src="/javascripts/markitup/sets/html/set.js"></script>
-      <!-- markItUp! skin -->
-      <link rel="stylesheet" type="text/css" href="/javascripts/markitup/skins/simple/style.css" />
-      <!--  markItUp! toolbar skin -->
-      <link rel="stylesheet" type="text/css" href="/javascripts/markitup/sets/html/style.css" />
-      <%= javascript_include_tag "application" %>
-   </head>
-   <body>
-      <div id="layout">
-         <div id="header">
-            <%= render :partial => "admin/shared/header"%>
-         </div>
-         <p style="color: green"><%= flash[:notice] %></p>
-         <div id="content">
-            <%= yield :content or yield %>
-         </div>
-         <div id="footer">
-            <%= render :partial => "shared/footer"%>
-         </div>
-      </div>
-   </body>
+    <head>
+        <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+        <title><%= h(yield(:title) || "Untitled") %></title>
+        <%= javascript_include_tag "jquery" %>
+        <%= stylesheet_link_tag 'admin/master' %>
+        <!-- jQuery -->
+        <!--<script type="text/javascript" src="jquery.pack.js">-->
+        <!--</script>-->
+        <!-- markItUp! -->
+        <script type="text/javascript" src="/javascripts/markitup/jquery.markitup.pack.js">
+        </script>
+        <!-- markItUp! toolbar settings -->
+        <script type="text/javascript" src="/javascripts/markitup/sets/html/set.js">
+        </script>
+        <!-- markItUp! skin -->
+        <link rel="stylesheet" type="text/css" href="/javascripts/markitup/skins/simple/style.css" />
+        <!--  markItUp! toolbar skin -->
+        <link rel="stylesheet" type="text/css" href="/javascripts/markitup/sets/html/style.css" />
+        <%= javascript_include_tag "application" %>
+    </head>
+    <body>
+        <div class="l-layout">
+            <div class="h-padding">
+                <div class="b-header">
+                    <%= render :partial => "admin/shared/header" %>
+                </div>
+                <p style="color: green">
+                    <%= flash[:notice] %>
+                </p>
+                <div id="content">
+                    <%= yield :content or yield %>
+                </div>
+                <div class="b-footer">
+                    <%= render :partial => "admin/shared/footer" %>
+                </div>
+            </div>
+        </div>
+    </body>
 </html>

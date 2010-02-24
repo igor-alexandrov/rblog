@@ -1,0 +1,112 @@
+<% title "#{configatron.general.blog_title} | administration | users" %>
+<%=link_to "add new user", new_admin_user_path %>
+<div class="b-users-table-wrapper">
+    <div class="b-users-search">
+        <% form_for @search, :html => {:class => "b-form"} do |f| %>
+        <span class="b-form-title">users search</span>
+        <div class="b-form-item">
+            <%= f.label :login_like, "login is like", :class => "b-form__label g-inline" %>
+            <%= f.text_field :login_like, :class => "b-form__input-text_smaller" %>
+        </div>
+        <div class="b-form-item">
+            <%= f.label :reputation_greater_than_or_equal_to, "reputation is between", :class => "b-form__label g-inline" %>
+            <%= f.text_field :reputation_greater_than_or_equal_to, :class => "b-form__input-text_smallest" %>
+            <%= f.label :reputation_less_than_or_equal_to, "and", :class => "b-form__label g-inline" %>
+            <%= f.text_field :reputation_less_than_or_equal_to, :class => "b-form__input-text_smallest" %>
+        </div>
+        <div class="b-form-item">
+            <%= f.label :power_greater_than_or_equal_to, "power is between", :class => "b-form__label g-inline" %>
+            <%= f.text_field :power_greater_than_or_equal_to, :class => "b-form__input-text_smallest" %>
+            <%= f.label :power_less_than_or_equal_to, "and", :class => "b-form__label g-inline" %>
+            <%= f.text_field :power_less_than_or_equal_to, :class => "b-form__input-text_smallest" %>
+        </div>
+        <div class="b-form-item">
+            <%= f.submit "find", :class => "b-form__input-submit" %>
+            <% unless @search.conditions.empty? %>
+            <%= link_to "show all users", admin_users_path %>
+            <% end %>
+        </div>
+        <% end %>
+        <span class="b-users__total_count">total count: <%= @users.size %></span>
+    </div>
+    <% form_tag update_individual_admin_users_path, :class => "b-form" do %>
+    <dl class="b-users-operations">
+        <span class="b-form-title">user operations</span>
+        <span class="b-form-comment">(choose users and then do different operations with them)</span>
+        <dt>
+        </dt>
+        <dd>
+            <%= submit_tag "block", :block => true, :class => "b-form__input-submit" %>
+            <%= submit_tag "release", :release => true, :class => "b-form__input-submit" %>
+        </dd>
+    </dl>
+    <table class="b-users-table">
+        <thead>
+            <tr>
+                <th>
+                </th>
+                <th>
+                    actions
+                </th>
+                <th>
+                </th>
+                <th>
+                    status
+                </th>
+                <th>
+                    activity
+                </th>
+                <th>
+                    reputation
+                </th>
+                <th>
+                    power
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <% for user in @users %>
+            <tr>
+                <td>
+                    <% unless user == current_user %>
+                    <%= check_box_tag "user_ids[]", user.id %>
+                    <% end %>
+                </td>
+				<td>
+					<%= link_to 'edit', edit_admin_user_path(user.login) %>
+					<%= link_to 'delete', admin_user_path(user.login), :confirm => 'Are you sure? After deleting user all it\'s content like posts and comments will be deleted too.', :method => :delete %>
+				</td>
+                <td>
+                    <dl>
+                        <dt class="b-user__login">
+                            <%= link_to user.login, admin_user_path(user.login) %>
+                        </dt>
+                        <dd class="b-user__name">
+                            <%= user.short_name %>
+                        </dd>
+                        <dd class="b-user__created_at">
+                            registered at:<%= l(user.created_at) %>
+                        </dd>
+                    </dl>
+                </td>
+                <td>
+                    <% if user.blocked? %>
+                    <span class="b-user__status__blocked">blocked</span>
+                    <% end %>
+                </td>
+                <td>
+                    posts: <%= user.posts_count %>
+                    comments: <%= user.comments_count %>
+                </td>
+                <td>
+                    <%= user.reputation %>
+                </td>
+                <td>
+                    <%= user.power %>
+                </td>
+            </tr>
+            <% end %>
+        </tbody>
+    </table>
+    <% end %>
+</div>

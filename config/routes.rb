@@ -41,7 +41,7 @@ ActionController::Routing::Routes.draw do |map|
     admin.root :controller => 'home', :action => 'index'
     #    admin.resource :user_session
 
-    admin.resources :users
+    admin.resources :users, :collection => {:update_individual => :put}  
 
     admin.resources :posts
     admin.change_status 'posts/change_status', :controller => "posts", :action => "change_status"
