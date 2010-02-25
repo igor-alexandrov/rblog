@@ -12,13 +12,13 @@
 <body>
 <div class="l-container">
   <div class="l-layout">
+    <% if flash[:error] %>
+        <div class="b-flash b-flash-error">
+          <%= flash[:error] %>          
+        </div>
+    <% end %>
     <div class="h-padding">
       <div class="b-content">
-        <% if flash[:error] %>
-            <div class="b-flash-error">
-              <%= flash[:error] %>
-            </div>
-        <% end %>
         <div class="b-content__left">
           <div class="b-blog_logo">
             <%= link_to image_tag("logo.png"), root_path %>

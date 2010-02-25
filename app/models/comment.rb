@@ -8,9 +8,17 @@ class Comment < ActiveRecord::Base
 
   validates_presence_of     :body
 
-  def safe_parent_comment_id
-    self.parent_comment_id ||= 0
+  def parent_comment_id
+    read_attribute(:parent_comment_id).nil? ? 0 : read_attribute(:parent_comment_id)
   end
 
+  def parent_comment_depth
+    self.parent_comment.nil? ? 0 : self.parent_comment.depth 
+  end
 
+  def parent_comment=(value)
+    write_attribute :parent_comment_id, (value.id)
+    write_attribute :depth, (value.depth+1)
+  end
+  
 end

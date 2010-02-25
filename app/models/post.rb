@@ -50,10 +50,6 @@ class Post < ActiveRecord::Base
     self.permalink
   end
 
-  def first_level_comments
-    Comment.find(:all, :conditions => {:post_id => self.id, :parent_comment_id => nil})
-  end
-
   def draft?
     self.published_at.nil?
   end
@@ -77,13 +73,34 @@ class Post < ActiveRecord::Base
     write_attribute :title, (value)
   end
 
-  def add_comment(comment_params, author)
+  def new_comment(parent_comment_id, author)
+    if author.nil?
+      comment = GuestComment.new
+    else
+      comment = UserComment.new(:author_id => author.id)
+    end
+    comment.post = self
+    begin
+      parent_comment = Comment.find( parent_comment_id )
+    rescue ActiveRecord::RecordNotFound
+      parent_comment = nil
+    end
+
+    unless parent_comment.nil?
+      comment.parent_comment = parent_comment      
+    end
+
+    comment
+  end
+
+  def create_comment(comment_params, author)
     if author.nil?
       comment = GuestComment.new(comment_params)
     else
       comment = UserComment.new(comment_params.merge({:author_id => author.id}))
     end
     comment.post = self
+    comment.depth = comment.parent_comment_depth + 1
     comment
   end
 

@@ -8,9 +8,9 @@ page.remove("#new_comment")
 #  page.insert_html :bottom, "add_comment", :partial => "comments/form"
 #else
   if current_user
-    page.insert_html :bottom, "comment_#{@comment.safe_parent_comment_id}_form", :partial => "comments/user_comment_form"
+    page.insert_html :bottom, "comment_#{@comment.parent_comment_id}_form", :partial => "comments/user_comment_form"
   else
-    page.insert_html :bottom, "comment_#{@comment.safe_parent_comment_id}_form", :partial => "comments/guest_comment_form"
+    page.insert_html :bottom, "comment_#{@comment.parent_comment_id}_form", :partial => "comments/guest_comment_form"
     end
 #end
 #

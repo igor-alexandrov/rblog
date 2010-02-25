@@ -9,7 +9,7 @@ class CreateComments < ActiveRecord::Migration
       t.string :guest_commenter_email
       t.references :author
       t.integer :rating, :default => 0
-
+      t.integer :depth, :null => false, :default => 0
       t.timestamps
 
     end

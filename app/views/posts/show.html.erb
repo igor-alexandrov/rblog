@@ -26,8 +26,9 @@
     <h2 class="g-light_gray">Comments (<span id="post_comments_count"><%= @post.comments_count %></span>)</h2>
     <%# cache (:controller => "posts", :action => "show", :id => @post.id) do %>
     <ul id="comment_0_children" class="b-post__comments_list">
-      <%= render :partial => "comments/show", :collection => @post.comments.select { |comment| comment.safe_parent_comment_id == 0
+      <%# render :partial => "comments/show", :collection => @post.comments.select { |comment| comment.safe_parent_comment_id == 0
       }, :as => :comment %>
+        <%= render :partial => "comments/show", :collection => @comments.select { |comment| comment.parent_comment_id == 0 }, :as => :comment %>              
     </ul>
     <%# end %>
   </div>
@@ -38,7 +39,7 @@
                                     :parent_comment_id => 0}, :method => "get", }, :href => new_post_comment_url(@post.id, :anchor => "new_comment"),
                          :class => "g-javascript_link" %>
     </h3>
-    <% if can? :create, Comment %>
+    <% if can? :create, Comment.new(:depth => 0) %>
         <div id="comment_0_form">
           <% if current_user %>
               <%= render :partial => "comments/user_comment_form" %>

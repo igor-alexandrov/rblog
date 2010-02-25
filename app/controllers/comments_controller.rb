@@ -1,19 +1,11 @@
 class CommentsController < ApplicationController
-  before_filter :check_for_abilities_to_create, :only => [:new, :create]
-
-  def index
-
-  end
-
+#  before_filter :check_for_abilities_to_create, :only => [:new, :create]
+  
   def new
     @post = Post.find(params[:post_id])
-    if current_user
-      @comment = UserComment.new()
-    else
-      @comment = GuestComment.new()
-    end
-    @comment.parent_comment_id = params[:parent_comment_id]
-    @comment.post = @post
+    @comment = @post.new_comment( params[:parent_comment_id], current_user )
+    unauthorized! if cannot? :create, @comment
+
     respond_to do |format|
       format.js
       format.html
@@ -22,7 +14,7 @@ class CommentsController < ApplicationController
 
   def create
     @post = Post.find(params[:post_id])
-    @comment = @post.add_comment(params[:comment], current_user)
+    @comment = @post.create_comment(params[:comment], current_user)
     if current_user
       respond_to do |format|
         if @comment.save
@@ -52,6 +44,6 @@ class CommentsController < ApplicationController
 
   private
   def check_for_abilities_to_create
-    unauthorized! if cannot? :create, Comment
+
   end
 end

@@ -7,6 +7,7 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find_by_permalink(params[:id], :include => :comments)
+    @comments = @post.comments
     if current_user
       @comment = UserComment.new
     else

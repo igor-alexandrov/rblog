@@ -1,18 +1,18 @@
 <%= content_tag(:a, "", :name => "comment_#{comment.id}") %>
-<% content_tag(:li, :class => "comment_#{comment.safe_parent_comment_id}_child" ) do %>
+<% content_tag(:li, :class => "comment_#{comment.parent_comment_id}_child" ) do %>
     <% content_tag(:div) do %>
         <span class="b-comment__author"><%# link_to comment.author.login, user_path(comment.author.login) %></span>
         <span class="b-comment__creation_date g-light_gray"><%= comment.created_at.strftime("%d %B %Y, %H:%M") %></span>
         <span class="b-comment__rating"><%= comment.rating %></span>
         <span class="b-comment__permalink"><%= link_to '#', "#comment_#{comment.id}", :title => "direct link to this comment" %></span>
         <% unless comment.parent_comment_id == 0 %>
-            <span class="b-comment__parent_permalink"><%= link_to '⇧', "#comment_#{comment.safe_parent_comment_id}", :title => "direct link to parent comment" %></span>
+            <span class="b-comment__parent_permalink"><%= link_to '⇧', "#comment_#{comment.parent_comment_id}", :title => "direct link to parent comment" %></span>
         <% end %>
         <div class="b-comment__body">
           <%= comment.body %>
         </div>
 
-        <% if can? :create, Comment %>
+        <% if can? :create, Comment.new(:depth => comment.depth + 1) %>
             <%= link_to_remote content_tag(:span, "reply", :class => "g-javascript_link__value"),
                                {:url =>
                                        { :controller => "comments", :action => "new", :post_id => comment.post_id, :parent_comment_id =>comment.id}, :method => "get", },
@@ -23,7 +23,7 @@
 
     <% end %>
     <% content_tag(:ul, :id => "comment_#{comment.id}_children", :class => "b-post__comments_list b-post__comments_list__nested" ) do %>
-        <%= render :partial => "comments/show", :collection => comment.comments, :as => :comment %>
+        <%= render :partial => "comments/show", :collection => @comments.select { |c| c.parent_comment_id == comment.id }, :as => :comment %>
         <% if @comment.parent_comment_id == comment.id %>
             <% if current_user %>
                 <%= render :partial => "comments/user_comment_form" %>
