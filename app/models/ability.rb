@@ -15,10 +15,10 @@ class Ability
           can :change_rating_for, Post
 
         when :admin
-          can :create, Comment do |comment|            
-            configatron.comments.user.use && comment.depth < configatron.posts.comments.maximum_depth
-          end
-#          can :manage, :all
+#          can :create, Comment do |comment|
+#            configatron.comments.user.use && comment.depth < configatron.posts.comments.maximum_depth
+#          end
+          can :manage, :all
       end
     else
       # if "user" is "nil", it is a guest user.

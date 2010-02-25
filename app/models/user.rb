@@ -2,6 +2,10 @@ class User < ActiveRecord::Base
   acts_as_authentic do |c|
     c.logged_in_timeout = 90.minutes
   end
+
+  is_gravtastic! :email,
+                 :filetype => :png,
+                 :size => 60
   
 #  Validate presence of mandatory attributes
   unless configatron.users.mandatory_attributes.nil?    
@@ -26,6 +30,10 @@ class User < ActiveRecord::Base
   
   def short_name
     self.last_name.to_s + " " + self.first_name.to_s
+  end
+
+  def avatar
+    self.gravatar_url
   end
 
   def admin?
