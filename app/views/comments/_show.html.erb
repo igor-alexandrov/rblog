@@ -22,13 +22,15 @@
         </div>
 
     <% end %>
-    <% content_tag(:ul, :id => "comment_#{comment.id}_children", :class => "b-post__comments_list b-post__comments_list__nested" ) do %>
-        <%= render :partial => "comments/show", :collection => @comments.select { |c| c.parent_comment_id == comment.id }, :as => :comment %>
-        <% if @comment.parent_comment_id == comment.id %>
-            <% if current_user %>
-                <%= render :partial => "comments/user_comment_form" %>
-            <% else %>
-                <%= render :partial => "comments/guest_comment_form" %>
+    <% if @comments %>
+        <% content_tag(:ul, :id => "comment_#{comment.id}_children", :class => "b-post__comments_list b-post__comments_list__nested" ) do %>
+            <%= render :partial => "comments/show", :collection => @comments.select { |c| c.parent_comment_id == comment.id }, :as => :comment %>
+            <% if @comment.parent_comment_id == comment.id %>
+                <% if current_user %>
+                    <%= render :partial => "comments/user_comment_form" %>
+                <% else %>
+                    <%= render :partial => "comments/guest_comment_form" %>
+                <% end %>
             <% end %>
         <% end %>
     <% end %>

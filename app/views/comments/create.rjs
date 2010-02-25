@@ -1,7 +1,7 @@
 page.replace_html 'post_comments_count', @post.comments_count
 page["#new_comment"].reset 
 page.remove "#new_comment"
-page.insert_html :bottom, "comment_#{@comment.safe_parent_comment_id}_children", :partial => 'show', :locals => {:comment => @comment}
+page.insert_html :bottom, "comment_#{@comment.parent_comment_id}_children", :partial => 'show', :locals => {:comment => @comment}
 page.visual_effect :highlight, "comment_#{@comment.id}", :duration => 3
 
 
