@@ -36,17 +36,6 @@ h2 {
     padding: 10px 0;
 }
 
-.b-flash {
-    width: 100%;    
-    text-align: center;
-    font-size: 140%;
-    padding: 10px 0;   
-}
-
-.b-flash-error {
-    background-color: #EB7231;
-}
-
 .h-padding {
     padding: 20px 40px;
 }

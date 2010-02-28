@@ -1,0 +1,7 @@
+<div class="b-content">
+  <h2>edit page '<%= @page.title %>'</h2>
+  <% form_for @page, :url => admin_page_path, :html => {:class => "b-form"} do |form| %>
+      <%= form.error_messages %>
+      <%= render :partial => 'form', :locals => {:form => form} %>
+  <% end %>
+</div>

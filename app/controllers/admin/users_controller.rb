@@ -1,6 +1,7 @@
 class Admin::UsersController < Admin::AdminController
   add_breadcrumb "users", "admin_users_path"
   add_breadcrumb "new user", "new_admin_user_path", :only => [:new, :create]
+  add_breadcrumb "edit user", "edit_admin_user_path", :only => [:edit, :update]
 
   def index
     @search = User.search(params[:search])
@@ -17,8 +18,8 @@ class Admin::UsersController < Admin::AdminController
 
   def create
     @user = User.new(params[:user])
-    if @user.save
-      flash[:notice] = 'User was successfully created.'
+    if @user.save      
+      notify :notice, 'user was successfully created'
       redirect_to admin_user_path(@user)
     else
       render :action => "new"
@@ -30,7 +31,13 @@ class Admin::UsersController < Admin::AdminController
   end
 
   def update
-
+    @user = User.find_by_login(params[:id])
+    if @user.update_attributes(params[:user])
+      notify :notice, 'user was successfully updated'
+      redirect_to admin_user_path(@user)
+    else
+      render :action => "edit"
+    end
   end
 
   def destroy
@@ -41,21 +48,13 @@ class Admin::UsersController < Admin::AdminController
     redirect_to admin_users_path
   end
 
-  def update_individual
-    unless params[:commit].blank?
-      case params[:commit]
-        when 'block' then
-          block(params[:user_ids])
-          redirect_to admin_users_path
-        when 'release' then
-          release(params[:user_ids])
-          redirect_to admin_users_path
-        else
-          redirect_to admin_users_path
-      end
-    else
-      redirect_to admin_users_path
+  def update_individual        
+    unless params[:user_ids].nil? || params[:operation].nil?
+      params[:operation].keys.each do |o|
+        self.send o.to_sym, params[:user_ids]
+      end    
     end
+    redirect_to admin_users_path
   end
 
   private

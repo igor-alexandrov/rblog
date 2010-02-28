@@ -31,6 +31,18 @@ pre {
     font-size: 11px;
 }
 
+h1 {
+    color: black;
+    font-size: 160%;
+    line-height: 2em;
+}
+
+h2 {
+    color: black;
+    font-size: 140%;
+    line-height: 1.5em;
+}
+
 .fieldWithErrors {
     padding: 2px;
     background-color: red;
@@ -92,7 +104,7 @@ pre {
 }
 
 .b-header__blog_title {
-    font-size: 140%;
+    font-size: 180%;
 }
 
 .b-header__breadcrumbs {
@@ -113,30 +125,44 @@ pre {
     padding-bottom: 3px;
 }
 
-.b-users-table-wrapper {
-    padding: 10px 0;
-    width: 60%;
+.b-content {
+    padding: 10px 20px;
+}
+
+.b-content-left {
+    float: left;
+    max-width: 80%;
+    overflow: hidden;
+
+}
+
+.b-content-right {
+    float: right;
+    width: 300px;
+    border-left: 1px solid #555555;
+}
+
+
+.b-control_panel {
+    list-style-type: none;
+    display: block;    
+}
+
+.b-control_panel-item {
+    display: inline;
+    line-height: 32px;
+    margin: 0 7px;    
 }
 
 .b-users-search {
-    border-bottom: 1px solid #DDDDDD;
+    /*border-bottom: 1px solid #DDDDDD;*/
     padding: 10px 0;
-}
-
-.b-form-title {
-	font-style: italic;
-	font-weight: bold;
-	font-size: 120%;	
 }
 
 .b-form-comment {	
 	color: #008C00;
 }
 
-.b-users-operations {
-    border-bottom: 1px solid #DDDDDD;
-    padding: 10px 0;
-}
 
 /*Forms*/
 
@@ -150,6 +176,7 @@ pre {
 
 .b-form__label {
     font-size: 90%;
+    font-weight: bold;
     display: block;
 }
 
@@ -182,7 +209,7 @@ pre {
 
 .b-users-table th {
     text-align: left;
-    border-bottom: 1px solid #555555;
+    border-bottom: 1px solid #DDDDDD;
 }
 
 .b-users-table th, td {
@@ -203,6 +230,8 @@ pre {
 .b-footer {
     border-top: 1px solid #555555;
     padding: 5px 0;
+    clear: both;
+    overflow: hidden;
 }
 
 .b-footer__mailto {
@@ -228,6 +257,27 @@ pre {
     float: right;
 }
 
+.i-add_32 {
+    background: url("/images/admin/add_32.png") no-repeat scroll left center;    
+}
+
+.i-edit_16 {
+    background: url("/images/admin/edit_16.png") no-repeat scroll left center;    
+}
+
+.i-delete_16 {
+    background: url("/images/admin/delete_16.png") no-repeat scroll left center;    
+}
+
+.g-link_32 {
+    font-size: 120%;
+    padding: 8px 0 8px 40px;    
+}
+
+.g-link_16 {
+    padding: 0 0 0 20px;    
+}
+
 .g-link-no-visited:visited {
     color: #0095d3;
 }
@@ -235,4 +285,3 @@ pre {
 .g-inline {
     display: inline;
 }
-

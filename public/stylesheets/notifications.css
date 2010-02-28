@@ -1,0 +1,17 @@
+.g-notification {
+    color: black;
+    width: 100%;    
+    text-align: center;
+    font-size: 140%;
+    line-height: 1.4em;
+    border-bottom: 1px solid #555555;
+}
+
+.g-notification-error {
+    background-color: #EB7231;
+}
+
+.g-notification-notice {
+    background-color: #B2D28F;
+}
+ 

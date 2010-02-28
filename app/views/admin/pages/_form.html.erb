@@ -1,0 +1,13 @@
+<div class="b-form-item">
+  <%= form.label :title, "title", :class => "b-form__label" %>
+  <%= form.text_field :title, :class => "b-form__input-text" %>
+</div>
+
+<div class="b-form-item">
+  <%= form.label :content, "content", :class => "b-form__label" %>
+  <%= form.text_area :content, :class=>"b-form__input-text markitup" %>
+</div>
+
+<div class="b-form-item">
+  <%= form.submit form.object.new_record? ? "create" : "update", :class => "b-form__input-submit" %>  
+</div>

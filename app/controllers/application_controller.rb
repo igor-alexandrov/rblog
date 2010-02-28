@@ -7,14 +7,14 @@ class ApplicationController < ActionController::Base
 
   before_filter do |controller|
     unless controller.class.to_s == "UserSessionsController"
-      controller.store_location      
+      controller.store_location
     end
   end
 
   rescue_from CanCan::AccessDenied do |exception|
-    flash[:error] = "You are not authorized to access page, that you requested"
+    notify :error, "You are not authorized to access page, that you requested"
     if current_user
-      session[:return_to] = nil      
+      session[:return_to] = nil
       redirect_to root_path
     else
       redirect_to login_path
@@ -50,6 +50,12 @@ class ApplicationController < ActionController::Base
   def current_user_session
     return @current_user_session if defined?(@current_user_session)
     @current_user_session = UserSession.find
+  end
+
+  def notify(type, message)
+    flash[:notifications] ||= {}
+    flash[:notifications][type] = message
+    logger.error("ERROR: #{message}") if type == :error
   end
 
   def current_user

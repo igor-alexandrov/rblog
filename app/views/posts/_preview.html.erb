@@ -1,0 +1,5 @@
+<% cache post_path(post.id, :action_suffix => "preview") do %>
+    <div class="b-post-content_preview g-indent">
+      <%= render :partial => "posts/#{post.content.class.to_s.downcase.pluralize}/content_preview", :locals => {:post => post} %>
+    </div>
+<% end %>

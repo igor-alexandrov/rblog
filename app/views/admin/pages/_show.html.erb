@@ -1,0 +1,7 @@
+<li id="<%= dom_id(page) %>">
+  <%= page.title %>
+  <%= link_to "Edit", edit_admin_page_path(page) %>
+  <ul id="<%= dom_id(page) %>_children">
+    <%= render :partial => "show", :collection => page.children, :as => :page %>
+  </ul>
+</li>

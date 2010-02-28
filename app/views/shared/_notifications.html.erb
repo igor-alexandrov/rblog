@@ -1,0 +1,8 @@
+<% unless flash[:notifications].nil? %>
+    <%= stylesheet_link_tag "notifications" %>
+    <% flash[:notifications].each do |key, value| %>
+        <div class="g-notification g-notification-<%= key %>">
+          <%= value %>
+        </div>
+    <% end -%>
+<% end %>

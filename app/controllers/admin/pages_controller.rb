@@ -1,6 +1,10 @@
 class Admin::PagesController < Admin::AdminController
+  add_breadcrumb "pages", "admin_pages_path"
+  add_breadcrumb "new page", "new_admin_page_path", :only => [:new, :create]
+  add_breadcrumb "edit page", "edit_admin_page_path", :only => [:edit, :update]
+
   def index
-    @pages = Page.roots
+    @pages = Page.all
   end
 
   def new

@@ -1,19 +1,32 @@
 <div class="b-form-item">
-    <%= form.label :login, "login", :class => "b-form__label" %> 
-    <%= form.text_field :login %>
+  <% unless form.object.new_record? %>
+    <%= image_tag form.object.avatar %>
+  <% end %>
 </div>
 <div class="b-form-item">
-    <%= form.label :password, "password", :class => "b-form__label" %>    
-    <%= form.password_field :password %>
+  <%= form.label :login, "login", :class => "b-form__label" %>
+  <%= form.text_field :login, :class => "b-form__input-text" %>
 </div>
 <div class="b-form-item">
-    <%= form.label :password_confirmation, "password confirmation", :class => "b-form__label" %>    
-    <%= form.password_field :password_confirmation %>
+  <%= form.label :password, "password", :class => "b-form__label" %>
+  <%= form.password_field :password, :class => "b-form__input-text" %>
 </div>
 <div class="b-form-item">
-    <%= form.label :email, "email", :class => "b-form__label" %> 
-    <%= form.text_field :email %>
+  <%= form.label :password_confirmation, "password confirmation", :class => "b-form__label" %>
+  <%= form.password_field :password_confirmation, :class => "b-form__input-text" %>
 </div>
 <div class="b-form-item">
-    <%= form.submit "save", :class => "b-form__input-submit" %>
+  <%= form.label :email, "email", :class => "b-form__label" %>
+  <%= form.text_field :email, :class => "b-form__input-text" %>
+</div>
+<div class="b-form-item">
+  <%= form.label :first_name, "first name", :class => "b-form__label" %>
+  <%= form.text_field :first_name, :class => "b-form__input-text" %>
+</div>
+<div class="b-form-item">
+  <%= form.label :last_name, "last name", :class => "b-form__label" %>
+  <%= form.text_field :last_name, :class => "b-form__input-text" %>
+</div>
+<div class="b-form-item">
+  <%= form.submit form.object.new_record? ? "create" : "update", :class => "b-form__input-submit" %>
 </div>

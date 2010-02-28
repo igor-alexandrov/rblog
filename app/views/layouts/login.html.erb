@@ -12,11 +12,7 @@
 <body>
 <div class="l-container">
   <div class="l-layout">
-    <% if flash[:error] %>
-        <div class="b-flash b-flash-error">
-          <%= flash[:error] %>          
-        </div>
-    <% end %>
+    <%= render :partial => "shared/notifications" %>
     <div class="h-padding">
       <div class="b-content">
         <div class="b-content__left">

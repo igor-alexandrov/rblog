@@ -6,15 +6,15 @@ class UserSessionsController < ApplicationController
 # You can find it in app/views/layouts/login.html.erb.
 # It also uses a special css file. 
   layout "login"
-  
+
   def new
-    @user_session = UserSession.new    
+    @user_session = UserSession.new
   end
 
   def create
     @user_session = UserSession.new(params[:user_session])
     if @user_session.save
-      flash[:notice] = "Login successful!"
+      notify :notice, "login successful"
       redirect_back_or_default root_path
     else
       render :action => :new
@@ -23,7 +23,6 @@ class UserSessionsController < ApplicationController
 
   def destroy
     current_user_session.destroy
-    flash[:notice] = "Logout successful!"
     redirect_back_or_default login_path
   end
 

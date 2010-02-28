@@ -1,9 +1,9 @@
 class PostsController < ApplicationController
-  #caches_action :show
-
 # We don't want anybody anonymous to create new Posts.
 # So in all child controllers this filter will work fine. 
   before_filter :check_for_abilities_to_create, :only => [:new, :create]
+
+  cache_sweeper :posts_sweeper, :only => [ :update ]
 
   def show
     @post = Post.find_by_permalink(params[:id], :include => :comments)

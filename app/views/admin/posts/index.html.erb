@@ -1,0 +1,54 @@
+<table>
+  <thead>
+  <tr>
+    <th>
+      Created
+    </th>
+    <th>
+      Title
+    </th>
+    <th>
+      Excerpt (announcement and body)
+    </th>
+    <th>
+      Status
+    </th>
+    <th>
+      X
+    </th>
+  </tr>
+  </thead>
+  %tbody
+  -for post in @posts
+  %tr
+  %td
+  =post.created_at.strftime("%d %b, %Y")
+  %td
+  =link_to post.title, admin_post_path(post)
+  %td
+  =truncate(post.announcement.gsub(/<\/?[^>]*>/,""), 100)
+  =truncate(post.body.gsub(/<\/?[^>]*>/,""), 100)
+  %td
+  =treat_boolean_as_image(true,"/images/admin/green_check.png","")
+  =post.status
+  //-form_for post, :method => "change_status" do |form|
+  // =form.select "status", options_for_select([['Published', 'published'],['Draft', 'draft']])
+
+  //=observe_field :status, :url => { :action => :change_status }, :frequency => 0.25
+
+
+  %td.center_aligned
+  = link_to 'X', admin_post_path(post), :confirm => 'Are you sure?', :method => :delete
+  %tfoot
+  %tr
+  %th
+  Created
+  %th
+  Title
+  %th
+  Excerpt (announcement and body)
+  %th
+  Status
+  %th.center_aligned
+  X
+</table>
