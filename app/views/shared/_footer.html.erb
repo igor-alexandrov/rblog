@@ -1,11 +1,13 @@
-<div class="b-footer">
-  <div class="b-links g-align__left">
-    
-  </div>
-  <div class="b-copyright g-align__right g-light_gray">
-    © 2009 — <%= Date.today.year %>
-    <a href="http://github.com/igor-alexandrov/rblog" target="_blank">RBlog</a>
-    <br/>
-    <a href="http://www.connectify.ru" target="_blank">www.connectify.ru</a>
-  </div>
+<div class="b-footer__mailto">
+  <%= mail_to configatron.general.blog_contact_email, configatron.general.blog_contact_email %>
 </div>
+<div class="b-footer__copyright">
+  © 2009 — <%= Date.today.year %>
+</div>
+<div class="b-footer__rblog">
+  <%= link_to "RBlog", "http://github.com/igor-alexandrov/rblog"%>
+</div>
+<div class="b-footer__connectify_logo">
+  <%= link_to "www.connectify.ru", "http://www.connectify.ru" %>
+</div>
+

@@ -10,10 +10,7 @@
 </head>
 <body>
 <div class="l-container">
-  <div class="l-layout">
-
-    <a href="http://github.com/igor-alexandrov/rblog" target="_blank" title="Show RBlog's page on GitHub"><img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_green_007200.png" alt="Fork me on GitHub" /></a>
-
+  <div class="l-layout">    
     <div class="h-padding">
       <%= render :partial => "shared/header" %>
       <div class="b-content">
@@ -23,7 +20,9 @@
         <%= yield :post_type_menu %>
         <%= yield :content or yield %>
       </div>
-      <%= render :partial => "shared/footer" %>
+      <div class="b-footer">
+        <%= render :partial => "shared/footer" %>
+      </div>
     </div>
   </div>
 </div>

@@ -63,28 +63,28 @@ h3 {
 /** header **/
 
 .b-header {
-    width: 100%;
-    clear: both;
+    padding: 10px 0;
+    font-weight: bold;
+    height: 80px;
+    border-bottom: 1px solid #555555;
+    margin-bottom: 30px;    
 }
 
-.b-header .b-blog_name {
-    font-size: 140%;
-    line-height: 3.5em;
+.b-header .b-blog_title {
+    font-size: 200%;
+    color: #555555;
+    line-height: 2.8em;
     margin: 0 0 0 30px;
 }
 
 .b-header .b-account_information {
-    margin: 0 100px 0 0
-}
-
-.b-header .b-account_information .b-user_name {
-    font-weight: bold;
+    line-height: 5em;    
 }
 
 /** menu **/
 .b-menu {
     display: block;
-    line-height: 3.5em;
+    line-height: 5em;
     margin: 0 100px 0 0;
     padding: 0;
 }
@@ -99,16 +99,45 @@ h3 {
 }
 
 .b-content {
-    float: left;
-    width: 66%;
+    /*float: left;*/
+    /*width: 66%;*/
 }
 
 .b-footer {
-    border-top: 2px solid #555555;
-    padding-top: 20px;
-    margin-top: 10px;
+    border-top: 1px solid #555555;
+    padding: 20px 0 5px 0;    
+    clear: both;
+    overflow: hidden;
+}
+
+.b-footer__mailto {
+    padding: 8px 55px;
+    font-size: 140%;
+    background: url("/images/mail.png") no-repeat scroll left center;
+    display: inline;
     float: left;
-    width: 100%;
+}
+
+.b-footer__connectify_logo {
+    padding: 8px 0 8px 55px;
+    font-size: 140%;
+    background: url("/images/logo_48.png") no-repeat scroll left center;
+    display: inline;
+    float: right;
+}
+
+.b-footer__copyright {
+    padding: 8px 0 8px 30px;
+    font-size: 140%;
+    display: inline;
+    float: right;
+}
+
+.b-footer__rblog {
+    padding: 8px 0 8px 30px;
+    font-size: 140%;
+    display: inline;
+    float: right;
 }
 
 .b-content-menu {
