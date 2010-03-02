@@ -163,6 +163,13 @@ h2 {
 	color: #008C00;
 }
 
+.b-pages-tree {
+    padding: 10px 0;
+}
+
+.b-pages-sub_tree {
+    padding-left: 30px;
+}
 
 /*Forms*/
 

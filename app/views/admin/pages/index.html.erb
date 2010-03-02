@@ -5,7 +5,7 @@
       <%= link_to "Add page", new_admin_page_path, :class => "g-link_32 i-add_32" %>
     </li>
   </ul>
-  <ul>
-    <%= render :partial => "show", :collection => @pages, :as => :page %>
+  <ul class="b-pages-tree">
+    <%= render :partial => "show", :collection => @pages.select {|p| p.parent_id.nil?}, :as => :page %>
   </ul>
 </div>

@@ -1,7 +1,14 @@
 <li id="<%= dom_id(page) %>">
   <%= page.title %>
-  <%= link_to "Edit", edit_admin_page_path(page) %>
-  <ul id="<%= dom_id(page) %>_children">
+  <ul class="b-control_panel">
+    <li class="b-control_panel-item">
+      <%= link_to "edit", edit_admin_page_path(page), :class => "g-link_16 i-edit_16" %>
+    </li>
+    <li class="b-control_panel-item">
+      <%= link_to 'delete', admin_page_path(page), :confirm => 'Are you sure?', :method => :delete, :class => "g-link_16 i-delete_16" %>
+    </li>
+  </ul>
+  <ul id="<%= dom_id(page) %>_children" class="b-pages-tree b-pages-sub_tree">
     <%= render :partial => "show", :collection => page.children, :as => :page %>
   </ul>
 </li>

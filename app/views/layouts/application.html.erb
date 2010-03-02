@@ -10,14 +10,17 @@
 </head>
 <body>
 <div class="l-container">
-  <div class="l-layout">    
+  <div class="l-layout">
     <div class="h-padding">
       <%= render :partial => "shared/header" %>
-      <div class="b-content">
+      
         <% if configatron.content_menu.show %>
             <%= yield :content_menu %>
         <% end %>
-        <%= yield :post_type_menu %>
+
+      <div class="b-content">
+
+        <!--<%# yield :post_type_menu %>-->
         <%= yield :content or yield %>
       </div>
       <div class="b-footer">

@@ -14,7 +14,7 @@ class Post < ActiveRecord::Base
   validates_length_of   :title, :minimum => 2
 
   # TODO Понять, стоит ли делать :include => [:tags] 
-  named_scope :published, :include => [:category], :conditions => "published_at IS NOT NULL", :order => "published_at DESC, id DESC"
+  named_scope :published, :conditions => "published_at IS NOT NULL", :order => "published_at DESC, id DESC"
   named_scope :draft, :conditions => "published_at IS NULL", :order => "updated_at DESC"
 
   named_scope :topics, :conditions => { :content_type => "Topic" }

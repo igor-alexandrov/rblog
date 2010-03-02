@@ -1,9 +1,0 @@
-<ul class="b-post-type-menu">
-  <span class="g-font-bigger">Type of your new post:</span>
-  <% for type in configatron.posts.types.active %>
-  <li class="b-post-type-menu__item <%= 'b-post-type-menu__item__current"' if options[:current_selected] == type.to_s.singularize %>">
-    <%= link_to type.to_s.singularize, new_polymorphic_path([:posts, type.to_s.singularize]), :class => "g-link-no-visited g-font-bigger" %>
-  </li>
-  <% end %>
-  
-</ul>

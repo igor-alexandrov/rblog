@@ -17,12 +17,18 @@ class Admin::PagesController < Admin::AdminController
 
   def create
     @page = Page.new(params[:page])
+    if @page.save
+      notify :notice, 'page was successfully created'
+      redirect_to admin_pages_path
+    else
+      render :action => "new"
+    end
   end
 
   def update
     @page = Page.find(params[:id])
     if @page.update_attributes(params[:page])
-      flash[:notice] = 'Page was successfully updated.'
+      notify :notice, 'page was successfully updated.'
       redirect_to admin_pages_path
     else
       render :action => "edit"
@@ -30,7 +36,12 @@ class Admin::PagesController < Admin::AdminController
   end
 
   def destroy
-    
+    @page = Page.find(params[:id])
+    unless @page.nil?
+      @page.destroy
+      notify :alert, 'page was destroyed.'
+    end
+    redirect_to admin_pages_path
   end
 
 end

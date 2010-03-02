@@ -61,11 +61,43 @@ h2 {
 }
 
 .b-footer {
-    border-top: 2px solid #555555;
-    padding-top: 20px;
-    margin-top: 10px;
+    margin-top: 40px;
+    border-top: 1px solid #555555;
+    padding: 20px 0 5px 0;
+    clear: both;
     float: left;
     width: 100%;
+    overflow: hidden;
+}
+
+.b-footer__mailto {
+    padding: 8px 55px;
+    font-size: 140%;
+    background: url("/images/mail.png") no-repeat scroll left center;
+    display: inline;
+    float: left;
+}
+
+.b-footer__connectify_logo {
+    padding: 8px 0 8px 55px;
+    font-size: 140%;
+    background: url("/images/logo_48.png") no-repeat scroll left center;
+    display: inline;
+    float: right;
+}
+
+.b-footer__copyright {
+    padding: 8px 0 8px 30px;
+    font-size: 140%;
+    display: inline;
+    float: right;
+}
+
+.b-footer__rblog {
+    padding: 8px 0 8px 30px;
+    font-size: 140%;
+    display: inline;
+    float: right;
 }
 
 .b-form {

@@ -2,7 +2,9 @@
 <% content_menu(:current_selected => "posts") %>
 <div class="b-content-posts__item b-content-posts__item-singular">
   <div class="b-post__category">
-    <%= link_to @post.category.title, category_path(@post.category), :class => "g-link-no-visited" %>
+    <% cache category_path(@post.category_id, :action_suffix => "post_title") do %>
+        <%= link_to @post.category.title, category_path(@post.category), :class => "g-link-no-visited" %>
+    <% end %>
   </div>
 
   <h2 class="g-light_gray"><%= @post.title %></h2>
@@ -22,15 +24,10 @@
 
   <div class="b-post__comments">
     <a name="comments"></a>
-
     <h2 class="g-light_gray">Comments (<span id="post_comments_count"><%= @post.comments_count %></span>)</h2>
-    <%# cache (:controller => "posts", :action => "show", :id => @post.id) do %>
     <ul id="comment_0_children" class="b-post__comments_list">
-      <%# render :partial => "comments/show", :collection => @post.comments.select { |comment| comment.safe_parent_comment_id == 0
-      }, :as => :comment %>
-        <%= render :partial => "comments/show", :collection => @comments.select { |comment| comment.parent_comment_id == 0 }, :as => :comment %>              
-    </ul>
-    <%# end %>
+      <%= render :partial => "comments/show", :collection => @comments.select { |comment| comment.parent_comment_id == 0 }, :as => :comment %>
+    </ul>    
   </div>
   <div class="b-add_comment">
     <h3>

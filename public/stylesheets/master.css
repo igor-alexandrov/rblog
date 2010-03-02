@@ -24,7 +24,7 @@ a:visited {
 }
 
 a:hover {
-    color: #fd8a51 ! important;
+    color: #fd8a51;
 }
 
 h1 {
@@ -62,12 +62,11 @@ h3 {
 
 /** header **/
 
-.b-header {
-    padding: 10px 0;
+.b-header {    
     font-weight: bold;
     height: 80px;
-    border-bottom: 1px solid #555555;
-    margin-bottom: 30px;    
+    /*border-bottom: 1px solid #555555;*/
+    /*margin-bottom: 30px;    */
 }
 
 .b-header .b-blog_title {
@@ -91,16 +90,16 @@ h3 {
 
 .b-menu__item {
     display: inline;
-
-    list-style: none;
+    text-transform: uppercase;        
+    list-style-type: none;
 
     margin: 0 1em;
     padding: 0;
 }
 
 .b-content {
-    /*float: left;*/
-    /*width: 66%;*/
+    float: left;
+    width: 100%;
 }
 
 .b-footer {
@@ -141,30 +140,60 @@ h3 {
 }
 
 .b-content-menu {
-    margin-bottom: 30px;
+    margin-bottom: 10px;
+    background: url("/images/content-menu_bg.png") repeat scroll 0 0 transparent;
+    clear: both;
+    float: left;
+    width: 100%;
 }
 
 .b-content-menu__item {
+    border-right: 1px solid #5599DD;
+    float: left;
+    position: relative;
     list-style-type: none;
     display: inline;
-    font-size: 200%;
-    padding: 7px 10px 7px 14px; /*border-bottom: 2px solid #fd8a51;*/
-    border-bottom: 2px solid #0F8925;
+    font-size: 160%;
+    line-height: 1.6em;
+    padding: 3px 15px;    
 
+}
+
+.b-content-menu__item  a{
+    color: #ffffff;
+    text-decoration: none;
+    position: relative;
+    white-space: nowrap;
+}
+
+.b-content-menu__item  a:hover{
+    color: #F0F0F0;
 }
 
 .b-content-menu__item__current {
-    border: 2px solid #0F8925;
-    border-bottom: 0;
-    padding-bottom: 9px;
-
+    background: url("/images/content-menu_bg__selected.png") repeat scroll 0 0 transparent;
+    font-weight: bold;
 }
+
+/*.b-content-menu__item {*/
+    /*list-style-type: none;*/
+    /*display: inline;*/
+    /*font-size: 200%;*/
+    /*padding: 7px 10px 7px 14px; *//*border-bottom: 2px solid #fd8a51;*/
+    /*border-bottom: 2px solid #0F8925;*/
+
+/*}*/
+
+/*.b-content-menu__item__current {*/
+    /*border: 2px solid #0F8925;*/
+    /*border-bottom: 0;*/
+    /*padding-bottom: 9px;*/
+
+/*}*/
 
 .b-content-menu__post_add__link {
     background: url("/images/add_post_32.png") no-repeat left center;
-    padding: 20px 0 20px 40px;
-    font-weight: bold;
-
+    padding: 5px 0 5px 40px;    
 }
 
 .b-content-menu__submenu {
@@ -202,7 +231,7 @@ h3 {
 }
 
 .b-content-posts__item-even{
-    border: 1px solid #F9F9F9;
+    /*border: 1px solid #F9F9F9;*/
 }
 
 .b-content-posts__item-singular {

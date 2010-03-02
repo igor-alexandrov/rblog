@@ -1,6 +1,6 @@
 <div class="b-content">
   <h2>add new page</h2>
-  <% form_for @page, :url => admin_users_path, :html => {:class => "b-form"} do |form| %>
+  <% form_for @page, :url => admin_pages_path, :html => {:class => "b-form"} do |form| %>
       <%= form.error_messages %>
       <%= render :partial => "form", :locals => {:form => form} %>
   <% end %>

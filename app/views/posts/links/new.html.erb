@@ -1,4 +1,3 @@
-<% content_menu(:current_selected => "add_post") %>
-<% post_type_menu(:current_selected => "link") %>
+<% content_menu(:current => 'add_post', :submenu_current => 'link' ) %>
 <%= render :partial => "posts/form", :locals => {:content => @link } %>      
 

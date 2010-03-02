@@ -9,7 +9,7 @@ class Topic < ActiveRecord::Base
   accepts_nested_attributes_for :post, :allow_destroy => true
 
   def text
-    self.announcement.to_s + "\n\n<cut>Read all</cut>\n\n" + self.body.to_s
+    self.announcement.to_s + "\n<cut>Read all</cut>\n" + self.body.to_s
   end
 
   def text=(value)
