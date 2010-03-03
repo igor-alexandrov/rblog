@@ -1,19 +1,19 @@
 <% title "RBlog ‒ #{@page.title}" %>
-
-<% unless @page.children.empty? %>
-<ul id="submenu">
-  <% for page in @page.children %>
-    <li><%= link_to h(page.title), page %></li>
-  <% end %>
-</ul>
+<% cache :controller => :pages, :id => @page.id, :action => :show, :action_suffix => :children do %>
+    <% unless @page.children.empty? %>
+        <ul id="submenu">
+          <% for page in @page.children %>
+              <li><%= link_to h(page.title), page %></li>
+          <% end %>
+        </ul>
+    <% end %>
 <% end %>
-
 <p>
-<% for page in @page.ancestors.reverse %>
-  <%= link_to h(page.title), page %> &gt;
-<% end %>
+  <% for page in @page.ancestors.reverse %>
+      <%= link_to h(page.title), page %> &gt;
+  <% end %>
 </p>
 
-<h1><%=h @page.title %></h1>
+<h1><%= h @page.title %></h1>
 
 <%= simple_format @page.content %>

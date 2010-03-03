@@ -21,7 +21,7 @@
       </div>
   <% end %>
 
-  <% cache "main_menu" do %>
+  <% cache :controller => :header, :action => :main_menu do %>
       <ul class="b-menu g-align__right">
         <% for page in Page.roots %>
             <li class="b-menu__item">
