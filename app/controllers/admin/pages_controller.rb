@@ -3,6 +3,8 @@ class Admin::PagesController < Admin::AdminController
   add_breadcrumb "new page", "new_admin_page_path", :only => [:new, :create]
   add_breadcrumb "edit page", "edit_admin_page_path", :only => [:edit, :update]
 
+  cache_sweeper :pages_sweeper, :only => [ :create, :update ]
+
   def index
     @pages = Page.all
   end

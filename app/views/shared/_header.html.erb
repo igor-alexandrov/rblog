@@ -11,7 +11,7 @@
         <span class="b-user_name">
             <%= current_user.login %>
         </span>
-        ( <%= link_to "logout", logout_path %> )        
+        ( <%= link_to "logout", logout_path %> )
       </div>
   <% else %>
       <div class="b-account_information g-align__right">
@@ -21,13 +21,15 @@
       </div>
   <% end %>
 
-  <ul class="b-menu g-align__right">
-    <% for page in Page.roots %>
-        <li class="b-menu__item">
-          <%= link_to h(page.title), page, :class => "b-menu__item__link" %>
-        </li>
-    <% end %>
-  </ul>
+  <% cache "main_menu" do %>
+      <ul class="b-menu g-align__right">
+        <% for page in Page.roots %>
+            <li class="b-menu__item">
+              <%= link_to h(page.title), page, :class => "b-menu__item__link" %>
+            </li>
+        <% end %>
+      </ul>
+  <% end %>
 
 </div>
           
