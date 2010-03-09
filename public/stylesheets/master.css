@@ -62,37 +62,21 @@ h3 {
 
 .b-header {
     font-weight: bold;
-    height: 80px;
     float: left;
     clear: both;
-    width: 100%; /*padding: 0 20px;*/
+    width: 100%;
 }
 
 .b-header .b-blog_title {
     font-size: 200%;
-    color: #555555;
-    line-height: 2.8em;
+    color: #222222;
+    line-height: 2em;
     margin: 0 0 0 30px;
 }
 
 .b-header .b-account_information {
-    line-height: 5em;
-}
-
-/** menu **/
-.b-menu {
-    display: block;
-    line-height: 5em;
-    margin: 0 100px 0 0;
-    padding: 0;
-}
-
-.b-menu__item {
-    display: inline;
-    text-transform: uppercase;
-    list-style-type: none;
-    margin: 0 1em;
-    padding: 0;
+    line-height: 4em;
+    margin: 0 30px 0 0;
 }
 
 .b-content {

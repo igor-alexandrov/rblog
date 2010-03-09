@@ -1,8 +1,5 @@
 <div class="b-content-menu-wrapper">
   <ul class="b-content-menu">
-    <li class="b-content-menu__item b-content-menu__rblog">
-        RBlog
-    </li>
     <% if can? :create, Post %>
         <li class="b-content-menu__item b-content-menu__post_add <%= 'b-content-menu__item__current' if options[:current] == 'add_post' %>">
           <%= link_to "Add post", new_posts_topic_path, :class => "b-content-menu__post_add__link" %>
@@ -17,22 +14,13 @@
     <li class="b-content-menu__item b-content-menu__users <%= 'b-content-menu__item__current' if options[:current] == 'users' %>">
       <%= link_to "Users", users_path, :class => "b-content-menu__users__link" %>
     </li>
-    <li class="b-content-menu__item">
-      <% if current_user %>
-          <div class="b-account_information g-align__right">
-        <span class="b-user_name">
-            <%= current_user.login %>
-        </span>
-            ( <%= link_to "view profile", profile_path %> <%= link_to "logout", logout_path %> )
-          </div>
-      <% else %>
-          <div class="b-account_information g-align__right">
-            <%= link_to "login", login_path %>
-            or
-            <%= link_to "register", new_user_path %>
-          </div>
+    <% cache :controller => :header, :action => :main_menu do %>
+      <% for page in Page.roots %>
+        <li class="b-content-menu__item">
+          <%= link_to h(page.title), page, :class => "b-menu__item__link" %>
+        </li>
       <% end %>
-    </li>
+    <% end %>
   </ul>
   <% if options[:current] == 'add_post' %>
       <ul class="b-content-submenu b-post-type-menu">

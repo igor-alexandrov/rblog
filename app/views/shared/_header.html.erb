@@ -1,7 +1,4 @@
 <div class="b-header">
-  <div class="b-blog_logo g-align__left">
-    <%= link_to image_tag(ActiveIdentity.image("logo.png")), root_path %>
-  </div>
   <div class="b-blog_title g-align__left">
     <%= configatron.general.blog_title %>
   </div>
@@ -11,7 +8,7 @@
         <span class="b-user_name">
             <%= current_user.login %>
         </span>
-        ( <%= link_to "view profile", profile_path %> <%= link_to "logout", logout_path %> )
+        ( <%= link_to "view profile", profile_path %> / <%= link_to "logout", logout_path %> )
       </div>
   <% else %>
       <div class="b-account_information g-align__right">
@@ -20,15 +17,4 @@
         <%= link_to "register", new_user_path %>
       </div>
   <% end %>
-
-  <% cache :controller => :header, :action => :main_menu do %>
-      <ul class="b-menu g-align__right">
-        <% for page in Page.roots %>
-            <li class="b-menu__item">
-              <%= link_to h(page.title), page, :class => "b-menu__item__link" %>
-            </li>
-        <% end %>
-      </ul>
-  <% end %>
-
 </div>

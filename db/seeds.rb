@@ -38,21 +38,6 @@ end
 
 igor_user.save
 
-
-#fake_comment = Comment.find( :first, :conditions => "id=0" )
-#if fake_comment.nil?
-#  fake_comment = Comment.new do |c|
-#      c.id = 0
-#      c.post_id = nil
-#      c.parent_comment_id = nil
-#      c.commenter_name = 'rblog developer'
-#      c.commenter_email = 'igor.alexandrov@gmail.com'
-#      c.body = 'This comment is here to provide tree comment model. All other top level comments will have parent_comment_id = 0'
-#    end
-#
-#    fake_comment.save
-#end
-
 Category.find(:all).each { |e| e.destroy  }
 category = Category.new do |c|
   c.permalink = "general"
@@ -148,3 +133,9 @@ third_post = Post.new do |p|
 end
 third_post.save
 third_post.publish!
+
+about_page = Page.new({:title => "About", :content => "RBlog - Rails blog engine"})
+about_page.save
+
+license_page = Page.new({:title => "License", :content => "Here will be a text of license.", :parent => about_page})
+license_page.save

@@ -11,13 +11,6 @@ class CreatePages < ActiveRecord::Migration
 
     add_index :pages, :permalink
     add_index :pages, :parent_id
-
-    index_page = Page.new({:title => "RBlog index page", :permalink => "", :is_index => true})
-    index_page.save
-
-    about_page = Page.new({:title => "About RBlog", :permalink => "about", :content => "RBlog - Rails blog engine"})
-    about_page.save
-
   end
 
   def self.down
