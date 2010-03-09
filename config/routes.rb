@@ -33,7 +33,8 @@ ActionController::Routing::Routes.draw do |map|
 
   map.resources :users, :as => "u"
 
-  map.profile "/profile", :controller => "users", :action => "profile"
+  map.profile "/profile", :controller => "profile", :action => "view", :method => "GET"
+  map.edit_profile "/profile/edit", :controller => "profile", :action => "edit", :method => "PUT"
 
   map.root :controller => "home"
 
