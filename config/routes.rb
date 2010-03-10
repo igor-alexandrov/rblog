@@ -20,14 +20,19 @@ ActionController::Routing::Routes.draw do |map|
   end
 
   map.resources :categories, :as => "c"
-  map.resources :posts, :as => "p", :has_many => :comments
+  map.resources :posts, :as => "p", :has_many => :comments do |posts|
+    if configatron.posts.rating.use
+      posts.increase_rating "rating/increase", :controller => "posts", :action => "increase_rating", :method => "POST"
+      posts.decrease_rating "rating/decrease", :controller => "posts", :action => "decrease_rating", :method => "POST"
+      posts.toggle_favourite  "toogle_favourite", :controller => "posts", :action => "toggle_favourite", :method => "POST"      
+    end
+  end
+
+
 
   map.post_short "/:id", :controller => "posts", :action => "show_by_id", :method => "GET", :requirements => { :id => /[0-9]+/ }
 
-  if configatron.posts.rating.use
-    map.increase_post_rating "/p/:id/rating/increase", :controller => "posts", :action => "increase_rating", :method => "POST"
-    map.decrease_post_rating "/p/:id/rating/decrease", :controller => "posts", :action => "decrease_rating", :method => "POST"
-  end
+
   map.posts_tag "/t/:name", :controller => "tags", :action => "show"
 
 
@@ -42,7 +47,7 @@ ActionController::Routing::Routes.draw do |map|
     admin.root :controller => 'home', :action => 'index'
     #    admin.resource :user_session
 
-    admin.resources :users, :collection => {:update_individual => :put}  
+    admin.resources :users, :collection => {:update_individual => :put}
 
     admin.resources :posts
     admin.change_status 'posts/change_status', :controller => "posts", :action => "change_status"

@@ -29,8 +29,8 @@ class PostsController < ApplicationController
 
   def increase_rating
     unauthorized! if cannot? :change_rating_for, Post
-    Post.increment_counter(:rating, params[:id] )
-    @post = Post.find(params[:id])
+    Post.increment_counter(:rating, params[:post_id] )
+    @post = Post.find(params[:post_id])
     respond_to do |format|
       format.js
     end
@@ -38,10 +38,22 @@ class PostsController < ApplicationController
 
   def decrease_rating
     unauthorized! if cannot? :change_rating_for, Post
-    Post.decrement_counter(:rating, params[:id] )
-    @post = Post.find(params[:id])
+    Post.decrement_counter(:rating, params[:post_id] )
+    @post = Post.find(params[:post_id])
     respond_to do |format|
       format.js
+    end
+  end
+
+  def toggle_favourite
+    @post = Post.find(params[:post_id])
+    if current_user.has_favourite?(@post)
+      
+    else
+      current_user.add_favourite!(@post)
+      respond_to do |format|
+        format.js
+      end
     end
   end
 

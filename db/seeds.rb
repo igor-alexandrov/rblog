@@ -10,6 +10,7 @@ Topic.find(:all).each { |e| e.destroy  }
 Link.find(:all).each { |e| e.destroy  }
 Comment.find(:all).each { |e| e.destroy  }
 User.find(:all).each { |e| e.destroy  }
+Page.find(:all).each { |e| e.destroy  }
 
 admin_user = User.new do |user|
   user.login = "admin"

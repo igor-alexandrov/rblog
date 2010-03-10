@@ -24,6 +24,8 @@ class User < ActiveRecord::Base
 
   named_scope :by_reputation, :order => "reputation DESC"
 
+  has_many :favourites, :class_name => "Favourite"
+
   def full_name
     self.last_name.to_s + " " + self.first_name.to_s + " " + self.middle_name.to_s
   end
@@ -55,9 +57,26 @@ class User < ActiveRecord::Base
   def release!
     if self.blocked?
       self.blocked_at = nil
-      self.released_at = DateTime.now
+      self.relreased_at = DateTime.now
       self.save!
     end
   end
 
+  def has_favourite?(object)
+    Rails.cache.fetch("users/#{self.id}/favourites/#{object.class.to_s.pluralize.downcase}/#{object.id}") {
+      !Favourite.find( :first, :conditions => {:user_id => self.id, :object_type => object.class.to_s, :object_id => object.id} ).nil?
+    }
+  end
+
+  def add_favourite!(object)
+    Favourite.create do |f|
+      f.object_id = object.id
+      f.object_type = object.class.to_s
+      f.user_id = self.id
+    end
+  end
+
+  def remove_favourite!
+    
+  end
 end

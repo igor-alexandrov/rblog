@@ -3,6 +3,8 @@ class Post < ActiveRecord::Base
 
   has_many :comments, :order => "created_at ASC"
 
+  has_many :favourites, :dependent => :destroy, :validate => true
+
   belongs_to :category, :counter_cache => true
   belongs_to :author, :class_name => "User", :counter_cache => true
 

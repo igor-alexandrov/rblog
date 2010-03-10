@@ -82,10 +82,11 @@ h3 {
 .b-content {
     float: left;
     width: 100%;
+    padding: 20px;
 }
 
 .b-footer {
-    border-top: 1px solid #555555;
+    border-top: 1px solid #222222;
     padding: 20px 0 5px 0;
     clear: both;
     overflow: hidden;
@@ -131,19 +132,28 @@ h3 {
 }
 
 .b-content-menu {
-    margin: 0 30px;    
+    margin: 0 16px 0 14px;    
 }
 
 .b-content-menu__item {
-    border-right: 1px solid #555555;
+
     float: left;
     position: relative;
     list-style-type: none;
     display: inline;
-    font-size: 160%;
+    font-size: 120%;
     line-height: 1.6em;
-    padding: 0 15px;
-    margin: 4px 0;
+    padding: 4px 15px;
+}
+
+.b-content-menu__item-left {
+    border-right: 1px solid #555555;
+    float: left;
+}
+
+.b-content-menu__item-right {
+    border-left: 1px solid #555555;
+    float: right;
 }
 
 .b-content-menu__item  a {
@@ -158,29 +168,14 @@ h3 {
 }
 
 .b-content-menu__item__current {
-    background: url("/images/content-menu_bg__selected_2.png") repeat scroll 0 0 transparent; /*font-weight: bold;*/
-
+    /*background:  url("/images/content-menu_bg__selected_2.png") repeat scroll 0 0 transparent;*/
+    background:  url("/images/bg.gif") repeat scroll 0 0 transparent;
+    font-weight: bold;
 }
 
-/*.b-content-menu__item {*/
-/*list-style-type: none;*/
-/*display: inline;*/
-/*font-size: 200%;*/
-/*padding: 7px 10px 7px 14px; *//*border-bottom: 2px solid #fd8a51;*/
-/*border-bottom: 2px solid #0F8925;*/
-
-/*
+.b-content-menu__item__current a {
+    text-decoration: none;
 }
-*/
-
-/*.b-content-menu__item__current {*/
-/*border: 2px solid #0F8925;*/
-/*border-bottom: 0;*/
-/*padding-bottom: 9px;*/
-
-/*
-}
-*/
 
 .b-content-menu__post_add__link {
     background: url("/images/add_post_32.png") no-repeat left center;
@@ -302,6 +297,16 @@ h3 {
 .b-post__paramameters__item {
     display: inline;
     margin-right: 15px;
+}
+
+.b-post__paramameters__item a{
+    min-width: 16px;
+    min-height: 16px;
+    display: inline-block;
+}
+
+.b-post__toggle_favourite__add {
+    background: url("/images/favourite.png") no-repeat left center    
 }
 
 .b-post__rating {
