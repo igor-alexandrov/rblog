@@ -3,7 +3,7 @@
     <% unless @page.children.empty? %>
         <ul id="submenu">
           <% for page in @page.children %>
-              <li><%= link_to h(page.title), page %></li>
+              <li><%= link_to h(page.title), page_path(page) %></li>
           <% end %>
         </ul>
     <% end %>

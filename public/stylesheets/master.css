@@ -306,8 +306,13 @@ h3 {
 }
 
 .b-post__toggle_favourite__add {
-    background: url("/images/favourite.png") no-repeat left center    
+    background: url("/images/favourite.png") no-repeat left bottom    
 }
+
+.b-post__toggle_favourite__remove {
+    background: url("/images/favourite.png") no-repeat left top    
+}
+
 
 .b-post__rating {
     font-weight: bold;

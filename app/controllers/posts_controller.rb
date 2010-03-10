@@ -48,12 +48,12 @@ class PostsController < ApplicationController
   def toggle_favourite
     @post = Post.find(params[:post_id])
     if current_user.has_favourite?(@post)
-      
+      current_user.remove_favourite!(@post)
     else
       current_user.add_favourite!(@post)
-      respond_to do |format|
-        format.js
-      end
+    end
+    respond_to do |format|
+      format.js
     end
   end
 

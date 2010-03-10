@@ -11,7 +11,21 @@
 <div class="b-post__parameters">
   <% if current_user %>
       <div class="b-post__paramameters__item b-post__favourite g-light_gray">
-        <%= link_to_remote content_tag(:span, '', :class => "g-javascript_link__value"), :url => post_toggle_favourite_url(post.id), :method => "post", :html => {:title => "add this post to favourites", :class => "b-post__toggle_favourite__add g-javascript_link"} %>
+        <% if current_user.has_favourite?(post) %>
+          <%= link_to_remote content_tag(:span, '', :class => "g-javascript_link__value"),
+              :url => post_toggle_favourite_url(post.id),
+              :method => "post",
+              :html => {:title => "remove this post from favourites",
+                        :class => "b-post__toggle_favourite__remove g-javascript_link"}
+          %>
+        <% else %>
+          <%= link_to_remote content_tag(:span, '', :class => "g-javascript_link__value"),
+              :url => post_toggle_favourite_url(post.id),
+              :method => "post",
+              :html => {:title => "add this post to favourites",
+                        :class => "b-post__toggle_favourite__add g-javascript_link"}
+          %>
+        <% end %>
       </div>
   <% end %>
   <% if configatron.posts.rating.use %>

@@ -1,0 +1,9 @@
+if current_user.has_favourite?(@post)
+  page << "$('#post_#{@post.id} .b-post__favourite a').removeClass('b-post__toggle_favourite__add');"
+  page << "$('#post_#{@post.id} .b-post__favourite a').addClass('b-post__toggle_favourite__remove');"
+  page << "$('#post_#{@post.id} .b-post__favourite a').attr('title', 'remove this post from favourites');"
+else
+  page << "$('#post_#{@post.id} .b-post__favourite a').removeClass('b-post__toggle_favourite__remove');"
+  page << "$('#post_#{@post.id} .b-post__favourite a').addClass('b-post__toggle_favourite__add');"
+  page << "$('#post_#{@post.id} .b-post__favourite a').attr('title', 'add this post to favourites');"
+end
