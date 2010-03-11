@@ -47,11 +47,11 @@ module ApplicationHelper
   end
 
   def page_path(page)
-    path = "/pages/" + page.permalink;
-    for current_page in page.ancestors
-      path = path + "/" + current_page.permalink
+    url = url_for :controller => 'pages'
+    for current_page in page.ancestors.reverse
+      url = url + "/" + current_page.permalink
     end
-    path
+    url + "/" + page.permalink
   end
 
   def title(page_title, show_title = true)
@@ -61,7 +61,7 @@ module ApplicationHelper
 
 
   def content_menu( options = {} )
-    content_for(:content_menu, render( :partial => "shared/content_menu", :locals => {:options => options} ))
+    content_for(:content_menu, render( :partial => "shared/menu", :locals => {:options => options} ))
   end
 
   def post_type_menu( options = {} )

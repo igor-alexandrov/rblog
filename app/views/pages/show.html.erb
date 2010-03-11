@@ -1,18 +1,18 @@
 <% title "RBlog ‒ #{@page.title}" %>
-<% cache :controller => :pages, :id => @page.id, :action => :show, :action_suffix => :children do %>
-    <% unless @page.children.empty? %>
-        <ul id="submenu">
-          <% for page in @page.children %>
-              <li><%= link_to h(page.title), page_path(page) %></li>
-          <% end %>
-        </ul>
-    <% end %>
-<% end %>
-<p>
-  <% for page in @page.ancestors.reverse %>
-      <%= link_to h(page.title), page %> &gt;
+<% content_menu(:current => @page.root.permalink) %>
+<div class="b-page__navigation">
+  <% @ancestors.each_with_index do |page, index| %>
+      <%= link_to h(page.title), page %> →
   <% end %>
-</p>
+  <%= h(@page.title) %>
+  <% unless @children.empty? %>
+      [
+      <% @children.each_with_index do |page, index| %>
+          <%= link_to h(page.title), page_path(page) %>
+      <% end %>
+      ]
+  <% end %>
+</div>
 
 <h1><%= h @page.title %></h1>
 
