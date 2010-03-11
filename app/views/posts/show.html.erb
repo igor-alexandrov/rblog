@@ -1,5 +1,5 @@
 <% title "RBlog ‒ " + @post.title %>
-<% content_menu(:current_selected => "posts") %>
+<% content_menu(:current => "posts") %>
 <div class="b-content-posts__item b-content-posts__item-singular">
   <div class="b-post__category">
     <% cache category_path(@post.category_id, :action_suffix => "post_title") do %>

@@ -150,11 +150,10 @@ h3 {
 }
 
 .b-submenu__list {
-    padding: 0.5em 0;
+    padding: 0.5em 2.4em;
 }
 
 .b-menu__item {
-
     float: left;
     position: relative;
     list-style-type: none;
@@ -187,10 +186,11 @@ h3 {
 
 .b-menu__item-current {
     background: url("/images/bg.gif") repeat scroll 0 0 transparent;
-    font-weight: bold;
+/*    font-weight: bold;*/
 }
 
 .b-menu__item-current a {
+  color: #FFFF99;
     text-decoration: none;
 }
 
@@ -203,6 +203,10 @@ h3 {
     padding: 0 5px;
     display: inline;
     list-style-type: none;
+}
+
+.b-submenu__item a {
+  font-size: 120%;
 }
 
 .b-submenu__item a:hover{
@@ -442,6 +446,7 @@ h3 {
     border-radius: 5px;
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.4);
     padding: 7px 0;
+    min-width: 900px;
 }
 
 .b-form_errors {

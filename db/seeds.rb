@@ -5,6 +5,16 @@
 #   
 #   cities = City.create([{ :name => 'Chicago' }, { :name => 'Copenhagen' }])
 #   Major.create(:name => 'Daley', :city => cities.first)
+
+def get_file_as_string(filename)
+  data = ''
+  f = File.open(filename, "r") 
+  f.each_line do |line|
+    data += line
+  end
+  return data
+end
+
 Post.find(:all).each { |e| e.destroy  }
 Topic.find(:all).each { |e| e.destroy  }
 Link.find(:all).each { |e| e.destroy  }
@@ -138,5 +148,5 @@ third_post.publish!
 about_page = Page.new({:title => "About", :content => "RBlog - Rails blog engine"})
 about_page.save
 
-license_page = Page.new({:title => "License", :content => "Here will be a text of license.", :parent => about_page})
+license_page = Page.new({:title => "License", :content => "<pre>" + get_file_as_string("#{RAILS_ROOT}/LICENSE") + "</pre>", :parent => about_page})
 license_page.save

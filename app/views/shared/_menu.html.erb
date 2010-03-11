@@ -23,13 +23,18 @@
   </div>
   <div class="b-submenu">
     <% if options[:current] == 'add_post' %>
-        <ul class="b-menu__list b-submenu__list">
-          Type of your new post:
+        <ul class="b-submenu__list">
+          Choose type of your new post:
           <% for type in configatron.posts.types.active %>
               <li class="b-submenu__item <%= 'b-submenu__item-current"' if options[:submenu_current] == type.to_s.singularize %>">
-                <%= link_to type.to_s.singularize, new_polymorphic_path([:posts, type.to_s.singularize]), :class => "g-link-no-visited g-font-bigger" %>
+                <%= link_to type.to_s.singularize, new_polymorphic_path([:posts, type.to_s.singularize]), :class => "g-link-no-visited" %>
               </li>
           <% end %>
+          Or create a 
+          <li class="b-submenu__item">
+            <a href="#">new category</a>
+          </li>
+          at first.
         </ul>
     <% end %>
   </div>

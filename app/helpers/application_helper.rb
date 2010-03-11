@@ -47,7 +47,7 @@ module ApplicationHelper
   end
 
   def page_path(page)
-    url = url_for :controller => 'pages'
+    url = '/pages'
     for current_page in page.ancestors.reverse
       url = url + "/" + current_page.permalink
     end

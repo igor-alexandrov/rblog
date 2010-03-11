@@ -63,10 +63,9 @@ class User < ActiveRecord::Base
   end
 
   def has_favourite?(object)
-     f = Rails.cache.fetch("users/#{self.id}/favourites/#{object.class.to_s.pluralize.downcase}/#{object.id}") {
-      Favourite.find( :first, :conditions => {:user_id => self.id, :object_type => object.class.to_s, :object_id => object.id} )
+     Rails.cache.fetch("users/#{self.id}/favourites/#{object.class.to_s.pluralize.downcase}/#{object.id}") {
+      !Favourite.find( :first, :conditions => {:user_id => self.id, :object_type => object.class.to_s, :object_id => object.id} ).nil?
      }
-     !f.nil?
   end
 
   def add_favourite!(object)
