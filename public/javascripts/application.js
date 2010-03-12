@@ -3,7 +3,7 @@
 
 $(document).ready(function() {
     $('input').eq(1).focus();
-//    $(".markitup").markItUp(mySettings);
+    $(".markitup").markItUp(mySettings);
 });
 
 

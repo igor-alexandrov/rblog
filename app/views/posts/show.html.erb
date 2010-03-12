@@ -1,13 +1,13 @@
 <% title "RBlog ‒ " + @post.title %>
 <% content_menu(:current => "posts") %>
-<div class="b-content-posts__item b-content-posts__item-singular">
+<div id="<%= dom_id(@post) %>" class="b-post">
   <div class="b-post__category">
     <% cache category_path(@post.category_id, :action_suffix => "post_title") do %>
         <%= link_to @post.category.title, category_path(@post.category), :class => "g-link-no-visited" %>
     <% end %>
   </div>
 
-  <h2 class="g-light_gray"><%= @post.title %></h2>
+  <h1 class="b-post__title"><%= @post.title %></h1>
 
   <div class="b-post__publish_date g-light_gray">
     <%= @post.created_at.strftime("%d, %B %Y, %H:%M") %>

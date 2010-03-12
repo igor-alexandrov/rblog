@@ -62,9 +62,7 @@ category.save
 
 first_topic = Topic.new do |t|
     t.body = "Welcome!
-
-You have just installed RBlog.\n
-RBlog is a modern blog engine with elements of social network, written with Ruby On Rails.\n\n
+You have just installed <b>RBlog</b>. RBlog is a modern blog engine with elements of social network, written with Ruby On Rails.
 If you have any questions, please mail to <a href=\"igor.alexandrov@gmail.com\">igor.alexandrov@gmail.com</a> or to <a href=\"info@connectify.ru\">info@connectify.ru</a>.\n
 If you want to know more about RBlog or take a parn in development, please visiti our <a href=\"http://github.com/igor-alexandrov/rblog\">GitHub page</a>."
 end

@@ -83,6 +83,7 @@ h3 {
 .b-content {
     float: left;    
     padding: 0 30px;
+    margin-bottom: 2em;
 }
 
 .b-footer {
@@ -222,57 +223,60 @@ h3 {
     text-decoration: none;
 }
 
-.b-content-posts__item-wrapper {
-    list-style: none; /*padding: 15px 15px;*/
+
+
+.b-posts-item-wrapper {
+    list-style: none;
+    border-bottom: 1px solid #DDDDDD;
 }
 
-.b-content-posts__item {
-    padding: 15px 15px;
+.b-posts-item-wrapper:last-child {
+    border: none;
 }
 
-.b-content-posts__item-odd {
-    background-color: #F9F9F9;
-    border: 1px solid #F2F2F5;
-}
-
-.b-content-posts__item-even {
-/*border: 1px solid #F9F9F9;*/
-}
-
-.b-content-posts__item-singular {
-    border: 1px solid #F9F9F9;
+.b-post {
+    padding: 15px 0;
 }
 
 .b-post__title {
+    margin-bottom: 0.3em;
 }
 
 .b-post__publish_date {
     font-weight: bold;
     font-size: 90%;
+    float: left;
 }
 
 .b-bost__content_type_image {
     vertical-align: middle;
 }
 
-.b-post__read_all_link {
-    margin-top: 10px;
-    display: block;
-    font-weight: bold;
-}
-
 /* Posts content and content-preview */
 /**************************************************/
 
 .b-post-content {
-    margin: 15px 0 15px 10px
+    margin: 15px 0 15px 10px;
+    float: left;
+    width: 100%;
+    font-size: 110%
 }
 
-.b-post-content_preview {
-    margin: 15px 0 15px 10px
+.b-post__content_preview {
+    margin: 15px 0 15px 10px;
+    float: left;
+    width: 100%;
+    font-size: 110%
 }
 
 /* Topic */
+.b-post-topic__read_all_link {
+    margin: 1em;
+    display: block;
+    font-weight: bold;
+    text-indent: 0;
+}
+
 .b-posts__topic__announcement {
     padding-bottom: 10px;
     margin-bottom: 10px;
@@ -283,14 +287,17 @@ h3 {
 }
 
 /* Link */
-.b-posts__link__url {
+.b-post-link__url {
     font-size: 140%;
-    margin: 5px 5px;
-    padding: 5px 5px;
-    border: 3px solid #DDDDDD;
+    margin: 5px;
+    padding: 7px;
+    border: 2px solid #DDDDDD;
     -moz-border-radius: 5px;
     -webkit-border-radius: 5px;
     border-radius: 5px;
+    float: left;
+    clear: both;
+    text-indent: 0;
 }
 
 /**************************************************/
@@ -299,6 +306,7 @@ h3 {
     padding-left: 20px;
     background: url("/images/tags.png") no-repeat left center;
     margin-bottom: 4px;
+    float: left;
 }
 
 .b-post__tags__item, .b-post__tags__item:visited {
@@ -395,6 +403,7 @@ h3 {
     background: url("/images/edit_post_16.png") no-repeat left center;
     padding: 5px 0 5px 20px;
     font-size: 110%;
+    margin-left: 2em;
 }
 
 .b-post__category {
@@ -568,7 +577,7 @@ h3 {
 }
 
 .g-indent {
-    text-indent: 10px;
+    text-indent: 1em;
 }
 
 .g-link-no-visited:visited {

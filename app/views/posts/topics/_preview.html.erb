@@ -1,0 +1,12 @@
+<div class="b-post-topic__text">
+  <% unless post.content.announcement.nil? %>
+      <%= simple_format post.content.announcement %>
+  <% else %>
+      <%= simple_format post.content.body %>
+  <% end %>
+</div>
+<% unless post.content.announcement.nil? %>
+    <div class="b-post-topic__read_all_link">
+      <%= link_to "Read all", post %>
+    </div>
+<% end %>

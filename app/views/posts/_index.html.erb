@@ -1,8 +1,8 @@
 <% options ||= {} %>
-<ul class="b-content-posts">
-  <% posts.each_with_index do |post, index| %>
-      <li id="<%= dom_id(post) %>" class="b-content-posts__item-wrapper">
-        <div class="b-content-posts__item  <%= index.even? ? "b-content-posts__item-even":"b-content-posts__item-odd" %>">
+<ul class="b-posts">
+  <% posts.each do |post| %>
+      <li class="b-posts-item-wrapper">
+        <div id="<%= dom_id(post) %>" class="b-post">
           <h2 class="b-post__title">
             <% cache category_path(post.category_id, :action_suffix => "post_title") do %>
                 <%= link_to post.category.title, category_path(post.category), :class => "g-link-no-visited" %>
