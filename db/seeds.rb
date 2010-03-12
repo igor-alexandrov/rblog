@@ -145,8 +145,8 @@ end
 third_post.save
 third_post.publish!
 
-about_page = Page.new({:title => "About", :content => "RBlog - Rails blog engine"})
+about_page = Page.new({:title => "About", :content => get_file_as_string("#{RAILS_ROOT}/db/data/pages/about.html")})
 about_page.save
 
-license_page = Page.new({:title => "License", :content => "<pre>" + get_file_as_string("#{RAILS_ROOT}/LICENSE") + "</pre>", :parent => about_page})
+license_page = Page.new({:title => "License", :content => get_file_as_string("#{RAILS_ROOT}/db/data/pages/license.html") + "<p><pre>" + get_file_as_string("#{RAILS_ROOT}/LICENSE") + "</pre></p>", :parent => about_page})
 license_page.save
