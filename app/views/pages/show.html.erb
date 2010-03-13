@@ -16,4 +16,5 @@
 
 <h1><%= h @page.title %></h1>
 
-<%= simple_format @page.content %>
+<%= Sanitize.clean(@page.content, Sanitize::Config::RESTRICTED) %>
+<%# simple_format @page.content %>

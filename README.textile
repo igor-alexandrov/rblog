@@ -1,11 +1,25 @@
-h1. RBlog. Yet another Ruby on Rails blog engine
+h1. RBlog
 
-h2. In English
+*RBlog* is modern blog engine with elements of social network written with "Ruby On Rails":http://www.rubyonrails.org.
+With *RBlog* you can easily manage your personal blog or create a community within two minutes. 
 
-h3. News
-* 11.01.2010 working hardly on 0.3 release. It will have a lot of new tasty features.
+|*Author:*|Igor Alexandrov (igor.alexandrov@gmail.com)|
+|*Copyright:*|Copyright © 2010 Igor Alexandrov. All rights reserved.|
+|*License:*|MIT License ("opensource.org/licenses/mit-license.php":http://opensource.org/licenses/mit-license.php)|
+|*Website:*|"www.github.com/igor-alexandrov/rblog":http://github.com/igor-alexandrov/rblog|
 
-h3. Whan can you do with RBlog.
+h1. Requires
+
+* *rails* ≥ 2.3.5
+
+* _authlogic_ ≥ 2.1.0
+* _cancan_ ≥ 1.0.0
+* _gravtastic_ ≥ 2.2.0
+* _rainbow_ ≥ 1.0.4
+* _sanitize_ ≥ 1.2.0
+* _searchlogic_ ≥ 2.4.0
+
+h1. Whan can you do with RBlog
 
 Every day new features appear in RBlog. We are working hardly to give you the most powerful and advanced RoR blog engine.
 
@@ -77,13 +91,6 @@ It is easy. RBlog can copy your posts and comments now. For this install RBlog, 
 bc. rake migrate:from_wordpress
 
 That is all!
-
-h2. По-русски
-
-h3. Как всё начиналось?
-
-После того как мой персональный блог "www.aleksandrov.me":www.aleksandrov.me (он был на WordPress) взломали какие-то нехорошие люди, я решил перевести его на Rails.
-Поискал движок для блога на Rails и решил написать свой. Вот так.
 
 [www.aleksandrov.me]http://www.aleksandrov.me
 [www.simplelog.net]http://www.simplelog.net

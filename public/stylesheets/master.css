@@ -305,7 +305,7 @@ h3 {
 .b-post__tags {
     padding-left: 20px;
     background: url("/images/tags.png") no-repeat left center;
-    margin-bottom: 4px;
+    margin-bottom: 1em;
     float: left;
 }
 
@@ -315,6 +315,7 @@ h3 {
 
 .b-post__parameters {
     clear: both;
+    margin-bottom: 1em;
 }
 
 .b-post__paramameters__item {
