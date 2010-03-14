@@ -1,4 +1,4 @@
-<%= content_tag(:a, "", :name => "comment_#{comment.id}") %>
+<a name="comment_<%= comment.id %>"a></a>
 <% content_tag(:li, :class => "comment_#{comment.parent_comment_id}_child" ) do %>
     <% content_tag(:div) do %>
         <span class="b-comment__author"><%# link_to comment.author.login, user_path(comment.author.login) %></span>

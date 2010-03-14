@@ -1,9 +1,9 @@
 <% unless content.announcement.blank? %>
     <div class="b-posts__topic__announcement">
-      <%= simple_format content.announcement %>
+      <%= content.announcement %>
     </div>
 <% end %>
 
 <div class="b-posts__topic__body">
-  <%= simple_format content.body %>
+  <%= content.body %>
 </div>

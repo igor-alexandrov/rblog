@@ -16,14 +16,14 @@
   <% if can? :edit, @post %>
       <%= link_to "Edit this #{@post.content.class.to_s.downcase}", edit_polymorphic_path([:posts, @post.content]), :class => "b-post-edit_link g-link-no-visited" %>
   <% end %>
-  <div class="b-post-content g-indent">
+  <div class="b-post-content b-data">
     <%= render :partial => "posts/#{@post.content.class.to_s.downcase.pluralize}/show", :locals => {:content => @post.content} %>
   </div>
 
   <%= render :partial => "posts/post_details", :locals => { :post => @post, :options => {:no_comments_count => true}} %>
 
   <div class="b-post__comments">
-    <a name="comments"></a>
+    <a name="comments"/>
     <h2 class="g-light_gray">Comments (<span id="post_comments_count"><%= @post.comments_count %></span>)</h2>
     <ul id="comment_0_children" class="b-post__comments_list">
       <%= render :partial => "comments/show", :collection => @comments.select { |comment| comment.parent_comment_id == 0 }, :as => :comment %>

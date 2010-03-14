@@ -1,8 +1,8 @@
 <div class="b-post-topic__text">
   <% unless post.content.announcement.nil? %>
-      <%= simple_format post.content.announcement %>
+      <%= post.content.announcement %>
   <% else %>
-      <%= simple_format post.content.body %>
+      <%= post.content.body %>
   <% end %>
 </div>
 <% unless post.content.announcement.nil? %>

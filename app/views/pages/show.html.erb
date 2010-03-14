@@ -14,7 +14,6 @@
   <% end %>
 </div>
 
-<h1><%= h @page.title %></h1>
+<h1 class="b-page__title"><%= h @page.title %></h1>
 
-<%= Sanitize.clean(@page.content, Sanitize::Config::RESTRICTED) %>
-<%# simple_format @page.content %>
+<div class="b-page__content b-data"><%= @page.content %></div>

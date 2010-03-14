@@ -7,6 +7,10 @@
   <title><%= h(yield(:title) || "Untitled") %></title>
   <%= stylesheet_link_tag ActiveIdentity.stylesheet('master') %>
   <%= javascript_include_tag :defaults %>
+  <%= javascript_include_tag "markitup/jquery.markitup.pack.js"%>
+  <%= javascript_include_tag "markitup/set.html.js"%>
+  <%= stylesheet_link_tag 'markitup/html' %>
+  <%= stylesheet_link_tag 'markitup/style' %>
 </head>
 <body>
 <div class="l-container">

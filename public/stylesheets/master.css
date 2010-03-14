@@ -191,7 +191,8 @@ h3 {
 }
 
 .b-menu__item-current a {
-  color: #FFFF99;
+/*  color: #FFFF99;*/
+color: #66CC33;
     text-decoration: none;
 }
 
@@ -259,14 +260,12 @@ h3 {
     margin: 15px 0 15px 10px;
     float: left;
     width: 100%;
-    font-size: 110%
 }
 
 .b-post__content_preview {
     margin: 15px 0 15px 10px;
     float: left;
     width: 100%;
-    font-size: 110%
 }
 
 /* Topic */
@@ -448,13 +447,7 @@ h3 {
 }
 
 .b-form {
-    background-color: #EEEEEE;
-    -moz-border-radius: 5px;
-    -moz-box-shadow: 0 0 8px rgba(0, 0, 0, 0.4);
-    -webkit-border-radius: 5px;
-    -webkit-box-shadow: 0 0 8px rgba(0, 0, 0, 0.4);
-    border-radius: 5px;
-    box-shadow: 0 0 8px rgba(0, 0, 0, 0.4);
+    border: 20px solid #DDDDDD;
     padding: 7px 0;
     min-width: 900px;
 }
@@ -554,6 +547,16 @@ h3 {
     font-size: 120%;
     font-weight: bold;
     color: #0F8925;
+}
+
+/*content of posts, pages and comments*/
+.b-data { font: 1em/1.5em Verdana, sans-serif; text-indent: 1em; }
+.b-data p { margin-top: 0.4em; margin-bottom: 0.4em; }
+.b-data pre { text-indent: 0; }
+.b-data table { margin:1em 0 !important; }
+.b-data table td {
+  border-bottom:1px solid #DDDDDD !important;
+  padding:0.2em 1em !important;
 }
 
 .g-align__right {

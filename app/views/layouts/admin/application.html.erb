@@ -4,21 +4,13 @@
   <meta http-equiv="content-type" content="text/html;charset=UTF-8"/>
   <title><%= h(yield(:title) || "Untitled") %></title>
   <%= javascript_include_tag "jquery" %>
-  <%= stylesheet_link_tag 'admin/master' %>
-  <!-- jQuery -->
-  <!--<script type="text/javascript" src="jquery.pack.js">-->
-  <!--</script>-->
-  <!-- markItUp! -->
-  <script type="text/javascript" src="/javascripts/markitup/jquery.markitup.pack.js">
-  </script>
-  <!-- markItUp! toolbar settings -->
-  <script type="text/javascript" src="/javascripts/markitup/sets/html/set.js">
-  </script>
-  <!-- markItUp! skin -->
-  <link rel="stylesheet" type="text/css" href="/javascripts/markitup/skins/simple/style.css"/>
-  <!--  markItUp! toolbar skin -->
-  <link rel="stylesheet" type="text/css" href="/javascripts/markitup/sets/html/style.css"/>
+  <%= javascript_include_tag "markitup/jquery.markitup.pack.js"%>
+  <%= javascript_include_tag "markitup/set.html.js"%>
   <%= javascript_include_tag "application" %>
+  <%= stylesheet_link_tag 'admin/master' %>
+  <%= stylesheet_link_tag 'markitup/html' %>
+  <%= stylesheet_link_tag 'markitup/style' %>
+  
 </head>
 <body>
 <div class="l-layout">
