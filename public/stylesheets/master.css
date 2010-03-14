@@ -95,7 +95,7 @@ h3 {
 
 .b-footer__mailto {
     padding: 8px 55px;
-    font-size: 140%;
+    font-size: 120%;
     background: url("/images/mail.png") no-repeat scroll left center;
     display: inline;
     float: left;
@@ -103,7 +103,7 @@ h3 {
 
 .b-footer__connectify_logo {
     padding: 8px 0 8px 55px;
-    font-size: 140%;
+    font-size: 120%;
     background: url("/images/logo_48.png") no-repeat scroll left center;
     display: inline;
     float: right;
@@ -111,14 +111,14 @@ h3 {
 
 .b-footer__copyright {
     padding: 8px 0 8px 30px;
-    font-size: 140%;
+    font-size: 120%;
     display: inline;
     float: right;
 }
 
 .b-footer__rblog {
     padding: 8px 0 8px 30px;
-    font-size: 140%;
+    font-size: 120%;
     display: inline;
     float: right;
 }
@@ -434,16 +434,33 @@ color: #66CC33;
     margin-bottom: 15px;
 }
 
+.b-comment {
+  
+}
+
 .b-comment_form {
     margin: 10px 25px;
 }
 
-.b-captcha_display {
+.b-comment__guest_commenter_name {
+  font-style: italic;
+}
+
+.b-captcha-wrapper {
+  margin-top: 5px;
+}
+
+.b-captcha-display {
     background-color: #c00;
     color: #fff;
-    width: 200px;
     text-align: center;
-    padding: 5px 0;
+    padding: 5px 30px;
+    display: inline;
+}
+
+.b-captcha-input {
+  margin-left: 20px;
+  display: inline;
 }
 
 .b-form {

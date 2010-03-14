@@ -1,0 +1,6 @@
+<span class="b-comment__guest_commenter_name"><%= comment.guest_commenter_name %></span>
+<span class="b-comment__creation_date g-light_gray"><%= comment.created_at.strftime("%d %B %Y, %H:%M") %></span>
+<span class="b-comment__permalink"><%= link_to '#', "#comment_#{comment.id}", :title => "direct link to this comment" %></span>
+<% unless comment.parent_comment_id == 0 %>
+    <span class="b-comment__parent_permalink"><%= link_to '⇧', "#comment_#{comment.parent_comment_id}", :title => "direct link to parent comment" %></span>
+<% end %>

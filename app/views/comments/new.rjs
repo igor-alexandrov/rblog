@@ -15,3 +15,4 @@ page.remove("#new_comment")
 #end
 #
 page.visual_effect :highlight, "new_comment", :duration => 1
+page << "$('.markitup').markItUp(mySettings);"

@@ -1,6 +1,4 @@
-class CommentsController < ApplicationController
-#  before_filter :check_for_abilities_to_create, :only => [:new, :create]
-  
+class CommentsController < ApplicationController  
   def new
     @post = Post.find(params[:post_id])
     @comment = @post.new_comment( params[:parent_comment_id], current_user )
@@ -40,10 +38,5 @@ class CommentsController < ApplicationController
         end
       end
     end
-  end
-
-  private
-  def check_for_abilities_to_create
-
   end
 end

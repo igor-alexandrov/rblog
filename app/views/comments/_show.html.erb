@@ -1,14 +1,8 @@
 <a name="comment_<%= comment.id %>"a></a>
-<% content_tag(:li, :class => "comment_#{comment.parent_comment_id}_child" ) do %>
+<% content_tag(:li, :class => "b-comment comment_#{comment.parent_comment_id}_child" ) do %>
     <% content_tag(:div) do %>
-        <span class="b-comment__author"><%# link_to comment.author.login, user_path(comment.author.login) %></span>
-        <span class="b-comment__creation_date g-light_gray"><%= comment.created_at.strftime("%d %B %Y, %H:%M") %></span>
-        <span class="b-comment__rating"><%= comment.rating %></span>
-        <span class="b-comment__permalink"><%= link_to '#', "#comment_#{comment.id}", :title => "direct link to this comment" %></span>
-        <% unless comment.parent_comment_id == 0 %>
-            <span class="b-comment__parent_permalink"><%= link_to '⇧', "#comment_#{comment.parent_comment_id}", :title => "direct link to parent comment" %></span>
-        <% end %>
-        <div class="b-comment__body">
+        <%= render :partial => "comments/#{comment.class.to_s.underscore}_details", :locals => {:comment => comment} %>
+        <div class="b-comment__body b-data">
           <%= comment.body %>
         </div>
 
