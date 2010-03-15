@@ -1,6 +1,6 @@
 <a name="comment_<%= comment.id %>"a></a>
-<% content_tag(:li, :class => "b-comment comment_#{comment.parent_comment_id}_child" ) do %>
-    <% content_tag(:div) do %>
+<% content_tag(:li, :class => "comment_#{comment.parent_comment_id}_child" ) do %>
+    <% content_tag(:div, :id => "comment_#{comment.id}", :class => "b-comment") do %>
         <%= render :partial => "comments/#{comment.class.to_s.underscore}_details", :locals => {:comment => comment} %>
         <div class="b-comment__body b-data">
           <%= comment.body %>
