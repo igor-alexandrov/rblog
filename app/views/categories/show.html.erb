@@ -1,0 +1,4 @@
+<% title "RBlog ‒ " + @category.title %>
+<% content_menu(:current => "posts") %>
+<h1>Posts in category ‹‹<%= @category.title %>››</h1>
+<%= render :partial => "posts/index", :locals => {:posts => @category.posts.published, :options => {:no_categories => true}} %>

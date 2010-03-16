@@ -1,3 +1,5 @@
+/* @override http://www.macrabbit.com/cssedit/welcome/2.5/welcome.css */
+
 html,
 body, img, ul, li, a, p, span, dl, dt, dd, h1, h2, h3, h4 {
     margin: 0;
@@ -58,8 +60,7 @@ h3 {
     font-size: 90%;
 }
 
-/** header **/
-
+/* @group Header */
 .b-header {
     font-weight: bold;
     float: left;
@@ -79,6 +80,7 @@ h3 {
     line-height: 2.4em;
     margin: 0 30px 0 0;
 }
+/* @end */
 
 .b-content {
     float: left;    

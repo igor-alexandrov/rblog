@@ -4,10 +4,12 @@
       <li class="b-posts-item-wrapper">
         <div id="<%= dom_id(post) %>" class="b-post">
           <h2 class="b-post__title">
-            <% cache category_path(post.category_id, :action_suffix => "post_title") do %>
-                <%= link_to post.category.title, category_path(post.category), :class => "g-link-no-visited" %>
+            <% unless options[:no_categories] %>
+              <% cache category_path(post.category_id, :action_suffix => "post_title") do %>
+                  <%= link_to post.category.title, category_path(post.category), :class => "g-link-no-visited" %>
+              <% end %>
+              →
             <% end %>
-            →
             <% if File.exist?(RAILS_ROOT + "/public/images/posts/#{post.content_type.to_s.downcase}.png") %>
                 <%= image_tag "posts/#{post.content_type.to_s.downcase}.png", :class => "b-bost__content_type_image" %>
             <% end %>
