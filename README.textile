@@ -19,6 +19,10 @@ h1. Requires
 * _sanitize_ ≥ 1.2.0
 * _searchlogic_ ≥ 2.4.0
 
+h1. Demo
+
+You can always see the most recent version of RBlog at our "demo-page":http://rblog-demo.connectify.ru. Please remember that it is a recent version from trunk and it can have a bugs.
+
 h1. Whan can you do with RBlog
 
 Every day new features appear in RBlog. We are working hardly to give you the most powerful and advanced RoR blog engine.
@@ -48,17 +52,6 @@ h4. Migrate from WordPress.
 Now WordPress migration is under heavy development.
 
 You want to migrate from other blog engine? Contact us and we will do it for you!
-
-h3. Screenshots
-
-You can always find latest screenshots on Flickr. "Go to RBlog Flickr set":flickr_rblog
-
-h3. How it all began?
-
-All is easy. After my personal blog "www.aleksandrov.me":www.aleksandrov.me (it was running WordPress) was hacked I understood that I had to run it on Rails.
-I searched a lot for good Rails blog engine, then i decided to write my own. That's all.
-
-I got some ideas from "Simplelog Blog Engine":www.simplelog.net, unfortunately Simplelog is dead now. *RBlog is not a fork of it*.
 
 h3. How to install RBlog?
 
