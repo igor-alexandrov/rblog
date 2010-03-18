@@ -1,7 +1,10 @@
 # Methods added to this helper will be available to all templates in the application.
 module ApplicationHelper
 
-#***********************************************************************************************************************
+  def format_date(date)
+    date.strftime("%d, %B %Y, %H:%M")
+  end
+
 # tools for easily link creation 
   def twitter_url_for_post( post )
     "http://twitter.com/home/?status=#{post_short_url(post.id)} #{post.title}"
@@ -26,7 +29,7 @@ module ApplicationHelper
   def link_to_digg( post, title = "" )
     link_to image_tag("/images/digg.png", :title => title,  :class => "b-bost__digg_image"), digg_url_for_post(post), :target => "_blank"
   end
-#***********************************************************************************************************************
+
 
   def display_tree_recursive(tree, parent_id = nil, options = {})
     #content_tag(:ul, :id => "comment_#{parent_id}_children" ) do
