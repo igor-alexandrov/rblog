@@ -8,6 +8,11 @@ class Comment < ActiveRecord::Base
 
   validates_presence_of     :body
 
+  def initialise(params = nil)
+    super
+    self.depth = 0 unless self.depth
+  end
+
   def parent_comment_id
     read_attribute(:parent_comment_id).nil? ? 0 : read_attribute(:parent_comment_id)
   end

@@ -1,6 +1,6 @@
 module PostsHelper
   def post_link(post, html_options = {})
-    link_to post.title, post_path(post), html_options
+      link_to post.title, post_path(post), html_options
   end
   
   def post_type_image(post, html_options = {})
@@ -17,10 +17,11 @@ module PostsHelper
   end
   
   def edit_post_content_link(post, html_options = {})
-    link_to "Edit this #{post.content.class.to_s.downcase}",
-            edit_polymorphic_path([:posts, @post.content]),
-            {:class => "b-post-edit_link g-link-no-visited"}.merge(html_options) { |key, v1, v2| v1 + ' ' + v2 }
-
+    if can? :edit, post
+      link_to "Edit this #{post.content.class.to_s.downcase}",
+              edit_polymorphic_path([:posts, @post.content]),
+              {:class => "b-post-edit_link g-link-no-visited"}.merge(html_options) { |key, v1, v2| v1 + ' ' + v2 }
+    end
   end
   
   def render_post_content(post)
