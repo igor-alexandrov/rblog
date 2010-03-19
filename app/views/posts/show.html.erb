@@ -1,12 +1,13 @@
 <% title "RBlog ‒ " + @post.title %>
 <% content_menu(:current => "posts") %>
 <div id="<%= dom_id(@post) %>" class="b-post">
-  <% cache category_path(@post.category_id, :action_suffix => "post_title") do %>
-    <div class="b-post__category">
-        <%= post_category_link @post %>
-    </div>
-  <% end %>
-  <h1 class="b-post__title"><%= @post.title %></h1>
+  <div class="b-post__category">
+    <%= post_category_link @post %>    
+  </div>  
+  <h1 class="b-post__title">
+    <%= post_type_image(@post) %>
+    <%= @post.title %>
+  </h1>
   <div class="b-post__publish_date g-light_gray">
     <%= format_date(@post.created_at) %>
   </div>
@@ -16,22 +17,18 @@
   <div class="b-post-content b-data">
     <%= render_post_content(@post) %>
   </div>
-  
-  <%= render :partial => "posts/post_details", :locals => { :post => @post, :options => {:no_comments_count => true}} %>
+
+  <%= render_post_details(@post, :no_comments_count => true) %>  
 
   <div class="b-post__comments">
     <a name="comments"/>
     <h2 class="g-light_gray">Comments (<span id="post_comments_count"><%= @post.comments_count %></span>)</h2>
-    <ul id="comment_0_children" class="b-post__comments_list">
-      <%= render :partial => "comments/show", :collection => @comments.select { |comment| comment.parent_comment_id == 0 }, :as => :comment %>
-    </ul>    
+    <%= render_post_comments(@post) %>    
   </div>
+
   <div class="b-add_comment">
     <h3>
-      <%= link_to_remote content_tag(:span, "add comment", :class => "g-javascript_link__value"),
-                         {:url => { :controller => "comments", :action => "new", :post_id => @post.id,
-                                    :parent_comment_id => 0}, :method => "get", }, :href => new_post_comment_url(@post.id, :anchor => "new_comment"),
-                         :class => "g-javascript_link" %>
+      <%= new_post_comment_link(@post, "add new comment") %>
     </h3>
     <% if can? :create, Comment.new(:depth => 0) %>
         <div id="comment_0_form">

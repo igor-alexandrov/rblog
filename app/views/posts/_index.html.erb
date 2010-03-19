@@ -4,23 +4,18 @@
       <li class="b-posts-item-wrapper">
         <div id="<%= dom_id(post) %>" class="b-post">
           <h2 class="b-post__title">
-            <% unless options[:no_categories] %>
-              <% cache category_path(post.category_id, :action_suffix => "post_title") do %>
-                  <%= post_category_link post %>
-              <% end %>
+            <% unless options[:no_categories] %>              
+              <%= post_category_link post %>              
               →
             <% end %>
             <%= post_type_image(post) %>
             <%= post_link(post) %>
           </h2>
-
           <div class="b-post__publish_date g-light_gray">
             <%= format_date(post.created_at) %>
-          </div>
-          
+          </div>          
           <%= render_post_preview(post) %>
-
-          <%= render :partial => "posts/post_details", :locals => { :post => post, :options => options } %>
+          <%= render_post_details(post, options) %>
         </div>
       </li>
   <% end %>

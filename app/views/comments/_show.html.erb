@@ -1,17 +1,13 @@
 <a name="comment_<%= comment.id %>"a></a>
 <% content_tag(:li, :class => "comment_#{comment.parent_comment_id}_child" ) do %>
     <% content_tag(:div, :id => "comment_#{comment.id}", :class => "b-comment") do %>
-        <%= render :partial => "comments/#{comment.class.to_s.underscore}_details", :locals => {:comment => comment} %>
+        <%= render_comment_details(comment) %>
         <div class="b-comment__body b-data">
           <%= comment.body %>
         </div>
-
-        <% if can? :create, Comment.new(:depth => comment.depth + 1) %>
-            <%= link_to_remote content_tag(:span, "reply", :class => "g-javascript_link__value"),
-                               {:url =>
-                                       { :controller => "comments", :action => "new", :post_id => comment.post_id, :parent_comment_id =>comment.id}, :method => "get", },
-                               {:href => new_post_comment_url(@post.id, :parent_comment_id => comment.id, :anchor => "new_comment"), :class => "g-javascript_link", :title => "reply to this comment" } %>
-        <% end %>
+        
+        <%= new_post_comment_link(@post, "reply", "reply to this comment", comment.id, comment.depth) %>            
+        
         <div id="comment_<%= comment.id %>_form" class="b-comment_form">
         </div>
 
