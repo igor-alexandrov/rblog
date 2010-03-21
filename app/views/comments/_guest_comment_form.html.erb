@@ -13,15 +13,10 @@
     </div>
     <%= form.hidden_field :post_id %>
     <%= form.hidden_field :parent_comment_id %>
-    <div class="b-form__item">
-      <%= form.label :guest_commenter_name, "Name", :class => "b-form__label" %>
-      <%= form.text_field :guest_commenter_name, :class => "b-form__input-text" %>
-    </div>
-    <div class="b-form__item">
-      <%= form.label :guest_commenter_email, "Email", :class => "b-form__label" %>
-      <%= form.text_field :guest_commenter_email, :class => "b-form__input-text" %>
-      <small class="b-form__item_legend">We won't show it to anyone</small>
-    </div>
+    
+    <%= form.text_field :guest_commenter_name, :label => "Name" %>
+    <%= form.text_field :guest_commenter_email, :label => "Email", :legend =>"We won't show it to anyone" %>
+    
     <div class="b-form__item">
       <%= form.label :body, "Text", :class => "b-form__label" %>
       <%= form.text_area :body, :class => "b-form__input-text b-form__input-text_short markitup" %>
@@ -29,8 +24,8 @@
     <div class="b-form__item">
       <%= render :partial => "shared/captcha" %>
     </div>
-    <div class="b-form__item">
-      <%= form.submit "Post", :class => "b-form__input-submit" %>
-    </div>
+    
+    <%= form.submit "Post" %>
+    
 
 <% end %>

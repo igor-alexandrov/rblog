@@ -1,7 +1,5 @@
-<span class="b-comment__author"><%= link_to comment.author.login, user_path(comment.author.login) %></span>
-<span class="b-comment__creation_date g-light_gray"><%= comment.created_at.strftime("%d %B %Y, %H:%M") %></span>
+<span class="b-comment__author"><%= comment_author_link comment %></span>
+<span class="b-comment__creation_date g-light_gray"><%= format_date comment.created_at %></span>
 <span class="b-comment__rating"><%= comment.rating %></span>
-<span class="b-comment__permalink"><%= link_to '#', "#comment_#{comment.id}", :title => "direct link to this comment" %></span>
-<% unless comment.parent_comment_id == 0 %>
-    <span class="b-comment__parent_permalink"><%= link_to '⇧', "#comment_#{comment.parent_comment_id}", :title => "direct link to parent comment" %></span>
-<% end %>
+<%= comment_permalink_link(comment) %>
+<%= comment_parent_permalink_link(comment) %>
