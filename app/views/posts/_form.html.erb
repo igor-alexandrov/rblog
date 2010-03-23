@@ -18,10 +18,7 @@
           <%= p.label :category_id, "Choose category in which you want to write:", :class => "b-form__label g-inline" %>
           <%= p.select :category_id, options_for_select(@selectable_categories) %>
         </div>
-        <div class="b-form__item">
-          <%= p.label :title, "Title:", :class => "b-form__label" %>
-          <%= p.text_field :title, :class => "b-form__input-text b-form__input-text_bigger" %>
-        </div>
+        <%= p.text_field :title, :label => "Title", :class => "b-form__input-text b-form__input-text_bigger" %>
     <% end %>
 
     <%= render :partial => "posts/#{content.class.to_s.downcase.pluralize}/form", :locals => {:form => form, :content => content} %>
@@ -35,8 +32,8 @@
           </small>
         </div>
         <div class="b-form__item">
-          <%= check_box_tag 'mark_as_draft', true %>
-          <%= label_tag 'mark_as_draft', "Mark this ‹‹#{content.class.to_s.downcase}›› as draft", :class => "b-form__label  g-inline" %>
+          <%= p.check_box :draft %>
+          <%= p.label :draft, "Mark this ‹‹#{content.class.to_s.downcase}›› as draft", :class => "b-form__label  g-inline" %>
           <small class="b-form__item_legend">Drafted posts will be seen only by you. You will be able to publish it anytime you want.</small>
           
         </div>

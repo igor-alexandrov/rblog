@@ -16,7 +16,7 @@ class Post < ActiveRecord::Base
   validates_length_of   :title, :minimum => 2
 
   # TODO Понять, стоит ли делать :include => [:tags] 
-  named_scope :published, :conditions => "published_at IS NOT NULL", :order => "published_at DESC, id DESC"
+  named_scope :published, :conditions => {:draft => false}, :order => "published_at DESC, id DESC"
   named_scope :draft, :conditions => "published_at IS NULL", :order => "updated_at DESC"
 
   named_scope :topics, :conditions => { :content_type => "Topic" }
@@ -30,43 +30,22 @@ class Post < ActiveRecord::Base
     self.content = content_type.classify.constantize.new(attributes)
   end
 
-#  def self.new_with_content(content_type, params, author)
-#    post = class_eval("self.#{content_type.to_s.downcase.pluralize}.new")
-#    post.update_attributes(params[content_type.to_s.downcase.to_sym][:post])
-#    params[content_type.to_s.downcase.to_sym].delete(:post)
-#
-#    content = eval("#{content_type}.new")
-#
-#    content.update_attributes(params[content_type.to_s.downcase.to_sym])
-#    if content.save
-#      post.update_attributes({:author => author, :content => content})
-#      post
-#    else
-#      post.update_attributes({:author => author})
-#      post.errors.add(content.errors)
-#      post
-#    end
-#  end
-
   def to_param
     self.permalink
   end
 
-  def draft?
-    self.published_at.nil?
-  end
-
-  def published?
-    !self.draft?
+  def before_save
+    self.published_at = DateTime.now if (!self.draft? && self.published_at.nil?)
   end
 
   def draft!
-    self.published_at = nil
+    self.draft = true
     self.save!
   end
 
   def publish!
-    self.published_at = DateTime.now
+    self.draft = false
+    self.published_at = DateTime.now if self.published_at.nil?
     self.save!
   end
 
