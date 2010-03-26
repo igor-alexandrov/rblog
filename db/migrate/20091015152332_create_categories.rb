@@ -3,7 +3,7 @@ class CreateCategories < ActiveRecord::Migration
     create_table :categories do |t|
       t.string :permalink
       t.string :title
-      t.text :decription
+      t.text :description
       t.boolean :enabled
       t.integer :posts_count
 

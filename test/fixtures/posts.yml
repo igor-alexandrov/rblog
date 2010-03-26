@@ -1,13 +1,10 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
-
-one:
-  title: MyString
-  body: MyText
-  status: MyString
-  announcement: MyText
-
-two:
-  title: MyString
-  body: MyText
-  status: MyString
-  announcement: MyText
+valid_not_published:
+  title: "Valid not published"
+  category: general
+  author: admin
+  comments_count: 0
+  rating: 0
+  draft: true
+  published_at: nil
+  

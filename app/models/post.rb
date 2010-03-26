@@ -10,6 +10,8 @@ class Post < ActiveRecord::Base
 
   acts_as_taggable_on :tags
 
+  validates_presence_of :category
+
   validates_presence_of :author
 
   validates_presence_of :title
@@ -20,6 +22,11 @@ class Post < ActiveRecord::Base
   named_scope :draft, :conditions => "published_at IS NULL", :order => "updated_at DESC"
 
   named_scope :topics, :conditions => { :content_type => "Topic" }
+
+  def after_initialize 
+    return unless new_record?
+    self.comments_count = 0
+  end
 
   def attributes=(attributes = {})
     self.content_type = attributes[:content_type].to_s
@@ -36,6 +43,14 @@ class Post < ActiveRecord::Base
 
   def before_save
     self.published_at = DateTime.now if (!self.draft? && self.published_at.nil?)
+  end
+  
+  def draft?
+    self.draft
+  end
+  
+  def published?
+    !self.draft?
   end
 
   def draft!

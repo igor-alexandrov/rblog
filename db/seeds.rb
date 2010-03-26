@@ -53,7 +53,7 @@ Category.find(:all).each { |e| e.destroy  }
 category = Category.new do |c|
   c.permalink = "general"
   c.title = "General"
-  c.decription = "Default RBlog category"
+  c.description = "Default RBlog category"
   c.enabled = true
   c.posts_count = 0
 end

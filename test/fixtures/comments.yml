@@ -1,15 +1,2 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
-one:
-  post: 
-  parent_comment: 
-  commenter_name: MyString
-  commenter_email: MyString
-  body: MyText
-
-two:
-  post: 
-  parent_comment: 
-  commenter_name: MyString
-  commenter_email: MyString
-  body: MyText

@@ -39,4 +39,45 @@ class ActiveSupport::TestCase
   def assert_login_prompt
     assert_redirected_to '/login'
   end
+  
+  def assert_true(actual, message = nil)
+    assert_equal(true, actual, message)
+  end
+  
+  def assert_false(actual, message = nil)
+    assert_equal(false, actual, message)
+  end
+  
+  class Time
+    class << self
+
+      def now
+        @time || orig_new
+      end
+
+      alias_method :orig_freeze, :freeze
+      alias_method :orig_new, :new
+      alias_method :new, :now
+
+      # makes time "stand still" during execution of a block. if no time is
+      # supplied, the current time is used. While in the block, Time.new and
+      # Time.now will always return the "frozen" value.
+      def freeze(time = nil)
+        raise "A block is required" unless block_given?
+        begin
+          prev = @time
+          @time = time || now
+          yield
+        ensure
+          @time = prev
+        end
+      end
+
+      def frozen?
+        !@time.nil?
+      end
+
+    end
+  end
+  
 end

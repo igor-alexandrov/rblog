@@ -1,0 +1,4 @@
+general:
+  title: "General"
+  description: "Default RBlog category"
+  enabled: true
