@@ -2,7 +2,7 @@ module RBlog
   class FormBuilder < ActionView::Helpers::FormBuilder
     def field_settings(method, options = {}, tag_value = nil)
       field_name = "#{@object_name}_#{method.to_s}"
-      label = options[:label].nil? ? "#{method.to_s.gsub(/\_/, " ")}" : options[:label]
+      label = options[:label].nil? ? "#{method.to_s.gsub(/\_/, " ").humanize}" : options[:label]
       
       # options[:class] += options[:required] ? " required" : ""
       label += "<strong><sup>*</sup></strong>" if options[:required]

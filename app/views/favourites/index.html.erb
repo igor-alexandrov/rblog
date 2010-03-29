@@ -1,0 +1,10 @@
+<% content_menu %>
+
+<div>
+  <% for favourite in @favourites %>
+    <div>
+      <%= favourite.object.type %>
+      <%= favourite.object.title %>
+    </div>
+  <% end %>
+</div>

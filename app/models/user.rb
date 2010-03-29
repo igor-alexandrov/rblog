@@ -24,7 +24,10 @@ class User < ActiveRecord::Base
 
   named_scope :by_reputation, :order => "reputation DESC"
 
-  has_many :favourites, :class_name => "Favourite"
+  has_many :favourites, :class_name => "Favourite", :dependent => :destroy
+  has_many :social_connections, :dependent => :destroy, :finder_sql => 
+    'SELECT sc.*, scp.name, scp.prefix, scp.suffix FROM social_connections sc LEFT JOIN social_connection_patterns scp
+    ON sc.pattern_id = scp.id'
 
   def full_name
     self.last_name.to_s + " " + self.first_name.to_s + " " + self.middle_name.to_s
@@ -82,5 +85,9 @@ class User < ActiveRecord::Base
     ensure
       Favourite.find( :first, :conditions => {:user_id => self.id, :object_type => object.class.to_s, :object_id => object.id} ).destroy
     end
+  end
+  
+  def add_social_connection!(social_connection_pattern, value)
+    SocialConnection.create(:pattern => social_connection_pattern, :user => self, :value => value)
   end
 end

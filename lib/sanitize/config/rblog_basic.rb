@@ -13,7 +13,7 @@ class Sanitize
       },
 
       :add_attributes => {
-        'a' => {'rel' => 'nofollow'}
+        'a' => {'rel' => 'nofollow', 'class' => 'more', 'target' => '_blank'}
       },
 
       :protocols => {

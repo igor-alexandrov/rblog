@@ -1,0 +1,10 @@
+<% content_menu %>
+<% form_for @user, :html => {:class => "b-form"} do |form| %>
+Your login is '<%= @user.login %>'
+<%= form.text_field :last_name %>
+<%= form.text_field :first_name %>
+<%= form.text_field :middle_name %>
+<%= form.text_field :email %>
+<%= form.submit "Save" %>
+
+<% end %>

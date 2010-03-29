@@ -21,6 +21,9 @@ Link.find(:all).each { |e| e.destroy  }
 Comment.find(:all).each { |e| e.destroy  }
 User.find(:all).each { |e| e.destroy  }
 Page.find(:all).each { |e| e.destroy  }
+SocialConnection.find(:all).each { |e| e.destroy  }
+SocialConnectionPattern.find(:all).each { |e| e.destroy  }
+
 
 admin_user = User.new do |user|
   user.login = "admin"
@@ -143,3 +146,10 @@ about_page.save
 
 license_page = Page.new({:title => "License", :content => get_file_as_string("#{RAILS_ROOT}/db/data/pages/license.html") + "<p><pre>" + get_file_as_string("#{RAILS_ROOT}/LICENSE") + "</pre></p>", :parent => about_page})
 license_page.save
+
+twitter = SocialConnectionPattern.new(:name => 'Twitter', :prefix => 'http://twitter.com/')
+twitter.save
+facebook = SocialConnectionPattern.new(:name => 'Facebook', :prefix => 'http://www.facebook.com/')
+facebook.save
+
+admin_user.add_social_connection!(twitter, "igor_alexandrov")

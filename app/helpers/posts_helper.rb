@@ -29,11 +29,11 @@ module PostsHelper
   def new_post_comment_link(post, name, title = nil, parent_comment_id = 0, parent_comment_depth = 0)
     title = name if title.nil?
     if can? :create, Comment.new(:depth => parent_comment_depth)
-      link_to_remote content_tag(:span, name, :class => "g-javascript_link__value"),
+      link_to_remote content_tag(:span, name, :class => "b-js_link__value"),
                           {:url => { :controller => "comments", :action => "new", :post_id => post.id,
                                       :parent_comment_id => parent_comment_id}, :method => "get", },
                                       :href => new_post_comment_url(post.id, :anchor => "new_comment"),
-                                      :class => "g-javascript_link",
+                                      :class => "js_link",
                                       :title => title
     end
   end
