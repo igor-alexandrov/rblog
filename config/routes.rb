@@ -24,11 +24,10 @@ ActionController::Routing::Routes.draw do |map|
 
   map.resources :users, :as => "u"
 
-  #map.profile "/profile", :controller => "profile", :action => "show", :method => "GET"
-  #map.edit_profile "/profile/edit", :controller => "profile", :action => "edit", :method => "GET"
-  #map.profile "/profile", :controller => "profile", :action => "update", :method => "PUT"
-  map.resource :profile, :controller => "profile", :only => [:show, :edit, :update] do |profile|
-    profile.resources :favourites
+  map.namespace :my do |my|
+    my.root :controller => 'home', :action => 'index'
+    my.resource :profile, :controller => "profile", :only => [:show, :edit, :update]
+    my.resources :favourites
   end
 
   map.root :controller => "home"

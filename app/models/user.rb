@@ -27,7 +27,7 @@ class User < ActiveRecord::Base
   has_many :favourites, :class_name => "Favourite", :dependent => :destroy
   has_many :social_connections, :dependent => :destroy, :finder_sql => 
     'SELECT sc.*, scp.name, scp.prefix, scp.suffix FROM social_connections sc LEFT JOIN social_connection_patterns scp
-    ON sc.pattern_id = scp.id'
+    ON sc.pattern_id = scp.id WHERE sc.user_id = #{self.id}'
 
   def full_name
     self.last_name.to_s + " " + self.first_name.to_s + " " + self.middle_name.to_s
@@ -39,6 +39,10 @@ class User < ActiveRecord::Base
 
   def avatar
     self.gravatar_url
+  end
+
+  def screen_name
+    self.login
   end
 
   def admin?

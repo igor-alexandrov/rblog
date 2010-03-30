@@ -1,4 +1,6 @@
-<% content_menu %>
+<% content_menu(:current => "users" ) %>
+<%= render_user_screen_name_with_avatar(@user) %>
+
 <% form_for @user, :html => {:class => "b-form"} do |form| %>
 Your login is '<%= @user.login %>'
 <%= form.text_field :last_name %>

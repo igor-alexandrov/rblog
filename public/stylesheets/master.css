@@ -50,18 +50,21 @@ h1 {
     font-size: 240%;
     margin: 20px 0;
     line-height: 30px;
+    color: #333333;
 }
 
 h2 {
     font-size: 160%;
     line-height: 1.2em;
     margin: 10px 0;
+    color: #333333;
 }
 
 h3 {
-    font-size: 160%;
-    margin: 15px 0;
-    line-height: 10px;
+    font-size: 120%;
+    margin: 10px 0;
+    line-height: 1em;
+    color: #333333;
 }
 
 /** layout **/
@@ -181,7 +184,7 @@ h3 {
     list-style-type: none;
     display: inline;
     font-size: 120%;
-    line-height: 1.6em;
+    line-height: 1.8em;
     padding: 4px 15px;
 }
 
@@ -219,7 +222,7 @@ color: #66CC33;
 
 .b-menu__post_add__link {
     background: url("/images/add_post_32.png") no-repeat left center;
-    padding: 5px 0 5px 40px;
+    padding: 8px 0 8px 40px;
 }
 
 .b-submenu__item {

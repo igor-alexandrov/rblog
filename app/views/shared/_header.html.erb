@@ -8,7 +8,7 @@
         <span class="b-user_name">
             <%= current_user.login %>
         </span>
-        ( <%= link_to "view profile", profile_path %> / <%= link_to "logout", logout_path %> )
+        ( <%= link_to "view profile", my_profile_path %> / <%= link_to "logout", logout_path %> )
       </div>
   <% else %>
       <div class="b-account_information g-align__right">

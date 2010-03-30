@@ -1,0 +1,18 @@
+<% title "Your profile" %>
+<% content_menu(:current => "users" ) %>
+<div class="b-user">
+  <%= render_user_screen_name_with_avatar(@user) %>
+  
+  <%= link_to "Favourites", my_favourites_path, :class => "g-link-no-visited" %>
+  <%= link_to "Edit profile", edit_my_profile_path, :class => "b-profile-edit_link g-link-no-visited" %>
+
+  <h2><%= @user.short_name %></h2>
+  You are on <%= configatron.general.blog_name %> since <%= @user.created_at %>
+  <br/>
+  <%= @user.email %>
+  
+  <div>
+  <h3>Your social connections</h3>  
+  <%= render_social_connections(@user) %>
+  </div>
+</div>

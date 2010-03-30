@@ -1,7 +1,8 @@
 <% if content.new_record? %>
-    <h1 class="g-light_gray">You are creating a new ‹‹<%= content.class.to_s.downcase %>››</h1>
+    <% title "Add new " + content.class.to_s %>
+    <h1>You are creating a new ‹‹<%= content.class.to_s.downcase %>››</h1>
 <% else %>
-    <h1 class="g-light_gray">You are editing a ‹‹<%= content.class.to_s.downcase %>›› #<%= content.id %></h1>
+    <h1>You are editing a ‹‹<%= content.class.to_s.downcase %>›› #<%= content.id %></h1>
 <% end %>
 
 <% form_for [:posts, content], :html => {:class => "b-form"} do |form| %>

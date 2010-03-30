@@ -1,9 +1,9 @@
 #Please reboot your server after editing this file
 development:
   general:
-    blog_name: RBlog Sample. Keep it simple!
-    blog_email: igor.alexandrov@gmail.com
-    identity: connectify_ru
+    blog_name: rblog-demo.connectify.ru
+    blog_title: RBlog Sample
+    blog_contact_email: igor.alexandrov@gmail.com
   content_menu:
     show: true
     elements: [:add_post, :posts, :comments, :users]
@@ -18,6 +18,43 @@ development:
       digg:
         use: true
     comments:
+      maximum_depth: 4
+      user:
+        use: true
+      guest:
+        use: true
+    types:
+#       Here are active types of your content. Your users will be able to create only these types of posts.       
+        active: [:topics, :links, :events]
+    rating:
+      use: true
+    link:
+      description:
+        maximum_length: 500
+    event:
+      description:
+        maximum_length: 500
+#Please reboot your server after editing this file
+test:
+  general:
+    blog_title: RBlog Sample. Keep it simple!
+    blog_contact_email: igor.alexandrov@gmail.com
+#    identity: blog_listedbuyers_com
+  content_menu:
+    show: true
+    elements: [:add_post, :posts, :comments, :users]
+  posts:
+    external_instruments:
+#     This option will allow your readers quickly update their status in Twitter.
+      twitter:
+        use: true
+#     This option will allow your readers quickly bookmark post in Delicious
+      delicious:
+        use: true
+      digg:
+        use: true
+    comments:
+      maximum_depth: 4
       user:
         use: true
       guest:

@@ -13,6 +13,8 @@ class Ability
             configatron.comments.user.use && comment.depth < configatron.posts.comments.maximum_depth
           end
           can :change_rating_for, Post
+          
+          can :access, :my
 
         when :admin
 #          can :create, Comment do |comment|

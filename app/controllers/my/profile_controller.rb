@@ -1,6 +1,4 @@
-class ProfileController < ApplicationController
-  before_filter :require_user
-
+class My::ProfileController < My::NamespaceController
   def show
     @user = current_user
   end

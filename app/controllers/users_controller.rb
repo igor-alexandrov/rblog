@@ -6,7 +6,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find_by_login(params[:id])
-    redirect_to profile_path if @user == current_user
+    redirect_to my_profile_path if @user == current_user
   end
 
   def new

@@ -1,0 +1,4 @@
+<% for social_connection in @user.social_connections %>
+  <%= social_connection.name %>
+  <%= link_to social_connection.prefix + social_connection.value + social_connection.suffix.to_s, social_connection.prefix + social_connection.value + social_connection.suffix.to_s, :target => "_blank" %>
+<% end %>

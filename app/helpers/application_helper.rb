@@ -57,8 +57,10 @@ module ApplicationHelper
     url + "/" + page.permalink
   end
 
-  def title(page_title, show_title = true)
-    @content_for_title = page_title.to_s
+  def title(page_title = "", show_title = true)
+    @content_for_title = ""
+    (@content_for_title = " ‒ " + page_title.to_s) unless page_title.to_s.blank?
+    @content_for_title = (configatron.general.blog_title + @content_for_title)
     @show_title = show_title
   end
 
