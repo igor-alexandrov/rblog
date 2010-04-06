@@ -5,23 +5,21 @@
 <head>
   <meta http-equiv="content-type" content="text/html;charset=UTF-8"/>
   <title><%= h(yield(:title) || "Untitled") %></title>
-  <%= stylesheet_link_tag 'login' %>
-  <%= javascript_include_tag 'jquery' %>
-  <%= javascript_include_tag 'application' %>
+  <%= stylesheet_link_tag ActiveIdentity.stylesheet('master') %>
+  <%= javascript_include_tag :defaults %>
+  <%= javascript_include_tag "markitup/jquery.markitup.pack.js"%>
+  <%= javascript_include_tag "markitup/set.html.js"%>
+  <%= stylesheet_link_tag 'markitup/html' %>
+  <%= stylesheet_link_tag 'markitup/style' %>
 </head>
 <body>
 <div class="l-container">
   <div class="l-layout">
-    <%= render :partial => "shared/notifications" %>
     <div class="h-padding">
-      <div class="b-content">
-        <div class="b-content__left">
-          <div class="b-blog_logo">
-            <%= link_to image_tag("logo.png"), root_path %>
-          </div>
-          <h1 class="g-light_gray"><%= yield(:heading_h1) %></h1>
-        </div>
-        <div class="b-content__right">
+      <%= render :partial => "shared/header" %>
+      <%= yield :content_menu %>
+      <div class="b-content b-content-wide">
+        <div class="b-content-centered">
           <%= yield :content or yield %>
         </div>
       </div>

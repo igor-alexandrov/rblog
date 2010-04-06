@@ -1,0 +1,98 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=UTF-8"/>
+  <style>
+  html,
+  body, img, ul, li, a, p, span, dl, dt, dd, h1, h2, h3, h4 {
+    margin: 0;
+    padding: 0;
+    border: 0;
+  }
+
+  body {
+    font-size: 14px;
+    line-height: 1.4em;
+    font-family: Arial, Verdana, sans-serif;
+    color: #333333;
+    background: #fff;
+  }
+
+  a {
+    color: #0088CC;
+    text-decoration: underline;
+    white-space: no-wrap;
+  }
+
+  a:visited {
+    color: #8cc2d8;
+  }
+
+  a:hover {
+    color: #fd8a51;
+  }
+
+  h1 {
+    margin-bottom: 0.5em;
+  }
+
+  h1 a{
+    text-decoration: none;
+  }
+
+  p {
+    text-indent: 1em;
+    margin: 1em 0;
+  }
+
+  .content {
+    padding: 40px;
+    max-width: 800px;
+    min-width: 800px;
+  }
+
+  .footer {
+    font-size: 12px;
+  }
+  
+  .left {
+    display: inline;
+    float: left;
+  }
+  
+  .right {
+    display: inline;
+    float: right;
+  }
+
+  </style>
+</head>
+<body>
+  <div class="content">
+    <h1>Welcome to <%= link_to configatron.general.blog_name, configatron.general.domain_name %></h1>
+    <hr/>
+    <p>
+      Thank you for registering at <%= configatron.general.blog_name %>. We hope that you will find our community helpful.
+    </p>
+    <p>
+      To finish your registration, you should <b>activate your account</b>. To do this just click the link below.
+      <br/>
+      <%= link_to my_new_activation_url(@user.perishable_token), my_new_activation_url(@user.perishable_token) %>
+    </p>
+    <p>
+      If the above URL does not work try copying and pasting it into your browser. If you continue to have problem, please feel free to contact us. If you don't want to continue your registration, just don't do anything.
+    </p>
+    <hr/>
+    <div class="footer">
+      <div class="left">
+        <%= mail_to configatron.general.blog_contact_email, configatron.general.blog_contact_email %>
+      </div>
+      <div class="right">
+        <b><%= configatron.general.blog_name %></b>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

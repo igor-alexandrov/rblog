@@ -26,7 +26,13 @@ ActionController::Routing::Routes.draw do |map|
 
   map.namespace :my do |my|
     my.root :controller => 'home', :action => 'index'
-    my.resource :profile, :controller => "profile", :only => [:show, :edit, :update]
+      
+    my.new_activation '/activate/:activation_code', :controller => 'activations', :action => 'new', :method => "GET"
+    my.activation '/activate/', :method => "POST", :controller => 'activations', :action => 'create'  
+        
+    my.resource :profile, :controller => "profile", :only => [:show, :edit, :update] do |profile|
+      
+    end
     my.resources :favourites
   end
 

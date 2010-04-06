@@ -26,7 +26,7 @@ SocialConnectionPattern.find(:all).each { |e| e.destroy  }
 
 
 admin_user = User.new do |user|
-  user.login = "admin"
+  user.username = "admin"
   user.password = "admin"
   user.password_confirmation = "admin"
   user.email = "admin@example.com"
@@ -40,7 +40,7 @@ end
 admin_user.save
 
 igor_user = User.new do |user|
-  user.login = "igor"
+  user.username = "igor"
   user.password = "igor"
   user.password_confirmation = "igor"
   user.email = "alexandrov@connectify.ru"

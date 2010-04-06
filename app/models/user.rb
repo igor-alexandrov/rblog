@@ -1,9 +1,17 @@
 class User < ActiveRecord::Base
   acts_as_authentic do |c|
     c.logged_in_timeout = 90.minutes
-# Validate minimal length of password
+    c.login_field = 'email'
+    c.validate_login_field = false
+    # Validate minimal length of password
+    
+    c.validates_length_of_password_field_options = {:on => :update, :minimum => 6, :if => :has_no_credentials?}
+    c.validates_length_of_password_confirmation_field_options = {:on => :update, :minimum => 6, :if => :has_no_credentials?}
+    
     unless configatron.users.password_minimal_length.nil?
       c.merge_validates_length_of_password_field_options :minimum => configatron.users.password_minimal_length, :if => :require_password?
+      c.validates_length_of_password_field_options = {:on => :update, :minimum => configatron.users.password_minimal_length, :if => :has_no_credentials?}
+      c.validates_length_of_password_confirmation_field_options = {:on => :update, :minimum => configatron.users.password_minimal_length, :if => :has_no_credentials?}
     end
   end
 
@@ -15,19 +23,43 @@ class User < ActiveRecord::Base
 # Validate presence of mandatory attributes
   unless configatron.users.mandatory_attributes.nil?
     configatron.users.mandatory_attributes.each do |attribute|
-      validates_presence_of attribute
+      validates_presence_of attribute, :on => :update
     end
   end
 
 # RBlog must be secure! So we allow mass-assignments only for these fields
-  attr_accessible :login, :email, :password, :password_confirmation
+  attr_accessible :first_name, :last_name, :gender, :date_of_birth
 
   named_scope :by_reputation, :order => "reputation DESC"
 
   has_many :favourites, :class_name => "Favourite", :dependent => :destroy
-  has_many :social_connections, :dependent => :destroy, :finder_sql => 
+  
+  has_many  :social_connections,
+            :dependent => :destroy,
+            :finder_sql => 
     'SELECT sc.*, scp.name, scp.prefix, scp.suffix FROM social_connections sc LEFT JOIN social_connection_patterns scp
     ON sc.pattern_id = scp.id WHERE sc.user_id = #{self.id}'
+
+  def self.genders
+    ["female", "male"]
+  end
+  
+  def after_initialize 
+    return unless new_record?
+    self.role = "GENERAL" unless self.role
+  end
+
+  def has_no_credentials?
+    self.crypted_password.blank?# && self.openid_identifier.blank?
+  end
+  
+  def signup!(params)
+    # self.username = params[:user][:username]
+    self.email = params[:user][:email]
+    # self.password = "test"
+    # self.password_confirmation = "test"
+    self.save_without_session_maintenance
+  end
 
   def full_name
     self.last_name.to_s + " " + self.first_name.to_s + " " + self.middle_name.to_s
@@ -42,7 +74,47 @@ class User < ActiveRecord::Base
   end
 
   def screen_name
-    self.login
+    self.username
+  end
+  
+  def active?
+    self.active
+  end
+  
+  def activate!(params)    
+    
+    password = params["user"].delete("password")
+    password_confirmation = params["user"].delete("password_confirmation")
+    username = params["user"].delete("username")
+    
+    self.password = password
+    self.password_confirmation = password_confirmation
+    self.username = username
+   
+   
+    self.attributes = params[:user]
+    # unless self.update_attributes(params[:user]) 
+    #      self.password = nil
+    #      self.password_confirmation = nil
+    #      self.username = nil
+    #      
+    #      return false
+    #    end
+    
+    self.active = true
+    
+    # self.reset_perishable_token!
+    self.save!
+  end
+
+  def deliver_activation_instructions!
+    # reset_perishable_token!
+    Notifier.deliver_activation_instructions(self)
+  end
+
+  def deliver_activation_confirmation!
+    # reset_perishable_token!
+    Notifier.deliver_activation_confirmation(self)
   end
 
   def admin?

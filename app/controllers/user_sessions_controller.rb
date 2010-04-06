@@ -1,11 +1,8 @@
 class UserSessionsController < ApplicationController
+  layout "application_centered"
+  
   before_filter :require_no_user, :only => [:new, :create]
   before_filter :require_user, :only => :destroy
-
-# We use a special layout for a login page for a better customization
-# You can find it in app/views/layouts/login.html.erb.
-# It also uses a special css file. 
-  layout "login"
 
   def new
     @user_session = UserSession.new

@@ -1,0 +1,32 @@
+<h1>Activate your account</h1>
+
+<% form_for @user, :url => my_activation_path, :html => {:method => :put, :class => "b-form"} do |f| %>
+<%= hidden_field_tag :perishable_token, @user.perishable_token %>
+<div class="b-form__item">
+  <%= image_tag @user.avatar, :class => "avatar" %>  
+  Change your avatar at <a href="http://gravatar.com">gravatar.com</a>
+</div>
+<div class="b-form__item">
+  Your account email:
+  <b><%= @user.email %></b>
+  <small class="b-form__item_legend">This email will be used only for authentication. We won't send any advertising material to it.</small>
+</div>
+<%= f.error_messages :message => "We cannot activate your account" %>
+<% field_set_tag "account credentials" do %>
+  <%= f.password_field :password %>
+  <%= f.password_field :password_confirmation %>
+<% end %>
+
+<% field_set_tag "about yourself" do %>
+  <table>
+    <tr>
+      <td><%= f.text_field :last_name %></td>
+      <td><%= f.text_field :first_name %></td>
+    </tr>
+  </table>
+  <%= f.date_select :date_of_birth, :start_year => 1900, :end_year => Time.now.year %>
+  <%= f.select :gender, User.genders, :prompt => true %>
+<% end %>
+
+<%= f.submit "Activate" %>
+<% end %>

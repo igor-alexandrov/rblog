@@ -61,7 +61,7 @@
       <div class="b-post__paramameters__item b-post__author_login g-light_gray ">
         author:
         <% link_to post_path(post, :anchor => :comments), :title => "go to author's profile", :class => "b-post__author_login__link" do %>
-            <%= post.author.login %>
+            <%= post.author.screen_name %>
         <% end %>
       </div>
   <% end %>

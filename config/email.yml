@@ -1,0 +1,9 @@
+development:
+  enable_starttls_auto: true
+  address: smtp.gmail.com
+  port: 587
+  domain: connectify.ru
+  user_name: igor.alexandrov@gmail.com
+  password: gabjencepsafti
+  authentication: :plain
+  

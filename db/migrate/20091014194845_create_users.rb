@@ -2,9 +2,12 @@ class CreateUsers < ActiveRecord::Migration
   def self.up
     create_table :users do |t|
       t.timestamps
-      t.string :login, :null => false
-      t.string :crypted_password, :null => false
-      t.string :password_salt, :null => false
+      t.string :email
+      t.boolean :active, :default => false, :null => false
+      t.string :crypted_password
+      t.string :password_salt
+      t.string :username
+      t.string :perishable_token, :nill => false
       t.string :persistence_token, :null => false
       t.integer :login_count, :default => 0, :null => false
       t.datetime :last_request_at
@@ -18,8 +21,6 @@ class CreateUsers < ActiveRecord::Migration
       t.string :middle_name, :null => true
 
       t.string :role
-
-      t.string :email
 
       t.date :date_of_birth
 
@@ -36,14 +37,14 @@ class CreateUsers < ActiveRecord::Migration
 
     end
 
-    add_index :users, :login
+    add_index :users, :email
     add_index :users, :persistence_token
     add_index :users, :last_request_at
     add_index :users, :reputation
   end
 
   def self.down
-    remove_index :users, :login
+    remove_index :users, :email
     remove_index :users, :persistence_token
     remove_index :users, :last_request_at
     remove_index :users, :reputation

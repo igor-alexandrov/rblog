@@ -17,19 +17,9 @@ Rails::Initializer.run do |config|
   config.gem 'gravtastic'
   config.gem 'sanitize'
 
-  # Settings in config/environments/* take precedence over those specified here.
-  # Application configuration should go into files in config/initializers
-  # -- all .rb files in that directory are automatically loaded.
-
   # Add additional load paths for your own custom dirs
   config.load_paths += %W( #{RAILS_ROOT}/app/sweepers )
   config.load_paths += %W( #{RAILS_ROOT}/app/presenters )
-
-  # Specify gems that this application depends on and have them installed with rake gems:install
-  # config.gem "bj"
-  # config.gem "hpricot", :version => '0.6', :source => "http://code.whytheluckystiff.net"
-  # config.gem "sqlite3-ruby", :lib => "sqlite3"
-  # config.gem "aws-s3", :lib => "aws/s3"
 
   # Only load the plugins named here, in the order given (default is alphabetical).
   # :all can be used as a placeholder for all plugins not explicitly named
@@ -49,4 +39,10 @@ Rails::Initializer.run do |config|
   # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
   # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}')]
   # config.i18n.default_locale = :de
+  
+  unless RAILS_ENV == 'test'
+    email_settings = YAML::load(File.open("#{RAILS_ROOT}/config/email.yml"))
+    config.action_mailer.smtp_settings = email_settings[RAILS_ENV] unless email_settings[RAILS_ENV].nil?
+  end
+  
 end

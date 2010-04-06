@@ -68,6 +68,7 @@ h3 {
 }
 
 /** layout **/
+
 .h-padding {
     padding: 20px 30px;
 }
@@ -108,6 +109,17 @@ h3 {
     float: left;    
     padding: 0 30px;
     margin-bottom: 2em;
+}
+
+.b-content-centered {
+  float: none;
+  max-width: 1024px;
+  margin: 0 auto;
+}
+
+.b-content-wide {
+    width: 100%;
+    padding: 0;
 }
 
 .b-footer {
@@ -487,13 +499,33 @@ color: #66CC33;
   display: inline;
 }
 
+.avatar {
+  border: 1px solid #dddddd;
+  padding: 3px;
+  vertical-align: middle;
+}
+
 .b-form {
     border: 20px solid #DDDDDD;
     padding: 7px 0;
     min-width: 900px;
 }
 
+.b-form table {
+  width: 100%;
+}
+
+.b-form table, tr, td{
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
 .b-form_errors {
+}
+
+.b-form_errors h2{
+  margin-top: 0;
 }
 
 .b-form_errors ul {
@@ -507,14 +539,25 @@ color: #66CC33;
     padding-top: 4px;
 }
 
+fieldset {
+  margin: 5px 10px;
+  border: 2px solid #DDDDDD;
+}
+
+legend {
+  font-style: italic;
+}
+
 .b-form__item {
-    padding: 3px 10px;
+    padding: 5px 10px;
 }
 
 .b-form__item_legend {
     font-style: italic;
-    font-size: 90%;
+    font-size: 100%;
     display: block;
+    color: #666666;
+    margin: 0.3em 0;
 }
 
 .b-form__item_legend__example {
@@ -529,10 +572,14 @@ color: #66CC33;
 .b-form__label {
     font-weight: bold;
     display: block;
+    color: #333333;
+    margin-right: 1em;
+    margin-bottom: 0.2em;
 }
 
 .b-form__input-text {
     width: 99%;
+    font-size: 120%;
 }
 
 .b-form__input-text_bigger {
@@ -546,6 +593,8 @@ color: #66CC33;
 .b-form__input-submit {
     font-size: 140%;
     padding: 5px 20px;
+    cursor: pointer;
+    font-weight: 700;
 }
 
 .b-page__navigation {
