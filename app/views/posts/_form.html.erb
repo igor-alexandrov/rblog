@@ -15,10 +15,7 @@
     </div>
     <% form.fields_for :post, content.post do |p| %>
         <%= p.hidden_field :content_type %>
-        <div class="b-form__item">
-          <%= p.label :category_id, "Choose category in which you want to write:", :class => "b-form__label g-inline" %>
-          <%= p.select :category_id, options_for_select(@selectable_categories) %>
-        </div>
+        <%= p.select :category_id, options_for_select(@selectable_categories), :label => "Choose category in which you want to write:" %>
         <%= p.text_field :title, :label => "Title", :class => "b-form__input-text b-form__input-text_bigger" %>
     <% end %>
 

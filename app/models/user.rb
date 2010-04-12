@@ -3,7 +3,6 @@ class User < ActiveRecord::Base
     c.logged_in_timeout = 90.minutes
     c.login_field = 'email'
     c.validate_login_field = false
-    # Validate minimal length of password
     
     c.validates_length_of_password_field_options = {:on => :update, :minimum => 6, :if => :has_no_credentials?}
     c.validates_length_of_password_confirmation_field_options = {:on => :update, :minimum => 6, :if => :has_no_credentials?}
@@ -54,10 +53,7 @@ class User < ActiveRecord::Base
   end
   
   def signup!(params)
-    # self.username = params[:user][:username]
     self.email = params[:user][:email]
-    # self.password = "test"
-    # self.password_confirmation = "test"
     self.save_without_session_maintenance
   end
 
@@ -82,29 +78,18 @@ class User < ActiveRecord::Base
   end
   
   def activate!(params)    
-    
     password = params["user"].delete("password")
     password_confirmation = params["user"].delete("password_confirmation")
     username = params["user"].delete("username")
-    
+   
     self.password = password
     self.password_confirmation = password_confirmation
     self.username = username
    
-   
     self.attributes = params[:user]
-    # unless self.update_attributes(params[:user]) 
-    #      self.password = nil
-    #      self.password_confirmation = nil
-    #      self.username = nil
-    #      
-    #      return false
-    #    end
-    
     self.active = true
-    
-    # self.reset_perishable_token!
-    self.save!
+
+    self.save
   end
 
   def deliver_activation_instructions!

@@ -10,8 +10,8 @@ class Topic < ActiveRecord::Base
   # before_save :sanitize_content
 
   def announcement
-    if attribute_present? :description
-      Sanitize.clean(read_attribute(:description), Sanitize::Config::RBLOG_BASIC)
+    if attribute_present? :announcement
+      Sanitize.clean(read_attribute(:announcement), Sanitize::Config::RBLOG_BASIC)
     end
   end
 

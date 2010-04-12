@@ -29,6 +29,7 @@ class Posts::TopicsController < PostsController
 
   def update
     @topic = Topic.find(params[:id])
+    
     if @topic.update_attributes(params[:topic])
       redirect_to post_path(@topic.post)
     else

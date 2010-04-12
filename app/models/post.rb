@@ -17,12 +17,25 @@ class Post < ActiveRecord::Base
   validates_presence_of :title
   validates_length_of   :title, :minimum => 2
 
-  # TODO Понять, стоит ли делать :include => [:tags] 
-  named_scope :published, :conditions => {:draft => false}, :order => "published_at DESC, id DESC"
   named_scope :draft, :conditions => "published_at IS NULL", :order => "updated_at DESC"
 
   named_scope :topics, :conditions => { :content_type => "Topic" }
 
+  def self.per_page
+    10
+  end
+  
+  def self.published(options = {})
+    self.paginate :page => options[:page], :conditions => {:draft => false}, :order => "published_at DESC, id DESC"
+  end
+  
+  def self.published_in_category( category, options = {} )
+  end
+  
+  def self.published_with_tag( tag, options = {} )
+    tagged_with(tag).paginate(:page => options[:page], :conditions => {:draft => false}, :order => "published_at DESC, id DESC")
+  end
+  
   def after_initialize 
     return unless new_record?
     self.comments_count = 0
@@ -43,6 +56,11 @@ class Post < ActiveRecord::Base
 
   def before_save
     self.published_at = DateTime.now if (!self.draft? && self.published_at.nil?)
+    permalink = self.title.transliterate_as_link
+    if self.permalink != permalink
+      permalink << "-" << ActiveSupport::SecureRandom.hex(4) if Post.find_by_permalink(:first, permalink).nil?
+      self.permalink = permalink
+    end
   end
   
   def draft?
@@ -65,7 +83,6 @@ class Post < ActiveRecord::Base
   end
 
   def title=(value)
-    write_attribute :permalink, (value.transliterate_as_link)
     write_attribute :title, (value)
   end
 

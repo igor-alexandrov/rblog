@@ -1,6 +1,6 @@
 module CommentsHelper
   def comment_author_link(comment, html_options = {})
-    link_to comment.author.login, user_path(comment.author.login)
+    link_to comment.author.screen_name, user_path(comment.author.screen_name)
   end
   
   def comment_permalink_link(comment, name = "#", title = nil, html_options = {})

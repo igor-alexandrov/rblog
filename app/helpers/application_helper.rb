@@ -5,6 +5,10 @@ module ApplicationHelper
     date.strftime("%d, %B %Y, %H:%M")
   end
 
+  def pagination_for(items)
+    will_paginate items, :previous_label =>"← previous", :next_label => "next →", :renderer => WillPaginate::RBlogLinkRenderer
+  end
+
 # tools for easily link creation 
   def twitter_url_for_post( post )
     "http://twitter.com/home/?status=#{post_short_url(post.id)} #{post.title}"
