@@ -35,6 +35,10 @@ ActionController::Routing::Routes.draw do |map|
     end
     my.resources :favourites
   end
+  
+  if configatron.general.version.show
+    map.version "/version", :controller => "version"
+  end
 
   map.root :controller => "home"
 
@@ -54,6 +58,6 @@ ActionController::Routing::Routes.draw do |map|
 
   map.page 'pages/*href', :controller => "pages", :action => "show"
 
-  map.connect ':controller/:action/:id'
-  map.connect ':controller/:action/:id.:format'
+  # map.connect ':controller/:action/:id'
+  # map.connect ':controller/:action/:id.:format'
 end

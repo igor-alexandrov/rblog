@@ -19,6 +19,11 @@
               </li>
           <% end %>
       <%# end %>
+      <% if configatron.general.version.show %>
+      <li class="b-menu__item b-menu__item-right <%= 'b-menu__item-current' if options[:current] == 'version' %>">
+        <%= link_to "Version", version_path, :class => "b-menu__item__link" %>
+      </li>
+      <% end %>
     </ul>
   </div>
   <div class="b-submenu">

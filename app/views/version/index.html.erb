@@ -1,0 +1,55 @@
+<% title "Version" %>
+<% content_menu :current => "version" %>
+<h1>Information about your version of RBlog</h1>
+<%= commit_information(@git.log.first.sha) %>
+<div class="b-data" style="max-width: 800px">
+  <table>
+    <tr>
+      <td class="definition">id</td>
+      <td><%= @git.log.first.sha %></td>  
+      <td class="action"><%= commit_link "view on GitHub", @git.log.first.sha %></td>
+    </tr>
+    <tr>
+      <td class="definition">commit date</td>
+      <td><%= format_date @git.log.first.committer.date %></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td class="definition">committer</td>
+      <td><%= @git.log.first.committer.name %></td>
+      <td class="action"><%= mail_to @git.log.first.committer.email, "send email" %></td>
+    </tr>
+    <tr>
+      <td class="definition">message</td>
+      <td><%= @git.log.first.message %></td>
+      <td></td>
+    </tr>
+  </table>
+</div>
+<h1>Latest commits to GitHub repository</h1>
+<div class="b-data" style="max-width: 800px">
+  <table>
+    <thead>
+      <tr>
+        <th>commit date</th>
+        <th>committer</th>
+        <th>message</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @repo.commits[0..4].each do |commit| %>
+      <tr>
+        <td class="nowrap">
+          <%= format_date Time.parse(commit.committed_date) %>
+        </td>
+        <td class="nowrap">
+          <%= commit.author['name'] %>
+        </td>
+        <td>
+          <%= link_to commit.message, commit.url %>
+        </td>
+      </tr>
+      <% end %>
+
+    </table>
+  </div>

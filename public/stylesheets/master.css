@@ -704,9 +704,47 @@ h1.avatared img {
 .b-data p { margin-top: 0.4em; margin-bottom: 0.4em; }
 .b-data pre { text-indent: 0; }
 .b-data table { margin:1em 0 !important; }
+.b-data table th {
+  font-weight: bold;
+}
 .b-data table td {
   border-bottom:1px solid #DDDDDD !important;
   padding:0.2em 1em !important;
+}
+.b-data table td.definition{
+  color: #999999;
+  font-weight: bold;
+  width: 100px;
+  text-align: right;
+}
+.b-data table td.action{
+  float: right;
+  font-weight: bold;
+  width: 100px;
+  text-align: right;
+}
+
+.b-commit-information {
+  width: 800px;
+  border:1px solid #DDDDDD;
+  margin: 1em 0;
+  padding: 0.5em;
+}
+
+.b-commit-information .version-message {
+  padding: 0.5em;
+}
+
+.b-commit-information .latest-commited{
+  background-color: #99CC65;
+}
+
+.b-commit-information .outdated{
+  background-color: #FF9966;
+}
+
+.b-commit-information .tagged{
+  background-color: #99CC65;
 }
 
 .g-align__right {
@@ -750,7 +788,12 @@ h1.avatared img {
     font-size: 120%;
 }
 
+.nowrap {
+  white-space: nowrap;
+}
+
 .b-copyright {
 }
+
 
 
