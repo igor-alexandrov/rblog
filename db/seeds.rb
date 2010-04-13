@@ -73,57 +73,19 @@ first_post = Post.new do |p|
     p.author = admin_user
     p.tag_list = "rblog, ruby, welcome"
 end
-first_post.save
-first_post.publish!
-
-first_comment = UserComment.new do |c|
-    c.post = first_post
-#    c.parent_comment = fake_comment
-#    c.commenter_name = "Igor Alexandrov"
-#    c.commenter_email = "igor.alexandrov@gmail.com"
-    c.author = igor_user
-    c.body = "First comment"
-end
-first_comment.save
-
-second_comment = UserComment.new do |c|
-    c.post = first_post
-    c.parent_comment = first_comment
-#    c.commenter_name = "Igor Alexandrov"
-#    c.commenter_email = "igor.alexandrov@gmail.com"
-    c.author = admin_user
-    c.body = "Second comment"
-end
-second_comment.save
-
-third_comment = UserComment.new do |c|
-    c.post = first_post
-#    c.parent_comment = fake_comment
-#    c.commenter_name = "Igor Alexandrov"
-#    c.commenter_email = "igor.alexandrov@gmail.com"
-    c.author = admin_user
-    c.body = "Third comment"
-end
-third_comment.save
 
 second_topic = Topic.new do |t|
-    t.announcement = "Find out what people say about Ruby on Rails"
-    t.body = "“Ruby on Rails is a breakthrough in lowering the barriers of entry to programming.
-Powerful web applications that formerly might have taken weeks or months
-to develop can be produced in a matter of days.”
--Tim O'Reilly, Founder of O'Reilly Media"
+    t.body = get_file_as_string("#{RAILS_ROOT}/db/data/posts/authors.html")
 end
 second_topic.save
 
 second_post = Post.new do |p|
-    p.title = "Ruby on Rails"
+    p.title = "Authors"
     p.content = second_topic
     p.category = category
     p.author = admin_user
-  p.tag_list = "ruby on rails"
+  p.tag_list = "rblog, authors"
 end
-second_post.save
-second_post.publish!
 
 first_link = Link.new do |l|
   l.url = "http://www.connectify.ru"
@@ -138,8 +100,38 @@ third_post = Post.new do |p|
     p.author = admin_user
   p.tag_list = "connectify.ru, russia"
 end
+
+
 third_post.save
 third_post.publish!
+
+second_post.save
+second_post.publish!
+
+first_post.save
+first_post.publish!
+
+first_comment = UserComment.new do |c|
+    c.post = first_post
+    c.author = igor_user
+    c.body = "First comment"
+end
+first_comment.save
+
+second_comment = UserComment.new do |c|
+    c.post = first_post
+    c.parent_comment = first_comment
+    c.author = admin_user
+    c.body = "Second comment"
+end
+second_comment.save
+
+third_comment = UserComment.new do |c|
+    c.post = first_post
+    c.author = admin_user
+    c.body = "Third comment"
+end
+third_comment.save
 
 about_page = Page.new({:title => "About", :content => get_file_as_string("#{RAILS_ROOT}/db/data/pages/about.html")})
 about_page.save
