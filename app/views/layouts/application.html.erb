@@ -1,5 +1,5 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
@@ -13,19 +13,15 @@
   <%= stylesheet_link_tag 'markitup/style' %>
 </head>
 <body>
-<div class="l-container">
-  <div class="l-layout">
-    <div class="h-padding">
-      <%= render :partial => "shared/header" %>
-      <%= yield :content_menu %>
-      <div class="b-content">
-        <%= yield :content or yield %>
-      </div>
-      <div class="b-footer">
-        <%= render :partial => "shared/footer" %>
-      </div>
+  <div class="l-container">
+    <%= render :partial => "shared/header" %>
+    <%= yield :content_menu %>
+    <div class="b-content">
+      <%= yield :content or yield %>
+    </div>
+    <div class="b-footer">
+      <%= render :partial => "shared/footer" %>
     </div>
   </div>
-</div>
 </body>
 </html>

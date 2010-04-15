@@ -1,23 +1,16 @@
-<div class="b-form__item">
-  <%= form.label :url, "Url", :class => "b-form__label" %>
-  <%= form.text_field :url, :class => "b-form__input-text" %>
-  <small class="b-form__item_legend">Address of original information. For example
-    <span class="b-form__item_legend__example">"http://www.example.com/news/26081987"</span>
-  </small>
-</div>
+<%= form.text_field :url, :class => "b-form__input-text", :legend => %{Address of original information. For example
+  <span class="b-form__item_legend__example">"http://www.example.com/news/26081987"</span>} %>
+ 
+<%= form.text_field :text, :class => "b-form__input-text", :legend => %{  Your link will be made from url and text like this:
+    <span class="b-form__item_legend__example">" #{html_escape("<a href=\":url\">:text</a>")}"} %>
+<small class="b-form__item_legend"></span>
+</small>
+ 
 
-<div class="b-form__item">
-  <%= form.label :text, "Text", :class => "b-form__label" %>
-  <%= form.text_field :text, :class => "b-form__input-text" %>
-  <small class="b-form__item_legend">Your link will be made from url and text like this:
-    <span class="b-form__item_legend__example">"<%= html_escape("<a href=\":url\">:text</a>") %>"</span>
-  </small>
-</div>
-
-<div class="b-form__item">
-  <%= form.label :description, "Description", :class => "b-form__label" %>
-  <%= form.text_area :description, :class => "b-form__input-text b-form__input-text_short  markitup" %>
-  <small class="b-form__item_legend">Maximum length is
-    <span class="b-form__item_legend__warning"><%= configatron.posts.link.description.maximum_length %> symbols</span>
-  </small>
-</div>
+  <div class="b-form__item">
+    <%= form.label :description, "Description", :class => "b-form__label" %>
+    <%= form.text_area :description, :class => "b-form__input-text b-form__input-text_short  markitup" %>
+    <small class="b-form__item_legend">Maximum length is
+      <span class="b-form__item_legend__warning"><%= configatron.posts.link.description.maximum_length %> symbols</span>
+    </small>
+  </div>

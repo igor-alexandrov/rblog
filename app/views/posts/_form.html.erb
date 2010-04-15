@@ -22,13 +22,9 @@
     <%= render :partial => "posts/#{content.class.to_s.downcase.pluralize}/form", :locals => {:form => form, :content => content} %>
 
     <% form.fields_for :post, content.post do |p| %>
-        <div class="b-form__item">
-          <%= p.label :tag_list, "Tag list:", :class => "b-form__label" %>
-          <%= p.text_field :tag_list, :class => "b-form__input-text b-form__input-text_bigger" %>
-          <small class="b-form__item_legend">You should divide tags with comma. For example
-            <span class="b-form__item_legend__example">"ruby on rails, programming, russia"</span>.
-          </small>
-        </div>
+       
+          <%= p.text_field :tag_list, :class => "b-form__input-text b-form__input-text_bigger", :legend => %{You should divide tags with comma. For example <span class="b-form__item_legend__example">"ruby on rails, programming, russia"</span>.} %>
+        
         <div class="b-form__item">
           <%= p.check_box :draft %>
           <%= p.label :draft, "Mark this ‹‹#{content.class.to_s.downcase}›› as draft", :class => "b-form__label  g-inline" %>
