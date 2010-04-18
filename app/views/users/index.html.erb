@@ -15,7 +15,7 @@
 
           <td>
             <dl>
-              <dt><%= link_to user.screen_name, user_path(user.screen_name), :class => "g-link-no-visited"%></dt>
+              <dt><%= link_to user.screen_name, user_path(user.id), :class => "g-link-no-visited"%></dt>
               <dd><%= user.short_name %></dd>
               <dd>Registered: <%= user.created_at.strftime("%d, %B %Y, %H:%M") %></dd>
             </dl>

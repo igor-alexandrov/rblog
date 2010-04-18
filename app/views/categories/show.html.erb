@@ -1,4 +1,5 @@
 <% title @category.title %>
 <% content_menu(:current => "posts") %>
 <h1>Posts in category ‹‹<%= @category.title %>››</h1>
+<%= @category.description %>
 <%= render :partial => "posts/index", :locals => {:posts => @category.posts.published(:page => params[:page]), :options => {:no_categories => true}} %>

@@ -1,4 +1,5 @@
 module PostsHelper
+
   def post_link(post, html_options = {})
       link_to post.title, post_path(post), html_options
   end

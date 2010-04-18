@@ -16,8 +16,29 @@
   <div class="l-container">
     <%= render :partial => "shared/header" %>
     <%= yield :content_menu %>
-    <div class="b-content">
-      <%= yield :content or yield %>
+    <div class="h-padding">
+      <div class="clearfix">
+        <div class="content content-left">
+          <div class="content-left__padding">
+            <%= yield :content or yield %>
+          </div>
+        </div>
+        <div class="content content-right">
+          <div class="content-right__padding">
+            <div class="sbar-item">
+              <h3 class="sbar-item__heading">Tag cloud</h3>
+              <div class="sbar-item__content">
+                <% @tags = Post.tag_counts_on(:tags) %>
+                <div class="tag-cloud">
+                <% tag_cloud(@tags, %w(tag1 tag2 tag3 tag4 tag5 tag6 tag7 tag8 tag9 tag10)) do |tag, css_class| %>
+                  <%= tag_link(tag, :class => css_class) %>
+                <% end %>
+                </div>
+              </div>
+            </div>
+          </div>			
+        </div>
+      </div>
     </div>
     <div class="b-footer">
       <%= render :partial => "shared/footer" %>
