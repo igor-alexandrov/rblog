@@ -3,7 +3,7 @@ h1. RBlog
 *RBlog* is modern blog engine with elements of social network written with "Ruby On Rails":http://www.rubyonrails.org.
 With *RBlog* you can easily manage your personal blog or create a community within two minutes. 
 
-|*Author:*|Igor Alexandrov (igor.alexandrov@gmail.com)|
+|*Authors:*|Igor Alexandrov (igor.alexandrov@gmail.com) Andrey Kouznetsov(smixok@gmail.com)|
 |*Copyright:*|Copyright © 2010 Igor Alexandrov. All rights reserved.|
 |*License:*|MIT License ("opensource.org/licenses/mit-license.php":http://opensource.org/licenses/mit-license.php)|
 |*Website:*|"www.github.com/igor-alexandrov/rblog":http://github.com/igor-alexandrov/rblog|
@@ -60,7 +60,11 @@ Clone RBlog from GitHub
 
 bc .git clone git://github.com/igor-alexandrov/rblog.git
 
-It will make a directory called @rblog@ on your hard disk. Got into it. Now you should prepare your database. Just copy @config/database.yml.example@ as @config/database.yml@
+It will make a directory called @rblog@ on your hard disk. Got into it. Now let's install required gems.
+
+bc. rake gems:install
+
+Now you should prepare your database. Just copy @config/database.yml.example@ as @config/database.yml@
 and edit it in your favorite editor. By the way @wp_db@ in @database.yml@ is a configuration for database with WordPress (this is if you are migrating from wordpress).
 So, your @database.yml@ is ready. Now you should create tables in your database.
 
