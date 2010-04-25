@@ -73,7 +73,7 @@ bc. rake db:migrate
 Tables are ready, lets just load some initial data into them.
 
 bc. mv config/config.yml.example config/config.yml
-bc. rake db:seed
+rake db:seed
 
 Run
 
