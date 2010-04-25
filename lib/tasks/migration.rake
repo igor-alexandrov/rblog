@@ -1,10 +1,9 @@
-require File.expand_path(File.dirname(__FILE__) + "/../../config/environment")
-require File.expand_path(File.dirname(__FILE__) + "/../wp_db.rb")
-require File.expand_path(File.dirname(__FILE__) + "/../wp_post.rb")
 
 namespace :migrate do
   desc "Basic migration from Wordpress engine"
   task(:from_wordpress => :environment) do
+        require File.expand_path(File.dirname(__FILE__) + "/../wp_db.rb")
+        require File.expand_path(File.dirname(__FILE__) + "/../wp_post.rb")
         
         wp_posts = WpPost.find(:all, :conditions => {:post_status => "publish", :post_type => "post"})
         for wp_post in wp_posts
