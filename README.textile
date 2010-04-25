@@ -3,7 +3,7 @@ h1. RBlog
 *RBlog* is modern blog engine with elements of social network written with "Ruby On Rails":http://www.rubyonrails.org.
 With *RBlog* you can easily manage your personal blog or create a community within two minutes. 
 
-|*Authors:*|Igor Alexandrov (igor.alexandrov@gmail.com) Andrey Kouznetsov(smixok@gmail.com)|
+|*Authors:*|Igor Alexandrov (igor.alexandrov@gmail.com),  Andrey Kouznetsov(smixok@gmail.com)|
 |*Copyright:*|Copyright © 2010 Igor Alexandrov. All rights reserved.|
 |*License:*|MIT License ("opensource.org/licenses/mit-license.php":http://opensource.org/licenses/mit-license.php)|
 |*Website:*|"www.github.com/igor-alexandrov/rblog":http://github.com/igor-alexandrov/rblog|
@@ -72,6 +72,7 @@ bc. rake db:migrate
 
 Tables are ready, lets just load some initial data into them.
 
+bc. mv config/config.yml.example config/config.yml
 bc. rake db:seed
 
 Run
