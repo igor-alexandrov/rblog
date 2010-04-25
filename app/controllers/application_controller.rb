@@ -11,6 +11,10 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  # before_filter do |controller|
+  #     controller.show_tag_cloud!
+  #   end
+
   rescue_from CanCan::AccessDenied do |exception|
     notify :error, "You are not authorized to access page, that you requested"
     if current_user
@@ -30,7 +34,13 @@ class ApplicationController < ActionController::Base
     session[:return_to] = nil
   end
 
-  private
+  def show_tag_cloud!
+    @template.content_for :sidebar do
+     render_to_string :file => RBlog::Extensions::Sidebar::TagCloud.new.partial, :locals => RBlog::Extensions::Sidebar::TagCloud.new.data
+    end
+  end
+
+  protected
   def require_user
     unless current_user
       flash[:notice] = "You must be logged in to access this page"
@@ -62,5 +72,4 @@ class ApplicationController < ActionController::Base
     return @current_user if defined?(@current_user)
     @current_user = current_user_session && current_user_session.user
   end
-
 end

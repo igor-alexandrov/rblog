@@ -34,10 +34,11 @@ admin_user = User.new do |user|
   user.last_name = "Admin"
   user.date_of_birth = Date.today
   user.role = "ADMIN"
-  
+  user.active = true
 end
 
 admin_user.save
+
 
 igor_user = User.new do |user|
   user.username = "igor"

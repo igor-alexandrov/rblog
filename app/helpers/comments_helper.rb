@@ -5,7 +5,7 @@ module CommentsHelper
   
   def comment_permalink_link(comment, name = "#", title = nil, html_options = {})
     title = "direct link to this comment" if title.nil?
-    link_to name, "#comment_#{comment.id}", :title => title
+    link_to name, post_path(comment.post, :anchor => "comment_#{comment.id}"), :title => title
   end
   
   def comment_parent_permalink_link(comment, name = "#", title = nil, html_options = {})

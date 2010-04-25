@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-  layout "application_centered"
   def index
     @users = User.by_reputation
   end
@@ -10,8 +9,8 @@ class UsersController < ApplicationController
   end
 
   def new
-
     @user = User.new
+    render :layout => "application_centered"
   end
 
   def create
@@ -22,7 +21,7 @@ class UsersController < ApplicationController
       flash[:notice] = "Your account has been created. Please check your e-mail for your account activation instructions!"
       redirect_to root_url
     else
-      render :action => :new
+      render :action => :new, :layout => "application_centered"
     end
   end
 end
