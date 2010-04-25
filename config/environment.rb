@@ -44,8 +44,11 @@ Rails::Initializer.run do |config|
   # config.i18n.default_locale = :de
   
   unless RAILS_ENV == 'test'
-    email_settings = YAML::load(File.open("#{RAILS_ROOT}/config/email.yml"))
-    config.action_mailer.smtp_settings = email_settings[RAILS_ENV] unless email_settings[RAILS_ENV].nil?
+    begin
+      email_settings = YAML::load(File.open("#{RAILS_ROOT}/config/email.yml"))
+      config.action_mailer.smtp_settings = email_settings[RAILS_ENV] unless email_settings[RAILS_ENV].nil?
+    rescue
+    end
   end
   
 end
