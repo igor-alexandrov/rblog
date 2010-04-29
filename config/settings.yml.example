@@ -4,6 +4,7 @@ development:
     blog_name: rblog-demo.connectify.ru
     blog_title: RBlog Sample
     blog_contact_email: igor.alexandrov@gmail.com
+    domain_name: example.com
     version:
       show: true
   content_menu:
