@@ -35,7 +35,7 @@ All content in RBlog is divided into different types. Each type has it's own gre
 
 Now RBlog supports two types of content:
 * *Topic*. Topic is the most common type of your post. You can write in it everything you want. 
-* *Link*. Link is a small post, that points to some other resource in Internet. Link has a description (length of description can be set in config.yml file) and url. It is very useful, when you want to save some interesting material or make a cross-posting.
+* *Link*. Link is a small post, that points to some other resource in Internet. Link has a description (length of description can be set in settings.yml file) and url. It is very useful, when you want to save some interesting material or make a cross-posting.
 
 It is very easy to add new types of content to RBlog. And in some upcoming releases we will add some new types. If you have any offers, contact us please.
 
@@ -72,7 +72,7 @@ bc. rake db:migrate
 
 Tables are ready, lets just load some initial data into them.
 
-bc. mv config/config.yml.example config/config.yml
+bc. mv config/settings.yml.example config/settings.yml
 rake db:seed
 
 Run
