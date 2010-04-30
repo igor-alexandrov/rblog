@@ -1,6 +1,6 @@
 class Posts::EventsController < PostsController
   def index
-    @posts = Post.events.find(:all)
+    @posts = Post.events.all
   end
 
   def new

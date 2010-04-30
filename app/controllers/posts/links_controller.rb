@@ -1,6 +1,6 @@
 class Posts::LinksController < PostsController
   def index
-    @posts = Post.links.find(:all)
+    @posts = Post.links.all
   end
 
   def new

@@ -37,7 +37,7 @@
             <div class="sbar-item">
               <h3 class="sbar-item__heading">Latest comments</h3>
               <div class="sbar-item__content">
-                <% @comments = Comment.find(:all, :include => [:author, :post], :order => :created_at, :limit => 25) %>
+                <% @comments = Comment.includes(:author, :post).order('created_at').limit(25) %>
                 <ul>
                   <% @comments.each do |comment| %>
                   <li>

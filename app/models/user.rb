@@ -128,7 +128,7 @@ class User < ActiveRecord::Base
 
   def has_favourite?(object)
      Rails.cache.fetch("users/#{self.id}/favourites/#{object.class.to_s.pluralize.downcase}/#{object.id}") {
-      !Favourite.find( :first, :conditions => {:user_id => self.id, :object_type => object.class.to_s, :object_id => object.id} ).nil?
+      !Favourite.where( :user_id => self.id, :object_type => object.class.to_s, :object_id => object.id).first.nil?
      }
   end
 
@@ -144,7 +144,7 @@ class User < ActiveRecord::Base
     begin
       Rails.cache.delete("users/#{self.id}/favourites/#{object.class.to_s.pluralize.downcase}/#{object.id}")
     ensure
-      Favourite.find( :first, :conditions => {:user_id => self.id, :object_type => object.class.to_s, :object_id => object.id} ).destroy
+      Favourite.where(:user_id => self.id, :object_type => object.class.to_s, :object_id => object.id).first.destroy
     end
   end
   

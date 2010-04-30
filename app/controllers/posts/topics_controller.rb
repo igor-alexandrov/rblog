@@ -1,6 +1,6 @@
 class Posts::TopicsController < PostsController
   def index
-    @posts = Post.topics.find(:all)
+    @posts = Post.topics.all
   end
 
   def new
