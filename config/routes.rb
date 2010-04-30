@@ -3,7 +3,7 @@ ActionController::Routing::Routes.draw do |map|
   map.user_session "login", :controller => "user_sessions", :action => "create", :conditions => { :method => :post }
   map.logout 'logout', :controller => 'user_sessions', :action => 'destroy'
 
-  map.namespace:posts, :path_prefix => "" do |post|
+  map.namespace :posts do |post|
     for type in configatron.posts.types.active
       post.resources type
     end
