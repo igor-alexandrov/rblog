@@ -1,13 +1,15 @@
 # Edit this Gemfile to bundle your application's dependencies.
 # This preamble is the current preamble for Rails 3 apps; edit as needed.
-#path "/home/smix/.gem/ruby/1.8/bin/rails", :glob => "{*/,}*.gemspec"
+path "/usr/local/lib/ruby/gems/1.8/gems/rails-3.0.0.beta3", :glob => "{*/,}*.gemspec"
 git "git://github.com/rails/rack.git"
+#gem "rails", :git => "git://github.com/rails/rails.git"
+gem "rails", "3.0.0.beta3", :git => "git://github.com/rails/rails.git"
+#“/Users/rizwanreza/code/rails/railties”
 
-gem "rails", "3.0.pre"
 
 gem 'authlogic'
 gem 'cancan'
-gem 'searchlogic', '2.4.12'
+gem 'searchlogic'
 gem 'configatron'
 gem 'rainbow'
 gem 'gravtastic'
