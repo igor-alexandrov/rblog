@@ -29,7 +29,7 @@ class User < ActiveRecord::Base
 # RBlog must be secure! So we allow mass-assignments only for these fields
   attr_accessible :first_name, :last_name, :gender, :date_of_birth
 
-  named_scope :by_reputation, :order => "reputation DESC"
+  scope :by_reputation, :order => "reputation DESC"
 
   has_many :favourites, :class_name => "Favourite", :dependent => :destroy
   
