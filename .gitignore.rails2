@@ -1,0 +1,10 @@
+config/database.yml
+config/email.yml
+config/settings.yml
+/tmp
+*.swo
+*.swp
+/tags
+log/*
+/.gitignore
+db/schema.rb
