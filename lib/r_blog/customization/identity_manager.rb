@@ -29,14 +29,14 @@ module RBlog
           raise InvalidIdentity, "Identity '#{identity_name}' is invalid. Path '#{File.join(Identity.glob_identities_root, identity_name)}' doesn't exist"
         end
 
-        unless self.validate_existance_of_path(File.join(RAILS_ROOT, "public/identities", identity_name, "stylesheets"))
+        unless self.validate_existance_of_path(File.join(Rails.root, "public/identities", identity_name, "stylesheets"))
           Log.identity_invalid(identity_name)
-          raise InvalidIdentity, "Identity '#{identity_name}' is invalid. Path '#{File.join(RAILS_ROOT, "public/identities", identity_name, "stylesheets")}' doesn't exist"
+          raise InvalidIdentity, "Identity '#{identity_name}' is invalid. Path '#{File.join(Rails.root, "public/identities", identity_name, "stylesheets")}' doesn't exist"
         end
 
-        unless self.validate_existance_of_path(File.join(RAILS_ROOT, "public/identities", identity_name, "images"))
+        unless self.validate_existance_of_path(File.join(Rails.root, "public/identities", identity_name, "images"))
           Log.identity_invalid(identity_name)
-          raise InvalidIdentity, "Identity '#{identity_name}' is invalid. Path '#{File.join(RAILS_ROOT, "public/identities", identity_name, "images")}' doesn't exist"
+          raise InvalidIdentity, "Identity '#{identity_name}' is invalid. Path '#{File.join(Rails.root, "public/identities", identity_name, "images")}' doesn't exist"
         end
 
         unless File.readable?(File.join(Identity.glob_identities_root, identity_name, 'theme.yml')) &&

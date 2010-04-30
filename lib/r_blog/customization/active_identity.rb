@@ -17,7 +17,7 @@ module RBlog
           #Delete all paths, that are not default
           self.view_paths.size > 1 ? self.view_paths.delete_at(-1) : true
           #Prepend view paths with path for current Identity
-          self.prepend_view_path("#{RAILS_ROOT}/app/identities/#{@@identity_name}/views")
+          self.prepend_view_path("#{Rails.root}/app/identities/#{@@identity_name}/views")
 
           #Load additional code from current Identity 
           require "app/identities/#{identity_name}/init"
@@ -79,7 +79,7 @@ module RBlog
         when :view
           File.file? File.join(Identity.identities_root, self.identity_name, "/views/", object_name + '.html.erb')
           #        when :stylesheet
-          #          File.file? File.join(RAILS_ROOT, "public/stylesheets/themes", self.identity_name, object_name + '.css')
+          #          File.file? File.join(Rails.root, "public/stylesheets/themes", self.identity_name, object_name + '.css')
         end
       end
     end
