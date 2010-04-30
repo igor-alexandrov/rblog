@@ -8,17 +8,6 @@ require File.join(File.dirname(__FILE__), 'boot')
 
 Rails::Initializer.run do |config|
   
-  config.gem 'authlogic'
-  config.gem 'cancan'
-  config.gem 'searchlogic', :version => "2.4.12"
-  config.gem 'configatron'
-  config.gem 'rainbow'
-  config.gem 'gravtastic'
-  config.gem 'sanitize'
-  config.gem 'will_paginate'
-  config.gem 'octopi'
-  config.gem 'git'
-  
   # Add additional load paths for your own custom dirs
   config.load_paths += %W( #{RAILS_ROOT}/app/sweepers )
   config.load_paths += %W( #{RAILS_ROOT}/app/presenters )

@@ -94,12 +94,12 @@ class User < ActiveRecord::Base
 
   def deliver_activation_instructions!
     # reset_perishable_token!
-    Notifier.deliver_activation_instructions(self)
+    Notifier.activation_instructions(self).deliver
   end
 
   def deliver_activation_confirmation!
     # reset_perishable_token!
-    Notifier.deliver_activation_confirmation(self)
+    Notifier.activation_confirmation(self).deliver
   end
 
   def admin?
