@@ -1,4 +1,4 @@
-<% remote_form_for :comment, :url => post_comments_path(@post.id), :html => {:method => "post", :id => "new_comment", :class => "b-form" } do |form| %>
+<% form_for :comment, :url => post_comments_path(@post.id), :remote => true, :html => {:method => "post", :id => "new_comment", :class => "b-form" } do |form| %>
     <%= content_tag(:a, "", :name => "new_comment") %>
     <div class="b-form__item">
       You are a guest user. Please fill all fields clearly.

@@ -12,14 +12,16 @@
   <% if current_user %>
       <div class="b-post__paramameters__item b-post__favourite g-light_gray">
         <% if current_user.has_favourite?(post) %>
-          <%= link_to_remote content_tag(:span, '', :class => "b-js_link__value"),
+          <%= link_to content_tag(:span, '', :class => "b-js_link__value"),
+              :remote => true,
               :url => post_toggle_favourite_url(post.id),
               :method => "post",
               :html => {:title => "remove this post from favourites",
                         :class => "b-post__toggle_favourite__remove js_link"}
           %>
         <% else %>
-          <%= link_to_remote content_tag(:span, '', :class => "b-js_link__value"),
+          <%= link_to content_tag(:span, '', :class => "b-js_link__value"),
+              :remote => true,
               :url => post_toggle_favourite_url(post.id),
               :method => "post",
               :html => {:title => "add this post to favourites",
@@ -32,13 +34,13 @@
       <div class="b-post__paramameters__item b-post__rating g-light_gray">
         rating:
         <% if can? :change_rating_for, post %>
-            <%= link_to_remote content_tag(:span, "good", :class => "b-js_link__value"), :url => post_increase_rating_url(post.id), :method => "post", :html => {:title => "you like this post", :class => "b-post__rating__increase js_link", :rev => 'vote-for'} %>
+          <%= link_to content_tag(:span, "good", :class => "b-js_link__value"), :remote => true, :url => post_increase_rating_url(post.id), :method => "post", :html => {:title => "you like this post", :class => "b-post__rating__increase js_link", :rev => 'vote-for'} %>
         <% end %>
         <span id="<%= dom_id(post) %>__rating__value" class="b-post__rating__value">
         <%= post.rating %>
     </span>
         <% if can? :change_rating_for, post %>
-            <%= link_to_remote content_tag(:span, "bad", :class => "b-js_link__value"), :url => post_decrease_rating_url(post.id), :method => "post", :html => {:title => "you don't like this post", :class => "b-post__rating__decrease js_link" , :rev => 'vote-for'} %>
+          <%= link_to content_tag(:span, "bad", :class => "b-js_link__value"), :remote => true, :url => post_decrease_rating_url(post.id), :method => "post", :html => {:title => "you don't like this post", :class => "b-post__rating__decrease js_link" , :rev => 'vote-for'} %>
         <% end %>
       </div>
   <% end %>
