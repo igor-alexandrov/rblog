@@ -1,6 +1,6 @@
 <h1>Activate your account</h1>
 
-<% form_for @user, :url => my_activation_path, :html => {:method => :put, :class => "b-form"} do |f| %>
+<%= form_for @user, :url => my_activation_path, :html => {:method => :put, :class => "b-form"} do |f| %>
 <%= hidden_field_tag :perishable_token, @user.perishable_token %>
 <div class="b-form__item">
   <%= image_tag @user.avatar, :class => "avatar" %>  
@@ -12,12 +12,12 @@
   <small class="b-form__item_legend">This email will be used only for authentication. We won't send any advertising material to it.</small>
 </div>
 <%= f.error_messages :message => "We cannot activate your account" %>
-<% field_set_tag "account credentials" do %>
+<%= field_set_tag "account credentials" do %>
   <%= f.password_field :password %>
   <%= f.password_field :password_confirmation %>
 <% end %>
 
-<% field_set_tag "about yourself" do %>
+<%= field_set_tag "about yourself" do %>
   <%= f.text_field :username, :legend => "Username is your name on #{configatron.general.blog_title}. It is not used for authentication and you can change it anytime you want." %>
   <table>
     <tr>

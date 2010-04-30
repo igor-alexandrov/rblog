@@ -1,7 +1,7 @@
 <% title "#{configatron.general.blog_title} | administration | users" %>
 <div class="b-content b-content-left">
   <h2>users operations</h2>
-  <% form_tag update_individual_admin_users_path, :class => "b-form" do %>
+  <%= form_tag update_individual_admin_users_path, :class => "b-form" do %>
       <ul class="b-control_panel">
         <li class="b-control_panel-item">
           <%= link_to "add new user", new_admin_user_path, :class => "g-link_32 i-add_32" %>
@@ -97,7 +97,7 @@
 <div class="b-content b-content-right">
   <div class="b-users-search">
     <h2>users search</h2>
-    <% form_for @search, :html => {:class => "b-form"} do |f| %>
+    <%= form_for @search, :html => {:class => "b-form"} do |f| %>
         <div class="b-form-item">
           <%= f.label :login_like, "login is like", :class => "b-form__label g-inline" %>
           <%= f.text_field :login_like, :class => "b-form__input-text_smaller" %>

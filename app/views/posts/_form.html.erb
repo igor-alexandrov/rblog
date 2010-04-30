@@ -6,10 +6,10 @@
 <% end %>
 
 <div class="form">
-  <% form_for [:posts, content] do |form| %>
+  <%= form_for [:posts, content] do |form| %>
   <%= form.error_messages :id => "error_explanation" %>
   
-  <% form.fields_for :post, content.post do |p| %>
+  <%= form.fields_for :post, content.post do |p| %>
   <%= p.hidden_field :content_type %>
   <%= p.select :category_id, options_for_select(@selectable_categories), :label => "Choose category in which you want to write:" %>
   <%= p.text_field :title, :label => "Title", :class => "form__input-text_bigger" %>

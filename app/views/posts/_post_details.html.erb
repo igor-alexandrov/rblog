@@ -59,10 +59,10 @@
         <%= link_to_digg post, "submit this to digg" %>
       </div>
   <% end %>
-  <% cache post_path(post.id, :action_suffix => "author") do %>
+  <%= cache post_path(post.id, :action_suffix => "author") do %>
       <div class="b-post__paramameters__item b-post__author_login g-light_gray ">
         author:
-        <% link_to post_path(post, :anchor => :comments), :title => "go to author's profile", :class => "b-post__author_login__link" do %>
+        <%= link_to post_path(post, :anchor => :comments), :title => "go to author's profile", :class => "b-post__author_login__link" do %>
             <%= post.author.screen_name %>
         <% end %>
       </div>

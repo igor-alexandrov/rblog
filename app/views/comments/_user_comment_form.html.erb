@@ -1,4 +1,4 @@
-<% form_for :comment, :url => post_comments_path(@post.id), :remote => true, :html => {:method => "post", :id => "new_comment", :class => "b-form" } do |form| %>
+<%= form_for :comment, :url => post_comments_path(@post.id), :remote => true, :html => {:method => "post", :id => "new_comment", :class => "b-form" } do |form| %>
     <%= content_tag(:a, "", :name => "new_comment") %>
     <div class="b-form__item">
       You are <%= link_to current_user.screen_name, user_path(current_user) %>

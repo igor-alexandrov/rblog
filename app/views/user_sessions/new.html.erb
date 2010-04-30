@@ -3,7 +3,7 @@
   <h1>
     Log in
   </h1>
-  <% form_for @user_session, :url => user_session_path do |f| %>
+  <%= form_for @user_session, :url => user_session_path do |f| %>
   <%= f.error_messages %>
   <%= f.text_field :email, :class => "form__input-text_bigger" %>
   <%= f.password_field :password, :class => "form__input-text_bigger" %>

@@ -6,7 +6,8 @@
   </label>
   <div class="b-captcha-wrapper">
     <div class="b-captcha-display">
-    <% random_word = words[rand(words.size)] + post_words[rand(post_words.size)]; random_word.each_byte do |char| %><%= char.chr.upcase %><%= %Q{<sup class="g-hidden">#{char.chr.upcase}</sup>} if rand(3) == 0 %><!-- <%= Time.now.to_i %> -->
+      <% random_word = words[rand(words.size)] + post_words[rand(post_words.size)]; random_word.each_byte do |char| %><%= char.chr.upcase %><%= %Q{<sup class="g-hidden">#{char.chr.upcase}</sup>} if rand(3) == 0 %><!-- <%= Time.now.to_i %> -->
+
       <% end %>
     </div>
 
