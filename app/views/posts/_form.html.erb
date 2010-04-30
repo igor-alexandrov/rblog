@@ -1,38 +1,34 @@
 <% if content.new_record? %>
-    <% title "Add new " + content.class.to_s %>
-    <h1>You are creating a new ‹‹<%= content.class.to_s.downcase %>››</h1>
+<% title "Add new " + content.class.to_s %>
+<h1>You are creating a new ‹‹<%= content.class.to_s.downcase %>››</h1>
 <% else %>
-    <h1>You are editing a ‹‹<%= content.class.to_s.downcase %>›› #<%= content.id %></h1>
+<h1>You are editing a ‹‹<%= content.class.to_s.downcase %>›› #<%= content.id %></h1>
 <% end %>
 
-<% form_for [:posts, content], :html => {:class => "b-form"} do |form| %>
-    <div class="b-form__item">
-      <%= form.error_messages :id => "error_explanation",
-                              :class => "b-form_errors g-light_gray",
-                              :header_message => "Oupss...",
-                              :message => "Your #{content.class.to_s.downcase} cannot be saved"
-      %>
-    </div>
-    <% form.fields_for :post, content.post do |p| %>
-        <%= p.hidden_field :content_type %>
-        <%= p.select :category_id, options_for_select(@selectable_categories), :label => "Choose category in which you want to write:" %>
-        <%= p.text_field :title, :label => "Title", :class => "b-form__input-text b-form__input-text_bigger" %>
-    <% end %>
+<div class="form">
+  <% form_for [:posts, content] do |form| %>
+  <%= form.error_messages :id => "error_explanation" %>
+  
+  <% form.fields_for :post, content.post do |p| %>
+  <%= p.hidden_field :content_type %>
+  <%= p.select :category_id, options_for_select(@selectable_categories), :label => "Choose category in which you want to write:" %>
+  <%= p.text_field :title, :label => "Title", :class => "form__input-text_bigger" %>
+  <% end %>
 
-    <%= render :partial => "posts/#{content.class.to_s.downcase.pluralize}/form", :locals => {:form => form, :content => content} %>
+  <%= render :partial => "posts/#{content.class.to_s.downcase.pluralize}/form", :locals => {:form => form, :content => content} %>
 
-    <% form.fields_for :post, content.post do |p| %>
-       
-          <%= p.text_field :tag_list, :class => "b-form__input-text b-form__input-text_bigger", :legend => %{You should divide tags with comma. For example <span class="b-form__item_legend__example">"ruby on rails, programming, russia"</span>.} %>
-        
-        <div class="b-form__item">
-          <%= p.check_box :draft %>
-          <%= p.label :draft, "Mark this ‹‹#{content.class.to_s.downcase}›› as draft", :class => "b-form__label  g-inline" %>
-          <small class="b-form__item_legend">Drafted posts will be seen only by you. You will be able to publish it anytime you want.</small>
-          
-        </div>
-    <% end %>
-    <%= form.submit "#{form.object.new_record? ? 'Add' : 'Update'}" %>
-<% end %>
+  <% form.fields_for :post, content.post do |p| %>
 
+  <%= p.text_field :tag_list, :class => "form__input-text_bigger", :legend => %{You should divide tags with comma. For example <span class="b-form__item_legend__example">"ruby on rails, programming, russia"</span>.} %>
+
+  <div class="b-form__item">
+    <%= p.check_box :draft %>
+    <%= p.label :draft, "Mark this ‹‹#{content.class.to_s.downcase}›› as draft", :class => "b-form__label  g-inline" %>
+    <small class="form__item_legend">Drafted posts will be seen only by you. You will be able to publish it anytime you want.</small>
+
+  </div>
+  <% end %>
+  <%= form.submit "#{form.object.new_record? ? 'Add' : 'Update'}" %>
+  <% end %>
+</div>
 
