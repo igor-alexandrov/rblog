@@ -1,18 +1,20 @@
-<div class="b-blog-title g-align__left">
-  <%= link_to configatron.general.blog_title, "http://" + configatron.general.domain_name %>
-</div>
+<div class="b-header">
+  <div class="b-blog_title g-align__left">
+    <%= link_to configatron.general.blog_title, "http://" + configatron.general.domain_name %>
+  </div>
 
-<% if current_user %>
-<div class="b-account-information g-align__right">
-  <span class="b-user_name">
-    <%= current_user.screen_name %>
-  </span>
-  ( <%= link_to "view profile", my_profile_path , :class => "g-link-no-visited" %> / <%= link_to "logout", logout_path, :class => "g-link-no-visited" %> )
+  <% if current_user %>
+      <div class="b-account_information g-align__right">
+        <span class="b-user_name">
+            <%= current_user.screen_name %>
+        </span>
+        ( <%= link_to "view profile", my_profile_path %> / <%= link_to "logout", logout_path %> )
+      </div>
+  <% else %>
+      <div class="b-account_information g-align__right">
+        <%= link_to "login", login_path %>
+        or
+        <%= link_to "register", new_user_path %>
+      </div>
+  <% end %>
 </div>
-<% else %>
-<div class="b-account-information g-align__right">
-  <%= link_to "login", login_path, :class => "g-link-no-visited" %>
-  or
-  <%= link_to "register", new_user_path, :class => "g-link-no-visited" %>
-</div>
-<% end %>

@@ -28,7 +28,7 @@ class PostsController < ApplicationController
   end
 
   def increase_rating
-    authorize! :change_rating_for, Post
+    unauthorized! if cannot? :change_rating_for, Post
     Post.increment_counter(:rating, params[:post_id] )
     @post = Post.find(params[:post_id])
     respond_to do |format|
@@ -37,7 +37,7 @@ class PostsController < ApplicationController
   end
 
   def decrease_rating
-    authorize! :change_rating_for, Post
+    unauthorized! if cannot? :change_rating_for, Post
     Post.decrement_counter(:rating, params[:post_id] )
     @post = Post.find(params[:post_id])
     respond_to do |format|
@@ -70,6 +70,6 @@ class PostsController < ApplicationController
 
   private
   def check_for_abilities_to_create
-    authorize! :create, Post
+    unauthorized! if cannot? :create, Post
   end
 end

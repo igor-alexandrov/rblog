@@ -13,18 +13,10 @@
   <%= stylesheet_link_tag 'markitup/style' %>
 </head>
 <body>
-  <div class="b-main">
-    <div class="b-header">
-      <div class="l-wide">
-        <%= render :partial => "shared/header" %>
-      </div>
-    </div>
-    <div class="b-menu-wrapper">
-      <div class="l-wide">
-        <%= yield :content_menu %>
-      </div>
-    </div>
-    <div class="l-wide">
+  <div class="l-container">
+    <%= render :partial => "shared/header" %>
+    <%= yield :content_menu %>
+    <div class="h-padding">
       <div class="clearfix">
         <div class="content content-left">
           <div class="content-left__padding">
@@ -33,10 +25,10 @@
         </div>
         <div class="content content-right">
           <div class="content-right__padding">
-            <%= yield :sidebar %>
             <div class="sbar-item">
-              <h3 class="sbar-item__heading">Latest comments</h3>
+              <h3 class="sbar-item__heading">Tag cloud</h3>
               <div class="sbar-item__content">
+<<<<<<< HEAD
                 <% @comments = Comment.includes(:author, :post).order('created_at').limit(25) %>
                 <ul>
                   <% @comments.each do |comment| %>
@@ -48,15 +40,21 @@
                   </li>
                   <% end %>
                 </ul>
+=======
+                <% @tags = Post.tag_counts_on(:tags) %>
+                <div class="tag-cloud">
+                <% tag_cloud(@tags, %w(tag1 tag2 tag3 tag4 tag5 tag6 tag7 tag8 tag9 tag10)) do |tag, css_class| %>
+                  <%= tag_link(tag, :class => css_class) %>
+                <% end %>
+                </div>
+>>>>>>> 0fe9d7e... Fixed both wide and centered layouts. Now they both work well in all major browsers.
               </div>
             </div>
           </div>			
         </div>
       </div>
     </div>
-  </div>
-  <div class="b-footer">
-    <div class="l-wide">
+    <div class="b-footer">
       <%= render :partial => "shared/footer" %>
     </div>
   </div>

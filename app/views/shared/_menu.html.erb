@@ -1,43 +1,46 @@
-<ul class="b-menu__list">
-  <% if can? :create, Post %>
-  <li class="b-menu__item b-menu__item-left b-menu__post_add <%= 'b-menu__item-current' if options[:current] == 'add_post' %>">
-    <%= link_to "Add post", new_posts_topic_path, :class => "b-menu__post_add__link" %>
-  </li>
-  <% end %>
-  <li class="b-menu__item b-menu__item-left b-menu__posts <%= 'b-menu__item-current' if options[:current] == 'posts' %>">
-    <%= link_to "Posts", root_path, :class => "b-content-menu__posts__link" %>
-  </li>
-  <li class="b-menu__item b-menu__item-left b-menu__users <%= 'b-menu__item-current' if options[:current] == 'users' %>">
-    <%= link_to "Users", users_path, :class => "b-content-menu__users__link" %>
-  </li>
-  <%# cache :controller => :menu, :action => :pages do %>
-  <% for page in Page.roots %>
-  <li class="b-menu__item b-menu__item-right <%= 'b-menu__item-current' if options[:current] == page.permalink %>">
-    <%= link_to h(page.title), page, :class => "b-menu__item__link" %>
-  </li>
-  <% end %>
-  <%# end %>
-  <% if configatron.general.version.show %>
-  <li class="b-menu__item b-menu__item-right <%= 'b-menu__item-current' if options[:current] == 'version' %>">
-    <%= link_to "Version", version_path, :class => "b-menu__item__link" %>
-  </li>
-  <% end %>
-</ul>
-</div>
-<div class="b-submenu">
-  <% if options[:current] == 'add_post' %>
-  <ul class="b-submenu__list">
-    Choose type of your new post:
-    <% for type in configatron.posts.types.active %>
-    <li class="b-submenu__item <%= 'b-submenu__item-current"' if options[:submenu_current] == type.to_s.singularize %>">
-      <%= link_to type.to_s.singularize, new_polymorphic_path([:posts, type.to_s.singularize]), :class => "g-link-no-visited" %>
-    </li>
+<div class="b-menu-wrapper">
+  <div class="b-menu">
+    <ul class="b-menu__list">
+      <% if can? :create, Post %>
+          <li class="b-menu__item b-menu__item-left b-menu__post_add <%= 'b-menu__item-current' if options[:current] == 'add_post' %>">
+            <%= link_to "Add post", new_posts_topic_path, :class => "b-menu__post_add__link" %>
+          </li>
+      <% end %>
+      <li class="b-menu__item b-menu__item-left b-menu__posts <%= 'b-menu__item-current' if options[:current] == 'posts' %>">
+        <%= link_to "Posts", root_path, :class => "b-content-menu__posts__link" %>
+      </li>
+      <li class="b-menu__item b-menu__item-left b-menu__users <%= 'b-menu__item-current' if options[:current] == 'users' %>">
+        <%= link_to "Users", users_path, :class => "b-content-menu__users__link" %>
+      </li>
+      <%# cache :controller => :menu, :action => :pages do %>
+          <% for page in Page.roots %>
+              <li class="b-menu__item b-menu__item-right <%= 'b-menu__item-current' if options[:current] == page.permalink %>">
+                <%= link_to h(page.title), page, :class => "b-menu__item__link" %>
+              </li>
+          <% end %>
+      <%# end %>
+      <% if configatron.general.version.show %>
+      <li class="b-menu__item b-menu__item-right <%= 'b-menu__item-current' if options[:current] == 'version' %>">
+        <%= link_to "Version", version_path, :class => "b-menu__item__link" %>
+      </li>
+      <% end %>
+    </ul>
+  </div>
+  <div class="b-submenu">
+    <% if options[:current] == 'add_post' %>
+        <ul class="b-submenu__list">
+          Choose type of your new post:
+          <% for type in configatron.posts.types.active %>
+              <li class="b-submenu__item <%= 'b-submenu__item-current"' if options[:submenu_current] == type.to_s.singularize %>">
+                <%= link_to type.to_s.singularize, new_polymorphic_path([:posts, type.to_s.singularize]), :class => "g-link-no-visited" %>
+              </li>
+          <% end %>
+          Or create a 
+          <li class="b-submenu__item">
+            <a href="#">new category</a>
+          </li>
+          at first.
+        </ul>
     <% end %>
-    Or create a 
-    <li class="b-submenu__item">
-      <a href="#">new category</a>
-    </li>
-    at first.
-  </ul>
-  <% end %>
-
+  </div>
+</div>
