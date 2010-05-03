@@ -1,13 +1,12 @@
-(in /home/smix/projects/rblog)
 # Put this in config/application.rb
 require File.expand_path('../boot', __FILE__)
 
-module Rblog
+module RBlog
   class Application < Rails::Application
     
     # Add additional load paths for your own custom dirs
-    config.load_paths += %W( #{RAILS_ROOT}/app/sweepers )
-    config.load_paths += %W( #{RAILS_ROOT}/app/presenters )
+    config.load_paths += %W( #{Rails.root}/app/sweepers )
+    config.load_paths += %W( #{Rails.root}/app/presenters )
   
     # Only load the plugins named here, in the order given (default is alphabetical).
     # :all can be used as a placeholder for all plugins not explicitly named
@@ -28,10 +27,10 @@ module Rblog
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}')]
     # config.i18n.default_locale = :de
     
-    unless RAILS_ENV == 'test'
+    unless Rails.env == 'test'
       begin
-        email_settings = YAML::load(File.open("#{RAILS_ROOT}/config/email.yml"))
-        config.action_mailer.smtp_settings = email_settings[RAILS_ENV] unless email_settings[RAILS_ENV].nil?
+        email_settings = YAML::load(File.open("#{Rails.root}/config/email.yml"))
+        config.action_mailer.smtp_settings = email_settings[Rails.env] unless email_settings[Rails.env].nil?
       rescue
       end
     end
