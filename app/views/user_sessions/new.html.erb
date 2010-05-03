@@ -1,5 +1,6 @@
 <% heading_h1("You are knocking at the door. <br> Type in your login and password.") %>
 <<<<<<< HEAD
+<<<<<<< HEAD
 <div class="form form-login">
   <h1>
     Log in
@@ -50,10 +51,37 @@
       <%= f.submit "Let me enter!", :class => "b-form__input-submit" %>
   <% end %>
 
+=======
+<div class="b-login">
+  <% form_for @user_session, :url => user_session_path, :html => {:class => "b-form"} do |f| %>
+      <div class="b-form__item">
+        <%= error_messages_for( :user_session,
+                                :id => "error_explanation",
+                                :class => "b-form_errors g-light_gray",
+                                :header_message => "Oupss...",
+                                :message => ""
+        ) %>
+      </div>
+      <%= f.text_field :email, :class => "b-form__input-text_bigger" %>
+      <%= f.password_field :password, :class => "b-form__input-text_bigger" %>
+      
+      <div class="b-form__item">
+        <%= f.check_box :remember_me %>
+        <%= f.label :remember_me, "Remember me", :class => "b-form__label g-inline" %>
+      </div>
+   
+      <%= f.submit "Let me enter!", :class => "b-form__input-submit" %>
+  <% end %>
+
+>>>>>>> 0fe9d7e... Fixed both wide and centered layouts. Now they both work well in all major browsers.
   <p>
     <%= link_to "Register now", new_user_path, :class => "b-register_link" %>
     <span class="b-register_text g-light_gray">, if you still don't have an account.</span>
     <br>
   </p>
+<<<<<<< HEAD
+</div>
+>>>>>>> 0fe9d7e... Fixed both wide and centered layouts. Now they both work well in all major browsers.
+=======
 </div>
 >>>>>>> 0fe9d7e... Fixed both wide and centered layouts. Now they both work well in all major browsers.

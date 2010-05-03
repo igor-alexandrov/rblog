@@ -6,6 +6,7 @@
 <% end %>
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 <div class="form">
   <%= form_for [:posts, content] do |form| %>
   <%= form.error_messages :id => "error_explanation" %>
@@ -16,6 +17,8 @@
   <%= p.text_field :title, :label => "Title", :class => "form__input-text_bigger" %>
   <% end %>
 =======
+=======
+>>>>>>> 0fe9d7e... Fixed both wide and centered layouts. Now they both work well in all major browsers.
 <% form_for [:posts, content], :html => {:class => "b-form"} do |form| %>
     <div class="b-form__item">
       <%= form.error_messages :id => "error_explanation",
@@ -29,6 +32,9 @@
         <%= p.select :category_id, options_for_select(@selectable_categories), :label => "Choose category in which you want to write:" %>
         <%= p.text_field :title, :label => "Title", :class => "b-form__input-text b-form__input-text_bigger" %>
     <% end %>
+<<<<<<< HEAD
+>>>>>>> 0fe9d7e... Fixed both wide and centered layouts. Now they both work well in all major browsers.
+=======
 >>>>>>> 0fe9d7e... Fixed both wide and centered layouts. Now they both work well in all major browsers.
 
     <%= render :partial => "posts/#{content.class.to_s.downcase.pluralize}/form", :locals => {:form => form, :content => content} %>

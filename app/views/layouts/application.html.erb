@@ -29,6 +29,7 @@
               <h3 class="sbar-item__heading">Tag cloud</h3>
               <div class="sbar-item__content">
 <<<<<<< HEAD
+<<<<<<< HEAD
                 <% @comments = Comment.includes(:author, :post).order('created_at').limit(25) %>
                 <ul>
                   <% @comments.each do |comment| %>
@@ -41,12 +42,17 @@
                   <% end %>
                 </ul>
 =======
+=======
+>>>>>>> 0fe9d7e... Fixed both wide and centered layouts. Now they both work well in all major browsers.
                 <% @tags = Post.tag_counts_on(:tags) %>
                 <div class="tag-cloud">
                 <% tag_cloud(@tags, %w(tag1 tag2 tag3 tag4 tag5 tag6 tag7 tag8 tag9 tag10)) do |tag, css_class| %>
                   <%= tag_link(tag, :class => css_class) %>
                 <% end %>
                 </div>
+<<<<<<< HEAD
+>>>>>>> 0fe9d7e... Fixed both wide and centered layouts. Now they both work well in all major browsers.
+=======
 >>>>>>> 0fe9d7e... Fixed both wide and centered layouts. Now they both work well in all major browsers.
               </div>
             </div>
