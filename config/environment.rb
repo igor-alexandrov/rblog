@@ -51,4 +51,3 @@ Rails::Initializer.run do |config|
   end
   
 end
->>>>>>> 0fe9d7e... Fixed both wide and centered layouts. Now they both work well in all major browsers.
