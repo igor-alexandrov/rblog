@@ -18,7 +18,6 @@ Rails::Initializer.run do |config|
   config.gem 'will_paginate'
   config.gem 'octopi'
   config.gem 'git'
-  config.gem 'acts_as_paranoid'
   
   # Add additional load paths for your own custom dirs
   config.load_paths += %W( #{RAILS_ROOT}/app/sweepers )
