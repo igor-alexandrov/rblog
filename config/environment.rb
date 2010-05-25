@@ -15,7 +15,7 @@ Rails::Initializer.run do |config|
   config.gem 'rainbow'
   config.gem 'gravtastic'
   config.gem 'sanitize'
-  config.gem 'will_paginate'
+  config.gem 'mislav-will_paginate', :lib => "will_paginate"
   config.gem 'octopi'
   config.gem 'git'
   
