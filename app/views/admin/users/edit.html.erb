@@ -2,7 +2,7 @@
 
 <div class="b-content">
   <h2>edit user '<%= @user.login %>'</h2>
-  <%= form_for @user, :url => admin_user_path, :html => {:class => "b-form"} do |form| %>
+  <% form_for @user, :url => admin_user_path, :html => {:class => "b-form"} do |form| %>
       <%= form.error_messages %>
       <%= render :partial => 'form', :locals => {:form => form} %>
   <% end %>

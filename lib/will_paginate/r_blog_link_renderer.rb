@@ -1,5 +1,5 @@
 module WillPaginate
-  class RBlogLinkRenderer < WillPaginate::ViewHelpers::LinkRenderer
+  class RBlogLinkRenderer < WillPaginate::LinkRenderer
     def to_html
       links = @options[:page_links] ? windowed_links : []
       # previous/next buttons

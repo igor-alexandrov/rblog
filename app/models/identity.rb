@@ -20,7 +20,7 @@ class Identity
   end
 
   def self.glob_identities_root
-    File.join(Rails.root, self.identities_root)
+    File.join(RAILS_ROOT, self.identities_root)
   end
 
   def self.installed_themes

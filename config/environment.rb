@@ -10,12 +10,12 @@ Rails::Initializer.run do |config|
   
   config.gem 'authlogic'
   config.gem 'cancan'
-  config.gem 'searchlogic'
+  config.gem 'searchlogic', :version => "2.4.12"
   config.gem 'configatron'
   config.gem 'rainbow'
   config.gem 'gravtastic'
   config.gem 'sanitize'
-  config.gem 'mislav-will_paginate', :lib => "will_paginate"
+  config.gem 'will_paginate'
   config.gem 'octopi'
   config.gem 'git'
   

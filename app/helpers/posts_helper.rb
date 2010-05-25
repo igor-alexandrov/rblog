@@ -5,7 +5,7 @@ module PostsHelper
   end
   
   def post_type_image(post, html_options = {})
-    if File.exist?(Rails.root + "/public/images/posts/#{post.content_type.to_s.downcase}.png")
+    if File.exist?(RAILS_ROOT + "/public/images/posts/#{post.content_type.to_s.downcase}.png")
       image_tag "posts/#{post.content_type.to_s.downcase}.png",
                 {:class => "b-bost__content_type_image"}.merge(html_options) { |key, v1, v2| v1 + ' ' + v2 }
     end

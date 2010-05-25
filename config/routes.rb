@@ -1,48 +1,63 @@
-RBlog::Application.routes.draw do
-  match 'login' => 'user_sessions#new', :as => :login, :via => 'get'
-  match 'login' => 'user_sessions#create', :as => :user_session, :via => 'post'
-  match 'logout' => 'user_sessions#destroy', :as => :logout
-  namespace :posts do
-  end
+ActionController::Routing::Routes.draw do |map|
+  map.login 'login', :controller => 'user_sessions', :action => 'new', :conditions => { :method => :get }
+  map.user_session "login", :controller => "user_sessions", :action => "create", :conditions => { :method => :post }
+  map.logout 'logout', :controller => 'user_sessions', :action => 'destroy'
 
-  resources :categories
-  resources :posts do
-  
-  
-      # match 'rating/increase' => 'posts#increase_rating', :as => :increase_rating, :method => 'POST'
-    # match 'rating/decrease' => 'posts#decrease_rating', :as => :decrease_rating, :method => 'POST'
-    # match 'toogle_favourite' => 'posts#toggle_favourite', :as => :toggle_favourite, :method => 'POST'
-  end
-
-  match '/:id' => 'posts#show_by_id', :as => :post_short, :method => 'GET', :requirements => { :id => /[0-9]+/ }
-  match '/t/:name' => 'tags#show', :as => :posts_tag
-  resources :users
-    match '/' => 'home#index'
-  namespace :my do
-      match '/activation/:activation_code' => 'activations#new', :as => :new_activation, :method => 'GET'
-      match '/activation/' => 'activations#create', :as => :activation, :method => 'POST'
-      resource :profile
-      resources :favourites
-  end
-
-  match '/version' => 'version#index', :as => :version
-  match '/' => 'home#index'
-    match '/' => 'home#index'
-  namespace :admin do
-      resources :users do
-        collection do
-    put :update_individual
+  map.namespace:posts, :path_prefix => "" do |post|
+    for type in configatron.posts.types.active
+      post.resources type
     end
-    
-    
-    end
-      resources :posts
-      match 'posts/change_status' => 'posts#change_status', :as => :change_status
-      resources :pages
-      match 'preferences' => 'blog_parameters#index', :as => :preferences
   end
 
-  root :to => "home#index"
+  map.resources :categories, :as => "c"
+  map.resources :posts, :as => "p", :has_many => :comments do |posts|
+    if configatron.posts.rating.use
+      posts.increase_rating   "rating/increase", :controller => "posts", :action => "increase_rating", :method => "POST"
+      posts.decrease_rating   "rating/decrease", :controller => "posts", :action => "decrease_rating", :method => "POST"
+      posts.toggle_favourite  "toogle_favourite", :controller => "posts", :action => "toggle_favourite", :method => "POST"      
+    end
+  end
 
-  match 'pages/*href' => 'pages#show', :as => :page
+  map.post_short "/:id", :controller => "posts", :action => "show_by_id", :method => "GET", :requirements => { :id => /[0-9]+/ }
+
+  map.posts_tag "/t/:name", :controller => "tags", :action => "show"
+
+  map.resources :users, :as => "u"
+
+  map.namespace :my do |my|
+    my.root :controller => 'home', :action => 'index'
+      
+    my.new_activation '/activation/:activation_code', :controller => 'activations', :action => 'new', :method => "GET"
+    my.activation '/activation/', :method => "POST", :controller => 'activations', :action => 'create'  
+        
+    my.resource :profile, :controller => "profile", :only => [:show, :edit, :update] do |profile|
+      
+    end
+    my.resources :favourites
+  end
+  
+  if configatron.general.version.show
+    map.version "/version", :controller => "version"
+  end
+
+  map.root :controller => "home"
+
+  map.namespace :admin do |admin|
+    admin.root :controller => 'home', :action => 'index'
+
+    admin.resources :users, :collection => {:update_individual => :put}
+
+    admin.resources :posts
+    admin.change_status 'posts/change_status', :controller => "posts", :action => "change_status"
+    admin.resources :pages
+    admin.preferences 'preferences', :controller => "blog_parameters", :action => "index"
+
+    #admin.register 'admin/register', :controller => 'users', :action => 'create'
+    #admin.signup 'admin/signup', :controller => 'users', :action => 'new'
+  end
+
+  map.page 'pages/*href', :controller => "pages", :action => "show"
+
+  # map.connect ':controller/:action/:id'
+  # map.connect ':controller/:action/:id.:format'
 end

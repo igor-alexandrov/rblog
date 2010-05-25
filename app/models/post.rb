@@ -17,9 +17,9 @@ class Post < ActiveRecord::Base
   validates_presence_of :title
   validates_length_of   :title, :minimum => 2
 
-  scope :draft, :conditions => "published_at IS NULL", :order => "updated_at DESC"
+  named_scope :draft, :conditions => "published_at IS NULL", :order => "updated_at DESC"
 
-  scope :topics, :conditions => { :content_type => "Topic" }
+  named_scope :topics, :conditions => { :content_type => "Topic" }
 
   def self.per_page
     10

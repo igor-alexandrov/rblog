@@ -1,7 +1,7 @@
 <% content_menu(:current => "users" ) %>
 <%= render_user_screen_name_with_avatar(@user) %>
 
-<%= form_for @user, :html => {:class => "b-form"} do |form| %>
+<% form_for @user, :html => {:class => "b-form"} do |form| %>
 <%= form.text_field :last_name %>
 <%= form.text_field :first_name %>
 <%= form.text_field :email %>

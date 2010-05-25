@@ -29,7 +29,7 @@ class User < ActiveRecord::Base
 # RBlog must be secure! So we allow mass-assignments only for these fields
   attr_accessible :first_name, :last_name, :gender, :date_of_birth
 
-  scope :by_reputation, :order => "reputation DESC"
+  named_scope :by_reputation, :order => "reputation DESC"
 
   has_many :favourites, :class_name => "Favourite", :dependent => :destroy
   
@@ -94,12 +94,12 @@ class User < ActiveRecord::Base
 
   def deliver_activation_instructions!
     # reset_perishable_token!
-    Notifier.activation_instructions(self).deliver
+    Notifier.deliver_activation_instructions(self)
   end
 
   def deliver_activation_confirmation!
     # reset_perishable_token!
-    Notifier.activation_confirmation(self).deliver
+    Notifier.deliver_activation_confirmation(self)
   end
 
   def admin?
@@ -128,7 +128,7 @@ class User < ActiveRecord::Base
 
   def has_favourite?(object)
      Rails.cache.fetch("users/#{self.id}/favourites/#{object.class.to_s.pluralize.downcase}/#{object.id}") {
-      !Favourite.where( :user_id => self.id, :object_type => object.class.to_s, :object_id => object.id).first.nil?
+      !Favourite.find( :first, :conditions => {:user_id => self.id, :object_type => object.class.to_s, :object_id => object.id} ).nil?
      }
   end
 
@@ -144,7 +144,7 @@ class User < ActiveRecord::Base
     begin
       Rails.cache.delete("users/#{self.id}/favourites/#{object.class.to_s.pluralize.downcase}/#{object.id}")
     ensure
-      Favourite.where(:user_id => self.id, :object_type => object.class.to_s, :object_id => object.id).first.destroy
+      Favourite.find( :first, :conditions => {:user_id => self.id, :object_type => object.class.to_s, :object_id => object.id} ).destroy
     end
   end
   

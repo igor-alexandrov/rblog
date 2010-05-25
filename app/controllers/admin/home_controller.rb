@@ -1,5 +1,5 @@
 class Admin::HomeController < Admin::AdminController
   def index
-    @posts = Post.all
+    @posts = Post.find(:all)
   end
 end

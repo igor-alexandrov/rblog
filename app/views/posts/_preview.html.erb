@@ -1,4 +1,4 @@
-<%= cache post_path(post.id, :action_suffix => "preview") do %>
+<% cache post_path(post.id, :action_suffix => "preview") do %>
     <div class="b-post__content_preview b-data">
       <%= render :partial => "posts/#{post.content.class.to_s.downcase.pluralize}/preview", :locals => {:post => post} %>
     </div>

@@ -1,6 +1,6 @@
 <a name="comment_<%= comment.id %>"a></a>
-<%= content_tag(:li, :class => "comment_#{comment.parent_comment_id}_child" ) do %>
-    <%= content_tag(:div, :id => "comment_#{comment.id}", :class => "b-comment") do %>
+<% content_tag(:li, :class => "comment_#{comment.parent_comment_id}_child" ) do %>
+    <% content_tag(:div, :id => "comment_#{comment.id}", :class => "b-comment") do %>
         <%= render_comment_details(comment) %>
         <div class="b-comment__body b-data">
           <%= comment.body %>
@@ -13,7 +13,7 @@
 
     <% end %>
     <% if @comments %>
-        <%= content_tag(:ul, :id => "comment_#{comment.id}_children", :class => "b-post__comments_list b-post__comments_list__nested" ) do %>
+        <% content_tag(:ul, :id => "comment_#{comment.id}_children", :class => "b-post__comments_list b-post__comments_list__nested" ) do %>
             <%= render :partial => "comments/show", :collection => @comments.select { |c| c.parent_comment_id == comment.id }, :as => :comment %>
             <% if @comment.parent_comment_id == comment.id %>
                 <% if current_user %>

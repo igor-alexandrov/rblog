@@ -1,6 +1,6 @@
 class Posts::TopicsController < PostsController
   def index
-    @posts = Post.topics.all
+    @posts = Post.topics.find(:all)
   end
 
   def new
@@ -12,7 +12,7 @@ class Posts::TopicsController < PostsController
   def edit
     @topic = Topic.find(params[:id])
     @post = @topic.post
-    unauthorized! if cannot? :edit, @post
+    authorize! :edit, @post
     @selectable_categories = Category.all.collect{ |c| [c.title, c.id] }
   end
 
@@ -29,7 +29,7 @@ class Posts::TopicsController < PostsController
 
   def update
     @topic = Topic.find(params[:id])
-    
+    authorize! :edit, @topic.post    
     if @topic.update_attributes(params[:topic])
       redirect_to post_path(@topic.post)
     else

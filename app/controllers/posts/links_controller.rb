@@ -1,6 +1,6 @@
 class Posts::LinksController < PostsController
   def index
-    @posts = Post.links.all
+    @posts = Post.links.find(:all)
   end
 
   def new
@@ -12,7 +12,7 @@ class Posts::LinksController < PostsController
   def edit
     @link = Link.find(params[:id])
     @post = @link.post
-    unauthorized! if cannot? :edit, @post
+    authorize! :edit, @post
     @selectable_categories = Category.all.collect{ |c| [c.title, c.id] }
   end
 
@@ -29,6 +29,7 @@ class Posts::LinksController < PostsController
 
   def update
     @link = Link.find(params[:id])
+    authorize! :edit, @link.post
     if @link.update_attributes(params[:link])
       redirect_to post_path(@link.post)
     else
