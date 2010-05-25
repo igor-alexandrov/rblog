@@ -9,7 +9,7 @@ require File.join(File.dirname(__FILE__), 'boot')
 Rails::Initializer.run do |config|
   
   config.gem 'authlogic'
-  config.gem 'cancan', :version => "1.1"
+  config.gem 'cancan', :version => "1.1.1"
   config.gem 'searchlogic'
   config.gem 'configatron'
   config.gem 'rainbow'
