@@ -10,10 +10,10 @@ With *RBlog* you can easily manage your personal blog or create a community with
 
 h1. Requires
 
-* *rails* ≥ 2.3.5
+* *rails* = 2.3.5
 
 * _authlogic_ ≥ 2.1.0
-* _cancan_ ≥ 1.0.0
+* _cancan_ ≥ 1.1.1
 * _gravtastic_ ≥ 2.2.0
 * _rainbow_ ≥ 1.0.4
 * _sanitize_ ≥ 1.2.0
@@ -91,5 +91,6 @@ bc. rake migrate:from_wordpress
 That is all!
 
 [www.aleksandrov.me]http://www.aleksandrov.me
+[www.smix.name]http://www.smix.name
 [www.simplelog.net]http://www.simplelog.net
 [flickr_rblog]http://www.flickr.com/photos/igor_alexandrov/sets/72157622630772502/
