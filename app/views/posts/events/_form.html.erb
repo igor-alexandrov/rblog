@@ -1,18 +1,18 @@
-<div class="form__item">
-  <%= form.label :start_moment, "Start moment:", :class => "form__label g-inline" %>
+<div class="b-form__item">
+  <%= form.label :start_moment, "Start moment:", :class => "b-form__label g-inline" %>
   <%= form.datetime_select :start_moment, :start_year => Date.today.year %>
 </div>
 
-<div class="form__item">
-  <%= form.label :stop_moment, "Stop moment:", :class => "form__label g-inline" %>
+<div class="b-form__item">
+  <%= form.label :stop_moment, "Stop moment:", :class => "b-form__label g-inline" %>
   <%= form.datetime_select :stop_moment, :start_year => Date.today.year %>
 </div>
 
-<div class="form__item">
-  <%= form.label :description, "Description", :class => "form__label" %>
-  <%= form.text_area :description, :class => "form__input-text form__input-text_short markitup" %>
-  <small class="form__item_legend">Maximum length is
-    <span class="form__item_legend__warning"><%= configatron.posts.link.description.maximum_length %> symbols</span>
+<div class="b-form__item">
+  <%= form.label :description, "Description", :class => "b-form__label" %>
+  <%= form.text_area :description, :class => "b-form__input-text b-form__input-text_short markitup" %>
+  <small class="b-form__item_legend">Maximum length is
+    <span class="b-form__item_legend__warning"><%= configatron.posts.link.description.maximum_length %> symbols</span>
   </small>
 </div>
 

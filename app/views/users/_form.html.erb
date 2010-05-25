@@ -1,6 +1,7 @@
-<% form_for @user do |f|%>
+<% form_for @user, :html => {:class => "b-form"} do |f|%>
     <%= f.error_messages :message => "We cannot create account for you" %>
     <%= f.text_field :email, :legend => "We promise that we won't send any advertising material to it." %>
     
-    <%= f.submit "Register", :class => "form__input-submit" %>  
+    <%= f.submit "Create", :class => "b-form__input-submit" %>
+    
 <% end %>

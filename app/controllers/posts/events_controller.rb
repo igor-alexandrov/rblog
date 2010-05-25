@@ -12,7 +12,7 @@ class Posts::EventsController < PostsController
   def edit
     @event = Event.find(params[:id])
     @post = @event.post
-    authorize! :edit, @post
+    unauthorized! if cannot? :edit, @post
     @selectable_categories = Category.all.collect{ |c| [c.title, c.id] }
   end
 
@@ -32,7 +32,6 @@ class Posts::EventsController < PostsController
 
   def update
     @event = Event.find(params[:id])
-    authorize! :edit, @event.post
     if @event.update_attributes(params[:event])
       unless params[:mark_as_draf]
         @event.post.publish!

@@ -10,7 +10,7 @@ Rails::Initializer.run do |config|
   
   config.gem 'authlogic'
   config.gem 'cancan'
-  config.gem 'searchlogic', :version => "2.4.12"
+  config.gem 'searchlogic'
   config.gem 'configatron'
   config.gem 'rainbow'
   config.gem 'gravtastic'

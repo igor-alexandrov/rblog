@@ -2,7 +2,11 @@
 // markItUp! Universal MarkUp Engine, JQuery plugin
 // By Jay Salvat - http://markitup.jaysalvat.com/
 // ------------------------------------------------------------------*/
-c.markItUp a:link,
+.markItUp * {
+	margin:0px; padding:0px;
+	outline:none;
+}
+.markItUp a:link,
 .markItUp a:visited {
 	color:#000;
 	text-decoration:none;
@@ -16,6 +20,9 @@ c.markItUp a:link,
 }
 .markItUpEditor {
 	font:12px 'Courier New', Courier, monospace;
+	padding:5px;
+/*  width:690px;*/
+/*  height:320px;*/
 	clear:both; display:block;
 	line-height:18px;
 	overflow:auto;

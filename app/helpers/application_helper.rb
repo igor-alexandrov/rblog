@@ -2,9 +2,7 @@
 module ApplicationHelper
 
   def format_date(date)
-    content_tag :span, :class => 'date' do
-      date.strftime("%d %B, %Y %H:%M")
-    end
+    date.strftime("%d, %B %Y, %H:%M")
   end
 
   def pagination_for(items)

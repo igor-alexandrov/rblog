@@ -11,13 +11,13 @@ module RBlog
     
     def text_field(method, options = {})
       field_name, label, options = field_settings(method, options)
-      options.merge!({:class => "form__input-text"}) { |key, v1, v2| v1 + ' ' + v2 }
+      options[:class] ||= "b-form__input-text"
       RBlog::FormHelper.wrapping("text", field_name, label, super, options)
     end
     
     def password_field(method, options = {})
       field_name, label, options = field_settings(method, options)
-      options.merge!({:class => "form__input-text"}) { |key, v1, v2| v1 + ' ' + v2 }
+      options[:class] ||= "b-form__input-text"
       RBlog::FormHelper.wrapping("password", field_name, label, super, options)
     end
     
@@ -33,16 +33,14 @@ module RBlog
     
     def submit(method, options = {})
       field_name, label, options = field_settings(method, options)
-      options[:class] ||= "form__input-submit"
+      options[:class] ||= "b-form__input-submit"
       RBlog::FormHelper.wrapping("submit", field_name, label, super, options)
     end
     
     def error_messages(options = {})
       options[:id] = "error_explanation"
-      options[:class] = "form_errors g-light_gray"
-      options[:header_tag] = 'h3'
-      options[:header_message] = "" unless options[:header_message]
-      options[:message] = "The following problems happened" unless options[:message]
+      options[:class] = "b-form_errors g-light_gray"
+      options[:header_message] = "Oupss..." unless options[:header_message]
       RBlog::FormHelper.wrapping("error_messages", nil, nil, super, options)
     end
     
