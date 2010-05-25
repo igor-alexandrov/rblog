@@ -98,6 +98,12 @@ second_post.publish!
 first_post.save
 first_post.publish!
 
+first_comment = UserComment.new do |c|
+    c.post = first_post
+    c.author = admin_user
+    c.body = "First comment"
+end
+
 second_comment = UserComment.new do |c|
     c.post = first_post
     c.parent_comment = first_comment
