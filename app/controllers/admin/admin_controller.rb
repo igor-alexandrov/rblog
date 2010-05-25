@@ -3,7 +3,7 @@ class Admin::AdminController < ApplicationController
   layout "admin/application"
 
   before_filter do |controller|
-    controller.unauthorized! if controller.cannot? :access, :admin
+    controller.authorize! :access, :admin
   end
 
   protected
