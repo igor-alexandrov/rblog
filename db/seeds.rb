@@ -103,6 +103,7 @@ first_comment = UserComment.new do |c|
     c.author = admin_user
     c.body = "First comment"
 end
+first_comment.save!
 
 second_comment = UserComment.new do |c|
     c.post = first_post
@@ -110,14 +111,14 @@ second_comment = UserComment.new do |c|
     c.author = admin_user
     c.body = "Second comment"
 end
-second_comment.save
+second_comment.save!
 
 third_comment = UserComment.new do |c|
     c.post = first_post
     c.author = admin_user
     c.body = "Third comment"
 end
-third_comment.save
+third_comment.save!
 
 about_page = Page.new({:title => "About", :content => get_file_as_string("#{RAILS_ROOT}/db/data/pages/about.html")})
 about_page.save
