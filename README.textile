@@ -58,7 +58,7 @@ h3. How to install RBlog?
 First you need server with Rails-2.3.4 or later.
 Clone RBlog from GitHub
 
-bc .git clone git://github.com/igor-alexandrov/rblog.git
+bc. git clone git://github.com/igor-alexandrov/rblog.git
 
 It will make a directory called @rblog@ on your hard disk. Got into it. Now let's install required gems.
 
