@@ -39,19 +39,6 @@ end
 
 admin_user.save
 
-igor_user = User.new do |user|
-  user.username = "igor"
-  user.password = "igor"
-  user.password_confirmation = "igor"
-  user.email = "alexandrov@connectify.ru"
-  user.first_name = "Igor"
-  user.last_name = "Alexandrov"
-  user.date_of_birth = Date.today
-  user.role = "GENERAL"
-end
-
-igor_user.save
-
 Category.find(:all).each { |e| e.destroy  }
 category = Category.new do |c|
   c.permalink = "general"
@@ -110,13 +97,6 @@ second_post.publish!
 
 first_post.save
 first_post.publish!
-
-first_comment = UserComment.new do |c|
-    c.post = first_post
-    c.author = igor_user
-    c.body = "First comment"
-end
-first_comment.save
 
 second_comment = UserComment.new do |c|
     c.post = first_post
