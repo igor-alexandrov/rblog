@@ -79,7 +79,7 @@ Run
 
 bc. ./script/server
 
-That is all, you can see your blog at @localhost:3000@. Admin section is located at @localhost:3000/admin@, default user is "*admin*" and password is "*admin*" too.
+That is all, you can see your blog at @localhost:3000@. Admin section is located at @localhost:3000/admin@, default user is "*admin*". Log in with e-mail "*admin@example.com*" and password "*admin*".
 Enjoy!
 
 h3. How to migrate from WordPress?

@@ -34,7 +34,7 @@ admin_user = User.new do |user|
   user.last_name = "Admin"
   user.date_of_birth = Date.today
   user.role = "ADMIN"
-  
+  user.active = 1 
 end
 
 admin_user.save
