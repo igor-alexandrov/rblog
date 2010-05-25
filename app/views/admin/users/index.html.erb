@@ -53,7 +53,7 @@
               <td>
                 <dl>
                   <dt class="b-user__login">
-                    <%= link_to user.login, admin_user_path(user.login) %>
+                    <%= link_to user.username, admin_user_path(user.username) %>
                   </dt>
                   <dd class="b-user__name">
                     <%= user.short_name %>
@@ -81,10 +81,10 @@
               <td>
                 <ul class="b-control_panel">
                   <li class="b-control_panel-item">
-                    <%= link_to 'edit', edit_admin_user_path(user.login), :class => "g-link_16 i-edit_16" %>
+                    <%= link_to 'edit', edit_admin_user_path(user.username), :class => "g-link_16 i-edit_16" %>
                   </li>
                   <li class="b-control_panel-item">
-                    <%= link_to 'delete', admin_user_path(user.login), :confirm => 'Are you sure? After deleting user all it\'s content like posts and comments will be deleted too.', :method => :delete, :class => "g-link_16 i-delete_16" %>
+                    <%= link_to 'delete', admin_user_path(user.username), :confirm => 'Are you sure? After deleting user all it\'s content like posts and comments will be deleted too.', :method => :delete, :class => "g-link_16 i-delete_16" %>
                   </li>
                 </ul>
               </td>
